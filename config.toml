@@ -56,19 +56,76 @@ googleAnalytics = ""
 	weight = 10
 
 [[menu.main]]
-	name   = "Adding content"
-	url    = "adding-content/"
+	name   = "Unix"
+	url    = "02-unix/"
 	weight = 20
 
 [[menu.main]]
-	name   = "Roadmap"
-	url    = "roadmap/"
+	name   = "R Markdown"
+	url    = "03-rmarkdown/"
 	weight = 30
 
 [[menu.main]]
-	name   = "License"
-	url    = "license/"
+	name   = "Git"
+	url    = "04-git/"
 	weight = 40
+
+[[menu.main]]
+	name   = "Git Lab"
+	url    = "05-git-practice/"
+	weight = 50
+
+[[menu.main]]
+	name   = "Organizing Projects"
+	url    = "06-organization/"
+	weight = 60
+
+[[menu.main]]
+	name   = "Writing Clear Code"
+	url    = "07-clear-code/"
+	weight = 70
+
+[[menu.main]]
+	name   = "Writing R Packages"
+	url    = "08-r-packages/"
+	weight = 80
+
+[[menu.main]]
+	name   = "Software Testing and Debugging"
+	url    = "09-test-debug/"
+	weight = 90
+
+[[menu.main]]
+	name   = "Big Jobs"
+	url    = "10-big-jobs/"
+	weight = 100
+
+[[menu.main]]
+	name   = "Writing Papers"
+	url    = "11-manuscripts/"
+	weight = 110
+
+[[menu.main]]
+	name   = "Creating Posters"
+	url    = "12-posters/"
+	weight = 120
+
+[[menu.main]]
+	name   = "Python"
+	url    = "13-python/"
+	weight = 130
+
+[[menu.main]]
+	name   = "Python Laboratory"
+	url    = "14-python-practice/"
+	weight = 140
+
+[[menu.main]]
+	name   = "Software Licenses"
+	url    = "15-licenses/"
+	weight = 150
+
+
 
 
 [blackfriday]
