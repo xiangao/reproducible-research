@@ -51,8 +51,8 @@ googleAnalytics = ""
 	weight = 1
 
 [[menu.main]]
-	name   = "Getting started"
-	url    = "getting-started/"
+	name   = "Introduction"
+	url    = "01-introduction/"
 	weight = 10
 
 [[menu.main]]
