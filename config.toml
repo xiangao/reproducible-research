@@ -9,7 +9,6 @@ googleAnalytics = ""
 
 [params]
 	# General information
-	author = "Andrew Marder"
 	description = "A material design theme for documentations."
 	copyright = ""
 
