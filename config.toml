@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://amarder.github.io/reproducible-research/"
 languageCode = "en-us"
 title = "Tools for Reproducible Research"
 theme = "hugo-material-docs"
