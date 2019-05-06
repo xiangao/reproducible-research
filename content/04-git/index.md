@@ -1,65 +1,50 @@
 ---
-title: Version control
+title: Version Control with Git and GitHub
 ---
 
-with git and GitHub
-
 Version control is not strictly necessary for reproducible
-  research, and it's admittedly a lot of work (to learn and to use) in
-  the short term, but the long term benefits are enormous.
+research, and it's admittedly a lot of work (to learn and to use) in
+the short term, but the long term benefits are enormous.
 
-  The advantages are: you'll save the entire history of changes to a
-  project, you can go back to any point in time (and see what has
-  changed between any two points in time), you don't have to worry
-  about breaking things that work, and you can easily merge changes
-  from multiple people.
+The advantages are: you'll save the entire history of changes to a
+project, you can go back to any point in time (and see what has
+changed between any two points in time), you don't have to worry
+about breaking things that work, and you can easily merge changes
+from multiple people.
 
-  I now use version control for basically everything: software, data
-  analysis projects, papers, talks, and web sites.
+I now use version control for basically everything: software, data
+analysis projects, papers, talks, and web sites.
 
-  People are more resistant to version control than to any other
-  tool, because of the short-term effort and the lack of recognition
-  of the long-term benefits.
+People are more resistant to version control than to any other
+tool, because of the short-term effort and the lack of recognition
+of the long-term benefits.
 
 - - - - -
 
-comic from http://www.phdcomics.com/comics/archive.php?comicid=1531
-Images/phd101212s.png
+![pic](phd101212s.gif)
 
-This is typical. And never use ``final'' in a file name.
+This is typical. And never use "final" in a file name.
 
-\begin{frame}{\only<1>{Methods for tracking versions}\only<2|handout 0>{Suppose it stops working\dots}}
-\bbi
+## Methods for tracking versions
+
 * Don't keep track
-\onslide<2>{
-\bi
-* good luck!
-\ei
-}
+  * good luck!
 * Save numbered zip files
-\onslide<2>{
-\bi
-* Unzip versions and {\tt diff}
-\ei
-}
+  * Unzip versions and `diff`
 * Formal version control
-\onslide<2>{
-\bi
-* Easy to study changes back in time
-* Easy to jump back and test
-\ei
-}
-\ei
+  * Easy to study changes back in time
+  * Easy to jump back and test
+  
+- - - - -
 
 There are three methods for keeping track of changes: don't keep
-  track, periodically zip/tar a directory with a version number, or
-  use formal version control.
+track, periodically zip/tar a directory with a version number, or
+use formal version control.
 
-  Imagine that some aspect of your code has stopped working at some
-  point. You know it was working in the past, but it's not working
-  now. How easy is it to figure out where the problem was introduced?
+Imagine that some aspect of your code has stopped working at some
+point. You know it was working in the past, but it's not working
+now. How easy is it to figure out where the problem was introduced?
 
-\end{frame}
 
 ## Why use formal version control?
 
@@ -67,335 +52,248 @@ There are three methods for keeping track of changes: don't keep
 * Able to go back
 * No worries about breaking things that work
 * Merging changes from multiple people
-\ei
 
-\note{With formal version control, you'll save the entire history of
-  changes to the project, and you can easily go back to any
-  point in the history of the project, to see how things were behaving
-  at that point.
+- - - - -
 
-  You'll be able to make modifications (e.g., to try out a new
-  feature) without worrying about breaking things that work.
+With formal version control, you'll save the entire history of
+changes to the project, and you can easily go back to any
+point in the history of the project, to see how things were behaving
+at that point.
 
-  And version control is especially useful for collaboration. If a
-  collaborator has made a bunch of changes, it'll be much easier to
-  see what was changed and to incorporate those changes.
-}
-\end{frame}
+You'll be able to make modifications (e.g., to try out a new
+feature) without worrying about breaking things that work.
 
-\begin{frame}[c]{Example repository}
-
-\figh{Images/example_repo}{0.80}
-
-\onslide<2|handout 0>{
-\vspace*{-0.65\textheight}
-\figh{Images/example_repo_zoom}{0.55}
-}
-
-\note{This is a snapshot of a repository on GitHub: a set of files and
-  subdirectories with more files. You can easily explore the contents.
-}
-\end{frame}
+And version control is especially useful for collaboration. If a
+collaborator has made a bunch of changes, it'll be much easier to
+see what was changed and to incorporate those changes.
 
 
-\begin{frame}[c]{Example history}
+## Example repository
 
-\figh{Images/example_history}{0.80}
+TODO: Include image of GitHub repo
 
-\note{This is a short view of the history of changes to the
-  repository: a series of ``commits.''
-}
-\end{frame}
-
-\begin{frame}[c]{Example commit}
-
-\figh{Images/example_commit}{0.80}
-\note{This is an example of one of those commits, highlighting what
-  lines were added and what lines were removed.
-}
-\end{frame}
+This is a snapshot of a repository on GitHub: a set of files and
+subdirectories with more files. You can easily explore the contents.
 
 
+## Example history
+
+TODO: Include picture of commit log from GitHub
+
+This is a short view of the history of changes to the
+repository: a series of ``commits.''
 
 
-\begin{frame}{What is git?}
-\bbi
+## Example commit
+
+TODO: Picture of git diff from GitHub
+
+This is an example of one of those commits, highlighting what
+lines were added and what lines were removed.
+
+
+## What is git?
+
 * Formal version control system
 * Developed by Linus Torvalds (developer of Linux)
-\bi
-* used to manage the source code for Linux
-\ei
+  * used to manage the source code for Linux
 * Tracks any content (but mostly plain text files)
-\bi
-* source code
-* data analysis projects
-* manuscripts
-* websites
-* presentations
-\ei
-\ei
+  * source code
+  * data analysis projects
+  * manuscripts
+  * websites
+  * presentations
 
-\note{We're going to focus on git, the version control system
-  developed by Linus Torvalds for managing the source code for Linux.
+We're going to focus on git, the version control system
+developed by Linus Torvalds for managing the source code for Linux.
 
-  You can track any content, but it's mostly for tracking plain text
-  files, but that can be most anything (source code, data analysis
-  projects, manuscripts, websites, presentations).
-}
-\end{frame}
+You can track any content, but it's mostly for tracking plain text
+files, but that can be most anything (source code, data analysis
+projects, manuscripts, websites, presentations).
 
 
-\begin{frame}{Why use git?}
-\bbi
+## Why use git?
+
 * It's fast
 * You don't need access to a server
 * Amazingly good at merging simultaneous changes
 * Everyone's using it
-\ei
 
-\note{Git is fast, you can use it locally on your own computer, it's
-  amazingly good at merging changes, and there are lots of people
-  using it.
-}
-\end{frame}
+Git is fast, you can use it locally on your own computer, it's
+amazingly good at merging changes, and there are lots of people
+using it.
 
-\begin{frame}{What is GitHub?}
-\bbi
+
+## What is GitHub?
+
 * A home for git repositories
 * Interface for exploring git repositories
 * {\hilit Real} open source
-\bi
-* immediate, easy access to the code
-\ei
+  * immediate, easy access to the code
 * Like facebook for programmers
 * Free 2-year "micro" account for students
-\bi
-* \href{http://education.github.com}{education.github.com}
-\ei
+  * \href{http://education.github.com}{education.github.com}
 * (Bitbucket.org is an alternative)
-\bi
-* free private repositories
-\ei
-\ei
+  * free private repositories
 
-\note{GitHub is a website that hosts git repositories, with a nice
-  graphical user interface for exploring git repositories.
+GitHub is a website that hosts git repositories, with a nice
+graphical user interface for exploring git repositories.
 
-  Source code on GitHub is real open source: anyone can
-  study it and grab it.
+Source code on GitHub is real open source: anyone can
+study it and grab it.
 
-  GitHub is sort of like Facebook for programmers: you can see what
-  people are up to, and easily collaborate on shared projects.
+GitHub is sort of like Facebook for programmers: you can see what
+people are up to, and easily collaborate on shared projects.
 
-  It's free to have public repositories on GitHub; if you want private
-  repositories, you generally have to pay, but I understand that
-  students can get a two-year account that allows 5 private
-  repositories.
+It's free to have public repositories on GitHub; if you want private
+repositories, you generally have to pay, but I understand that
+students can get a two-year account that allows 5 private
+repositories.
 
-  Bitbucket.org is an alternative; it allows unlimited private
-  repositories. I'm cheap, so I use Bitbucket for my private
-  repositories.
-}
-\end{frame}
+Bitbucket.org is an alternative; it allows unlimited private
+repositories. I'm cheap, so I use Bitbucket for my private
+repositories.
 
-\begin{frame}{Why use GitHub?}
-\bbi
+
+## Why use GitHub?
+
 * It takes care of the server aspects of git
 * Graphical user interface for git
-\bi
-* Exploring code and its history
-* Tracking issues
-\ei
+  * Exploring code and its history
+  * Tracking issues
 * Facilitates:
-\bi
-* Learning from others
-* Seeing what people are up to
-* Contributing to others' code
-\ei
+  * Learning from others
+  * Seeing what people are up to
+  * Contributing to others' code
 * Lowers the barrier to collaboration
-\bi
-* "There's a typo in your documentation." vs. \\
-"Here's a correction for your documentation."
-\ei
-\ei
+  * "There's a typo in your documentation." vs. "Here's a correction for your documentation."
 
-\note{GitHub takes care of the server aspects of git, and you get a
-  great GUI for exploring your repositories.
+GitHub takes care of the server aspects of git, and you get a
+great GUI for exploring your repositories.
 
-  GitHub is great for browsing others' code, for learning; you don't
-  even have to download it to your computer. And it's really easy to
-  contribute to others' code (e.g., to report typos in their
-  documentation).
-}
-\end{frame}
+GitHub is great for browsing others' code, for learning; you don't
+even have to download it to your computer. And it's really easy to
+contribute to others' code (e.g., to report typos in their
+documentation).
 
 
-\begin{frame}
-\frametitle{Basic use}
+## Basic use
 
-\vspace{-18pt}
-
-\bbi
 * Change some files
 * See what you've changed
-\bi
-*[] {\tt git status}
-*[] {\tt git diff}
-*[] {\tt git log}
-\ei
+  * `git status`
+  * `git diff`
+  * `git log`
 * Indicate what changes to save
-\bi
-*[] {\tt git add}
-\ei
+  * `git add`
 * Commit to those changes
-\bi
-*[] {\tt git commit}
-\ei
-\onslide<2->{
+  * `git commit`
 * Push the changes to GitHub
-\bi
-*[] {\tt git push}
-\ei }
-\onslide<3->{
+  * `git push`
 * Pull changes from your collaborator
-\bi
-\only<3>{
-*[] {\tt git pull}
-}
-\onslide<4>{
-*[] {\tt git fetch}
-*[] {\tt git merge}
-}
-\ei }
-\ei
+  * `git pull`
+  * `git fetch`
+  * `git merge`
 
-\note{These are the basic git commands you'll use day-to-day.
+These are the basic git commands you'll use day-to-day.
 
-  {\tt git status} to see the current state of things,
-  {\tt git diff} to see what's changed, and {\tt git log} to look at
-  the history.
+{\tt git status} to see the current state of things,
+{\tt git diff} to see what's changed, and {\tt git log} to look at
+the history.
 
-  After you've made some changes, you'll use {\tt git add} to indicate
-  which changes you want to commit to, and {\tt git commit} to commit
-  to them (to add them to the repository).
+After you've made some changes, you'll use {\tt git add} to indicate
+which changes you want to commit to, and {\tt git commit} to commit
+to them (to add them to the repository).
 
-  You use {\tt git push} to push changes to GitHub, and {\tt git pull}
-  (or {\tt git fetch} and {\tt git merge}) to pull changes from a
-  collaborator's repository, or if you're synchronizing a repository
-  between two computers.
-}
-\end{frame}
+You use {\tt git push} to push changes to GitHub, and {\tt git pull}
+(or {\tt git fetch} and {\tt git merge}) to pull changes from a
+collaborator's repository, or if you're synchronizing a repository
+between two computers.
 
-\begin{frame}[fragile]
-\frametitle{Initialize repository}
-\bbi
+
+## Initialize repository
+
 * Create {\lolit (and {\tt cd} to)} a working directory
-\bi
-* For example, {\tt {\textasciitilde}/Docs/Talks/Graphs}
-\ei
+  * For example, {\tt {\textasciitilde}/Docs/Talks/Graphs}
 * Initialize it to be a git repository
-\bi
-* {\tt \hilit git init}
-* Creates subdirectory {\tt {\textasciitilde}/Docs/Talks/Graphs/.git}
-\ei
-\ei
+  * {\tt \hilit git init}
+  * Creates subdirectory {\tt {\textasciitilde}/Docs/Talks/Graphs/.git}
 
-\begin{lstlisting}
+```
 $ mkdir ~/Docs/Talks/Graphs
 $ cd ~/Docs/Talks/Graphs
 $ git init
 Initialized empty Git repository in ~/Docs/Talks/Graphs/.git/
-\end{lstlisting}
+```
 
-\note{If you're starting a new, fresh project, you make a directory
-  for it and go into that directory, and then you type {\tt git
-    init}. This creates a {\tt .git} subdirectory.
-}
-\end{frame}
+If you're starting a new, fresh project, you make a directory
+for it and go into that directory, and then you type {\tt git
+init}. This creates a {\tt .git} subdirectory.
 
-\begin{frame}[fragile]
-\frametitle{Produce content}
-\bbi
-* Create a {\tt README.md} file
-\ei
 
-\bigskip
-\begin{lstlisting}
-## Talk on &ldquo;How to display data badly&rdquo;
+## Produce content
 
-These are slides for a talk that I give as often as possible,
-because it's fun.
+* Create a `README.md` file
 
-This was inspired by Howard Wainer's article, whose title I
-stole: H Wainer (1984) How to display data badly.
-American Statistician 38:137-147
+```
+# Talk on "How to display data badly"
+
+These are slides for a talk that I give as often as possible, because
+it's fun.
+
+This was inspired by Howard Wainer's article, whose title I stole: H
+Wainer (1984) How to display data badly. American Statistician
+38:137-147
 
 A recent PDF is
-[here](
-http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf).
-\end{lstlisting}
+[here](http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf).
+```
 
-\note{Start creating a bit of content, such as a Readme file. You can
-  use Markdown to make it look nicer.
-}
-\end{frame}
+Start creating a bit of content, such as a Readme file. You can
+use Markdown to make it look nicer.
 
 
-\begin{frame}[fragile]
-\frametitle{Incorporate into repository}
-\bbi
-* Stage the changes using {\tt \hilit git add}
-\ei
+## Incorporate into repository
 
-\begin{lstlisting}
+* Stage the changes using `git add`
+
+```
 $ git add README.md
-\end{lstlisting}
+```
 
-\note{Use {\tt git add} to tell git that you want to start keeping
-  track of this file.  This is called ``staging,'' or you say the file
-  is ``staged.''
-}
-\end{frame}
+Use {\tt git add} to tell git that you want to start keeping
+track of this file.  This is called ``staging,'' or you say the file
+is ``staged.''
 
-\begin{frame}[fragile]
-\frametitle{Incorporate into repository}
-\bbi
+
+# Incorporate into repository
+
 * Now commit using {\tt \hilit git commit}
-\ei
 
-\begin{lstlisting}
+```
 $ git commit -m "Initial commit of README.md file"
 [master (root-commit) 32c9d01] Initial commit of README.md file
  1 file changed, 14 insertions(+)
  create mode 100644 README.md
-\end{lstlisting}
+```
 
-\bi
 * The \texttt{-m} argument allows one to enter a message
 * Without \texttt{-m}, \texttt{git} will spawn a text editor
 * Use a meaningful message
 * Message can have multiple lines, but make 1st line an overview
-\ei
 
-\note{Use {\tt git commit} to add the file to the repository.
-}
-\end{frame}
+Use {\tt git commit} to add the file to the repository.
 
 
+## A few points on commits
 
-
-\begin{frame}[fragile]{A few points on commits}
-\bbi
 * Use frequent, small commits
 * Don't get out of sync with your collaborators
 * Commit the sources, not the derived files
-\bi
-*[] (R code not images)
-\ei
+  * (R code not images)
 * Use a {\tt .gitignore} file to indicate files to be ignored
-\ei
 
-\begin{lstlisting}
+```
 *~
 manuscript.pdf
 Figs/*.pdf
@@ -405,96 +303,77 @@ Figs/*.pdf
 *.aux
 *.log
 *.out
-\end{lstlisting}
+```
 
-\note{I recommend using frequent, small commits. I'll make a batch of
-  changes with a common theme, make sure things are working, then add
-  and commit.
+- - - - -
 
-  In projects with collabotors, be sure to pull any changes from them
-  before starting to make your own changes, and encourage your
-  collaborators to do the same. If you both make a month's changes
-  in parallel, merging the changes will be harder.
+I recommend using frequent, small commits. I'll make a batch of
+changes with a common theme, make sure things are working, then add
+and commit.
 
-  I commit only the source, and not files that are derived from those
-  sources. For a manuscript, though, I might include the pdf at major
-  milestones (at submission, after revision, and upon acceptance), so
-  that I don't have to work as hard to reconstruct them.
+In projects with collabotors, be sure to pull any changes from them
+before starting to make your own changes, and encourage your
+collaborators to do the same. If you both make a month's changes
+in parallel, merging the changes will be harder.
 
-  Use a {\tt .gitignore} file so that untracked files don't show up with
-  {\tt git status}. You can have a global ignore file, {\tt
-  {\textasciitilde}/.gitignore\_global}.
+I commit only the source, and not files that are derived from those
+sources. For a manuscript, though, I might include the pdf at major
+milestones (at submission, after revision, and upon acceptance), so
+that I don't have to work as hard to reconstruct them.
 
-  But leaving off critical files is a common mistake.
-}
-\end{frame}
+Use a {\tt .gitignore} file so that untracked files don't show up with
+{\tt git status}. You can have a global ignore file, {\tt
+{\textasciitilde}/.gitignore\_global}.
+
+But leaving off critical files is a common mistake.
 
 
+## Using git on an existing project
 
-\begin{frame}{Using git on an existing project}
-
-\bbi
 * {\tt git init}
 * Set up {\tt .gitignore} file
 * {\tt git status} {\footnotesize \lolit (did you miss any?)}
 * {\tt git add .} {\footnotesize \lolit (or name files individually)}
 * {\tt git status} {\footnotesize \lolit (did you miss any?)}
 * {\tt git commit}
-\ei
+
+I recommend using git with all of your current projects.
+Start with one.
+
+Go into the directory and type {\tt git init}. Then use {\tt git
+add} repeatedly, to indicate which files you want to add to the
+repository.
+
+Then use {\tt git commit} to make an initial commit.
 
 
-\note{I recommend using git with all of your current projects.
-  Start with one.
-
-  Go into the directory and type {\tt git init}. Then use {\tt git
-    add} repeatedly, to indicate which files you want to add to the
-  repository.
-
-  Then use {\tt git commit} to make an initial commit.
-}
-\end{frame}
-
-
-
-\begin{frame}[fragile]{Removing/moving files}
-
-\vspace{24pt}
+## Removing/moving files
 
 For files that are being tracked by git:
 
-\bigskip
+* Use {\tt \hilit git rm} instead of just {\tt rm}
 
-\hspace{1em} Use {\tt \hilit git rm} instead of just {\tt rm}
+* Use {\tt \hilit git mv} instead of just {\tt mv}
 
-\hspace{1em} Use {\tt \hilit git mv} instead of just {\tt mv}
-
-\bigskip
-
-\begin{lstlisting}
+```
 $ git rm myfile
 $ git mv myfile newname
 $ git mv myfile SubDir/
 $ git commit
-\end{lstlisting}
+```
 
-\note{For files that are being tracked by git: If you want to change
-  the name of a file, or if you want to move it to a subdirectory, you
-  can't just use {\tt mv}, you need to use {\tt git mv}.
+For files that are being tracked by git: If you want to change
+the name of a file, or if you want to move it to a subdirectory, you
+can't just use {\tt mv}, you need to use {\tt git mv}.
 
-  If you want to remove a file from the project, don't use just {\tt
-    rm}, use {\tt git rm}. Note that the file won't be
-  completely removed; it'll still be within the history.
-}
-\end{frame}
+If you want to remove a file from the project, don't use just {\tt
+rm}, use {\tt git rm}. Note that the file won't be
+completely removed; it'll still be within the history.
 
 
+## First use of git
 
-
-\begin{frame}[fragile]{First use of git}
-
-\vspace{24pt}
-
-\begin{lstlisting}
+```
 $ git config --global user.name "Jane Doe"
 $ git config --global user.email "janedoe@wisc.edu"
 
@@ -503,57 +382,43 @@ $ git config --global color.ui true
 $ git config --global core.editor emacs
 
 $ git config --global core.excludesfile ~/.gitignore_global
-\end{lstlisting}
+```
 
-\note{The very first time you use git, you need to do a bit of
-  configuration.
+The very first time you use git, you need to do a bit of
+configuration.
 
-  All of this stuff gets added to a {\tt {\textasciitilde}/.gitconfig} file
-}
-\end{frame}
+All of this stuff gets added to a {\tt {\textasciitilde}/.gitconfig} file
 
 
+## Set up GitHub repository
 
-\begin{frame}{Set up GitHub repository}
-
-\only<1>{
-\bbi
 * Get a GitHub account
 * Click the "Create a new repo" button
 * Give it a {\hilit name} and description
 * Click the "Create repository" button
 * Back at the command line:
-  \bi
   *[] {\tt \hspace{-3em}  git remote add origin https://github.com/username/{\hilit repo}}
   *[] {\tt \hspace{-3em} git push -u origin master}
-  \ei
-\ei
-}
-\only<2->{\vspace{24pt}}
-\only<2 | handout 0>{\figw{Images/new_repo_1.png}{0.95}}
-\only<3 | handout 0>{\figw{Images/new_repo_2.png}{0.95}}
+
+- - - - -
+
+To create a GitHub repository, I generally first set things up
+locally (using {\tt git init} and then a bit of {\tt git add} and
+{\tt git commit}).
+
+Then go to GitHub and click the ``Create a new repo'' button. Give
+it a name and description and click ``Create repository.''
+
+The back at the command line, you use {\tt git remote add} to
+indicate the github address; then {\tt git push} to push everything
+to GitHub.
 
 
-\note{To create a GitHub repository, I generally first set things up
-  locally (using {\tt git init} and then a bit of {\tt git add} and
-  {\tt git commit}).
+## Configuration file
 
-  Then go to GitHub and click the ``Create a new repo'' button. Give
-  it a name and description and click ``Create repository.''
+Part of a `.git/config` file:
 
-  The back at the command line, you use {\tt git remote add} to
-  indicate the github address; then {\tt git push} to push everything
-  to GitHub.
-}
-\end{frame}
-
-\begin{frame}[fragile]{Configuration file}
-
-\vspace{24pt}
-
-Part of a {\tt .git/config} file:
-
-\begin{lstlisting}
+```
 [remote "origin"]
     url = https://github.com/kbroman/qtl.git
     fetch = +refs/heads/*:refs/remotes/origin/*
@@ -565,58 +430,53 @@ Part of a {\tt .git/config} file:
 [remote "brian"]
     url = git://github.com/byandell/qtl.git
     fetch = +refs/heads/*:refs/remotes/brian/*
-\end{lstlisting}
+```
 
-\note{The {\tt git remote add} commands adds stuff to the {\tt
-    .git/config} file; if you've made a mistake, you can just edit
-  this file.
+The {\tt git remote add} commands adds stuff to the {\tt
+.git/config} file; if you've made a mistake, you can just edit
+this file.
 
-  There are three different constructions for the url: \\
-  {\tt https://github.com/username/repo} \\
-  {\tt git://github.com/username/repo} \\
-  {\tt git@github.com:username/repo}
+There are three different constructions for the url: \\
+{\tt https://github.com/username/repo} \\
+{\tt git://github.com/username/repo} \\
+{\tt git@github.com:username/repo}
 
-  With {\tt https}, you'll need to enter your GitHub login and
-  password each time. With {\tt git://}, you'll have only read
-  access. With {\tt git@github.com:}, you need to set up ssh. (More
-  work initially, but you'll get write access without having to enter your login and
-  password.)
-}
-\end{frame}
+With {\tt https}, you'll need to enter your GitHub login and
+password each time. With {\tt git://}, you'll have only read
+access. With {\tt git@github.com:}, you need to set up ssh. (More
+work initially, but you'll get write access without having to enter your login and
+password.)
 
 
-\begin{frame}{Branching and merging}
+## Branching and merging
 
-\bbi
 * Use branches to test out new features without breaking the
   working code.
-\bi
-*[] {\tt git branch devel}
-*[] {\tt git branch}
-*[] {\tt git checkout devel}
-\ei
+  *[] {\tt git branch devel}
+  *[] {\tt git branch}
+  *[] {\tt git checkout devel}
 * When you're happy with the work, merge it back into your master
   branch.
-\bi
-*[] {\tt git checkout master}
-*[] {\tt git merge devel}
-\ei
-\ei
-\note{Branching is a really important feature of git. Create a branch
-  to test out some new features without breaking your working
-  software.
+  *[] {\tt git checkout master}
+  *[] {\tt git merge devel}
 
-  {\tt git branch} is used to create branches and to see what branches
-  you have.
+- - - - -
 
-  {\tt git checkout} is used to switch among branches.
+Branching is a really important feature of git. Create a branch
+to test out some new features without breaking your working
+software.
 
-  {\tt git merge} is used to merge a different branch into your
-  current one.
-}
-\end{frame}
+{\tt git branch} is used to create branches and to see what branches
+you have.
 
-\begin{frame}{Issues and pull requests}
+{\tt git checkout} is used to switch among branches.
+
+{\tt git merge} is used to merge a different branch into your
+current one.
+
+
+## Issues and pull requests
+
 \bbi
 * Problem with or suggestion for someone's code?
 \bi
