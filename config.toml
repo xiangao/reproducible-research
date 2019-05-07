@@ -50,13 +50,13 @@ googleAnalytics = ""
 	weight = 1
 
 [[menu.main]]
-	name   = "Make"
-	url    = "make/"
+	name   = "Unix"
+	url    = "unix/"
 	weight = 10
 
 [[menu.main]]
-	name   = "Linux"
-	url    = "linux/"
+	name   = "Make"
+	url    = "make/"
 	weight = 20
 
 [[menu.main]]
