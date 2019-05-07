@@ -2,39 +2,6 @@
 title: Presentations and posters
 ---
 
-\documentclass[12pt,t]{beamer}
-\usepackage{graphicx}
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
-\usepackage{listings}
-
-\input{../LaTeX/header.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% end of header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\title{}
-\subtitle{Tools for Reproducible Research}
-\author{[Karl Broman](http://kbroman.org)}
-\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
-\\[-4pt]
-{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
-}
-
-\begin{document}
-
-{
-\setbeamertemplate{footline}{} % no page number here
-\frame{
-  \titlepage
-
-
   It's arguably less critical that presentation slides or a poster be
   reproducible. Nevertheless, there can be great personal advantage to
   the automated generation of figures and such in slides or a poster:
@@ -47,29 +14,20 @@ title: Presentations and posters
   touch upon the use of slidify to make Markdown-based slides for a
   talk.
 
-} }
-
 
 ## Powerpoint/Keynote
-
-
-
-\begin{minipage}[t]{0.45\textwidth}
 
 * [+] Standard
 * [+] Easy to share slides
 * [+] WYSIWYG (mostly)
 * [+] Fancy animations
-\end{minipage}
 
-\begin{minipage}[t]{0.45\textwidth}
+- - - - -
 
-* [\textendash] Font problems
-* [\textendash] Lots of copy-paste
-* [\textendash] Hard to get equations
-* [\textendash] Not reproducible
-\end{minipage}
-
+* [-] Font problems
+* [-] Lots of copy-paste
+* [-] Hard to get equations
+* [-] Not reproducible
 
   Powerpoint and Keynote do have their advantages, the principal one
   being that everyone is using these tools, which makes it easy to
@@ -156,7 +114,7 @@ title: Presentations and posters
 \setbeamercolor{item}{fg=foreground} % color of bullets
 \setbeamercolor{subitem}{fg=lolit}
 \setbeamercolor{itemize/enumerate subbody}{fg=lolit}
-\setbeamertemplate{itemize subitem}{{\textendash}}
+\setbeamertemplate{itemize subitem}{{-}}
 \setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
 \setbeamerfont{itemize/enumerate subitem}{size=\footnotesize}
 
@@ -217,7 +175,7 @@ title: Presentations and posters
 \subtitle{And maybe a subtitle}
 \author{Author name}
 \institute{Biostatistics \& Medical Informatics,
-   UW{\textendash}Madison}
+   UW{-}Madison}
 \date`\scriptsize biostat.wisc.edu/{~`kbroman}
 
 \begin{document}

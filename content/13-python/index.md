@@ -2,39 +2,6 @@
 title: Python
 ---
 
-\documentclass[12pt,t]{beamer}
-\usepackage{graphicx}
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
-\usepackage{listings}
-
-\input{../LaTeX/header.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% end of header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\title{}
-\subtitle{Tools for Reproducible Research}
-\author{[Karl Broman](http://kbroman.org)}
-\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
-\\[-4pt]
-{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
-}
-
-\begin{document}
-
-{
-\setbeamertemplate{footline}{} % no page number here
-\frame{
-  \titlepage
-
-
   I'm a big proponent of the use of multiple programming languages:
   use different languages for different types of tasks.
 
@@ -47,8 +14,6 @@ title: Python
   much more widely used, and so if you're going to just learn one such
   language, learn Python.
 
-} }
-
 
 ## Why python?
 
@@ -56,11 +21,9 @@ title: Python
 
 *  Manipulating data files
 *  Simulations using others' programs
-\onslide<2->{*  Web-related stuff}
-\onslide<3->{
+*  Web-related stuff}
 *  Alternative to R for data analysis and graphics
 *  Jupyter notebooks
-}
 
   For statisticians, the most important use of Python is for the
   manipulation of data files. This sort of script language is great

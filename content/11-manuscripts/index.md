@@ -2,37 +2,6 @@
 title: KnitR + LaTeX -> paper
 ---
 
-\documentclass[12pt,t]{beamer}
-\usepackage{graphicx}
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
-\usepackage{listings}
-
-\input{../LaTeX/header.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% end of header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\title{}
-\subtitle{Tools for Reproducible Research}
-\author{[Karl Broman](http://kbroman.org)}
-\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
-\\[-4pt]
-{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
-}
-
-\begin{document}
-
-{
-\setbeamertemplate{footline}{} % no page number here
-\frame{
-  \titlepage
 
 
   This lecture is about how to create reproducible manuscripts, for
@@ -50,7 +19,6 @@ title: KnitR + LaTeX -> paper
   I also want to discuss some more general strategies for ensuring that
   the results described in a journal article are fully reproducible.
 
-} }
 
 
 ## \LaTeX

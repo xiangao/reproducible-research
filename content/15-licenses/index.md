@@ -3,39 +3,6 @@ title: Licenses; human subjects data
 ---
 
 
-\documentclass[12pt,t]{beamer}
-\usepackage{graphicx}
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
-\usepackage{listings}
-
-\input{../LaTeX/header.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% end of header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\title{}
-\subtitle{Tools for Reproducible Research}
-\author{[Karl Broman](http://kbroman.org)}
-\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
-\\[-4pt]
-{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
-}
-
-\begin{document}
-
-{
-\setbeamertemplate{footline}{} % no page number here
-\frame{
-  \titlepage
-
-
   An often neglected aspect in discussions of reproducible research:
   software and data need to be licensed. If you want your software and
   data to be reused, you need to provide an explicit license that
@@ -51,12 +18,6 @@ title: Licenses; human subjects data
 
   I'm talking just about the United States here. I understand US law a
   bit, but I don't know the law in other countries much at all.
-}
-} }
-
-
-{
-\setbeamertemplate{footline}{} % no page number here
 
 ## Course summary
 
@@ -64,7 +25,6 @@ title: Licenses; human subjects data
 
 
 
-* sep8pt
 *  Make everything you do script-based
   *  code + data -> product
   *  Use version control (git and GitHub/Bitbucket)
@@ -77,16 +37,8 @@ title: Licenses; human subjects data
 *  knitr + \LaTeX\ for papers and talks and posters
 *  Use licenses to make reusability clear
 
-}
 
-
-\begin{frame}<handout:0>[fragile,c]{}
-
-\begin{center}
-\begin{minipage}[c]{9.3cm}
-
-\lstset{basicstyle=\normalsize}
-```[linewidth=9.3cm]
+```
  Karl -- this is very interesting,
  however you used an old version of
  the data (n=143 rather than n=226).
@@ -97,8 +49,6 @@ title: Licenses; human subjects data
  Bruce
 ```
 
-\end{minipage}
-\end{center}
 
 This is an edited version of an email I got from a collaborator,
   in response to an analysis report that I had sent him.

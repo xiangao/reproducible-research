@@ -2,39 +2,6 @@
 title: Big jobs/simulations
 ---
 
-\documentclass[12pt,t]{beamer}
-\usepackage{graphicx}
-\setbeameroption{hide notes}
-\setbeamertemplate{note page}[plain]
-\usepackage{listings}
-
-\input{../LaTeX/header.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% end of header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\title{}
-\subtitle{Tools for Reproducible Research}
-\author{[Karl Broman](http://kbroman.org)}
-\institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
-\\[-4pt]
-[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
-\\[-4pt]
-{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
-}
-
-\begin{document}
-
-{
-\setbeamertemplate{footline}{} % no page number here
-\frame{
-  \titlepage
-
-
   Reproducibility can be considerably harder for computational tasks
   that take more than just a couple of hours, and in some cases, the
   computations for a project may require years of CPU time (split
@@ -57,11 +24,9 @@ title: Big jobs/simulations
   I must admit that I don't always do this well. Part of this lecture
   is more of a sketch of what I think one should do rather than what I
   actually do.
-}
-} }
 
 
-## But first\dots
+## But first...
 
 
 
@@ -72,13 +37,11 @@ and suppose I noticed a simple way to speed it up.
 
 
 
-**What should I do first?**
+## What should I do first?
 
-\only<2->{
-*  Make it an R package}
-\only<3->{*  Write a test or two}
-\only<4->{*  Commit it to a git repository}
-\only<2->{}
+1. Make it an R package
+2. Write a test or two
+3. Commit it to a git repository
 
 
   My aim here is to reinforce the things we've been covering in the
@@ -95,7 +58,6 @@ and suppose I noticed a simple way to speed it up.
   And before you start editing the code, {\nvhilit `git commit`} what you
   have so far! If it turns out that your new idea doesn't work, will
   you be able to get back to what you had originally?
-}
 
 
 
