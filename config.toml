@@ -65,12 +65,12 @@ googleAnalytics = ""
 	weight = 30
 
 [[menu.main]]
-	name   = "Git"
+	name   = "Git and GitHub"
 	url    = "04-git/"
 	weight = 40
 
 [[menu.main]]
-	name   = "Git Lab"
+	name   = "Git and GitHub: Lab"
 	url    = "05-git-practice/"
 	weight = 50
 
