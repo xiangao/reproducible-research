@@ -5,7 +5,7 @@ weight: 10
 ---
 
 A minimal standard for data analysis and other scientific computations
-is that they be {\color{nhilit} reproducible}: that the code and data are assembled
+is that they be **reproducible**: that the code and data are assembled
 in a way so that another group can re-create all of the results (e.g.,
 the figures in a paper). The importance of such reproducibility is now
 widely recognized, but it is not so widely practiced as it should be,
@@ -15,8 +15,8 @@ reproducible research.
 
 In this course, we will discuss general principles for reproducible
 research but will focus primarily on the use of relevant tools
-(particularly \href{http://www.gnu.org/software/make}{\tt make},
-\href{http://git-scm.com}{\tt git}, and \href{http://github.com}{\tt knitr}),
+(particularly [\tt make](http://www.gnu.org/software/make),
+[\tt git](http://git-scm.com), and [\tt knitr](http://github.com)),
 with the goal that the students leave the course ready and willing to
 ensure that all aspects of their computational research (software,
 data analyses, papers, presentations, posters) are reproducible.
@@ -39,7 +39,7 @@ such reports. By doing so, he immediately saw that I had an old
 version of the data.
 
 Because I'd set things up carefully, I could just substitute in the
-newer dataset, type ``{\tt make}'', and get the revised report.
+newer dataset, type ```make`'', and get the revised report.
 
 This is a reproducibility success story. But it took me a long
 time to get to this point.
@@ -47,8 +47,8 @@ time to get to this point.
 ## Reproducible vs. Replicable
 
 Computational work is
-{\color{nhilit} reproducible} if one can take the data and code and produce
-the same set of results. {\color{nhilit} Replicable} is more stringent: can
+**reproducible** if one can take the data and code and produce
+the same set of results. **Replicable** is more stringent: can
 someone repeat the experiment and get the same results?
 
 Reproducibility is a minimal standard. That something is
@@ -66,8 +66,8 @@ reproducible, and vice versa.
 
 * Are the tables and figures reproducible from the code and data?
 * Does the code actually do what you think it does?
-* In addition to {\color{hilit} what} was done, is it clear
-  {\color{hilit} why} it was done?
+* In addition to **what** was done, is it clear
+  **why** it was done?
   * (e.g., how were parameter settings chosen?)
 * Can the code be used for other data?
 * Can you extend the code to do other things?
@@ -78,35 +78,30 @@ achieve.
 
 ## Basic principles
 
-\vspace{24pt}
 
-\bi
+
 *sep12pt
 * Everything via code
 * Everything automated
-    \bi
     *[] Workflow and dependencies clearly documented
-    \ei
-* Get the data in the most-raw form possible
+    * Get the data in the most-raw form possible
 * Get any/all data and meta-data possible
-* Keep track of the {\color{hilit} provenance} of all data files
+* Keep track of the **provenance** of all data files
 * Be self-sufficient
-\ei
-
-\note{Pointing and clicking is not reproducible. Ideally, you press
+Pointing and clicking is not reproducible. Ideally, you press
   just one button.
 
 Make sure you have all of the data and that you know exactly where it
 came from.
 
-But what is {\color{nhilit} raw} data? How far back should you go?
+But what is **raw** data? How far back should you go?
 Data that I get from collaborators has usually gone through a
 considerable amount of pre-processing. Should we have captured that,
 in order for the work to be considered reproducible?
 
 If your collaborator asks, ``In what form would you like the data?''
 you should respond, ``In its current form.''
-}
+
 
 
 ## Why do we care?
@@ -117,13 +112,13 @@ you should respond, ``In its current form.''
 * Greater potential for extensions; higher impact
 
 
-\note{Doing things properly (writing clear, documented, well-tested
+Doing things properly (writing clear, documented, well-tested
   code) is time consuming, but it could save you a ton of aggravation
   down the road.  Ultimately, you'll be more efficient, and your work
   will have greater impact.
 
 Your code and analyses will be easier to debug, maintain, and extend.
-}
+
 
 - - - - -
 
@@ -225,7 +220,7 @@ in Madison in 2013. The program book and website both drew
 information from a single basic source. Change that one document and
 both the program and web site are updated.
 
-My R/qtl package is an {\color{nhilit} anti}-example.
+My R/qtl package is an **anti**-example.
 
 
 ## This course
@@ -252,7 +247,7 @@ About this course: I'm trying to get you started; pointing you
 
 - - - - -
 
-The most important tool is the {\hilit mindset},
+The most important tool is the **mindset**,
 
 when starting, that the end product
 
@@ -265,8 +260,8 @@ So true. Desire for reproducibility is step one.
 
 ## Automation with GNU Make
 
-* {\tt Make} is for more than just compiling software
-* The {\color{hilit} essence} of what we're trying to do
+* `Make` is for more than just compiling software
+* The **essence** of what we're trying to do
 * Automates a workflow
 * Documents the workflow
 * Documents the dependencies among data files, code
@@ -283,7 +278,7 @@ People usually think of Make as a tool for automating the
 ## Example `Makefile`
 
 \begin{semiverbatim}
-\begin{lstlisting}
+```
 # Example Makefile for a paper
 mypaper.pdf: mypaper.bib mypaper.tex Figs/fig1.pdf Figs/fig2.pdf
     pdflatex mypaper
@@ -297,35 +292,37 @@ Figs/fig1.pdf: R/fig1.R
 
 Figs/fig2.pdf: R/fig2.R
     cd R;R CMD BATCH fig2.R fig2.Rout
-\end{lstlisting}
+```
 \end{semiverbatim}
 
-\note{You can get really fancy with make, but this example shows you
+You can get really fancy with make, but this example shows you
   the basics.
 
-  Records look like {\tt target: dependencies} and are followed by a
+  Records look like `target: dependencies` and are followed by a
   set of lines of code for creating the target from the
   dependencies. Those lines of code must start with a tab character
-  ({\color{nvhilit} not} spaces), and if you need to change
+  ({\color{nvhilit not} spaces), and if you need to change
   directories, you have to do that on the same line as the command.
 
-  If you type {\tt make} (or {\tt make Makefile}), the {\tt
+  If you type `make` (or `make Makefile`), the {\tt
   mypaper.pdf} file will be created; but first, any dependencies
   will be updated, if necessary, based on the time the files were last
   modified.
 
-  So, for example, if {\tt fig1.R} had been edited, then the commands
-  to construct {\tt fig1.pdf} would be constructed, followed by the
-  commands to construct {\tt mypaper.pdf}.
+  So, for example, if `fig1.R` had been edited, then the commands
+  to construct `fig1.pdf` would be constructed, followed by the
+  commands to construct `mypaper.pdf`.
 }
-\end{frame}
 
 
 
-\begin{frame}[fragile]{Fancier example}
+
+## Fancier example
+
+
 
 \begin{semiverbatim}
-\begin{lstlisting}
+```
 FIG_DIR = Figs
 
 mypaper.pdf: mypaper.tex ${FIG_DIR}/fig1.pdf ${FIG_DIR}/fig2.pdf
@@ -338,60 +335,60 @@ ${FIG_DIR}/%.pdf: R/%.R
 # Use "make clean" to remove the PDFs
 clean:
     rm *.pdf Figs/*.pdf
-\end{lstlisting}
+```
 \end{semiverbatim}
 
-\note{As I said, you can get really fancy with GNU Make.
+As I said, you can get really fancy with GNU Make.
 
   Use variables for directory names or compiler flags. (This example
   is not a good one.)
 
   Use pattern rules and automatic variables to avoid repeating
-  yourself. With {\tt \%}, we have one line covering both
-  {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
+  yourself. With `\%`, we have one line covering both
+  `fig1.pdf` and `fig2.pdf`. The `\$(<F)`
   is the file part of
   the first dependency.
 
   Look at the manual for make and the many online tutorials, such as
   the one from Software Carpentry.
-}
-\end{frame}
 
 
 
-\begin{frame}[fragile]{How do you use make?}
 
-\vspace{6pt}
+
+## How do you use make?
+
+
+
+
 
 {\small
-\bi
-* If you name your make file {\tt Makefile}, then just go into the
-directory containing that file and type {\tt \color{hilit} make}
+* If you name your make file `Makefile`, then just go into the
+directory containing that file and type `\color{hilit` make}
 
-* If you name your make file {\tt something.else}, then type \\
-{\tt \color{hilit} make -f something.else}
+* If you name your make file `something.else`, then type \\
+`\color{hilit` make -f something.else}
 
 * Actually, the commands above will build the {\color{vhilit} first}
   target listed in the make file. So I'll often include something like
   the following.
 
 \begin{quote}
-{\tt \color{hilit} all: target1 target2 target3}
+`\color{hilit` all: target1 target2 target3}
 \end{quote}
 
-  Then typing {\tt \color{hilit} make all} (or just {\tt
-    \color{hilit} make}, if {\tt \color{hilit} all} is listed
+  Then typing `\color{hilit` make all} (or just {\tt
+    \color{hilit} make}, if `\color{hilit` all} is listed
   first in the file) will build all of those
   things.
 
-* To be build a specific target, type {\tt \color{hilit} make target}.
-  For example, {\tt \color{hilit} make Figs/fig1.pdf}
-\ei
+* To be build a specific target, type `\color{hilit` make target}.
+  For example, `\color{hilit` make Figs/fig1.pdf}
 }
 
-\note{I can't believe that I forgot to explain this the first time
+I can't believe that I forgot to explain this the first time
   I gave this lecture.
-}
-\end{frame}
 
-\end{document}
+
+
+
