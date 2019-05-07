@@ -29,38 +29,40 @@ any lag in looking at graphics.
 
 ## If you use Windows...
 
-Consider \href{http://msysgit.github.io/}{Git Bash}
-(or \href{http://www.cygwin.org}{Cygwin})
+Consider [Git Bash](http://msysgit.github.io/)
+(or [Cygwin](http://www.cygwin.org))
 
-\bigskip
+
 
 {\color{lolit} (and perhaps
-  \href{https://code.google.com/p/mintty/}{Mintty} or
-  \href{https://github.com/Maximus5/ConEmu}{ComEmu})}
+  [Mintty](https://code.google.com/p/mintty/) or
+  [ComEmu](https://github.com/Maximus5/ConEmu))}
 
-\note{Cygwin is an effort to get Unix command-line tools in Windows.
+Cygwin is an effort to get Unix command-line tools in Windows.
 
 Git Bash combines git (for version control) and bash (the unix shell);
 it's simpler to deal with than Cygwin.
 
-Mintty and ConEmu are terminal emulators.}
-\end{frame}
+Mintty and ConEmu are terminal emulators.
 
-\begin{frame}[c]{If you use a Mac...}
+
+## If you use a Mac...
+
+
 
 \centering
 \Large
 
-Consider \href{http://brew.sh/}{Homebrew} and
-\href{http://www.iterm2.com}{iTerm2}
+Consider [Homebrew](http://brew.sh/) and
+[iTerm2](http://www.iterm2.com)
 
-\bigskip
+
 
 Also the
-\href{http://railsapps.github.io/xcode-command-line-tools.html}{XCode command line tools}
+[XCode command line tools](http://railsapps.github.io/xcode-command-line-tools.html)
 
 
-\note{Homebrew is a packaging system; iTerm2 is a Terminal replacement.
+Homebrew is a packaging system; iTerm2 is a Terminal replacement.
 
 The XCode command line tools are a must for most
 unixy things on a Mac.
@@ -77,22 +79,21 @@ simplenote, http://simplenote.com \\
 jumpcut, http://jumpcut.sourceforge.net \\
 color oracle, http://colororacle.org \\
 textexpander, http://smilesoftware.com/TextExpander
-}
-
-\end{frame}
 
 
-\begin{frame}{The command line is your friend}
 
-\vspace{24pt}
 
-\bi
-\itemsep24pt
-\item Don't touch that mouse!
-\item Scriptable
-\item Flexible
-\ei
-\note{In the long run, you'll be happier, having conquered the command line.
+
+## The command line is your friend
+
+
+
+
+
+*  Don't touch that mouse!
+*  Scriptable
+*  Flexible
+In the long run, you'll be happier, having conquered the command line.
 
 Pointing-and-clicking is not reproducible, and every time you take
 your hands off the keyboard, there's a loss of efficiency.
@@ -102,44 +103,47 @@ things that weren't anticipated by the developer of the GUI.
 
 And it's only through scripts that you'll have truly reproducible
 analyses.
-}
-\end{frame}
 
 
 
-\begin{frame}[c]{The shell}
+
+
+## The shell
+
+
 
 
 \centerline{\includegraphics[width=\textwidth]{Figs/shell.png}}
 
-Options: \href{http://en.wikipedia.org/wiki/Tcsh}{tcsh}, \href{http://www.gnu.org/software/bash/manual/bashref.html}{bash}, \href{http://www.zsh.org/}{zsh}
+Options: [tcsh](http://en.wikipedia.org/wiki/Tcsh), [bash](http://www.gnu.org/software/bash/manual/bashref.html), [zsh](http://www.zsh.org/)
 
 
-\note{The shell is a program -- an interface to the operating
+The shell is a program -- an interface to the operating
   system.
 
-There are a number to choose from. I use {\tt bash}; I've heard great
-things about {\tt zsh}.
-}
-
-\end{frame}
+There are a number to choose from. I use `bash`; I've heard great
+things about `zsh`.
 
 
 
-\begin{frame}{Basics}
 
-\vspace{18pt}
-\bi
-\itemsep18pt
-\item Directory structure
+
+
+## Basics
+
+
+
+
+* sep18pt
+*  Directory structure
 
 {\color{lolit} Absolute vs. relative paths
 
-\tt ls -l {\textasciitilde}/Figs ../Rawdata/}
+\tt ls -l {~}/Figs ../Rawdata/}
 
-\item Creating, removing, changing directories
+*  Creating, removing, changing directories
 
-{\tt \color{lolit} mkdir
+`\color{lolit` mkdir
 
 rmdir
 
@@ -147,33 +151,33 @@ cd
 
 cd -}
 
-\item Moving, copying, removing files
+*  Moving, copying, removing files
 
-{\tt \color{lolit} mv
+`\color{lolit` mv
 
 cp
 
 rm -i}
 
-\ei
-
-\note{This stuff is too boring to spend much time on.
+This stuff is too boring to spend much time on.
 
 But I should emphasize the importance of using relative paths (e.g.,
-{\tt ../Figs/fig1.pdf}) in a project; reliance on absolute paths
-(e.g., {\tt {\textasciitilde}/Projects/Blah/Figs/fig1.pdf}) make life difficult when
+`../Figs/fig1.pdf`) in a project; reliance on absolute paths
+(e.g., `{~`/Projects/Blah/Figs/fig1.pdf) make life difficult when
 you move the project to a different system.
 }
 
-\end{frame}
 
 
-\begin{frame}[fragile]{{\tt {\textasciitilde}/.bash\_profile}}
 
-\vspace{-12pt}
+## `{~`/.bash_profile
 
-\begin{semiverbatim}
-\begin{lstlisting}
+}
+
+
+
+
+```
 export PATH=.:/usr/local/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib
 
@@ -196,63 +200,67 @@ alias Rb='R CMD build --force --resave-data'
 alias Ri='R CMD INSTALL --library=/Users/kbroman/Rlibs'
 alias Rc='R CMD check --library=/Users/kbroman/Rlibs'
 alias Rcc='R CMD check --as-cran --library=/Users/kbroman/Rlibs'
-\end{lstlisting}
-\end{semiverbatim}
+```
 
 
-\note{Use the {\tt .bash\_profile} file to define various
+
+Use the `.bash_profile` file to define various
   variables and aliases to make your life easier.
 
-The most important variable is {\tt PATH}: it defines the set of
+The most important variable is `PATH`: it defines the set of
 directories where the shell will look for executable programs.
-If ``{\tt .}'' isn't part of your {\tt PATH}, you'll need to type
-something like {\tt ./myscript.py} to execute a script in your working
-directory. So put ``{\tt .}'' in your {\tt PATH}.
+If "`.`" isn't part of your `PATH`, you'll need to type
+something like `./myscript.py` to execute a script in your working
+directory. So put "`.`" in your `PATH`.
 
-My {\tt .bash\_profile} file sources a {\tt .bashrc} file; I don't
-quite understand when one is used versus the other. Google ``{\tt .bashrc
-vs .bash\_profile}.''
-There are links to my {\tt .bash\_profile} and {\tt .bashrc} files on
+My `.bash_profile` file sources a `.bashrc` file; I don't
+quite understand when one is used versus the other. Google "`.bashrc
+vs .bash_profile`."
+There are links to my `.bash_profile` and `.bashrc` files on
 the resources page at the course web site; some of it might just be
 total crap.
 
-If you're using Windows and Git Bash, the {\tt .bash\_profile} file
+If you're using Windows and Git Bash, the `.bash_profile` file
 will be in your Documents folder (I think).
 
 Important note: use of aliases within your code will create
 reproducibility issues; another user will need those same aliases.
 Consider testing your code on a more basic account.
-}
-
-\end{frame}
 
 
-\begin{frame}[c]{{\tt PATH} in Windows}
+
+
+
+## `PATH` in Windows
+
+
 
 \only<1 | handout 0>{\figw{Figs/win_path_1.png}{0.95}}
 \only<2 | handout 0>{\figw{Figs/win_path_2.png}{0.95}}
 \only<3>{\figw{Figs/win_path_3.png}{0.95}}
 
-\note{With Git Bash, you can have a {\tt {\textasciitilde}/.bash\_profile}
-  file that adds stuff to your {\tt PATH}, just as in Mac OS X and Linux.
+With Git Bash, you can have a `{~`/.bash_profile
+  file that adds stuff to your `PATH`, just as in Mac OS X and Linux.
 
-  But things will also be added to the {\tt PATH} variable via the
+  But things will also be added to the `PATH` variable via the
   Path system variable and/or a Path user variable.
-  You can get to these via the ``Control panel,'' but it's a bit
+  You can get to these via the "Control panel," but it's a bit
   cumbersome.
 
   The simplest way to get to the relevant dialog box seems to be to
   click Win-w (the little windows key and the w key) and searching for
-  ``path''.
+  "path".
 }
 
-\end{frame}
 
 
-\begin{frame}[fragile]{Redirection and pipes}
 
-\begin{semiverbatim}
-\begin{lstlisting}
+## Redirection and pipes
+
+
+
+
+```
 $ curl -L http://bit.ly/hamlet_txt > hamlet.txt
 
 $ wc -l hamlet.txt
@@ -266,14 +274,14 @@ $ grep Ham hamlet.txt | less
 
 $ cat file1.txt file2.txt > combined.txt
 $ cat file3.txt >> combined.txt
-\end{lstlisting}
-\end{semiverbatim}
+```
 
-\note{Use $>$ to redirect output ``stdout'' to a file.
+
+Use $>$ to redirect output "stdout" to a file.
 
 Use $>>$ to redirect output and append to the file.
 
-Use $<$ to have input ``stdin'' come from a file.
+Use $<$ to have input "stdin" come from a file.
 
 Use $|$ to have the output of one command made the input to
 another.
@@ -283,23 +291,25 @@ this sort of technique. There are lots of little commands (often with
 short, cryptic names) that can be combined together with great
 flexibility.
 
-Important tools mentioned here: {\tt curl} (for downloading web stuff
-on the command line; {\tt -L} is to follow any re-direction; see also
-{\tt wget}), {\tt grep} (search for patterns in a file), {\tt less}
-(look through long files a page at a time), {\tt wc} (count the number
-of words, lines and/or characters in a file; {\tt -l} is for the
-number of lines), {\tt cat} (print contents or concatenate text files)
-}
-
-\end{frame}
+Important tools mentioned here: `curl` (for downloading web stuff
+on the command line; `-L` is to follow any re-direction; see also
+`wget`), `grep` (search for patterns in a file), `less`
+(look through long files a page at a time), `wc` (count the number
+of words, lines and/or characters in a file; `-l` is for the
+number of lines), `cat` (print contents or concatenate text files)
 
 
 
 
-\begin{frame}[fragile]{Wild cards}
 
-\begin{semiverbatim}
-\begin{lstlisting}
+
+
+## Wild cards
+
+
+
+
+```
 $ grep blah *.txt
 
 $ ls blah.???
@@ -313,21 +323,23 @@ $ ls /usr/bin/[auz]*.*
 $ ls -l *.txt | wc -l
 
 $ wc -l *.txt | grep total
-\end{lstlisting}
-\end{semiverbatim}
-
-\note{{\tt *} stands for anything
-
-{\tt ?} stands for a single character
-
-Use {\tt []} to match some specific set or range of characters}
-\end{frame}
+```
 
 
-\begin{frame}[fragile]{Suspend/foreground/background}
+`*` stands for anything
 
-\begin{semiverbatim}
-\begin{lstlisting}
+`?` stands for a single character
+
+Use `[]` to match some specific set or range of characters
+
+
+
+## Suspend/foreground/background
+
+
+
+
+```
 $ R CMD BATCH input.R output.txt &
 
 $ R CMD BATCH input.R output.txt
@@ -337,63 +349,64 @@ $ bg
 $ emacs afile.txt
 [ctrl-Z]
 $ fg
-\end{lstlisting}
-\end{semiverbatim}
+```
 
-\note{Use {\tt \&} to run a job in the background.
+
+Use `\&` to run a job in the background.
 
 Use ctrl-Z to suspend the current job (but this doesn't work in
-Windows). Then use {\tt bg} to then put it in
-the background or {\tt fg} to bring it back to the foreground.
+Windows). Then use `bg` to then put it in
+the background or `fg` to bring it back to the foreground.
 
-I use ctrl-Z and {\tt bg} if I had forgotten to use {\tt \&}.
+I use ctrl-Z and `bg` if I had forgotten to use `\&`.
 
 I use ctrl-Z with emacs sometimes, to do some command-line things
-without opening another shell/terminal; I'll then use {\tt fg} to
+without opening another shell/terminal; I'll then use `fg` to
 bring emacs back. Or I'll forget about it and muck a bunch of stuff
 up.
-}
-\end{frame}
 
 
-\begin{frame}[c]{Moving around the command line}
+
+
+## Moving around the command line
+
+
 
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{ll}
-{\tt ctrl-f, ctrl-b} & \color{lolit} move forward and back \\
-{\tt ctrl-a, ctrl-e} & \color{lolit}  move to beginning and end of line \\
-{\tt ctrl-k, ctrl-u} & \color{lolit}  delete rest of line, or to the start \\
-{\tt ctrl-l} & \color{lolit}  clear the screen \\
-{\tt ctrl-c} & \color{lolit}  cancel what you've typed \\
-{\tt tab} & \color{lolit}  autocomplete command or file \\
-{\tt ctrl-p, ctrl-n} & \color{lolit}  forward and backward in history \\
-{\tt ctrl-r} & \color{lolit}  search for a previous command
+`ctrl-f, ctrl-b` & \color{lolit} move forward and back \\
+`ctrl-a, ctrl-e` & \color{lolit}  move to beginning and end of line \\
+`ctrl-k, ctrl-u` & \color{lolit}  delete rest of line, or to the start \\
+`ctrl-l` & \color{lolit}  clear the screen \\
+`ctrl-c` & \color{lolit}  cancel what you've typed \\
+`tab` & \color{lolit}  autocomplete command or file \\
+`ctrl-p, ctrl-n` & \color{lolit}  forward and backward in history \\
+`ctrl-r` & \color{lolit}  search for a previous command
 \end{tabular}
 
-\note{These are mostly emacs-like key ``bindings''.}
-\end{frame}
+These are mostly emacs-like key "bindings".
 
 
 
-\begin{frame}{How to solve computing problems}
 
-\vspace{24pt}
+## How to solve computing problems
 
-\bi
-\item {\color{vhilit} Try stuff!}
-\item man pages and help files
-\item {\tt blah -h} or {\tt blah --help}
-\item \href{http://www.google.com}{Google}
-\item \href{http://stackoverflow.com}{Stackoverflow} and other
-  \href{http://stackexchange.com}{StackExchange} sites
-\item \href{http://www.google.com}{Google} with {\tt site:stackoverflow.com}
-\item email lists and google groups
-\item friends or colleagues
-\item \href{http://twitter.com}{Twitter}
-\item Buy a book. Buy {\color{vhilit} all} of the books.
-\ei
 
-\note{You will run into crazy and mysterious errors. Will you give up, or
+
+
+
+*  {\color{vhilit} Try stuff!}
+*  man pages and help files
+*  `blah -h` or `blah --help`
+*  [Google](http://www.google.com)
+*  [Stackoverflow](http://stackoverflow.com) and other
+  [StackExchange](http://stackexchange.com) sites
+*  [Google](http://www.google.com) with `site:stackoverflow.com`
+*  email lists and google groups
+*  friends or colleagues
+*  [Twitter](http://twitter.com)
+*  Buy a book. Buy {\color{vhilit} all} of the books.
+You will run into crazy and mysterious errors. Will you give up, or
   figure them out?
 
   Rule number 1: try stuff. Figure out how something works by trying
@@ -414,96 +427,97 @@ up.
 
   I do tend to buy all possible books on a topic that is of even
   passing interest to me. I read at least part of each of them.
-}
-\end{frame}
 
 
-\begin{frame}{Examples}
 
-\vspace{24pt}
 
-\bi
-\item How do you suppress warnings in knitr?
-\item What symbol corresponds to the unicode {\tt {\textbackslash}u00B1}?
-\item What's the difference between {\tt curl} and {\tt wget}?
-\item What does "{\tt 502 Bad Gateway}" mean?
-\item "{\tt To open gs you need to install X11}"
-\item {\tt mclapply} isn't working in Windows
-\item How to ping a server in Python?
-\item {\tt Font shape `EU1/pplx/m/n' undefined}
-\item {\tt except KeyError, k: raise AttributeError, k}
-\ei
+## Examples
 
-\note{These are examples of things you might search for.
+
+
+
+
+*  How do you suppress warnings in knitr?
+*  What symbol corresponds to the unicode `{/`u00B1}?
+*  What's the difference between `curl` and `wget`?
+*  What does "`502 Bad Gateway`" mean?
+*  "`To open gs you need to install X11`"
+*  `mclapply` isn't working in Windows
+*  How to ping a server in Python?
+*  `Font shape `EU1/pplx/m/n' undefined`
+*  `except KeyError, k: raise AttributeError, k`
+These are examples of things you might search for.
 
 If you don't understand an error message, start by pasting it into
 google.
-}
-\end{frame}
 
 
-\begin{frame}[c]{Important principle}
+
+
+## Important principle
+
+
 
 \centerline{Learn to code by looking at good code.}
 
-\note{Identify programmers that you respect (e.g., Hadley Wickham),
+Identify programmers that you respect (e.g., Hadley Wickham),
   and study what they do.
-}
-\end{frame}
 
 
 
-\begin{frame}{Choose a good editor}
 
-\vspace{24pt}
 
-\bi
-\itemsep12pt
-\item \href{http://www.emacswiki.org/emacs/}{Emacs}
-\item \href{http://www.vim.org/}{VIM}
-\item \href{http://www.rstudio.com/ide/}{RStudio}
-\item \href{http://www.barebones.com/products/textwrangler/}{Textwrangler}
-\item \href{http://notepad-plus-plus.org/}{Notepad++}
-\item \href{http://www.sublimetext.com/}{Sublime Text}
-\item \href{https://atom.io/}{Atom}
-\ei
+## Choose a good editor
 
-\note{I use emacs; I should probably use vim.
+
+
+
+
+* sep12pt
+*  [Emacs](http://www.emacswiki.org/emacs/)
+*  [VIM](http://www.vim.org/)
+*  [RStudio](http://www.rstudio.com/ide/)
+*  [Textwrangler](http://www.barebones.com/products/textwrangler/)
+*  [Notepad++](http://notepad-plus-plus.org/)
+*  [Sublime Text](http://www.sublimetext.com/)
+*  [Atom](https://atom.io/)
+I use emacs; I should probably use vim.
 
   RStudio is increasingly
   useful, but as a general editor (for things that aren't R), I think
   it's insufficient.
 
   The choice of editor is very personal.
-}
-\end{frame}
 
 
-\begin{frame}{A good editor}
 
-\vspace{24pt}
 
-\bi
-\itemsep12pt
-\item Doesn't require pointing-and-clicking
-\item Easy to get code between R and a script
-\item Syntax highlighting of code
-\item Automatic indentation
-\item Close parentheses/brackets/braces
-\item Browse code across files
-\item Integrated with other tools (e.g., version control)
-\ei
+## A good editor
 
-\note{I've not figured out how to explore code across a set of files
+
+
+
+
+* sep12pt
+*  Doesn't require pointing-and-clicking
+*  Easy to get code between R and a script
+*  Syntax highlighting of code
+*  Automatic indentation
+*  Close parentheses/brackets/braces
+*  Browse code across files
+*  Integrated with other tools (e.g., version control)
+I've not figured out how to explore code across a set of files
   in emacs; otherwise I'm very happy with it.
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{Other useful tools}
 
-\begin{semiverbatim}
-\begin{lstlisting}
+
+## Other useful tools
+
+
+
+
+```
 $ find . -name *.py
 $ locate article.cls
 
@@ -522,37 +536,39 @@ $ ln -s ~/Projects/SomeFriend/Data SomeFriend_Data
 $ tar xzvf qtl_1.29-2.tar.gz
 $ tar czvf blah.tgz Blah/
 $ tar tzvf blah.tgz
-\end{lstlisting}
-\end{semiverbatim}
+```
 
-\note{{\tt find} and {\tt locate} for finding files.
 
-{\tt ps ux} to see what processes are running.
+`find` and `locate` for finding files.
 
-{\tt top} gives an interactive view of what processes are running.
+`ps ux` to see what processes are running.
 
-{\tt df -hk} shows disk usage
+`top` gives an interactive view of what processes are running.
 
-{\tt du -hd2} shows disk usage in a directory and its subdirectories;
-the {\tt d2} bit says go no more than 2 levels down through the subdirectories.
+`df -hk` shows disk usage
 
-{\tt ln -s} makes a ``soft link'' to a file or directory. It acts like
+`du -hd2` shows disk usage in a directory and its subdirectories;
+the `d2` bit says go no more than 2 levels down through the subdirectories.
+
+`ln -s` makes a "soft link" to a file or directory. It acts like
 there's a copy, but it's not really copied.
 
-{\tt tar} is used to archive a bunch of files within a single
-file. {\tt x} for extract, {\tt c} for combine, {\tt t} for test, {\tt
-  z} for compress/zip, {\tt v} for verbose, {\tt f} for ``file name to follow.''
+`tar` is used to archive a bunch of files within a single
+file. `x` for extract, `c` for combine, `t` for test, {\tt
+  z for compress/zip, `v` for verbose, `f` for "file name to follow."
 }
 
-\end{frame}
 
 
-\begin{frame}[fragile]{Further useful tools}
 
-\vspace{-12pt}
+## Further useful tools
 
-\begin{semiverbatim}
-\begin{lstlisting}
+
+
+
+
+
+```
 $ whereis bash
 $ type rm
 $ type emacs
@@ -576,81 +592,87 @@ $ !503
 $ ping www.google.com
 
 $ ispell afile.txt
-\end{lstlisting}
-\end{semiverbatim}
+```
 
-\note{{\tt whereis} for finding a program. \\
-{\tt type} for figuring out the location of a program or the
+
+`whereis` for finding a program. \\
+`type` for figuring out the location of a program or the
 definition of an alias.
 
-{\tt pwd} -- print working directory
+`pwd` -- print working directory
 
-{\tt head} -- print first few lines of a file \\
-{\tt tail} -- print the last few lines of a file
+`head` -- print first few lines of a file \\
+`tail` -- print the last few lines of a file
 
-{\tt man} -- view manual page
+`man` -- view manual page
 
-{\tt kill} -- kill a job
+`kill` -- kill a job
 
-{\tt history} -- view command history \\
-{\tt !} -- execute past commands
+`history` -- view command history \\
+`!` -- execute past commands
 
-{\tt ping} -- see if you can connect to some server
+`ping` -- see if you can connect to some server
 
-{\tt ispell} -- spell checker
-}
-
-\end{frame}
+`ispell` -- spell checker
 
 
-\begin{frame}[fragile]{Opening a file from the command line}
 
-\vspace{12pt}
+
+
+## Opening a file from the command line
+
+
+
+
 
 Windows:
-\begin{semiverbatim}
-\begin{lstlisting}
+
+```
 $ start mypaper.pdf
 $ start http://google.com
-\end{lstlisting}
-\end{semiverbatim}
+```
 
-\vspace{12pt}
+
+
 
 Mac:
-\begin{semiverbatim}
-\begin{lstlisting}
+
+```
 $ open mypaper.pdf
 $ open http://google.com
-\end{lstlisting}
-\end{semiverbatim}
+```
 
-\note{I often like to open a file from the command line. If the file
-  extension is known, you can use {\tt start} in Windows or {\tt open}
+
+I often like to open a file from the command line. If the file
+  extension is known, you can use `start` in Windows or `open`
   in Mac OS X.
 
-  In Linux, you may have {\tt xdg-open} (in the xdg-utils package on Ubuntu).
-  You might make an alias (e.g. {\tt open}) for that in your {\tt .bash\_profile} file.
-}
-
-\end{frame}
+  In Linux, you may have `xdg-open` (in the xdg-utils package on Ubuntu).
+  You might make an alias (e.g. `open`) for that in your `.bash_profile` file.
 
 
-\begin{frame}[c]{File modes}
+
+
+
+## File modes
+
+
 
 \centerline{\includegraphics[width=\textwidth]{Figs/chmod.png}}
 
-\note{Note the mode, owner, and group for each file.
+Note the mode, owner, and group for each file.
 
 mode = read/write/executable for owner/group/everyone
 
-r = readable; w = writable; x = executable (for a directory, enter-able)}
-\end{frame}
+r = readable; w = writable; x = executable (for a directory, enter-able)
 
 
-\begin{frame}{File modes/owner/group}
 
-\vspace{24pt}
+## File modes/owner/group
+
+
+
+
 
 \tt sudo chown kbroman .
 
@@ -658,13 +680,13 @@ chgrp -R staff .
 
 chmod +x createVersionWithNotes.rb
 
-chmod 755 02\_Unix
+chmod 755 02_Unix
 
-chmod 644 02\_Unix/02\_unix.tex
+chmod 644 02_Unix/02_unix.tex
 
-chmod 700 Private\_stuff
+chmod 700 Private_stuff
 
-\note{You don't usually need to change the owner or group assigned to
+You don't usually need to change the owner or group assigned to
   a file or directory, but it's good to be aware of the
   possibility.
 
@@ -680,24 +702,26 @@ chmod 700 Private\_stuff
   doing that yesterday!
 
   The octal codes (e.g, 755 and 644) are convenient, once
-  you get the hang of them.}
-
-\end{frame}
+  you get the hang of them.
 
 
 
 
 
-\begin{frame}[c]{Don't forget to look at the resources page}
 
 
-\centerline{\href{http://kbroman.org/Tools4RR/pages/resources.html}{\tt kbroman.org/Tools4RR/pages/resources.html}}
+## Don't forget to look at the resources page
 
-\note{If you find other useful resources, let me know.
+
+
+
+\centerline{[\tt kbroman.org/Tools4RR/pages/resources.html](http://kbroman.org/Tools4RR/pages/resources.html)}
+
+If you find other useful resources, let me know.
 
 When we get to git and GitHub, make a pull request!
-}
-\end{frame}
 
 
-\end{document}
+
+
+
