@@ -5,13 +5,19 @@ import re
 
 def clean(text):
     l = [
+        ('``', '"'),
+        ("''", '"'),
+        (r'\\_', '_'),
+        (r'\\itemsep24pt', ''),
+        (r'\\item', '* '),
+        (r'\\href\{([^}]+)\}\{([^}]+)\}', lambda m: '[%s](%s)' % (m.group(2), m.group(1))),
         (r'\\[hv]space\{[^}]+\}', ''),
         (r'\{\\hilit ([^}]+)\}', lambda m: '**%s**' % m.group(1)),
+        (r'{\\color{(hilit|nhilit)} ([^}]+)}', lambda m: '**%s**' % m.group(2)),
         (r'\\hilit', ''),
         (r'\{\\lolit ([^}]+)\}', lambda m: m.group(1)),
         (r'\{\\tt ([^}]+)\}', lambda m: '`%s`' % m.group(1)),
         (r'\{\\ttfn ([^}]+)\}', lambda m: '`%s`' % m.group(1)),
-        (r'\\href\{([^}]+)\}\{([^}]+)\}', lambda m: '[%s](%s)' % (m.group(2), m.group(1))),
         (r'\\textasciitilde', '~'),
         (r'\\texttt{([^}]+)}', lambda m: '`%s`' % m.group(1)),
         (r'\{\\footnotesize \\lolit ([^}]+)\}', lambda m: m.group(1)),
@@ -27,6 +33,9 @@ def clean(text):
         (r'\\textbackslash', '/'),
         (r'\\begin{frame}{}', '- - - - -'),
         (r'\\end{document}', ''),
+        (r'\\(begin|end){semiverbatim}', ''),
+        (r'\$\\rightarrow\$', '->'),
+        (r'\\[vh]fill', ''),
     ]
     result = text
     for pattern, repl in l:

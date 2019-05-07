@@ -16,15 +16,15 @@ title: KnitR + LaTeX -> paper
 
 \title{}
 \subtitle{Tools for Reproducible Research}
-\author{\href{http://kbroman.org}{Karl Broman}}
+\author{[Karl Broman](http://kbroman.org)}
 \institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{\href{http://kbroman.org}{\tt \scriptsize \color{foreground} kbroman.org}
+\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
 \\[-4pt]
-\href{http://github.com/kbroman}{\tt \scriptsize \color{foreground} github.com/kbroman}
+[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
 \\[-4pt]
-\href{https://twitter.com/kwbroman}{\tt \scriptsize \color{foreground} @kwbroman}
+[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
 \\[-4pt]
-{\scriptsize Course web: \href{http://kbroman.org/Tools4RR}{\tt kbroman.org/Tools4RR}}
+{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
 }
 
 \begin{document}
@@ -34,7 +34,7 @@ title: KnitR + LaTeX -> paper
 \frame{
   \titlepage
 
-\note{
+
   This lecture is about how to create reproducible manuscripts, for
   journal articles. KnitR with R Markdown is great for informal
   reports. KnitR with AsciiDoc is great for somewhat fancier
@@ -43,19 +43,21 @@ title: KnitR + LaTeX -> paper
   over the appearance of a document, it's hard to beat \LaTeX, and so
   I'm just going to focus on that.
 
-  I can't hope to explain \LaTeX\/ properly in just this one
+  I can't hope to explain \LaTeX/ properly in just this one
   lecture. My goals are to give the general gist, indicate resources
   and options, and show how to use KnitR with \LaTeX.
 
   I also want to discuss some more general strategies for ensuring that
   the results described in a journal article are fully reproducible.
-}
+
 } }
 
 
-\begin{frame}[c,fragile]{\LaTeX}
+## \LaTeX
 
-\begin{lstlisting}
+
+
+```
 \documentclass[12pt]{article}
 
 \usepackage{graphicx}
@@ -70,46 +72,48 @@ title: KnitR + LaTeX -> paper
 
 \section{A section}
 
-This is a simple example of a \LaTeX\/ document for an article.
+This is a simple example of a \LaTeX/ document for an article.
 Here's some in-line math: $y = \beta_0 + \beta_1 x + \epsilon$.
 
 And here's a display equation:
 
 $$ \hat{\beta} = (X'X)^{-1} X'y $$
 
-\end{document}
-\end{lstlisting}
 
-\note{
-  \LaTeX\/ is like html or Markdown: plain text with special codes to
+```
+
+
+  \LaTeX/ is like html or Markdown: plain text with special codes to
   indicate how things are to appear.
 
-  A \LaTeX\/ document always starts with {\tt {\textbackslash}documentclass}, then a
+  A \LaTeX/ document always starts with `{/`documentclass, then a
   bunch of overall controlling information. The actual document is
-  between {\tt {\textbackslash}begin\{document\}} and {\tt {\textbackslash}end\{document\}}.
+  between `{/`begin\{document\}} and `{/`end\{document\}}.
 
-  {\tt {\textbackslash}usepackage\{\}} is like {\tt library()} in R.
+  `{/`usepackage\{\}} is like `library()` in R.
 
   Ideally, you focus on {\nhilit semantics} rather than {\nhilit
-  style}: define the {\tt {\textbackslash}title\{\}} and {\tt {\textbackslash}author\{\}} and use
-  {\tt {\textbackslash}maketitle} to have them included in the document, and
-  indicate sections and subsections with {\tt {\textbackslash}section\{\}} and
-  {\tt {\textbackslash}subsection\{\}}.
+  style}: define the `{/`title\{\}} and `{/`author\{\}} and use
+  `{/`maketitle} to have them included in the document, and
+  indicate sections and subsections with `{/`section\{\}} and
+  `{/`subsection\{\}}.
 
-  For some reason, {\tt {\textbackslash}thispagestyle\{empty\}} (``don't
-  show page number on this page'') needs
-  to be placed {\nhilit after} {\tt {\textbackslash}maketitle}.
+  For some reason, `{/`thispagestyle\{empty\}} ("don't
+  show page number on this page") needs
+  to be placed {\nhilit after} `{/`maketitle}.
 
-  A key feature of \LaTeX\/ is the mathematics typesetting. There's no
-  better system. And your \LaTeX\/ skills can be immediately
+  A key feature of \LaTeX/ is the mathematics typesetting. There's no
+  better system. And your \LaTeX/ skills can be immediately
   transferred to your Markdown documents, with MathJax.
 }
-\end{frame}
 
 
-\begin{frame}[c,fragile]{What I actually do}
 
-\begin{lstlisting}
+## What I actually do
+
+
+
+```
 \documentclass[12pt]{article}
 
 \setlength{\headheight}{10pt}
@@ -126,79 +130,75 @@ $$ \hat{\beta} = (X'X)^{-1} X'y $$
 \begin{center}
 \textbf{\large An example document}
 
-\vspace{10mm}
+
 Karl Broman
 \end{center}
 
-\vspace{30mm}
-\textbf{\sffamily A section}
-\end{lstlisting}
 
-\note{
-  In reality, for a paper, I don't use {\tt {\textbackslash}maketitle}
-  or {\tt {\textbackslash}section}, but rather just muck about,
+\textbf{\sffamily A section}
+```
+
+
+  In reality, for a paper, I don't use `{/`maketitle
+  or `{/`section}, but rather just muck about,
   hard-coding the placement of things.
 
   But mine is not the recommended approach. If, for some reason, you
   need to change the style, it's easier if your document is defined in
   terms of {\nhilit semantics}.
 }
-\end{frame}
 
 
-\begin{frame}{Why \LaTeX\/?}
 
-\bbi
-\item Fine control of document appearance
-\item Transparency of how that was achieved
-\item Version control (diff/merge)
-\item Typesetting equations
-\item Markdown's not quite ready, or sufficiently rich
-  \bi
-  \item[] (but see the R package \href{https://github.com/rstudio/rticles}{rticles})
-  \ei
-\ei
+## Why \LaTeX/?
 
 
-\note{
-  It's {\nhilit a lot} of work to learn \LaTeX, so we need to be clear
+
+*  Fine control of document appearance
+*  Transparency of how that was achieved
+*  Version control (diff/merge)
+*  Typesetting equations
+*  Markdown's not quite ready, or sufficiently rich
+  * [] (but see the R package [rticles](https://github.com/rstudio/rticles))
+  
+  It's {\nhilit a lot of work to learn \LaTeX, so we need to be clear
   about why we'd want to devote the effort to it.
 
   For reproducible research, we need some sort of code-based document
-  system (i.e., {\nvhilit not Word!}), and \LaTeX\/ gives you the most
+  system (i.e., {\nvhilit not Word!}), and \LaTeX/ gives you the most
   fine-grained control, if you need it. Ultimately, I hope, Markdown
-  will be sufficient, but for now, we often need \LaTeX\/.
+  will be sufficient, but for now, we often need \LaTeX/.
 
   The code-based control makes what you're trying to do
-  transparent.  And you should treat \LaTeX\/ like code: write clearly
+  transparent.  And you should treat \LaTeX/ like code: write clearly
   and simply, and comment the tricky bits.
 
   This sort of document also has the advantage of easy treatment of
-  {\tt diff} and {\tt merge} in a version control system like git.
+  `diff` and `merge` in a version control system like git.
 
-  The real power of \LaTeX\/ is in the typesetting of mathematical
+  The real power of \LaTeX/ is in the typesetting of mathematical
   equations. And what you learn on that aspect can be transferred to
   your Markdown documents, using MathJax. (But I already said that,
   didn't I?)
 }
-\end{frame}
+
 
 
 \begin{frame}[c]{}
 
-\vspace{10mm}
+
 
 \centerline{\Large simple \quad $\longleftrightarrow$ \quad flexible}
 
-\vspace{10mm}
 
-\onslide<2->{\centerline{\tt \scriptsize \lolit {\textbackslash}centerline\{{\textbackslash}Large simple
-{\textbackslash}quad \${\textbackslash}longleftrightarrow\$ {\textbackslash}quad flexible\}}}
 
-\note{
-  \LaTeX\/ sits at the right of the simple-to-flexible spectrum.
-}
-\end{frame}
+\onslide<2->{\centerline`\scriptsize \lolit {/`centerline\{{/}Large simple
+{/}quad \${/}longleftrightarrow\$ {/}quad flexible\}}}
+
+
+  \LaTeX/ sits at the right of the simple-to-flexible spectrum.
+
+
 
 
 
@@ -207,11 +207,11 @@ Karl Broman
 \centering
 Modify your desires to match the defaults.
 
-\vspace{36pt}
+
 
 Focus your compulsive behavior on things that matter.
 
-\note{
+
   I've said this before, but I like to repeat it.
 
   Focus on the text and the figures before worrying too much about
@@ -225,13 +225,15 @@ Focus your compulsive behavior on things that matter.
   right. Ideally, you spend that time trying to construct a general
   solution.  Or you can modify your desires to more closely match what
   you get without any effort.
-}
-\end{frame}
 
 
-\begin{frame}[c,fragile]{Stuff I use a lot}
 
-\begin{lstlisting}
+
+## Stuff I use a lot
+
+
+
+```
 % other fonts
 \usepackage{palatino}
 \usepackage{times}
@@ -255,21 +257,23 @@ Focus your compulsive behavior on things that matter.
 % paragraphs not indented but have space between
 \setlength{\parskip}{6pt}
 \setlength{\parindent}{0pt}
-\end{lstlisting}
+```
 
 
-\note{
-  These are bits of \LaTeX\/ code that I use a lot.
-}
-\end{frame}
 
+  These are bits of \LaTeX/ code that I use a lot.
 
 
 
 
-\begin{frame}<handout:0>[c,fragile]{KnitR + \LaTeX $\rightarrow$ Rnw}
 
-\begin{lstlisting}
+
+
+## KnitR + \LaTeX -> Rnw
+
+
+
+```
 \documentclass[12pt]{article}
 
 \title{An example Rnw document}
@@ -291,16 +295,18 @@ abline(lm.out$coef)
 @
 
 The estimated slope is \Sexpr{myround(lm.out$coef[2], 1)}.
-\end{document}
-\end{lstlisting}
-\end{frame}
+
+```
 
 
 
-\begin{frame}[c,fragile]{KnitR + \LaTeX $\rightarrow$ Rnw}
+
+## KnitR + \LaTeX -> Rnw
+
+
 \addtocounter{framenumber}{-1}
 
-\begin{lstlisting}
+```
 \documentclass[12pt]{article}
 
 \title{An example Rnw document}
@@ -322,85 +328,85 @@ abline(lm.out$coef)
 @
 
 The estimated slope is \Sexpr{myround(lm.out$coef[2], 1)}.
-\end{document}
-\end{lstlisting}
 
-\note{
+```
+
+
   KnitR works well with LaTeX.
 
   Most of what you learned about KnitR with R Markdown transfers
   directly to working with LaTeX.
 
   The main difference is the way in which code chunks are
-  indicated. You use {\tt <<>>=} and {\tt @} for chunks, and
-  {\tt {\textbackslash}Sexpr\{\}} for in-line code.
+  indicated. You use `<<>>=` and `@` for chunks, and
+  `{/`Sexpr\{\} for in-line code.
 
   KnitR basically does a search-and-replace for code
   chunks. Different patterns will be easier, depending on the nature
   of the surrounding code.
 
   The chunk options are the same. Here, I used
-  {\tt out.width="0.8{\textbackslash}textwidth"}
+  `out.width="0.8{/`textwidth"}
   to make the figure appear as 80\% of the width of the page.
 
-  {\tt out.width} and {\tt out.height} need units as in \LaTeX\/ (built into
-  {\tt {\textbackslash\textbackslash}textwidth}; otherwise {\tt "in"}
-  or {\tt "cm"} or {\tt "pt"} or whatever).
+  `out.width` and `out.height` need units as in \LaTeX/ (built into
+  `{//`textwidth}; otherwise `"in"`
+  or `"cm"` or `"pt"` or whatever).
 
-  {\tt fig.width} and {\tt fig.height} are as in R, with implied units.
+  `fig.width` and `fig.height` are as in R, with implied units.
 }
-\end{frame}
 
-\begin{frame}{LyX}
 
-\vspace{20pt}
+## LyX
+
+
+
+
 
 \figh{Figs/lyx.png}{0.7}
 
-\vspace{20pt}
 
-\hfill \href{http://www.lyx.org/}{lyx.org}
 
-\note{
-  I create \LaTeX\/ documents in emacs. If you want something WYSIWYG,
+ [lyx.org](http://www.lyx.org/)
+
+
+  I create \LaTeX/ documents in emacs. If you want something WYSIWYG,
   consider LyX. KnitR is built in, and Yihui Xie strongly endorses
-  it. (LyX is not really ``WYSIWYG'' but rather ``WYSIWYM,'' but
+  it. (LyX is not really "WYSIWYG" but rather "WYSIWYM," but
   that's what you want most, anyway.)
-}
-\end{frame}
 
 
-\begin{frame}{Also}
 
-\bbi
-\item \href{http://overleaf.com}{Overleaf}
-\item \href{http://sharelatex.com}{ShareLaTeX}
-\item \href{http://authorea.com}{Authorea}
-\item \href{http://verbosus.com}{Verbosus}
-\ei
 
-\note{
+## Also
+
+
+
+*  [Overleaf](http://overleaf.com)
+*  [ShareLaTeX](http://sharelatex.com)
+*  [Authorea](http://authorea.com)
+*  [Verbosus](http://verbosus.com)
+
   There are a bunch of online tools for creating LaTeX documents,
   collaboratively.
 
   I have no experience with these, but I've heard good things about
   Overleaf (formerly WriteLaTeX).
-}
-\end{frame}
 
 
 
 
-\begin{frame}{Flavors of \LaTeX}
 
-\bbi
-\item \href{http://www.latex-project.org/}{\LaTeX}
-\item \href{http://en.wikipedia.org/wiki/PdfTeX}{pdflatex}
-\item \href{http://en.wikipedia.org/wiki/XeTeX}{xelatex}
-\item \href{http://www.luatex.org/}{lualatex}
-\ei
 
-\note{
+## Flavors of \LaTeX
+
+
+
+*  [\LaTeX](http://www.latex-project.org/)
+*  [pdflatex](http://en.wikipedia.org/wiki/PdfTeX)
+*  [xelatex](http://en.wikipedia.org/wiki/XeTeX)
+*  [lualatex](http://www.luatex.org/)
+
   In addition to regular \LaTeX, there's pdflatex (which I mostly
   use). It has the advantage of being able to include pdf, jpg, and
   png figures, and produces a PDF file directly.
@@ -408,39 +414,40 @@ The estimated slope is \Sexpr{myround(lm.out$coef[2], 1)}.
   XeLaTeX and LuaLaTeX are great for fonts and Unicode.
 
   I've not mentioned that behind the scenes is \TeX, which is the
-  source of all of this. Believe or not, \LaTeX\/ exists because
-  \TeX\/ is even harder. PdfLaTeX, XeLaTeX, and LuoLaTeX, really
+  source of all of this. Believe or not, \LaTeX/ exists because
+  \TeX/ is even harder. PdfLaTeX, XeLaTeX, and LuoLaTeX, really
   derive from PdfTeX, XeTex, and LuoTex.
-}
-\end{frame}
 
 
 
-\begin{frame}{Getting help}
 
-\bbi
-\item Google
-\item \href{tex.stackexchange.com}{tex.stackexchange.com}
-\item Ask a friend
-\item Look at others' documents
-\item Resign yourself to something less-than-ideal
-\ei
 
-\note{
-  There is {\nhilit a ton} of online information about \LaTeX. Start
+## Getting help
+
+
+
+*  Google
+*  [tex.stackexchange.com](tex.stackexchange.com)
+*  Ask a friend
+*  Look at others' documents
+*  Resign yourself to something less-than-ideal
+
+  There is {\nhilit a ton of online information about \LaTeX. Start
   with google. It's highly unlikely that you have a completely unique
   question or problem.
 
   My last point here is basically that one way to help yourself is by
   learning to let things go.
 }
-\end{frame}
 
 
 
-\begin{frame}[c,fragile]{Figure captions and floats}
 
-\begin{lstlisting}
+## Figure captions and floats
+
+
+
+```
 <<fig_with_caption, fig.cap="Scatterplot of $y$ vs $x$">>=
 x <- rnorm(100)
 y <- 5*x + rnorm(100)
@@ -448,76 +455,80 @@ lm.out <- lm(y ~ x)
 plot(x,y)
 abline(lm.out$coef)
 @
-\end{lstlisting}
+```
 
-\bigskip
 
-\begin{lstlisting}
+
+```
 \begin{figure}[]
 \includegraphics{figure/fig_with_caption}
 
 \caption{Scatterplot of $y$ vs $x$\label{fig:fig_with_caption}}
 \end{figure}
-\end{lstlisting}
+```
 
 
-\note{
-  If you use the chunk option {\tt fig.cap}, the figure will get a
+
+  If you use the chunk option `fig.cap`, the figure will get a
   caption.
 
-  But it will also be embedded within a {\tt figure} ``environment.''
-  (That is, between {\tt {\textbackslash}begin\{figure\}} and
-  {\tt {\textbackslash}end\{figure\}}.)
+  But it will also be embedded within a `figure` "environment."
+  (That is, between `{/`begin\{figure\} and
+  `{/`end\{figure\}}.)
 
-  This makes it a ``float.'' \LaTeX\/ decides where it's going to be
+  This makes it a "float." \LaTeX/ decides where it's going to be
   placed. The placement of floats is {\nvhilit the biggest pain} in
   using \LaTeX.
 
   The figure also gets a label, from the chunk name. (The
-  {\tt {\textbackslash}label\{\}} bit.) This allows you to
+  `{/`label\{\}} bit.) This allows you to
   cross-reference the figure, to have the figure number determined
   automatically.
 
-  The cross reference would be with {\tt {\textbackslash}ref\{fig:fig\_with\_caption\}}.
+  The cross reference would be with `{/`ref\{fig:fig_with_caption\}}.
 
-  When you use cross references, you need to run \LaTeX\/ twice: once
+  When you use cross references, you need to run \LaTeX/ twice: once
   to establish where things will sit on the page and how they are
   numbered, and a second time to insert the cross references.
 }
-\end{frame}
 
 
 
 
-\begin{frame}[fragile]{Tables in \LaTeX}
 
-\vspace{18pt}
+## Tables in \LaTeX
 
-\begin{lstlisting}
+
+
+
+
+```
 \begin{tabular}{rrrrr} \hline
 & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\  \hline
 (Intercept) & 0.04 & 0.11 &  0.4 & 0.69 \\
       x     & 0.98 & 0.10 & 10.0 & 0.00 \\ \hline
 \end{tabular}
-\end{lstlisting}
+```
 
-\note{
-  Tables in \LaTeX\/ are a pain, but they offer extremely fine
+
+  Tables in \LaTeX/ are a pain, but they offer extremely fine
   control.
 
-  But writing this sort of code ({\tt \&} indicates breaks between
-  columns, {\tt {\textbackslash}{\textbackslash}} indicates the end of
+  But writing this sort of code (`\&` indicates breaks between
+  columns, `{/`{/} indicates the end of
   a row) {\nhilit reproducibly} is hard.
 }
-\end{frame}
 
 
 
-\begin{frame}[fragile]{xtable}
 
-\vspace{18pt}
+## xtable
 
-\begin{lstlisting}
+
+
+
+
+```
 <<generate_and_fit>>=
 x <- rnorm(100)
 y <- x + rnorm(100)
@@ -536,81 +547,87 @@ library(xtable)
 xtab <- xtable(lm.out, digits=c(0,2,2,1,2))
 print(xtab, floating=FALSE)
 @
-\end{lstlisting}
+```
 
-\note{
-  xtable is a superb R package for producing \LaTeX\/ tables.
+
+  xtable is a superb R package for producing \LaTeX/ tables.
   You don't have complete control, but you do have a ton of
   control. The xtableGallery vignette shows you much of what can be
   done.
 
-  Note that a lot of the options are for {\tt print.xtable}, so look
-  at the help files for both {\tt xtable} and {\tt print.xtable}.
+  Note that a lot of the options are for `print.xtable`, so look
+  at the help files for both `xtable` and `print.xtable`.
 
-  For example, if you {\nhilit don't} want a table to be ``floating,''
-  (within a {\tt table} environment, between
-  {\tt {\textbackslash}begin\{table\}} and
-  {\tt {\textbackslash}end\{table\}}),
-  you need to use {\tt print.table} with {\tt floating=FALSE}.
+  For example, if you {\nhilit don't want a table to be "floating,"
+  (within a `table` environment, between
+  `{/`begin\{table\}} and
+  `{/`end\{table\}}),
+  you need to use `print.table` with `floating=FALSE`.
 }
-\end{frame}
 
 
-\begin{frame}{Read proofs carefully}
 
-\vspace{12pt}
+## Read proofs carefully
+
+
+
+
 
 As submitted
-\bigskip
+
 
 \figw{Figs/rigenome_as_submitted.png}{0.5}
 
-\bigskip \bigskip
+ 
 
 As printed
-\bigskip
+
 
 \figw{Figs/rigenome_error.png}{0.5}
 
-\vfill
-\hfill
-{\lolit \scriptsize Broman (2005) Genetics 169:1133{\textendash}1146}
 
-\note{
+
+\scriptsize Broman (2005) Genetics 169:1133{\textendash1146}
+
+
   Some journals re-type a bunch of your manuscript, sometimes
   introducing errors.
 
-  So read proofs {\nhilit carefully}. (What pain!) And post a
+  So read proofs {\nhilit carefully. (What pain!) And post a
   preprint, say to arXiv.org or bioRxiv.org.
 
   The above is the most important equation in the paper, and I missed
   that they'd introduced a mistake.
 }
-\end{frame}
 
 
 
 
-\begin{frame}[c]{Re-type that!}
 
-\vspace{18pt}
+## Re-type that!
+
+
+
+
 
 \figh{Figs/preCC_table.png}{0.65}
 
-\vfill
-\hfill
-{\lolit \scriptsize Broman (2012) Genetics 190:403{\textendash}412}
 
-\note{
-  I have a few papers with {\nhilit a lot} of equations. I hope
+
+\scriptsize Broman (2012) Genetics 190:403{\textendash412}
+
+
+  I have a few papers with {\nhilit a lot of equations. I hope
   they're not trying to re-type these. I generated them from code.
 }
-\end{frame}
 
 
-\begin{frame}[c,fragile]{BibTeX for bibliographies}
 
-\begin{lstlisting}
+## BibTeX for bibliographies
+
+
+
+```
 %bibliography format
 \usepackage[authoryear]{natbib}
 \bibpunct{(}{)}{;}{a}{}{,}
@@ -624,11 +641,11 @@ Ekstrom2012}, and a similar approach was applied by
 \renewcommand*{\refname}{\centerline{\normalsize\sffamily
    \textbf{Literature Cited}}}
 \bibliography{samplemixups}
-\end{lstlisting}
+```
 
-\bigskip
 
-\begin{lstlisting}
+
+```
 @article{Baggerly2008,
 author = {Baggerly, Keith A. and Coombes, Kevin R.},
 journal = {J. Clin. Oncol.},
@@ -636,66 +653,57 @@ pages = {1186--1187},
 title = {Run batch effects potentially compromise...},
 volume = {26},
 year = {2008} }
-\end{lstlisting}
+```
 
 
-\note{
-  References with \LaTeX\/ are via BibTeX, which is fabulous once you
+
+  References with \LaTeX/ are via BibTeX, which is fabulous once you
   get used to it. Most software to track references will produce
   BibTeX files for you.
 
   The formatting of citations and the reference listings, to match
   what the journal wants, can be painful. But I've figured out how to
-  produce what \emph{Genetics\/} wants, and I send all of my papers
+  produce what **Genetics/ wants, and I send all of my papers
   there.
 
   The first box is the sort of code that would appear
-  in your \LaTeX\/ file: the bit at the top goes in the header (before
-  {\tt {\textbackslash}begin\{document\}}). The bit in the middle
-  shows how to cite papers: use {\tt {\textbackslash}citep} to get the
-  whole thing in parentheses, and use {\tt {\textbackslash}citet} to
-  get a reference like ``...applied by Baggerly and Coombes (2008, 2009)...''
+  in your \LaTeX/ file: the bit at the top goes in the header (before
+  `{/`begin\{document\**}). The bit in the middle
+  shows how to cite papers: use `{/`citep} to get the
+  whole thing in parentheses, and use `{/`citet} to
+  get a reference like "...applied by Baggerly and Coombes (2008, 2009)..."
   The last bit in the first box produces the actual list of references.
 
   The second box is the BibTeX format for a particular reference.
 
-  When you use BibTeX, you tend to run {\tt pdflatex}, then {\tt
-  bibtex}, and then {\tt pdflatex} a couple of more times.
+  When you use BibTeX, you tend to run `pdflatex`, then {\tt
+  bibtex}, and then `pdflatex` a couple of more times.
 }
-\end{frame}
 
 
-\begin{frame}{Organizing analyses}
 
-\bbi
-\item Directory for the main analysis project
-  \bi
-  \item[] {\tt {\textasciitilde}/Projects/Blah}
-  \ei
-\item Directory for a paper
-  \bi
-  \item[] {\tt {\textasciitilde}/Docs/Papers/Blah}
-  \ei
-\item Paper directory may have an analysis directory
-  \bi
-  \item[] {\tt {\textasciitilde}/Docs/Papers/Blah/Analysis}
-  \ei
-\item Symbolic links to {\tt .RData} files
-  \bi
-  \item[] {\tt ln -s {\textasciitilde}/Projects/Blah/DerivedData/blah.RData .}
-  \ei
-\item Each part well organized and fully reproducible.
-\item R Markdown reports documenting different aspects.
-\item Analysis with the paper may be re-done "properly."
-\ei
+## Organizing analyses
 
-\note{
+
+
+*  Directory for the main analysis project
+  * [] `{~`/Projects/Blah}
+  *  Directory for a paper
+  * [] `{~`/Docs/Papers/Blah}
+  *  Paper directory may have an analysis directory
+  * [] `{~`/Docs/Papers/Blah/Analysis}
+  *  Symbolic links to `.RData` files
+  * [] `ln -s {~`/Projects/Blah/DerivedData/blah.RData .}
+  *  Each part well organized and fully reproducible.
+*  R Markdown reports documenting different aspects.
+*  Analysis with the paper may be re-done "properly."
+
   This is how I organize a paper related to a larger project.
 
   Some of the work in the main project may be re-done a bit
   differently (or cleaner) in the analysis with the paper.
 
-  You don't want to re-do {\nhilit all} analyses for the paper, but
+  You don't want to re-do {\nhilit all analyses for the paper, but
   it'd also be nice to have the data and code related to the paper be
   a bit more self-contained.
 
@@ -710,12 +718,14 @@ year = {2008} }
   actual manuscript and its figures and tables drawing from the
   results of those R Markdown documents.
 }
-\end{frame}
 
 
-\begin{frame}[c,fragile]{Make every number reproducible.}
 
-\begin{lstlisting}
+## Make every number reproducible.
+
+
+
+```
 <<define_numbers, echo=FALSE>>=
 numbers <- c("one", "two", "three", "four", "five",
              "six", "seven", "eight", "nine", "ten")
@@ -733,33 +743,35 @@ bar\dots
 But be careful about singular vs. plural, and so write
 \Sexpr{Numbers[n]} grasshopper\Sexpr{ifelse(n>1, "s", "")}
 walked\dots
-\end{lstlisting}
+```
 
-\note{
+
   Every statistic, figure and table in your manuscript should be fully
   reproducible. So when you're citing statistics, use
-  {\tt {\textbackslash}Sexpr\{\}} liberally.
+  `{/`Sexpr\{\} liberally.
 
   This should inhibit you from writing numbers as words, though the
-  \LaTeX\/ code can get a bit ugly.
+  \LaTeX/ code can get a bit ugly.
 
   There's a bit of fanciness here about capitalization and about
   ensuring that singular or plural nouns are correct. If
-  {\tt {\textbackslash}Sexpr\{\}} produces a character string, it ends
+  `{/`Sexpr\{\}} produces a character string, it ends
   up as plain text in your document
 
-  I'll use a lot of {\tt myround()} from my R/broman package, too.
+  I'll use a lot of `myround()` from my R/broman package, too.
 
   Long explanations or descriptions of figures can't be fully
   reproducible, but the figures themselves and any statistics you
   mention should be.
 }
-\end{frame}
 
 
-\begin{frame}[c,fragile]{Keep the figures separate}
 
-\begin{lstlisting}
+## Keep the figures separate
+
+
+
+```
 # simple make file
 
 mypaper.pdf: mypaper.tex Figs/fig1.pdf Figs/fig2.pdf
@@ -770,24 +782,24 @@ Figs/fig1.pdf: R/fig1.R
 
 Figs/fig2.pdf: R/fig2.R
     cd R;R CMD BATCH fig2.R fig2.Rout
-\end{lstlisting}
+```
 
-\bigskip \bigskip
+ 
 
 
-\begin{lstlisting}
+```
 \clearpage
 \includegraphics{Figs/fig1.pdf}
 
 \clearpage
 \includegraphics{Figs/fig2.pdf}
-\end{lstlisting}
+```
 
-\note{
-  While you {\nhilit could} include all code in your {\tt .Rnw} file,
+
+  While you {\nhilit could include all code in your `.Rnw` file,
   I prefer to pull out the code for my figures as separate files, and
-  then write a {\tt Makefile} for the manuscript construction and
-  include them with {\tt {\textbackslash}includegraphics}.
+  then write a `Makefile` for the manuscript construction and
+  include them with `{/`includegraphics}.
 
   The advantage of this is the ability to reuse the figures in
   talks or whatever. Also, journals will generally want the figures as
@@ -803,30 +815,25 @@ Figs/fig2.pdf: R/fig2.R
   things (padding for text and so forth), then the fine adjustments of the
   figure appearance would be easier.
 }
-\end{frame}
 
 
-\begin{frame}{Version Control}
 
-\bbi
-\item Your manuscript is under version control, right?
-\onslide<2->{\item Local or private repository for the whole thing
-  \bi
-  \item including reviewers' reports and my response
-  \item PDF of submitted and final manuscript
-  \ei
-\item Snapshot of the final version as a public repository
-  \bi
-  \item I don't really want to show the whole history
-  \ei
-}
-\ei
+## Version Control
 
-\note{
+
+
+*  Your manuscript is under version control, right?
+\onslide<2->{*  Local or private repository for the whole thing
+  *  including reviewers' reports and my response
+  *  PDF of submitted and final manuscript
+  *  Snapshot of the final version as a public repository
+  *  I don't really want to show the whole history
+  }
+
   Git is as good for tracking manuscripts and data analyses as it is
   for tracking code. Use it!
 
-  But I don't want to make {\nhilit everything} public, and I want to
+  But I don't want to make {\nhilit everything public, and I want to
   include private stuff in my repository.
 
   I've been using just a local repository, but I'm moving towards
@@ -835,18 +842,17 @@ Figs/fig2.pdf: R/fig2.R
   I'll put a snapshot of the final version, and maybe a few final
   changes, on GitHub.
 }
-\end{frame}
 
 
-\begin{frame}{Word}
 
-\bbi
-\item With papers led by a collaborator, I'm usually stuck with Word.
-\item But my analyses and figures are fully reproducible.
-\item Create an R Markdown document with the detailed results.
-\ei
+## Word
 
-\note{
+
+
+*  With papers led by a collaborator, I'm usually stuck with Word.
+*  But my analyses and figures are fully reproducible.
+*  Create an R Markdown document with the detailed results.
+
   Often, you'll be stuck with Word. And you can't reproducibly insert
   numbers into Word.
 
@@ -858,29 +864,28 @@ Figs/fig2.pdf: R/fig2.R
 
   Teach your collaborators to at least have their figures be
   reproducible?
-}
-\end{frame}
 
 
 
-\begin{frame}{Summary}
 
-\bbi
-\item \LaTeX\/ is brilliant for fine control and for equations
-\item Floating figures and tables can be a pain
-\item You use KnitR with \LaTeX\/ much the same way as you'd used it
+
+## Summary
+
+
+
+*  \LaTeX/ is brilliant for fine control and for equations
+*  Floating figures and tables can be a pain
+*  You use KnitR with \LaTeX/ much the same way as you'd used it
   with Markdown.
-\item Ensure that every statistic, figure, and table in your paper are
+*  Ensure that every statistic, figure, and table in your paper are
   fully reproducible.
-\item Use xtable to make tables.
-\item Separate out the code for the figures.
-\item Use version control!
-\ei
+*  Use xtable to make tables.
+*  Separate out the code for the figures.
+*  Use version control!
 
-\note{
   Summaries are helpful.
-}
-\end{frame}
 
 
-\end{document}
+
+
+

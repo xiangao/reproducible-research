@@ -17,15 +17,15 @@ title: Licenses; human subjects data
 
 \title{}
 \subtitle{Tools for Reproducible Research}
-\author{\href{http://kbroman.org}{Karl Broman}}
+\author{[Karl Broman](http://kbroman.org)}
 \institute{Biostatistics \& Medical Informatics, UW{\textendash}Madison}
-\date{\href{http://kbroman.org}{\tt \scriptsize \color{foreground} kbroman.org}
+\date{[\tt \scriptsize \color{foreground](http://kbroman.org) kbroman.org}
 \\[-4pt]
-\href{http://github.com/kbroman}{\tt \scriptsize \color{foreground} github.com/kbroman}
+[\tt \scriptsize \color{foreground](http://github.com/kbroman) github.com/kbroman}
 \\[-4pt]
-\href{https://twitter.com/kwbroman}{\tt \scriptsize \color{foreground} @kwbroman}
+[\tt \scriptsize \color{foreground](https://twitter.com/kwbroman) @kwbroman}
 \\[-4pt]
-{\scriptsize Course web: \href{http://kbroman.org/Tools4RR}{\tt kbroman.org/Tools4RR}}
+{\scriptsize Course web: [\tt kbroman.org/Tools4RR](http://kbroman.org/Tools4RR)}
 }
 
 \begin{document}
@@ -35,7 +35,7 @@ title: Licenses; human subjects data
 \frame{
   \titlepage
 
-\note{
+
   An often neglected aspect in discussions of reproducible research:
   software and data need to be licensed. If you want your software and
   data to be reused, you need to provide an explicit license that
@@ -43,7 +43,7 @@ title: Licenses; human subjects data
 
   I'm going to try to explain the issues and give suggestions about
   licenses to consider. But I'm no expert, and I'm definitely {\nhilit
-  not a lawyer}. I don't guarantee that this is entirely correct.
+  not a lawyer. I don't guarantee that this is entirely correct.
 
   If you will be sharing data on human subjects, or, for that matter,
   just working with data on human subjects, you need to be extra
@@ -58,30 +58,25 @@ title: Licenses; human subjects data
 {
 \setbeamertemplate{footline}{} % no page number here
 
-\begin{frame}<handout:0>{Course summary}
+## Course summary
 
-\vspace{12pt}
 
-\bi
-\itemsep8pt
-\item Make everything you do script-based
-  \bi
-  \item code + data $\rightarrow$ product
-  \ei
-\item Use version control (git and GitHub/Bitbucket)
-\item Take your time; organize
-\item Write clear code; write functions; make R packages
-\item Write unit tests
-\item Capture exploratory data analysis
-  \bi
-  \item what you did, saw, and thought (and why)
-  \ei
-\item knitr + Markdown for reports
-\item knitr + \LaTeX\ for papers {\lolit and talks and posters}
-\item Use licenses to make reusability clear
-\ei
 
-\end{frame}
+
+
+* sep8pt
+*  Make everything you do script-based
+  *  code + data -> product
+  *  Use version control (git and GitHub/Bitbucket)
+*  Take your time; organize
+*  Write clear code; write functions; make R packages
+*  Write unit tests
+*  Capture exploratory data analysis
+  *  what you did, saw, and thought (and why)
+  *  knitr + Markdown for reports
+*  knitr + \LaTeX\ for papers and talks and posters
+*  Use licenses to make reusability clear
+
 }
 
 
@@ -89,9 +84,9 @@ title: Licenses; human subjects data
 
 \begin{center}
 \begin{minipage}[c]{9.3cm}
-\begin{semiverbatim}
+
 \lstset{basicstyle=\normalsize}
-\begin{lstlisting}[linewidth=9.3cm]
+```[linewidth=9.3cm]
  Karl -- this is very interesting,
  however you used an old version of
  the data (n=143 rather than n=226).
@@ -100,12 +95,12 @@ title: Licenses; human subjects data
  work on the incomplete dataset.
 
  Bruce
-\end{lstlisting}
-\end{semiverbatim}
+```
+
 \end{minipage}
 \end{center}
 
-\note{This is an edited version of an email I got from a collaborator,
+This is an edited version of an email I got from a collaborator,
   in response to an analysis report that I had sent him.
 
   I try to always include some brief data summaries at the start of
@@ -113,32 +108,31 @@ title: Licenses; human subjects data
   version of the data.
 
   Because I'd set things up carefully, I could just substitute in the
-  newer dataset, type ``{\tt make}'', and get the revised report.
+  newer dataset, type "`make`", and get the revised report.
 
   This is a reproducibility success story. But it took me a long
   time to get to this point.
-}
-\end{frame}
 
 
 
 
-\begin{frame}{Intellectual property}
+
+
+## Intellectual property
+
+
 
 \addtocounter{framenumber}{-1}
 
-\bbi
-\item Manuscripts/journal articles
-\item Books
-\item Software
-\item Data sets
-\item Ideas, inventions
-\item Lab/research notebooks
-\item Instructional materials
-\item Web sites
-\ei
+*  Manuscripts/journal articles
+*  Books
+*  Software
+*  Data sets
+*  Ideas, inventions
+*  Lab/research notebooks
+*  Instructional materials
+*  Web sites
 
-\note{
  Intellectual property is property (ie, someone can own it) that is not
  an actual thing but more the idea of the thing. For example, it's not
  the actual physical book, but the text in the book. It's
@@ -146,24 +140,23 @@ title: Licenses; human subjects data
  that artwork. This can get pretty complicated; it's best to move on.
 
  Most of what academics produce is intellectual property.
-}
-\end{frame}
 
 
-\begin{frame}{IP protection}
 
-\bbi
-\item Copyright
-\item Patents
-\item Trademarks, Trade "dress"
-\item Trade secrets
-\ei
 
-\note{
+## IP protection
+
+
+
+*  Copyright
+*  Patents
+*  Trademarks, Trade "dress"
+*  Trade secrets
+
   Different kinds of intellectual property are protected in different
   ways. I'm going to focus on copyright.
 
-  An important point to mention here is that an {\nhilit idea},
+  An important point to mention here is that an {\nhilit idea,
   {\nhilit fact} or {\nhilit algorithm} can't be copyrighted. Ideas
   and algorithms can be protected with a patent, but {\nhilit facts}
   (including individual data points) can be neither copyrighted nor
@@ -175,18 +168,19 @@ title: Licenses; human subjects data
   algorithms are patented, and then you have to get their permission
   to use them, even if it's your own implementation.
 }
-\end{frame}
 
 
-\begin{frame}{Copyright}
 
-\bbi
-\item Copyright is automatic
-\item In "works for hire," the employer holds the copyright
-\item In academics, it is customary that researchers control copyright
-\onslide<2->{\item At
-  \href{https://grad.wisc.edu/acadpolicy/\#responsibleconductofresearch}{UW-Madison}:
-    \vspace{6pt}
+## Copyright
+
+
+
+*  Copyright is automatic
+*  In "works for hire," the employer holds the copyright
+*  In academics, it is customary that researchers control copyright
+\onslide<2->{*  At
+  [UW-Madison](https://grad.wisc.edu/acadpolicy/\#responsibleconductofresearch):
+    
 
     \begin{quote} \footnotesize \lolit
       "Except as required by funding agreements or other university
@@ -196,10 +190,8 @@ title: Licenses; human subjects data
     \end{quote}
 }
 
-\ei
 
-\note{
-  \vspace{-8pt}
+  
   Since 1978, works you create are automatically copyrighted. That
   includes data, software, papers, books, talks, posters, course syllabi,
   and lecture notes. Since 1989, you don't need to include a copyright notice.
@@ -222,48 +214,46 @@ title: Licenses; human subjects data
   such as instructional materials produced with significant university
   resources. And if you're going to patent something, it must be
   through the Wisconsin Alumni Research Foundation (WARF).
-}
-\end{frame}
 
 
-\begin{frame}{Exclusive rights under copyright}
 
-\bbi
-\item To make copies of the work
-\item To distribute/sell copies of the work
-\item To create derivative works
-\item To perform the work
-\item To display the work publicly
-\ei
 
-\note{
+## Exclusive rights under copyright
+
+
+
+*  To make copies of the work
+*  To distribute/sell copies of the work
+*  To create derivative works
+*  To perform the work
+*  To display the work publicly
+
   Copyright protection gives the author exclusive rights to the work
   and to derivatives of the work.
 
   Thus, the default is that no one can copy, modify, or redistribute
   your code.
-}
-\end{frame}
 
 
 
 
-\begin{frame}{Fair use}
 
-\vspace{18pt}
+
+## Fair use
+
+
+
+
 
 Reproduction for criticism/commentary, teaching, and research
 
-\vspace{12pt}
 
-\bi
-\itemsep8pt
-\item For non-commercial or nonprofit educational purposes
-\item Can't be a substantial portion of the work
-\item Can't affect the value/market of the original work
-\ei
 
-\note{
+* sep8pt
+*  For non-commercial or nonprofit educational purposes
+*  Can't be a substantial portion of the work
+*  Can't affect the value/market of the original work
+
   There are important limitations to copyright protection.
 
   We are allowed to reproduce portions of a work as part of a
@@ -273,8 +263,8 @@ Reproduction for criticism/commentary, teaching, and research
 
   Quoting from a work is okay. Posting the full thing on the web is
   not.
-}
-\end{frame}
+
+
 
 
 
@@ -284,40 +274,39 @@ Reproduction for criticism/commentary, teaching, and research
 
 \centerline{Breaking copyright \quad $\longleftrightarrow$ \quad plagiarism}
 
-\vspace{36pt}
+
 
 \onslide<2->{\centerline{These are totally different things.}}
 
 
-\note{
+
   Just in case it's not clear: the tradition of citing one's sources
   is really totally different from following copyright law.
 
   Works in the public domain should still be appropriately cited.
-}
-\end{frame}
 
 
 
 
 
-\begin{frame}{Software licenses}
 
-\bbi
-\item Critical if you {\hilit want} your code to be reused.
-\item Also important to protect yourself from lawsuits.
-\item I choose between the MIT license and the GPL.
-\item {\hilit Don't} use Creative Commons licenses for software!
-\ei
 
-\note{
-  If you don't indicate a license for your software, others {\hilit
-  can't} reuse it. You need to be explicit about whether and how your
+## Software licenses
+
+
+
+*  Critical if you **want** your code to be reused.
+*  Also important to protect yourself from lawsuits.
+*  I choose between the MIT license and the GPL.
+*  **Don't** use Creative Commons licenses for software!
+
+  If you don't indicate a license for your software, others {
+  can't reuse it. You need to be explicit about whether and how your
   software may be reused, by providing a license.
 
   I choose between the MIT license and the GNU General Public License
   (GPL). The MIT license is as open as possible: do whatever you want,
-  just don't sue me. The GPL is ``viral'' (they say ``copyleft'') in that extends to
+  just don't sue me. The GPL is "viral" (they say "copyleft") in that extends to
   derivative works: software that incorporates code under the GPL must
   also be under the GPL.
 
@@ -327,34 +316,36 @@ Reproduction for criticism/commentary, teaching, and research
   software licenses, such as the GPL. That means that you wouldn't be
   able to mix in code that was licensed under the GPL.
 }
-\end{frame}
+
 
 
 \begin{frame}[c]{}
 
-\vspace{48pt}
+
 
 \centerline{\large Pick a license, any license}
 
-\vspace{72pt}
 
-\hfill
-{\textendash} \href{http://blog.codinghorror.com/pick-a-license-any-license/}{Jeff Atwood}
 
-\note{
+
+{\textendash} [Jeff Atwood](http://blog.codinghorror.com/pick-a-license-any-license/)
+
+
   I can't emphasize this enough. If you release your software without
   a license, no one can modify it or incorporate it into their own
   software, as it's under copyright protection.
 
   If you want your software to be reused, pick a license, and make the
   licensing absolutely clear.
-}
-\end{frame}
 
 
-\begin{frame}[c,fragile]{MIT license}
 
-\begin{lstlisting}
+
+## MIT license
+
+
+
+```
 Copyright (C) <year> <copyright holders>
 
 Permission is hereby granted, free of charge, to any person
@@ -377,42 +368,43 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-\end{lstlisting}
+```
 
 
-\note{
+
   The MIT license basically says: do whatever you want with the
   software, but be sure to include this notice, and don't sue me.
 
   Those are the key things you want: protect yourself from liability,
   and make plain that people can be free to reuse the software.
-}
-\end{frame}
 
 
-\begin{frame}{GPL-3}
 
-\bbi
-\item Use, modify, distribute, \dots
-\item Don't hold the author liable.
-\item Distributions must include the source code.
-\item Software incorporating the work {\hilit must also be under GPL-3}.
-\ei
 
-\note{
+## GPL-3
+
+
+
+*  Use, modify, distribute, \dots
+*  Don't hold the author liable.
+*  Distributions must include the source code.
+*  Software incorporating the work **must also be under GPL-3**.
+
   There is an older GPL-2. Use the GPL-3. It was updated to close
   some loopholes.
 
   Key additions vs MIT license: distributions of the work or
   derivatives must include source code, and derivatives must also be
   licensed under GPL-3.
-}
-\end{frame}
 
 
-\begin{frame}[c,fragile]{For GPL-3, include this}
 
-\begin{lstlisting}
+
+## For GPL-3, include this
+
+
+
+```
 <line with the program's name and a brief idea of what it does.>
 Copyright (C) <year>  <name of author>
 
@@ -429,34 +421,33 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public
 License along with this program.  If not, see
 <http://www.gnu.org/licenses/>.
-\end{lstlisting}
+```
 
-\note{
+
   To license your software under the GPL, include a notice like this.
-}
-\end{frame}
 
 
-\begin{frame}{Creative Commons licenses}
 
-\bbi
-\item CC0 {\lolit (Public Domain)}
-\item CC BY {\lolit (Attribution)}
-\item CC BY-SA {\lolit (Attribution-ShareAlike)}
-\item CC BY-ND {\lolit (Attribution-NoDerivs)}
-\item CC BY-NC {\lolit (Attribution-NonCommercial)}
-\item CC BY-NC-SA {\lolit (Attribution-NonCommercial-ShareAlike)}
-\item CC BY-NC-ND {\lolit (Attribution-NonCommercial-NoDerivs)}
-\ei
 
-\note{
+## Creative Commons licenses
+
+
+
+*  CC0 (Public Domain)
+*  CC BY (Attribution)
+*  CC BY-SA (Attribution-ShareAlike)
+*  CC BY-ND (Attribution-NoDerivs)
+*  CC BY-NC (Attribution-NonCommercial)
+*  CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)
+*  CC BY-NC-ND (Attribution-NonCommercial-NoDerivs)
+
   The Creative Commons licenses are really useful for things like
   manuscripts, data files, videos, web sites, and such.
 
   You shouldn't use them for software, as they can't be mixed with the
   GPL, and they make no explicit mention of source or object code.
   In the FAQ at Creative Commons, they explicitly recommend {\nhilit
-  against} the use of CC licenses for software.
+  against the use of CC licenses for software.
 
   BY means people must cite you as the originator.
 
@@ -468,29 +459,22 @@ License along with this program.  If not, see
 
   NC means the work can't be used in a commercial setting.
 }
-\end{frame}
 
 
-\begin{frame}{CC licenses: issues to consider}
 
-\bbi
-\item BY may be an unnecessary hassle.
-\item CC-BY on a paper would allow a company to include it in a book
-  \bi
-  \item but maybe you don't care
-  \ei
-\item ND is {\vhilit really} restrictive
- \bi
- \item all or none
- \item no modifications at all
- \ei
-\item NC means people in a company can't use it at all
- \bi
- \item might not be usable within a course
- \ei
-\ei
+## CC licenses: issues to consider
 
-\note{
+
+
+*  BY may be an unnecessary hassle.
+*  CC-BY on a paper would allow a company to include it in a book
+  *  but maybe you don't care
+  *  ND is {\vhilit really} restrictive
+ *  all or none
+ *  no modifications at all
+ *  NC means people in a company can't use it at all
+ *  might not be usable within a course
+ 
   There are a lot of issues to consider.
 
   I'd recommend avoiding ND and probably also NC.
@@ -499,29 +483,24 @@ License along with this program.  If not, see
   still cite you) or CC-BY. It means that a company could grab my
   stuff and make money off of it. But I'm fine with that. I'd rather
   see the results of my efforts put to further use.
-}
-\end{frame}
 
 
-\begin{frame}{Data copyright}
 
-\bbi
-\item Individual data points are generally considered {\hilit facts}
-  \bi
-  \item Can't be copyrighted
-  \ei
-\item Compilations of data can be copyrighted
-  \bi
-  \item Involves some creativity, so an "original work of authorship"
-  \ei
-\item But someone can just extract and reformat the data
-\item Can assign a license to the data files to prevent extraction and
+
+## Data copyright
+
+
+
+*  Individual data points are generally considered **facts**
+  *  Can't be copyrighted
+  *  Compilations of data can be copyrighted
+  *  Involves some creativity, so an "original work of authorship"
+  *  But someone can just extract and reformat the data
+*  Can assign a license to the data files to prevent extraction and
   redistribution
-\item See \href{http://bitlaw.com/copyright/database.html}{\tt bitlaw.com/copyright/database.html}
-\ei
+*  See [\tt bitlaw.com/copyright/database.html](http://bitlaw.com/copyright/database.html)
 
-\note{
-  Data are viewed as facts and so they {\nhilit can't} be copyrighted.
+  Data are viewed as facts and so they {\nhilit can't be copyrighted.
 
   Your data file or database, though, {\nhilit can} be copyrighted,
   if its compilation involves some creativity, and that would
@@ -535,25 +514,22 @@ License along with this program.  If not, see
   need a license, which would say the end user is prohibited from
   extracting data for uses other than intended.
 }
-\end{frame}
 
 
 
-\begin{frame}{Keep data open}
 
-\bbi
-\item Cite the source; cite the relevant papers
-\item Talk to the originator of the data
-  \bi
-  \item Even if redistribution is legal, don't piss them off.
-  \ei
-\item For your own data, use
-  \href{https://creativecommons.org/publicdomain/zero/1.0/}{CC0}
+## Keep data open
+
+
+
+*  Cite the source; cite the relevant papers
+*  Talk to the originator of the data
+  *  Even if redistribution is legal, don't piss them off.
+  *  For your own data, use
+  [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
   (public domain)
-\item If you want more control, talk to a lawyer
-\ei
+*  If you want more control, talk to a lawyer
 
-\note{
   Statisticians, in particular, should want data to be openly
   available. And so you should cite the source of data and any
   relevant papers, not just because that's the academic tradition, but
@@ -570,41 +546,30 @@ License along with this program.  If not, see
 
   If you want to control reuse or redistribution, talk to a lawyer. It
   seems really complicated.
-}
-\end{frame}
 
 
-\begin{frame}{Human subjects research}
 
-\bbi
-\only<1-2|handout 0>{\item Avoid human subjects research
-  \bi
-  \item[] {\hilit \only<1|handout 0>{\color{background}} (just kidding!)}
-  \ei
-}
+
+## Human subjects research
+
+
+
+\only<1-2|handout 0>{*  Avoid human subjects research
+  * [] **\only<1|handout 0>{\color{background**} (just kidding!)}
+  }
 \only<3->{
-\item If there are humans involved, they're human subjects
-  \bi
-  \item e.g., surveys
-  \ei
-\item Human subjects research must be reviewed by an
+*  If there are humans involved, they're human subjects
+  *  e.g., surveys
+  *  Human subjects research must be reviewed by an
   Institutional Review Board (IRB)
-\item Not everything is {\hilit research}
-  \bi
-  \item e.g., data used solely in a course
-  \ei
-\item Most things are research
-  \bi
-  \item If you publish a paper about it, it's research
-  \ei
-\item Anonymized data may be {\hilit exempt}
-  \bi
-  \item But the IRB wants to make that determination
-  \ei
-}
-\ei
+*  Not everything is **research**
+  *  e.g., data used solely in a course
+  *  Most things are research
+  *  If you publish a paper about it, it's research
+  *  Anonymized data may be **exempt**
+  *  But the IRB wants to make that determination
+  }
 
-\note{
   Any research on human subjects must be reviewed by an IRB.
 
   If you're considering publishing a paper about it, and if humans are
@@ -612,62 +577,56 @@ License along with this program.  If not, see
   surveys. So informed consent, and review by IRB, with a clearly
   defined protocol and protection of data.
 
-  You can do a survey {\nhilit within a class} and it may not be
+  You can do a survey {\nhilit within a class and it may not be
   research, but then you can't publish the results.
 
-  The NIH considers the analysis of anonymized human data to be ``not
-  human subjects research,'' and it may be exempt from full IRB
+  The NIH considers the analysis of anonymized human data to be "not
+  human subjects research," and it may be exempt from full IRB
   review, but IRBs generally want to make such determinations
   themselves: you need to fill out some amount of paperwork.
 }
-\end{frame}
 
 
-\begin{frame}{HIPAA}
 
-\bbi
-\item HIPAA = Health Insurance Portability and Accountability Act of 1996
-\item Special rules about medical data with {\hilit any}
+## HIPAA
+
+
+
+*  HIPAA = Health Insurance Portability and Accountability Act of 1996
+*  Special rules about medical data with **any**
   identifying information
-  \bi
-  \item Private
-  \item Secure
-  \ei
-\item Full zip code may be considered identifying information.
-\item Dates of test results are considered identifying information.
-\ei
+  *  Private
+  *  Secure
+  *  Full zip code may be considered identifying information.
+*  Dates of test results are considered identifying information.
 
-\note{
   HIPAA is really important, but it's also a real pain.
 
-  The key thing is that medical data with {\nhilit any} identifying
+  The key thing is that medical data with {\nhilit any identifying
   information needs a whole bunch of paperwork if
   transferred/disclosed, and there need to be special security
   measures.
 
-  And the definition of ``identifying information'' is surprisingly
+  And the definition of "identifying information" is surprisingly
   broad.
 }
-\end{frame}
 
 
 
-\begin{frame}{Summary}
 
-\bbi
-\item Pick a license, any license
-\item Use MIT or GPL for software
-\item Use CC0 for data
-\item Cite sources of software and data
-\item Talk to the source of data
-\item Be careful with human data
-  \bi
-  \item If you're unsure, ask for help
-  \ei
-\ei
+## Summary
 
-\note{
-  If you don't {\nhilit license} your software, it can't be modified
+
+
+*  Pick a license, any license
+*  Use MIT or GPL for software
+*  Use CC0 for data
+*  Cite sources of software and data
+*  Talk to the source of data
+*  Be careful with human data
+  *  If you're unsure, ask for help
+  
+  If you don't {\nhilit license your software, it can't be modified
   or reused.
 
   Make data open, and be sure to reward those who make data and
@@ -676,7 +635,7 @@ License along with this program.  If not, see
   Be careful with human data, particularly if there's anything
   remotely identifiable.
 }
-\end{frame}
 
 
-\end{document}
+
+
