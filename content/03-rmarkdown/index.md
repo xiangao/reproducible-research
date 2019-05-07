@@ -27,40 +27,38 @@ Statisticians write a lot of reports, describing the results of
 
 ## knitr in a knutshell
 
-\centerline{\Large \href{http://kbroman.org/knitr_knutshell}{\tt kbroman.org/knitr\_knutshell}}
+\centerline{\Large [\tt kbroman.org/knitr_knutshell](http://kbroman.org/knitr_knutshell)}
 
-\note{I wrote a short tutorial on knitr, covering a bit more than I'll
+I wrote a short tutorial on knitr, covering a bit more than I'll
   cover in this lecture.
 
   I'd be glad for suggestions, corrections, or questions.
-}
-\end{frame}
 
 
 
 
 
 
-\begin{frame}{Data analysis reports}
 
-\vspace{24pt}
 
-\bi
-\itemsep24pt
-\item Figures/tables + email
-\item Static \LaTeX\ or Word document
-\item knitr/Sweave + \LaTeX\ $\rightarrow$ PDF
-\item knitr + Markdown $\rightarrow$ Web page
-\ei
+## Data analysis reports
 
-\note{Statisticians write a lot of reports. You do a bunch of
+
+
+
+
+*  Figures/tables + email
+*  Static \LaTeX\ or Word document
+*  knitr/Sweave + \LaTeX\ -> PDF
+*  knitr + Markdown -> Web page
+Statisticians write a lot of reports. You do a bunch of
   analyses, create a bunch of figures and tables, and you want to
   describe what you've done to a collaborator.
 
   When I was first starting out, I'd create a bunch of figures and
   tables and email them to my collaborator with a description of the
   findings in the body of the email. That was cumbersome for me and
-  for the collaborator. (``Which figure are we talking about, again?'')
+  for the collaborator. ("Which figure are we talking about, again?")
 
   I moved towards writing formal reports in
   \LaTeX\ and sending my collaborator a
@@ -73,8 +71,8 @@ Statisticians write a lot of reports, describing the results of
   Web pages, produced with knitr and Markdown, are ideal. You can make
   super-tall multi-panel figures that show the full details, without
   worrying page breaks. And hyperlinks are more convenient, too.
-}
-\end{frame}
+
+
 
 
 \begin{frame}[c]{}
@@ -82,11 +80,11 @@ Statisticians write a lot of reports, describing the results of
 \centering
 What if the data change?
 
-\vspace{36pt}
+
 
 What if you used the wrong version of the data?
 
-\note{If data are added, will it be easy to go back and re-do your
+If data are added, will it be easy to go back and re-do your
   analyses, or is there a lot of copying-and-pasting and editing to be
   done?
 
@@ -95,50 +93,52 @@ What if you used the wrong version of the data?
   that I'd used an old version of the data. (I'd cited sample
   sizes, and so he could see that I didn't have the full set.)
 
-  He said, ``I'm really sorry you did all that work on the incomplete
-  dataset.''
+  He said, "I'm really sorry you did all that work on the incomplete
+  dataset."
 
   But actually, it didn't take long to find the right file, and the
   revised analysis was derived instantaneously, as I'd used knitr.
-}
-
-\end{frame}
 
 
-\begin{frame}[fragile]{knitr code chunks}
 
-\vspace{6pt}
 
-\href{https://github.com/kbroman/Tools4RR/blob/master/03_KnitrMarkdown/Examples/example1.Rmd}{Input to knitr}:
-\begin{lstlisting}
+
+## knitr code chunks
+
+
+
+
+
+[Input to knitr](https://github.com/kbroman/Tools4RR/blob/master/03_KnitrMarkdown/Examples/example1.Rmd):
+```
 We see that this is an intercross with `r nind(sug)`
 individuals. There are `r nphe(sug)` phenotypes, and genotype
 data at `r totmar(sug)` markers across the `r nchr(sug)`
 autosomes.  The genotype data is quite complete.
 
-```{r summary_plot, fig.height=8}
+"`{r summary_plot, fig.height=8}
 plot(sug)
+"`
 ```
-\end{lstlisting}
 
-\vfill
 
-\href{https://github.com/kbroman/Tools4RR/blob/master/03_KnitrMarkdown/Examples/example1.md}{Output from knitr}:
-\begin{lstlisting}
+
+[Output from knitr](https://github.com/kbroman/Tools4RR/blob/master/03_KnitrMarkdown/Examples/example1.md):
+```
 We see that this is an intercross with 163
 individuals. There are 6 phenotypes, and genotype
 data at 93 markers across the 19
 autosomes.  The genotype data is quite complete.
 
-```r
+"`r
 plot(sug)
-```
+"`
 
 ![plot of chunk summary_plot](RmdFigs/summary_plot.png)
-\end{lstlisting}
+```
 
 
-\note{The basic idea in knitr is that your regular text document will
+The basic idea in knitr is that your regular text document will
   be interrupted by chunks of code delimited in a special way.
 
   This example is with R Markdown.
@@ -155,15 +155,17 @@ plot(sug)
   code chunks, because it's basically going to do a
   search-and-replace and depending on the form of text, different
   patterns will be easier to find.
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{html}
 
-\vspace{6pt}
 
-\begin{lstlisting}
+## html
+
+
+
+
+
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,36 +187,38 @@ in monospace.</p>
 
 </body>
 </html>
-\end{lstlisting}
+```
 
-\vfill
 
-\hfill {\footnotesize \lolit [\href{http://kbroman.github.io/knitr_knutshell/assets/markdown_example.html}{Example}]}
 
-\note{It's helpful to know a bit of html, which is the markup
+ [[Example](http://kbroman.github.io/knitr_knutshell/assets/markdown_example.html)]
+
+It's helpful to know a bit of html, which is the markup
 language that web pages are written in. html really isn't that hard;
 it's just cumbersome.
 
 An html document contains pairs of tags to indicate content, like
-{\tt <h1>} and {\tt </h1>} to indicate that the enclosed text is a
-``level one header'', or {\tt <em>} and {\tt </em>} to indicate emphasis
+`<h1>` and `</h1>` to indicate that the enclosed text is a
+"level one header", or `<em>` and `</em>` to indicate emphasis
 (generally italics). A web browser will parse the html tags and
 render the web page, often using a cascading style sheet (CSS) to
 define the precise style of the different elements.
 
 Note that there are six levels of headers, with tags
-{\tt <h1>}, {\tt <h2>}, {\tt <h3>}, \dots, {\tt <h6>}.
+`<h1>`, `<h2>`, `<h3>`, \dots, `<h6>`.
 Think of these as the title,
 section, subsection, sub-subsection, \dots
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{CSS}
 
-\vspace{24pt}
 
-\begin{lstlisting}
+## CSS
+
+
+
+
+
+```
 ul,ol {
   margin: 0 0 0 35px;
 }
@@ -230,28 +234,30 @@ a:hover
   color: purple;
   background: #CAFFFF;
 }
-\end{lstlisting}
+```
 
-\vspace{24pt}
 
-\hfill {\footnotesize \lolit
-[\href{http://kevinburke.bitbucket.org/markdowncss/markdown.css}{Example}]}
 
-\note{I don't really want to talk about CSS, but I thought I should at
+ {\footnotesize \lolit
+[[Example](http://kevinburke.bitbucket.org/markdowncss/markdown.css)]}
+
+I don't really want to talk about CSS, but I thought I should at
   least acknowledge its existence.
 
   CSS is really important for defining how your document will
   appear. Much of the time, you just want to find someone else's CSS
   document that is satisfactory to you.
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{Markdown}
 
-\vspace{6pt}
 
-\begin{lstlisting}
+## Markdown
+
+
+
+
+
+```
 # Markdown example
 
 Use a bit of **bold** or _italics_. Use backticks to indicate
@@ -262,9 +268,9 @@ Use a bit of **bold** or _italics_. Use backticks to indicate
 
 Include blocks of code using three backticks:
 
-```
+"`
 x <- rnorm(100)
-```
+"`
 
 Or indent four spaces:
 
@@ -273,15 +279,15 @@ Or indent four spaces:
 
 And it's easy to create links, like to
 [Markdown](http://daringfireball.net/projects/markdown/).
-\end{lstlisting}
+```
 
-\vfill
 
-\hfill {\footnotesize \lolit
-[\href{http://kbroman.github.io/knitr_knutshell/assets/markdown_example.md}{Example} |
-\href{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}{MD cheat sheet}]}
 
-\note{Markdown is a system for writing simple, readable text that is
+ {\footnotesize \lolit
+[[Example](http://kbroman.github.io/knitr_knutshell/assets/markdown_example.md) |
+[MD cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)]}
+
+Markdown is a system for writing simple, readable text that is
   easily converted into html. The reason it's useful to know a bit of
   html is that then you have a better idea how the final product will
   look. (Plus, if you want to get fancy, you can just insert a bit of
@@ -295,215 +301,215 @@ And it's easy to create links, like to
   Github (which we'll talk about next week) automatically renders
   Markdown files as html, and you can use Markdown for ReadMe files.
   And the website for this course is mostly in Markdown.
-}
-\end{frame}
 
 
 
 
-\begin{frame}[fragile]{R Markdown}
 
-\vspace{24pt}
 
-\bi
-\itemsep12pt
-\item \href{http://rmarkdown.rstudio.com}{R Markdown} is a variant of Markdown, developed at
-  \href{http://www.rstudio.com}{RStudio.com}
-\item Markdown + knitr + extras
-\item A few extra marks
-\item \href{http://www.rstudio.com/ide/docs/authoring/using_markdown_equations}{\LaTeX\ equations}
-\item Bundle images into the final html file
-\ei
+## R Markdown
 
-\note{R Markdown is a variant of Markdown developed by the folks at
+
+
+
+
+* sep12pt
+*  [R Markdown](http://rmarkdown.rstudio.com) is a variant of Markdown, developed at
+  [RStudio.com](http://www.rstudio.com)
+*  Markdown + knitr + extras
+*  A few extra marks
+*  [\LaTeX\ equations](http://www.rstudio.com/ide/docs/authoring/using_markdown_equations)
+*  Bundle images into the final html file
+R Markdown is a variant of Markdown developed by the folks at
   RStudio.
 
   It's Markdown with knitr code chunks, but there are a number of
   added features,  most importantly the ability to use
   \LaTeX\ equations.
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{Code chunks, again}
 
-\vspace{6pt}
 
-\begin{lstlisting}
-```{r knitr_options, include=FALSE}
+## Code chunks, again
+
+
+
+
+
+```
+"`{r knitr_options, include=FALSE}
 knitr::opts_chunk$set(fig.width=12, fig.height=4,
                       fig.path='Figs/', warning=FALSE,
                       message=FALSE)
 set.seed(53079239)
-```
+"`
 
 ### Preliminaries
 
 Load the R/qtl package using the `library` function:
 
-```{r load_qtl}
+"`{r load_qtl}
 library(qtl)
-```
+"`
 
 To get help on the read.cross function in R, type the
 following:
 
-```{r help, eval=FALSE}
+"`{r help, eval=FALSE}
 ?read.cross
+"`
 ```
-\end{lstlisting}
-
-\vfill
-
-\hfill {\footnotesize \lolit
-[\href{https://github.com/kbroman/knitr_knutshell/blob/gh-pages/assets/knitr_example.Rmd}{Example}]}
 
 
-\note{A couple of additional points about code chunks.
+
+ {\footnotesize \lolit
+[[Example](https://github.com/kbroman/knitr_knutshell/blob/gh-pages/assets/knitr_example.Rmd)]}
+
+
+A couple of additional points about code chunks.
 
 You can (and should) assign names to the code chunks. It will make it
 easier to fix errors, and figure files will be named based on the
 name of the chunk that produces them.
 
-Code chunks can also have options, like {\tt include=FALSE} and {\tt eval=FALSE}.
+Code chunks can also have options, like `include=FALSE` and `eval=FALSE`.
 And you can define global options, which will apply to all subsequent
 chunks.
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{Chunk options}
 
-\vspace{6pt}
+
+## Chunk options
+
+
+
+
 
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{ll}
-{\tt echo=FALSE}     & \lolit Don't include the code \\
-{\tt results="hide"} & \lolit Don't include the output \\
-{\tt include=FALSE}  & \lolit Don't show code or output \\
-{\tt eval=FALSE}     & \lolit Don't evaluate the code at all \\
-{\tt warning=FALSE}  & \lolit Don't show R warnings \\
-{\tt message=FALSE}  & \lolit Don't show R messages \\
-{\tt fig.width={\lolit \#}}   & \lolit Width of figure \\
-{\tt fig.height={\lolit \#}}  & \lolit Height of figure \\
-{\tt fig.path="Figs/"} & \lolit Path for figure files \\
+`echo=FALSE`     & \lolit Don't include the code \\
+`results="hide"` & \lolit Don't include the output \\
+`include=FALSE`  & \lolit Don't show code or output \\
+`eval=FALSE`     & \lolit Don't evaluate the code at all \\
+`warning=FALSE`  & \lolit Don't show R warnings \\
+`message=FALSE`  & \lolit Don't show R messages \\
+`fig.width=\#`   & \lolit Width of figure \\
+`fig.height=\#`  & \lolit Height of figure \\
+`fig.path="Figs/"` & \lolit Path for figure files \\
 \end{tabular}
 
-\vspace{24pt}
 
-There are \href{http://yihui.name/knitr/options#chunk_options}{lots of chunk options}.
 
-\note{These are the chunk options that I use most, but there are lots
+There are [lots of chunk options](http://yihui.name/knitr/options#chunk_options).
+
+These are the chunk options that I use most, but there are lots
   more. Each should be valid R code, and can be basically any valid
   R code, so you can get pretty fancy.
 
-  The ending slash in {\tt fig.path} is important, as this is just pasted to
+  The ending slash in `fig.path` is important, as this is just pasted to
   the front of the figure file names. If not included, the figures
-  would be in the main directory but with names starting with ``{\tt Figs}''.
-}
-\end{frame}
+  would be in the main directory but with names starting with "`Figs`".
 
 
 
-\begin{frame}[fragile]{Global chunk options}
 
-\vspace{6pt}
 
-\begin{lstlisting}
-```{r knitr_options, include=FALSE}
+## Global chunk options
+
+
+
+
+
+```
+"`{r knitr_options, include=FALSE}
 knitr::opts_chunk$set(fig.width=12, fig.height=4,
                       fig.path='Figs/', warning=FALSE,
                       message=FALSE, include=FALSE,
                       echo=FALSE)
 set.seed(53079239)
-```
+"`
 
-```{r make_plot, fig.width=8, include=TRUE}
+"`{r make_plot, fig.width=8, include=TRUE}
 x <- rnorm(100)
 y <- 2*x + rnorm(100)
 plot(x, y)
+"`
 ```
-\end{lstlisting}
 
-\vfill
 
-\bi
-\itemsep12pt
-\item Use global chunk options rather than repeat the same options over and over.
-\item You can override the global values in specific chunks.
-\ei
 
-\note{I'll often use {\tt include=FALSE} and {\tt echo=FALSE} in a report to a
+* sep12pt
+*  Use global chunk options rather than repeat the same options over and over.
+*  You can override the global values in specific chunks.
+I'll often use `include=FALSE` and `echo=FALSE` in a report to a
   collaborator, as they won't want to see the code and raw
-  results. I'll then use {\tt include=TRUE} for the figure chunks.
+  results. I'll then use `include=TRUE` for the figure chunks.
 
   And I'll set some default choice for figure heights and widths but
   then adjust them a bit in particular figures.
 
-  You may need to include {\tt {\textbackslash}library(knitr)} before the
-  {\tt opts\_chunk\$set()} (for example, within RStudio).
+  You may need to include `{/`library(knitr) before the
+  `opts_chunk\$set()` (for example, within RStudio).
 }
-\end{frame}
 
 
 
 
 
-\begin{frame}[fragile]{Package options}
 
-\vspace{24pt}
+## Package options
 
-\begin{lstlisting}
-```{r package_options, include=FALSE}
-knitr::opts_knit$set(progress = TRUE, verbose = TRUE)
+
+
+
+
 ```
-\end{lstlisting}
+"`{r package_options, include=FALSE}
+knitr::opts_knit$set(progress = TRUE, verbose = TRUE)
+"`
+```
 
-\vfill
-\bi
-\itemsep12pt
-\item It's easy to confuse global \href{http://yihui.name/knitr/options#chunk_options}{chunk options} with
-\href{http://yihui.name/knitr/options#package_options}{package options}.
-\item I've not used package options.
-\item So focus on {\tt \hilit opts\_chunk\$set()} not {\tt
-  \lolit opts\_knit\$set()}.
-\ei
 
-\note{If you are doing something fancy, you may need knitr package
+* sep12pt
+*  It's easy to confuse global [chunk options](http://yihui.name/knitr/options#chunk_options) with
+[package options](http://yihui.name/knitr/options#package_options).
+*  I've not used package options.
+*  So focus on ` opts_chunk\$set()` not {\tt
+  \lolit opts_knit\$set()}.
+If you are doing something fancy, you may need knitr package
   options, but I've not used them.
 
-  I've gotten confused about them, though: {\tt opts\_chunk\$set}
-  vs. {\tt opts\_knit\$set}.
-}
-\end{frame}
+  I've gotten confused about them, though: `opts_chunk\$set`
+  vs. `opts_knit\$set`.
 
 
 
-\begin{frame}[fragile]{In-line code}
 
-\vspace{24pt}
 
-\begin{lstlisting}
+## In-line code
+
+
+
+
+
+```
 We see that this is an intercross with `r nind(sug)`
 individuals. There are `r nphe(sug)` phenotypes, and genotype
 data at `r totmar(sug)` markers across the `r nchr(sug)`
 autosomes.  The genotype data is quite complete.
-\end{lstlisting}
+```
 
-\vfill
 
-\bi
-\itemsep12pt
-\item Each bit of in-line code needs to be within one line; they
-  {\hilit can't}
+
+* sep12pt
+*  Each bit of in-line code needs to be within one line; they
+  **can't**
   span across lines.
-\item I'll often precede a paragraph with a code chunk with {\tt
+*  I'll often precede a paragraph with a code chunk with {\tt
   include=FALSE}, defining various variables, to simplify the in-line
   code.
-\item Never hard-code a result or summary statistic again!
-\ei
-
-\note{In-line code to insert summary statistics and such is a key
+*  Never hard-code a result or summary statistic again!
+In-line code to insert summary statistics and such is a key
   feature of knitr.
 
   Even if you wanted the code for your figures or data analysis to be
@@ -512,97 +518,100 @@ autosomes.  The genotype data is quite complete.
   Remember my anecdote earlier in this lecture: if I hadn't mentioned
   sample sizes, my collaborator wouldn't have noticed that I was using
   an old version of the data.
-}
-\end{frame}
 
 
-\begin{frame}[fragile,c]{YAML header}
 
-\vspace{24pt}
 
-\begin{lstlisting}
+## YAML header
+
+
+
+
+
+```
 ---
 title: "knitr/R Markdown example"
 author: "Karl Broman"
 date: "28 January 2015"
 output: html_document
 ---
-\end{lstlisting}
-
-\vspace{36pt}
+```
 
 
-\begin{lstlisting}
+
+
+```
 ---
 title: "Another knitr/R Markdown example"
 author: "[Karl Broman](http://kbroman.org)"
 date: "`r Sys.Date()`"
 output: word_document
 ---
-\end{lstlisting}
+```
 
 
 
-\note{At the top of your Rmd file, it's best to include a header like
+At the top of your Rmd file, it's best to include a header like
   the above examples. (YAML is a simple text-based format for
   specifying data, sort of like JSON but more human-readable.)
 
   You don't have to include any of these things, but it's good to at
-  least specify {\tt output:} (which can be also be {\tt
-  pdf\_document}). There are a lot more options; see {\tt rmarkdown.rstudio.com}.
+  least specify `output:` (which can be also be {\tt
+  pdf_document). There are a lot more options; see `rmarkdown.rstudio.com`.
 
   Note my use of a hyperlink and some R code in the second
   example. These will carry over to the final document.
 }
-\end{frame}
 
 
-\begin{frame}{Rounding}
 
-\vspace{24pt}
+## Rounding
 
-\bi
-\itemsep18pt
-\item {\tt cor(x,y)} might produce {\tt \vhilit 0.8992877}, but
-I want {\tt \hilit 0.90}.
 
-\item {\tt round(cor(x,y), 2)}, would give {\tt \vhilit 0.9}, but I want
-{\tt \hilit 0.90}.
 
-\item You could use {\tt sprintf("\%.2f", cor(x,y))}, but
-{\tt sprintf("\%.2f", -0.001)} gives {\tt \vhilit -0.00}.
 
-\item Use the {\tt myround} function in my
-\href{http://github.com/kbroman/broman}{R/broman} package.
 
-\item {\tt myround(cor(x,y), 2)} solves both issues.
-\ei
+* sep18pt
+*  `cor(x,y)` might produce `\vhilit 0.8992877`, but
+I want ` 0.90`.
 
-\note{I'm very particular about rounding. You should be too.
+*  `round(cor(x,y), 2)`, would give `\vhilit 0.9`, but I want
+` 0.90`.
+
+*  You could use `sprintf("\%.2f", cor(x,y))`, but
+`sprintf("\%.2f", -0.001)` gives `\vhilit -0.00`.
+
+*  Use the `myround` function in my
+[R/broman](http://github.com/kbroman/broman) package.
+
+*  `myround(cor(x,y), 2)` solves both issues.
+I'm very particular about rounding. You should be too.
 
   If you're a C programmer, sprintf seems natural. No one else agrees.
 
   The R/broman package is on both github and CRAN.
-}
-\end{frame}
 
 
-\begin{frame}{R Markdown $\rightarrow$ html, in \href{http://www.rstudio.com}{RStudio}}
 
-\vspace{12pt}
+
+## R Markdown -> html, in [RStudio](http://www.rstudio.com)
+
+
+
+
 
 \centerline{\includegraphics[width=\textwidth]{Figs/rstudio_knitr.png}}
 
-\note{The easiest way to convert an R Markdown file to html is with
+The easiest way to convert an R Markdown file to html is with
   RStudio.
 
-  Open the R Markdown file in R Studio and click the ``Knit HTML''
+  Open the R Markdown file in R Studio and click the "Knit HTML"
   button (with the ball of yarn and knitting needle).
 
   Note the little button with a question mark. Click that, and you'll
-  get the ``Markdown Quick Reference.''
+  get the "Markdown Quick Reference."
 
-  What actually happens: The {\tt knit} function in the knitr package
+  What actually happens: The `knit` function in the knitr package
   processes all of the code chunks and in-line code and creates a
   Markdown file and possibly a bunch of figure files.
   The Markdown file (and any figure files) are sent to Pandoc, which
@@ -611,169 +620,174 @@ I want {\tt \hilit 0.90}.
   RStudio is especially useful when you're first learning R Markdown
   and knitr, as it's easy to create and view the corresponding html
   file, and you have access to that Markdown Quick Reference.
-}
-
-\end{frame}
 
 
-\begin{frame}[fragile]{R Markdown $\rightarrow$ html, in \href{http://www.r-project.org}{R}}
 
-\vspace{18pt}
 
-\begin{lstlisting}
+
+## R Markdown -> html, in [R](http://www.r-project.org)
+
+
+
+
+
+```
 > library(rmarkdown)
 > render("knitr_example.Rmd")
-\end{lstlisting}
+```
 
-\bigskip
 
-\begin{lstlisting}
+
+```
 > rmarkdown::render("knitr_example.Rmd")
-\end{lstlisting}
+```
 
 
-\note{When you click the ``Knit HTML'' button in RStudio, what it
-  actually does is run {\tt rmarkdown::render()}, which in turn calls
-  {\tt knitr::knit()} and then runs pandoc.
+When you click the "Knit HTML" button in RStudio, what it
+  actually does is run `rmarkdown::render()`, which in turn calls
+  `knitr::knit()` and then runs pandoc.
 
   You can do the same thing directly, in R. You do miss out on the
   immediate preview of the result.
-}
-\end{frame}
 
-\begin{frame}[fragile]{R Markdown $\rightarrow$ html,
-    \href{http://www.gnu.org/software/make}{GNU make}}
 
-\vspace{24pt}
 
-\begin{lstlisting}
+## R Markdown -> html,
+    [GNU make](http://www.gnu.org/software/make)
+
+
+
+
+
+```
 knitr_example.html: knitr_example.Rmd
     R -e "rmarkdown::render('knitr_example.Rmd')"
-\end{lstlisting}
+```
 
-\note{I prefer to do this from the command-line, using a Makefile.
+I prefer to do this from the command-line, using a Makefile.
   Then it's more obvious what's happening.
 
   In Windows, it's important that the double-quotes are on the outside
   and the single-quotes are on the inside.
-}
-\end{frame}
 
 
-\begin{frame}{Need pandoc in your {\tt PATH}}
 
-\vspace{24pt}
 
-\href{http://www.rstudio.com}{RStudio} includes pandoc; you just need
-to add the relevant directory to your {\tt PATH}.
+## Need pandoc in your `PATH`
 
-\vspace{24pt}
 
-\hspace{3mm} {\hilit Mac}:
 
-\vspace{6pt}
 
-\hspace{9mm} {\ttsm /Applications/RStudio.app/Contents/MacOS/pandoc}
 
-\vspace{24pt}
+[RStudio](http://www.rstudio.com) includes pandoc; you just need
+to add the relevant directory to your `PATH`.
 
-\hspace{3mm} {\hilit Windows}:
 
-\vspace{6pt}
 
-\hspace{9mm} {\ttsm "c:{\textbackslash}Program Files{\textbackslash}RStudio{\textbackslash}bin{\textbackslash}pandoc"}
+ **Mac**:
 
-\note{To use the rmarkdown package from the command line, you need
-  access to pandoc. But if you've installed RStudio (and I {\hilit
-  highly recommend} that you do), you don't need to do a separate
+
+
+ {\ttsm /Applications/RStudio.app/Contents/MacOS/pandoc}
+
+
+
+ **Windows**:
+
+
+
+ {\ttsm "c:{/}Program Files{/}RStudio{/}bin{/}pandoc"}
+
+To use the rmarkdown package from the command line, you need
+  access to pandoc. But if you've installed RStudio (and I {
+  highly recommend that you do), you don't need to do a separate
   install, as pandoc is included with RStudio.
 
   You just need to add the relevant directory (listed above) to your
-  {\tt PATH}, for example in your {\tt {\textasciitilde}/.bash\_profile} file.
+  `PATH`, for example in your `{~`/.bash_profile} file.
 
-  At the command line, type {\tt type pandoc} or
-  {\tt pandoc --version} to check that it's available.
+  At the command line, type `type pandoc` or
+  `pandoc --version` to check that it's available.
 
 }
-\end{frame}
 
 
 
-\begin{frame}{Reproducible knitr documents}
 
-\vspace{6pt}
+## Reproducible knitr documents
 
-\bi
-\itemsep8pt
-\item Don't use absolute paths like {\tt \vhilit
-  {\textasciitilde}/Data/blah.csv}
-\item Keep all of the code and data in one directory (and its
+
+
+
+
+* sep8pt
+*  Don't use absolute paths like `\vhilit
+  {~`/Data/blah.csv}
+*  Keep all of the code and data in one directory (and its
   subdirectories)
-\item If you {\vhilit must} use absolute paths, define the various directories
+*  If you {\vhilit must} use absolute paths, define the various directories
   with variables at the top of your document.
-\item Use {\tt R --vanilla} or perhaps \\
-{\tt \scriptsize R --no-save --no-restore --no-init-file --no-site-file}
-\item Use GNU make to document the construction of the final product
+*  Use `R --vanilla` or perhaps \\
+`\scriptsize R --no-save --no-restore --no-init-file --no-site-file`
+*  Use GNU make to document the construction of the final product
    (tell future users what to do)
-\item Include a final chunk with {\tt getwd()} and
-  {\tt devtools::session\_info()}.
-\item For simulations, use {\tt set.seed} in your first
+*  Include a final chunk with `getwd()` and
+  `devtools::session_info()`.
+*  For simulations, use `set.seed` in your first
    chunk.
-\ei
-
-\note{That you've used knitr doesn't mean the work is really {\nvhilit
-    reproducible}.  The source and data need to be available to
+That you've used knitr doesn't mean the work is really {\nvhilit
+    reproducible.  The source and data need to be available to
   others, they need to know what packages were used and how to compile it,
   and then they need to be able to compile it on their system.
 
-  The complicated alternative to {\tt R --vanilla} is if you want to
-  still load {\tt {\textasciitilde}/.Renviron}, for example, to define
-  {\tt R\_LIBS}.
+  The complicated alternative to `R --vanilla` is if you want to
+  still load `{~`/.Renviron}, for example, to define
+  `R_LIBS`.
 
-  If you use {\tt set.seed} at the top of the document, it should be that
+  If you use `set.seed` at the top of the document, it should be that
   the random aspects will give exactly the same results.
-  I'll use \\ {\tt runif(1, 0, 10{\textasciicircum}8)} and then paste that big number
-  within {\tt set.seed()}.
+  I'll use \\ `runif(1, 0, 10{\textasciicircum`8)} and then paste that big number
+  within `set.seed()`.
 
   Two anecdotes: The github repository for the Reproducible Research
   with R and R Studio book uses some absolute paths that basically
   make it not reproducible.
 
   Earn et al. (2014) Proc Roy Soc B 281(1778):20132570 has a really
-  nice supplement, written with knitr. But it says, ``The source code
-  is available upon request.'' It's not {\nvhilit really}
+  nice supplement, written with knitr. But it says, "The source code
+  is available upon request." It's not {\nvhilit really}
   reproducible, then.
 }
-\end{frame}
 
 
 
-\begin{frame}[fragile]{Controlling figures}
 
-\vspace{6pt}
+## Controlling figures
 
-\begin{lstlisting}
-```{r test_figure, dev.args=list(pointsize=18)}
+
+
+
+
+```
+"`{r test_figure, dev.args=list(pointsize=18)}
 x <- rnorm(100)
 y <- 2*x + rnorm(100)
 plot(x,y)
+"`
 ```
-\end{lstlisting}
 
-\vfill
+
 
 {\small
-\bi
-\itemsep8pt
-\item The default is for knitr/R Markdown is to use the {\tt png()}
+* sep8pt
+*  The default is for knitr/R Markdown is to use the `png()`
   graphics device.
-\item Use another graphics device with the chunk option {\tt dev}.
-\item Pass arguments to the graphics device via the chunk
-  option {\tt dev.args}.
-\ei
+*  Use another graphics device with the chunk option `dev`.
+*  Pass arguments to the graphics device via the chunk
+  option `dev.args`.
 }
 
-\note{Graphics in knitr are super easy. For the most part, you don't
+Graphics in knitr are super easy. For the most part, you don't
   have to do anything! If a code chunk produces a figure, it will be
   inserted.
 
@@ -783,88 +797,92 @@ plot(x,y)
 
   Yesterday (6 Feb 2014), to change the size of axis
   labels, you couldn't just use the pointsize device argument; you'd also
-  need to use something like {\tt par(cex.lab=1.5)}. But I posted a
+  need to use something like `par(cex.lab=1.5)`. But I posted a
   question about it on StackOverflow, and Yihui Xie responded and then
   immediately fixed the problem. I used a bit of twitter in there too,
   to get his attention.
 
   To download and install the development version of knitr, you can
-  use the {\tt install\_github} function in Hadley Wickham's devtools
-  package. Use {\tt install.packages("devtools")} if you don't already
-  have it installed.  Then {\tt library(devtools)} and
-  {\tt install\_github("yihui/knitr")}.
-}
-\end{frame}
+  use the `install_github` function in Hadley Wickham's devtools
+  package. Use `install.packages("devtools")` if you don't already
+  have it installed.  Then `library(devtools)` and
+  `install_github("yihui/knitr")`.
 
 
-\begin{frame}[fragile]{Tables}
 
-\begin{lstlisting}
-```{r kable}
+
+## Tables
+
+
+
+```
+"`{r kable}
 x <- rnorm(100)
 y <- 2*x + rnorm(100)
 out <- lm(y ~ x)
 coef_tab <- summary(out)$coef
 library(kable)
 kable(coef_tab, digits=2)
+"`
 ```
-\end{lstlisting}
 
-\vspace{6pt}
 
-\begin{lstlisting}
-```{r pander}
+
+```
+"`{r pander}
 library(pander)
 panderOptions("digits", 2)
 pander(out, caption="Regression coefficients")
+"`
 ```
-\end{lstlisting}
 
-\vspace{6pt}
 
-\begin{lstlisting}
-```{r xtable, results="asis"}
+
+```
+"`{r xtable, results="asis"}
 library(xtable)
 tab <- xtable(coef_tab, digits=c(0, 2, 2, 1, 3))
 print(tab, type="html")
+"`
 ```
-\end{lstlisting}
 
 
 
 
-\note{In informal reports, I'll often just print out a matrix or data
+In informal reports, I'll often just print out a matrix or data
   frame, rather than create a formal table.
 
   But there are multiple ways to make tables with R Markdown that may
-  look a bit nicer. I'm not {\hilit completely} happy with any of
+  look a bit nicer. I'm not **completely** happy with any of
   them, but maybe I've just not figured out the right set of options.
 
-  {\tt kable} in the knitr package is simple but can't be customized
+  `kable` in the knitr package is simple but can't be customized
   too much. But it can produce output as pandoc, markdown, html, or latex.
 
-  The {\tt pander} package produces pandoc-based tables, which even
+  The `pander` package produces pandoc-based tables, which even
   work if you're making a Word document, and has a bit more control
-  than {\tt kable}.
+  than `kable`.
 
-  The {\tt xtable} package gives you quite complete control,
+  The `xtable` package gives you quite complete control,
   but only produces latex or html output. You need to be sure to use
-  {\tt results="asis"} in the code chunk.
-}
-\end{frame}
+  `results="asis"` in the code chunk.
 
 
 
-\begin{frame}[c]{Important principles}
+
+
+## Important principles
+
+
 
 \centering
 Modify your desires to match the defaults.
 
-\vspace{36pt}
+
 
 Focus your compulsive behavior on things that matter.
 
-\note{Focus on the text and the figures before worrying too much about
+Focus on the text and the figures before worrying too much about
   fine details of how they appear on the page.
 
   And consider which is more important: a manuscript, web page, blog,
@@ -875,9 +893,9 @@ Focus your compulsive behavior on things that matter.
   right. Ideally, you spend that time trying to construct a general
   solution.  Or you can modify your desires to more closely match what
   you get without any effort.
-}
-\end{frame}
 
 
 
-\end{document}
+
+
+
