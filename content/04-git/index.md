@@ -2,6 +2,8 @@
 title: Version Control with Git and GitHub
 ---
 
+# Root
+
 Version control is not strictly necessary for reproducible
 research, and it's admittedly a lot of work (to learn and to use) in
 the short term, but the long term benefits are enormous.
@@ -128,11 +130,11 @@ using it.
 
 * A home for git repositories
 * Interface for exploring git repositories
-* {\hilit Real} open source
+* **Real** open source
   * immediate, easy access to the code
 * Like facebook for programmers
 * Free 2-year "micro" account for students
-  * \href{http://education.github.com}{education.github.com}
+  * [education.github.com](http://education.github.com)
 * (Bitbucket.org is an alternative)
   * free private repositories
 
@@ -197,27 +199,27 @@ documentation).
 
 These are the basic git commands you'll use day-to-day.
 
-{\tt git status} to see the current state of things,
-{\tt git diff} to see what's changed, and {\tt git log} to look at
+`git status` to see the current state of things,
+`git diff` to see what's changed, and `git log` to look at
 the history.
 
-After you've made some changes, you'll use {\tt git add} to indicate
-which changes you want to commit to, and {\tt git commit} to commit
+After you've made some changes, you'll use `git add` to indicate
+which changes you want to commit to, and `git commit` to commit
 to them (to add them to the repository).
 
-You use {\tt git push} to push changes to GitHub, and {\tt git pull}
-(or {\tt git fetch} and {\tt git merge}) to pull changes from a
+You use `git push` to push changes to GitHub, and `git pull`
+(or `git fetch` and `git merge`) to pull changes from a
 collaborator's repository, or if you're synchronizing a repository
 between two computers.
 
 
 ## Initialize repository
 
-* Create {\lolit (and {\tt cd} to)} a working directory
-  * For example, {\tt {\textasciitilde}/Docs/Talks/Graphs}
+* Create (and `cd to)` a working directory
+  * For example, `{~`/Docs/Talks/Graphs}
 * Initialize it to be a git repository
-  * {\tt \hilit git init}
-  * Creates subdirectory {\tt {\textasciitilde}/Docs/Talks/Graphs/.git}
+  * ` git init`
+  * Creates subdirectory `{~`/Docs/Talks/Graphs/.git}
 
 ```
 $ mkdir ~/Docs/Talks/Graphs
@@ -227,8 +229,8 @@ Initialized empty Git repository in ~/Docs/Talks/Graphs/.git/
 ```
 
 If you're starting a new, fresh project, you make a directory
-for it and go into that directory, and then you type {\tt git
-init}. This creates a {\tt .git} subdirectory.
+for it and go into that directory, and then you type `git
+init`. This creates a `.git` subdirectory.
 
 
 ## Produce content
@@ -261,14 +263,14 @@ use Markdown to make it look nicer.
 $ git add README.md
 ```
 
-Use {\tt git add} to tell git that you want to start keeping
+Use `git add` to tell git that you want to start keeping
 track of this file.  This is called ``staging,'' or you say the file
 is ``staged.''
 
 
-# Incorporate into repository
+Incorporate into repository
 
-* Now commit using {\tt \hilit git commit}
+* Now commit using ` git commit`
 
 ```
 $ git commit -m "Initial commit of README.md file"
@@ -277,12 +279,12 @@ $ git commit -m "Initial commit of README.md file"
  create mode 100644 README.md
 ```
 
-* The \texttt{-m} argument allows one to enter a message
-* Without \texttt{-m}, \texttt{git} will spawn a text editor
+* The `-m` argument allows one to enter a message
+* Without `-m`, `git` will spawn a text editor
 * Use a meaningful message
 * Message can have multiple lines, but make 1st line an overview
 
-Use {\tt git commit} to add the file to the repository.
+Use `git commit` to add the file to the repository.
 
 
 ## A few points on commits
@@ -291,7 +293,7 @@ Use {\tt git commit} to add the file to the repository.
 * Don't get out of sync with your collaborators
 * Commit the sources, not the derived files
   * (R code not images)
-* Use a {\tt .gitignore} file to indicate files to be ignored
+* Use a `.gitignore` file to indicate files to be ignored
 
 ```
 *~
@@ -321,39 +323,39 @@ sources. For a manuscript, though, I might include the pdf at major
 milestones (at submission, after revision, and upon acceptance), so
 that I don't have to work as hard to reconstruct them.
 
-Use a {\tt .gitignore} file so that untracked files don't show up with
-{\tt git status}. You can have a global ignore file, {\tt
-{\textasciitilde}/.gitignore\_global}.
+Use a `.gitignore` file so that untracked files don't show up with
+`git status`. You can have a global ignore file, {\tt
+{~}/.gitignore_global}.
 
 But leaving off critical files is a common mistake.
 
 
 ## Using git on an existing project
 
-* {\tt git init}
-* Set up {\tt .gitignore} file
-* {\tt git status} {\footnotesize \lolit (did you miss any?)}
-* {\tt git add .} {\footnotesize \lolit (or name files individually)}
-* {\tt git status} {\footnotesize \lolit (did you miss any?)}
-* {\tt git commit}
+* `git init`
+* Set up `.gitignore` file
+* `git status` (did you miss any?)
+* `git add .` (or name files individually)
+* `git status` (did you miss any?)
+* `git commit`
 
 I recommend using git with all of your current projects.
 Start with one.
 
-Go into the directory and type {\tt git init}. Then use {\tt git
-add} repeatedly, to indicate which files you want to add to the
+Go into the directory and type `git init`. Then use `git
+add` repeatedly, to indicate which files you want to add to the
 repository.
 
-Then use {\tt git commit} to make an initial commit.
+Then use `git commit` to make an initial commit.
 
 
 ## Removing/moving files
 
 For files that are being tracked by git:
 
-* Use {\tt \hilit git rm} instead of just {\tt rm}
+* Use ` git rm` instead of just `rm`
 
-* Use {\tt \hilit git mv} instead of just {\tt mv}
+* Use ` git mv` instead of just `mv`
 
 ```
 $ git rm myfile
@@ -364,10 +366,10 @@ $ git commit
 
 For files that are being tracked by git: If you want to change
 the name of a file, or if you want to move it to a subdirectory, you
-can't just use {\tt mv}, you need to use {\tt git mv}.
+can't just use `mv`, you need to use `git mv`.
 
 If you want to remove a file from the project, don't use just {\tt
-rm}, use {\tt git rm}. Note that the file won't be
+rm}, use `git rm`. Note that the file won't be
 completely removed; it'll still be within the history.
 
 
@@ -387,30 +389,30 @@ $ git config --global core.excludesfile ~/.gitignore_global
 The very first time you use git, you need to do a bit of
 configuration.
 
-All of this stuff gets added to a {\tt {\textasciitilde}/.gitconfig} file
+All of this stuff gets added to a `{~`/.gitconfig} file
 
 
 ## Set up GitHub repository
 
 * Get a GitHub account
 * Click the "Create a new repo" button
-* Give it a {\hilit name} and description
+* Give it a **name** and description
 * Click the "Create repository" button
 * Back at the command line:
-  *[] {\tt \hspace{-3em}  git remote add origin https://github.com/username/{\hilit repo}}
-  *[] {\tt \hspace{-3em} git push -u origin master}
+  *[] `  git remote add origin https://github.com/username/**repo**`
+  *[] ` git push -u origin master`
 
 - - - - -
 
 To create a GitHub repository, I generally first set things up
-locally (using {\tt git init} and then a bit of {\tt git add} and
-{\tt git commit}).
+locally (using `git init` and then a bit of `git add` and
+`git commit`).
 
 Then go to GitHub and click the ``Create a new repo'' button. Give
 it a name and description and click ``Create repository.''
 
-The back at the command line, you use {\tt git remote add} to
-indicate the github address; then {\tt git push} to push everything
+The back at the command line, you use `git remote add` to
+indicate the github address; then `git push` to push everything
 to GitHub.
 
 
@@ -432,18 +434,18 @@ Part of a `.git/config` file:
     fetch = +refs/heads/*:refs/remotes/brian/*
 ```
 
-The {\tt git remote add} commands adds stuff to the {\tt
+The `git remote add` commands adds stuff to the {\tt
 .git/config} file; if you've made a mistake, you can just edit
 this file.
 
 There are three different constructions for the url: \\
-{\tt https://github.com/username/repo} \\
-{\tt git://github.com/username/repo} \\
-{\tt git@github.com:username/repo}
+`https://github.com/username/repo` \\
+`git://github.com/username/repo` \\
+`git@github.com:username/repo`
 
-With {\tt https}, you'll need to enter your GitHub login and
-password each time. With {\tt git://}, you'll have only read
-access. With {\tt git@github.com:}, you need to set up ssh. (More
+With `https`, you'll need to enter your GitHub login and
+password each time. With `git://`, you'll have only read
+access. With `git@github.com:`, you need to set up ssh. (More
 work initially, but you'll get write access without having to enter your login and
 password.)
 
@@ -452,13 +454,13 @@ password.)
 
 * Use branches to test out new features without breaking the
   working code.
-  *[] {\tt git branch devel}
-  *[] {\tt git branch}
-  *[] {\tt git checkout devel}
+  *[] `git branch devel`
+  *[] `git branch`
+  *[] `git checkout devel`
 * When you're happy with the work, merge it back into your master
   branch.
-  *[] {\tt git checkout master}
-  *[] {\tt git merge devel}
+  *[] `git checkout master`
+  *[] `git merge devel`
 
 - - - - -
 
@@ -466,151 +468,128 @@ Branching is a really important feature of git. Create a branch
 to test out some new features without breaking your working
 software.
 
-{\tt git branch} is used to create branches and to see what branches
+`git branch` is used to create branches and to see what branches
 you have.
 
-{\tt git checkout} is used to switch among branches.
+`git checkout` is used to switch among branches.
 
-{\tt git merge} is used to merge a different branch into your
+`git merge` is used to merge a different branch into your
 current one.
 
 
 ## Issues and pull requests
 
-\bbi
 * Problem with or suggestion for someone's code?
-\bi
 * Point it out as an Issue
-\ei
 * Even better: Provide a fix
-\bi
 * Fork
 * Clone
 * Modify
 * Commit
 * Push
 * Submit a Pull Request
-\ei
-\ei
-
-\note{One of the best features of GitHub is the ease with which you
+One of the best features of GitHub is the ease with which you
   can suggest changes to others' code, either via an Issue, or best of
   all via a Pull Request.
-}
-\end{frame}
 
 
 
 
-\begin{frame}[fragile]{Suggest a change to a repo}
-\bbi
+
+
+## Suggest a change to a repo
+
+
 * Go to the repository:
-\bi
-*[] {\tt http://github.com/someone/repo}
-\ei
-* {\hilit Fork} the repository
-\bi
+*[] `http://github.com/someone/repo`
+* **Fork** the repository
 *[] Click the "Fork" button
-\ei
-* {\hilit Clone} your version of it
-\bi
-*[] {\tt git clone https://github.com/username/repo}
-\ei
-* Change things locally, {\tt git \hilit add}, {\tt git \hilit commit}
-* Push your changes to \emph{your\/} GitHub repository
-\bi
-*[] {\tt git \hilit push}
-\ei
-* Go to \emph{your\/} GitHub repository
-* Click "{\hilit Pull Requests}" and "New pull request"
-\ei
-
-\note{To suggest a change to someone's repository, go to their
+* **Clone** your version of it
+*[] `git clone https://github.com/username/repo`
+* Change things locally, `git  add`, `git  commit`
+* Push your changes to **your/** GitHub repository
+*[] `git  push`
+* Go to **your/** GitHub repository
+* Click "**Pull Requests**" and "New pull request"
+To suggest a change to someone's repository, go to their
   repository and click the ``Fork'' button. This makes a copy of the
   repo in your part of GitHub.
 
-  Then go back to the command line and {\tt clone} your version of the
+  Then go back to the command line and `clone` your version of the
   repository.
 
-  Make changes, test them, {\tt add}, and {\tt commit} them, and {\tt push} them to your
+  Make changes, test them, `add`, and `commit` them, and `push` them to your
   GitHub repository.
 
   Then go back to your GitHub repository and click ``Pull Requests''
   and ``New pull request.''
-}
-\end{frame}
 
 
-\begin{frame}[fragile]{Pulling a friend's changes}
-\bbi
+
+
+## Pulling a friend's changes
+
+
 * Add a connection
-\bi
-*[] {\tt git remote add friend git://github.com/friend/repo}
-\ei
+*[] `git remote add friend git://github.com/friend/repo`
 * If you trust them, just pull the changes
-\bi
-*[] {\tt git pull friend master}
-\ei
-* Alternatively, fetch the changes, test them, and \emph{then\/}
+*[] `git pull friend master`
+* Alternatively, fetch the changes, test them, and **then/**
   merge them.
-\bi
-*[] {\tt git fetch friend master}
-*[] {\tt git branch -a}
-*[] {\tt git checkout remotes/friend/master}
-*[] {\tt git checkout -b friend}
-*[] {\tt git checkout master}
-*[] {\tt git merge friend}
-\ei
+*[] `git fetch friend master`
+*[] `git branch -a`
+*[] `git checkout remotes/friend/master`
+*[] `git checkout -b friend`
+*[] `git checkout master`
+*[] `git merge friend`
 * Push them back to your GitHub repo
-\bi
-*[] {\tt git push}
-\ei
-\ei
-
-\note{If a friend (or perhaps someone you don't even know) has made
+*[] `git push`
+If a friend (or perhaps someone you don't even know) has made
   suggested changes to your repository by a Pull Request, you'll get
   an email and it will show up on your GitHub repository.
 
-  On the command line, use {\tt git remote add} to make a connection
+  On the command line, use `git remote add` to make a connection
   to their repository.
 
-  Then use {\tt git pull}, or (better) use {\tt git fetch}, test them
-  out, and then use {\tt git merge}.
+  Then use `git pull`, or (better) use `git fetch`, test them
+  out, and then use `git merge`.
 
-  Finally, {\tt push} the changes back to your GitHub repository.
-}
-\end{frame}
+  Finally, `push` the changes back to your GitHub repository.
 
 
-\begin{frame}[fragile]{Merge conflicts}
 
-\vspace{12pt}
 
-Sometimes after {\hilit \tt git pull friend master}
+## Merge conflicts
 
-\begin{lstlisting}
+
+
+
+
+Sometimes after **\tt git pull friend master**
+
+```
 Auto-merging README.md
 CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
-\end{lstlisting}
+```
 
-\bigskip
+
 
 Inside the file you'll see:
 
-\begin{lstlisting}
+```
 <<<<<<< HEAD
 A line in my file.
 =======
 A line in my friend's file
 >>>>>>> 031389f2cd2acde08e32f0beb084b2f7c3257fff
-\end{lstlisting}
+```
 
-\bigskip
+
 
 Edit, add, commit, push, submit pull request.
 
-\note{Sometimes there will be conflicts: you and your collaborator
+Sometimes there will be conflicts: you and your collaborator
   will have been making changes to the same portion of a file and
   you'll have to resolve the differences.
 
@@ -618,70 +597,72 @@ Edit, add, commit, push, submit pull request.
   at merging changes.
 
   If there's a merge conflict, there'll be a big warning message on
-  {\tt git pull} or {\tt git merge},
+  `git pull` or `git merge`,
   When you open the offending file in an editor, look for
-  lines with {\tt <<<<<<<}, {\tt =======}, and {\tt >>>>>>>}. Pick and
+  lines with `<<<<<<<`, `=======`, and `>>>>>>>`. Pick and
   choose and make the file just as you want it.
 
-  Then, {\tt git add}, {\tt git commit}, and {\tt git push}.
-}
-\end{frame}
+  Then, `git add`, `git commit`, and `git push`.
 
 
-\begin{frame}{git/GitHub with RStudio}
 
-\vspace{24pt}
+
+## git/GitHub with RStudio
+
+
+
+
 
 \figw{Images/RStudio04.png}{0.90}
 
-\vspace{64pt}
 
-\hfill
+
+
 {\small \lolit
-See \href{http://www.biostat.wisc.edu/~kbroman/presentations/GitPrimer.pdf}{GitPrimer.pdf}
+See [GitPrimer.pdf](http://www.biostat.wisc.edu/~kbroman/presentations/GitPrimer.pdf)
 or
-\href{http://www.rstudio.com/ide/docs/version_control/overview}{RStudio page}}
+[RStudio page](http://www.rstudio.com/ide/docs/version_control/overview)}
 
-\note{RStudio has great features for using git and GitHub.
+RStudio has great features for using git and GitHub.
 
   I'm not going to spend time talking about this here; google \\
-  {\tt git site:rstudio.com}.
+  `git site:rstudio.com`.
 
   The key thing is that a Project in RStudio is a directory (with some
-  RStudio configuration file, {\tt blah.Proj})
+  RStudio configuration file, `blah.Proj`)
   and will be your git repository.
-}
-\end{frame}
 
-\begin{frame}[c]{Delete GitHub repo}
+
+
+## Delete GitHub repo
+
+
 
 \figh{Images/RStudio12.png}{0.80}
 
-\note{To learn git and GitHub, you'll want to create some test
+To learn git and GitHub, you'll want to create some test
   repositories and play around with them for a while. You may want to
   delete them later.
 
-  On your computer, if you delete the {\tt .git} subdirectory, it'll
+  On your computer, if you delete the `.git` subdirectory, it'll
   no longer be a git repository.
 
   On GitHub, go to the settings for the repository and head down to
   the Danger Zone.
-}
-\end{frame}
 
 
-\begin{frame}
-\frametitle{Git at Statistics, UW-Madison}
 
-\vspace{18pt}
 
-\bbi
+## Git at Statistics, UW-Madison
+
+
+
+
+
 * Easy to use, free infinite private repositories.
 * Not as nice of interface to review code: Rely on GUI or private web page.
 * When your ssh account expires, your access to them expires.
-\ei
-
-\note{If you have an account on the UW-Madison Statistics server, you
+If you have an account on the UW-Madison Statistics server, you
   can use git there in place of GitHub.
 
   The advantage is that you can have as many private repositories as
@@ -692,101 +673,85 @@ or
 
   I haven't done this myself; these three slides were kindly provided
   by Tim Grilley.
-}
-\end{frame}
 
 
-\begin{frame}
-\frametitle{Git at Statistics, UW-Madison}
 
-\vspace{18pt}
+
+## Git at Statistics, UW-Madison
+
+
+
+
 
 Setup (on server):
-\bigskip
 
-\bi
+
 * Connect to server
-    \bi
-    *[] {\ttfn ssh bigmem01.stat.wisc.edu}
+    *[] `ssh bigmem01.stat.wisc.edu`
     *[] Consider using kinit + aklog if logging on frequently
-    \ei
-* Make Folder
-    \bi
-    *[] {\ttfn cd Repositories}
-    *[] {\ttfn mkdir NewRepository}
-    \ei
-* Initialize Server Repository
-    \bi
-    *[] {\ttfn cd NewRepository}
-    *[] {\ttfn git init}
-    \ei
-\ei
-
-\note{To set up a repository you just log in
+    * Make Folder
+    *[] `cd Repositories`
+    *[] `mkdir NewRepository`
+    * Initialize Server Repository
+    *[] `cd NewRepository`
+    *[] `git init`
+    To set up a repository you just log in
   to one of the Statistics computers, create a directory, and use {\tt
-  git init}.
+  git init.
 }
-\end{frame}
 
 
-\begin{frame}
-\frametitle{Git at Statistics, UW-Madison}
 
-\vspace{18pt}
+## Git at Statistics, UW-Madison
+
+
+
+
 
 Usage (on client, e.g. laptop):
-\bigskip
 
-\bi
+
 * Clone/Pull onto other systems
-    \bi
-    *[] {\tt \tiny git clone ssh:{\textbackslash\textbackslash}bigmem01.stat.wisc.edu{\textbackslash\textasciitilde}[user]{\textbackslash}Repositories{\textbackslash}NewRepository}
-    \ei
-* Make changes, and commit
-    \bi
-    *[] {\ttfn git add -i}
-    *[] {\ttfn git commit -m 'An informative message here.'}
-    \ei
-* Push changes back
-    \bi
-    *[] {\ttfn git push origin}
-    \ei
-\ei
-
-\note{This is what you'd do on your local computer (e.g., a Windows
+    *[] `\tiny git clone ssh:{//`bigmem01.stat.wisc.edu{/~}[user]{/}Repositories{/}NewRepository}
+    * Make changes, and commit
+    *[] `git add -i`
+    *[] `git commit -m 'An informative message here.'`
+    * Push changes back
+    *[] `git push origin`
+    This is what you'd do on your local computer (e.g., a Windows
   laptop).
 
   On a Mac, you'd need to replace the backslashes with forward
   slashes.
-}
-\end{frame}
 
 
 
 
 
 
-\begin{frame}{}
 
-\vspace{25mm}
+
+- - - - -
+
+
 
 Open source means everyone can see my stupid mistakes.
 
-\vspace{5mm}
+
 
 Version control means everyone can see every stupid mistake I've ever
 made.
 
-\vspace{33mm}
-\centerline{\scriptsize \tt \color{lolit} \href{http://bit.ly/stupidcode}{bit.ly/stupidcode}}
 
-\note{If you store your code on GitHub, everyone can see everything.
+\centerline{\scriptsize \tt \color{lolit} [bit.ly/stupidcode](http://bit.ly/stupidcode)}
+
+If you store your code on GitHub, everyone can see everything.
   They can even see everything that ever was.
 
   I think this openness is a Good Thing. You may be shy about your
   code, but probably no one is looking. And if they are looking, that
   is actually a Good Thing.
-}
-\end{frame}
 
-\end{document}
+
+
+
