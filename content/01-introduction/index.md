@@ -39,7 +39,7 @@ such reports. By doing so, he immediately saw that I had an old
 version of the data.
 
 Because I'd set things up carefully, I could just substitute in the
-newer dataset, type ```make`'', and get the revised report.
+newer dataset, type "`make`", and get the revised report.
 
 This is a reproducibility success story. But it took me a long
 time to get to this point.
@@ -99,8 +99,8 @@ Data that I get from collaborators has usually gone through a
 considerable amount of pre-processing. Should we have captured that,
 in order for the work to be considered reproducible?
 
-If your collaborator asks, ``In what form would you like the data?''
-you should respond, ``In its current form.''
+If your collaborator asks, "In what form would you like the data?"
+you should respond, "In its current form."
 
 
 
@@ -150,7 +150,7 @@ If you've not heard any of these things, it's just a matter of
 * Copy-paste-edit tables
 * Copy-paste-adjust figures
 
-If you do anything ``by hand'' once, you'll have to do it 100
+If you do anything "by hand" once, you'll have to do it 100
   times.
 
 
