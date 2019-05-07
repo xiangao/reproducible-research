@@ -70,11 +70,6 @@ googleAnalytics = ""
 	weight = 40
 
 [[menu.main]]
-	name   = "Git and GitHub: Lab"
-	url    = "05-git-practice/"
-	weight = 50
-
-[[menu.main]]
 	name   = "Organizing Projects"
 	url    = "06-organization/"
 	weight = 60
@@ -113,11 +108,6 @@ googleAnalytics = ""
 	name   = "Python"
 	url    = "13-python/"
 	weight = 130
-
-[[menu.main]]
-	name   = "Python Laboratory"
-	url    = "14-python-practice/"
-	weight = 140
 
 [[menu.main]]
 	name   = "Software Licenses"
