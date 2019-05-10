@@ -134,14 +134,10 @@ documentation).
   * `git add`
 * Commit to those changes
   * `git commit`
-* Push the changes to GitHub
-  * `git push`
-* Pull changes from your collaborator
-  * `git pull`
-  * `git fetch`
-  * `git merge`
 
 These are the basic git commands you'll use day-to-day.
+
+<!-- NOTES -->
 
 `git status` to see the current state of things,
 `git diff` to see what's changed, and `git log` to look at
@@ -151,26 +147,22 @@ After you've made some changes, you'll use `git add` to indicate
 which changes you want to commit to, and `git commit` to commit
 to them (to add them to the repository).
 
-You use `git push` to push changes to GitHub, and `git pull`
-(or `git fetch` and `git merge`) to pull changes from a
-collaborator's repository, or if you're synchronizing a repository
-between two computers.
 
+### Initialize a repository
 
-### Initialize repository
-
-* Create (and `cd` to) a working directory
-  * For example, `~/Docs/Talks/Graphs`
-* Initialize it to be a git repository
-  * ` git init`
-  * Creates subdirectory `~/Docs/Talks/Graphs/.git`
+* Create a working directory (e.g., `~/my-project`)
+* `cd` into your working directory
+* Initialize it to be a git repository using `git init`
+  * This creates a subdirectory `~/my-project/.git`
 
 ```
-$ mkdir ~/Docs/Talks/Graphs
-$ cd ~/Docs/Talks/Graphs
+$ mkdir ~/my-project
+$ cd ~/my-project
 $ git init
-Initialized empty Git repository in ~/Docs/Talks/Graphs/.git/
+Initialized empty Git repository in ~/my-project/.git/
 ```
+
+<!-- NOTES -->
 
 If you're starting a new, fresh project, you make a directory
 for it and go into that directory, and then you type `git
@@ -182,21 +174,21 @@ init`. This creates a `.git` subdirectory.
 * Create a `README.md` file
 
 ```
-# Talk on "How to display data badly"
+How to display data badly
+=========================
 
-These are slides for a talk that I give as often as possible, because
-it's fun.
-
-This was inspired by Howard Wainer's article, whose title I stole: H
-Wainer (1984) How to display data badly. American Statistician
+Karl Broman gives a talk inspired by Howard Wainer's article by the
+same name: H Wainer (1984) How to display data badly. American Statistician
 38:137-147
 
 A recent PDF is
 [here](http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf).
 ```
 
-Start creating a bit of content, such as a Readme file. You can
-use Markdown to make it look nicer.
+<!-- NOTES -->
+
+A README file is a great place to start a new project. It can give
+readers of your files a high-level overview of the project.
 
 
 ### Incorporate into repository: part 1 of 2
@@ -228,7 +220,7 @@ $ git commit -m "Initial commit of README.md file"
 * Use a meaningful message
 * Message can have multiple lines, but make 1st line an overview
 
-Use `git commit` to add the file to the repository.
+Use `git commit` to add the file to the history of the project.
 
 
 ### A few points on commits
@@ -240,25 +232,17 @@ Use `git commit` to add the file to the repository.
 * Use a `.gitignore` file to indicate files to be ignored
 
 ```
-*~
-manuscript.pdf
-Figs/*.pdf
-.RData
-.RHistory
+.Rhistory
 *.Rout
-*.aux
-*.log
-*.out
+manuscript.pdf
+figures/*.pdf
 ```
+
+<!-- NOTES -->
 
 I recommend using frequent, small commits. I'll make a batch of
 changes with a common theme, make sure things are working, then add
 and commit.
-
-In projects with collabotors, be sure to pull any changes from them
-before starting to make your own changes, and encourage your
-collaborators to do the same. If you both make a month's changes
-in parallel, merging the changes will be harder.
 
 I commit only the source, and not files that are derived from those
 sources. For a manuscript, though, I might include the pdf at major
@@ -331,6 +315,26 @@ All of this stuff gets added to a `~/.gitconfig` file
 
 
 ## How to use GitHub
+
+### Basic use
+
+* Push the changes to GitHub
+  * `git push`
+* Pull changes from your collaborator
+  * `git pull`
+  * `git fetch`
+  * `git merge`
+
+You use `git push` to push changes to GitHub, and `git pull`
+(or `git fetch` and `git merge`) to pull changes from a
+collaborator's repository, or if you're synchronizing a repository
+between two computers.
+
+In projects with collabotors, be sure to pull any changes from them
+before starting to make your own changes, and encourage your
+collaborators to do the same. If you both make a month's changes
+in parallel, merging the changes will be harder.
+
 
 ### Set up GitHub repository
 
