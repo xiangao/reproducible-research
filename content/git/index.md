@@ -4,31 +4,27 @@ title: Version Control with Git and GitHub
 
 ## Introduction
 
-Version control is not strictly necessary for reproducible
-research, and it's admittedly a lot of work (to learn and to use) in
-the short term, but the long term benefits are enormous.
+Version control is not strictly necessary for reproducible research,
+and in the short term it's a lot of work (to learn and to use), but
+**the long term benefits are enormous**.
 
-The advantages are:
+<!-- NOTES -->
 
-* you'll save the entire history of changes to a project,
-* you can go back to any point in time (and see what has changed between any two points in time),
-* you don't have to worry about breaking things that work, and
-* you can easily merge changes from multiple people.
+I use version control for: software, data analysis projects, papers,
+talks, and web sites.
 
-I use version control for: software, data
-analysis projects, papers, talks, and web sites.
-
-People are more resistant to version control than to any other
-tool, because of the short-term effort and the lack of recognition
-of the long-term benefits.
+People are more resistant to version control than to any other tool
+because of the short-term effort and the lack of recognition of the
+long-term benefits.
 
 
 ### Why use formal version control?
 
-* History of changes
-* Able to go back
-* No worries about breaking things that work
-* Merging changes from multiple people
+* Maintain a history of all changes
+  * Able to go back in time
+  * See what changed between two time points
+* No worries about breaking things
+* Merge changes from multiple people
 
 <!-- NOTES -->
 
@@ -48,17 +44,19 @@ see what was changed and to incorporate those changes.
 ### What is Git?
 
 * Formal version control system
-* Developed by Linus Torvalds (developer of Linux)
-  * used to manage the source code for Linux
-* Tracks any content (but mostly plain text files)
+* Designed for managing code
+* Tracks any content (but best for plain text files)
   * source code
   * data analysis projects
   * manuscripts
   * websites
   * presentations
+* Excellent for asynchronous collaboration
 
-We're going to focus on Git, the version control system
-developed by Linus Torvalds for managing the source code for Linux.
+<!-- NOTES -->
+
+We're going to focus on Git, the version control system developed by
+Linus Torvalds for managing the source code for Linux.
 
 You can track any content, but it's mostly for tracking plain text
 files, but that can be most anything (source code, data analysis
@@ -72,19 +70,22 @@ projects, manuscripts, websites, presentations).
 * Amazingly good at merging simultaneous changes
 * Everyone's using it
 
+<!-- NOTES -->
+
 Git is fast, you can use it locally on your own computer, it's
-amazingly good at merging changes, and there are lots of people
-using it.
+amazingly good at merging changes, and there are lots of people using
+it.
 
 
 ### What is GitHub?
 
 * A home for git repositories
-* Interface for exploring git repositories
+* Web interface for exploring git repositories
 * **Real** open source
-  * immediate, easy access to the code
+  * Immediate, easy access to the code
 * Like facebook for programmers
-* GitHub now provides free private repositories
+
+<!-- NOTES -->
 
 GitHub is a website that hosts git repositories, with a nice
 graphical user interface for exploring git repositories.
@@ -98,16 +99,18 @@ people are up to, and easily collaborate on shared projects.
 
 ### Why use GitHub?
 
-* It takes care of the server aspects of Git
+* Handles the server aspects of Git
 * Graphical user interface for Git
-  * Exploring code and its history
-  * Tracking issues
+  * For exploring code and its history
+* Provides issue tracking
 * Facilitates:
   * Learning from others
   * Seeing what people are up to
   * Contributing to others' code
 * Lowers the barrier to collaboration
   * "There's a typo in your documentation." vs. "Here's a correction for your documentation."
+
+<!-- NOTES -->
 
 GitHub takes care of the server aspects of Git, and you get a
 great GUI for exploring your repositories.
