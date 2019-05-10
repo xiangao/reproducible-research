@@ -30,6 +30,8 @@ of the long-term benefits.
 * No worries about breaking things that work
 * Merging changes from multiple people
 
+<!-- NOTES -->
+
 With formal version control, you'll save the entire history of
 changes to the project, and you can easily go back to any
 point in the history of the project, to see how things were behaving

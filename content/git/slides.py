@@ -9,10 +9,15 @@ path = sys.argv[1]
 temp = NamedTemporaryFile(mode='w')
 
 with open(path) as f:
+    note = False
     for line in f:
+        if line == '<!-- NOTES -->\n':
+            note = True
         if line.startswith('#'):
             line = line[1:]
-        temp.write(line)
+            note = False
+        if not note:
+            temp.write(line)
     # 1. need to demote
 
 command = f'/usr/local/bin/pandoc -t revealjs -s -o slides {temp.name} -V revealjs-url=https://revealjs.com --slide-level=2 -V transition=none'
