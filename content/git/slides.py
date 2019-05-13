@@ -20,6 +20,6 @@ with open(path) as f:
             temp.write(line)
     # 1. need to demote
 
-command = f'/usr/local/bin/pandoc -t revealjs -s -o slides {temp.name} -V revealjs-url=https://revealjs.com --slide-level=2 -V transition=none'
+command = f'/usr/local/bin/pandoc -t revealjs -s -o slides {temp.name} -V revealjs-url=https://revealjs.com --slide-level=2 -V transition=none -V width=1200 -V height=875'
 
 subprocess.call(command, shell=True)

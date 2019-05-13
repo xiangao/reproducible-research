@@ -108,7 +108,7 @@ people are up to, and easily collaborate on shared projects.
   * Seeing what people are up to
   * Contributing to others' code
 * Lowers the barrier to collaboration
-  * "There's a typo in your documentation." vs. "Here's a correction for your documentation."
+  * "There's a typo in your code." vs. "Here's a correction for that typo."
 
 <!-- NOTES -->
 
@@ -135,9 +135,9 @@ documentation).
 * Commit to those changes
   * `git commit`
 
-These are the basic git commands you'll use day-to-day.
-
 <!-- NOTES -->
+
+These are the basic git commands you'll use day-to-day.
 
 `git status` to see the current state of things,
 `git diff` to see what's changed, and `git log` to look at
@@ -257,12 +257,15 @@ But leaving off critical files is a common mistake.
 
 ### Using Git on an existing project
 
+* `cd` into your project directory
 * `git init`
-* Set up `.gitignore` file
-* `git status` (did you miss any?)
-* `git add .` (or name files individually)
-* `git status` (did you miss any?)
+* Set up a `.gitignore` file (optional)
+* `git status`
+* `git add`
+* `git status`
 * `git commit`
+
+<!-- NOTES -->
 
 I recommend using git with all of your current projects.
 Start with one.
@@ -278,16 +281,13 @@ Then use `git commit` to make an initial commit.
 
 For files that are being tracked by git:
 
-* Use ` git rm` instead of just `rm`
+* Use `git rm` instead of just `rm`
 
-* Use ` git mv` instead of just `mv`
+* Use `git mv` instead of just `mv`
 
-```
-$ git rm myfile
-$ git mv myfile newname
-$ git mv myfile SubDir/
-$ git commit
-```
+This will remove/move the file/directory **and** stage the change.
+
+<!-- NOTES -->
 
 For files that are being tracked by git: If you want to change
 the name of a file, or if you want to move it to a subdirectory, you
@@ -302,7 +302,7 @@ completely removed; it'll still be within the history.
 
 ```
 $ git config --global user.name "Jane Doe"
-$ git config --global user.email "janedoe@wisc.edu"
+$ git config --global user.email "jdoe@hbs.edu"
 $ git config --global color.ui true
 $ git config --global core.editor emacs
 $ git config --global core.excludesfile ~/.gitignore_global
@@ -318,12 +318,13 @@ All of this stuff gets added to a `~/.gitconfig` file
 
 ### Basic use
 
-* Push the changes to GitHub
+* Push changes to GitHub
   * `git push`
 * Pull changes from your collaborator
-  * `git pull`
-  * `git fetch`
-  * `git merge`
+  * `git pull` or
+  * `git fetch` and `git merge`
+
+<!-- NOTES -->
 
 You use `git push` to push changes to GitHub, and `git pull`
 (or `git fetch` and `git merge`) to pull changes from a
@@ -338,16 +339,18 @@ in parallel, merging the changes will be harder.
 
 ### Set up GitHub repository
 
-* Get a GitHub account
+* Sign up for a GitHub account
 * Click the "Create a new repo" button
-* Give it a **name** and description
+* Give it a name (and description)
 * Click the "Create repository" button
 * Back at the command line:
 
   ```
-  git remote add origin https://github.com/username/**repo**
+  git remote add origin git@github.com:user/repo.git
   git push -u origin master
   ```
+
+<!-- NOTES -->
 
 To create a GitHub repository, I generally first set things up
 locally (using `git init` and then a bit of `git add` and
@@ -361,7 +364,7 @@ indicate the github address; then `git push` to push everything
 to GitHub.
 
 
-### Configuration file
+### Configuration file: part 1 of 2
 
 Part of a `.git/config` file:
 
@@ -383,17 +386,18 @@ The `git remote add` commands adds stuff to the
 `.git/config` file; if you've made a mistake, you can just edit
 this file.
 
+### Configuration file: part 2 of 2
+
 There are three different constructions for the url:
 
-1. `https://github.com/username/repo`
-2. `git://github.com/username/repo`
-3. `git@github.com:username/repo`
+1.  `https://github.com/user/repo`
+2.  `git://github.com/user/repo`
+3.  `git@github.com:user/repo`
 
-With `https`, you'll need to enter your GitHub login and
-password each time. With `git://`, you'll have only read
-access. With `git@github.com:`, you need to set up ssh. (More
-work initially, but you'll get write access without having to enter your login and
-password.)
+With `https://`, you'll need to enter your GitHub login and password each
+time. With `git://`, you'll have read-only access. With `git@`, you
+need to set up ssh (more work initially, but you'll get write access
+without having to enter your login and password).
 
 
 ### Branching and merging
@@ -406,7 +410,9 @@ password.)
   * `git checkout master`
   * `git merge devel`
 
-Branching is a really important feature of git. Create a branch
+<!-- NOTES -->
+
+Branching is a great feature of git. Create a branch
 to test out some new features without breaking your working
 software.
 
@@ -421,15 +427,18 @@ current one.
 
 ### Issues and pull requests
 
-* Problem with or suggestion for someone's code?
-  * Point it out as an Issue
-* Even better: Provide a fix
+If you have a problem with or a suggestion for someone's code:
+
+* Point it out as an Issue
+* Even better, provide a fix
   * Fork
   * Clone
   * Modify
   * Commit
   * Push
   * Submit a Pull Request
+
+<!-- NOTES -->
 
 One of the best features of GitHub is the ease with which you can
 suggest changes to others' code, either via an Issue, or best of all
@@ -438,20 +447,18 @@ via a Pull Request.
 
 ### Suggest a change to a repo
 
-* Go to the repository:
-  * `http://github.com/someone/repo`
-* **Fork** the repository
-  * Click the "Fork" button
-* **Clone** your version of it
-  * `git clone https://github.com/username/repo`
-* Change things locally, `git  add`, `git  commit`
-* Push your changes to **your/** GitHub repository
-  * `git  push`
-* Go to **your/** GitHub repository
-* Click "**Pull Requests**" and "New pull request"
+* Go to the repository: `http://github.com/someone/repo`
+* **Fork** the repository (click the "Fork" button)
+* **Clone** your version of it: `git clone https://github.com/username/repo`
+* Change things locally: `git  add`, `git  commit`
+* Push the changes to **your** GitHub repository: `git  push`
+* Go to **your** GitHub repository: `http://github.com/username/repo`
+* Click "New pull request"
+
+<!-- NOTES -->
 
 To suggest a change to someone's repository, go to their
-repository and click the ``Fork'' button. This makes a copy of the
+repository and click the "Fork" button. This makes a copy of the
 repo in your part of GitHub.
 
 Then go back to the command line and `clone` your version of the
@@ -460,8 +467,7 @@ repository.
 Make changes, test them, `add`, and `commit` them, and `push` them to your
 GitHub repository.
 
-Then go back to your GitHub repository and click ``Pull Requests''
-and ``New pull request.''
+Then go back to your GitHub repository and click "New pull request".
 
 
 ### Pulling a friend's changes
@@ -470,8 +476,7 @@ and ``New pull request.''
   * `git remote add friend git://github.com/friend/repo`
 * If you trust them, just pull the changes
   * `git pull friend master`
-* Alternatively, fetch the changes, test them, and **then/**
-  merge them.
+* Alternatively, fetch the changes, test them, and then merge them.
   * `git fetch friend master`
   * `git branch -a`
   * `git checkout remotes/friend/master`
@@ -480,6 +485,8 @@ and ``New pull request.''
   * `git merge friend`
 * Push them back to your GitHub repo
   * `git push`
+
+<!-- NOTES -->
 
 If a friend (or perhaps someone you don't even know) has made
 suggested changes to your repository by a Pull Request, you'll get
@@ -516,6 +523,8 @@ A line in my friend's file
 
 Edit, add, commit, push, submit pull request.
 
+<!-- NOTES -->
+
 Sometimes there will be conflicts: you and your collaborator
 will have been making changes to the same portion of a file and
 you'll have to resolve the differences.
@@ -532,92 +541,25 @@ choose and make the file just as you want it.
 Then, `git add`, `git commit`, and `git push`.
 
 
-### Delete GitHub repo
+### Delete a repo
 
 To learn git and GitHub, you'll want to create some test
 repositories and play around with them for a while. You may want to
 delete them later.
 
-On your computer, if you delete the `.git` subdirectory, it'll
-no longer be a git repository.
+* On your computer, if you delete the `.git` subdirectory, it'll no
+  longer be a git repository.
 
-On GitHub, go to the settings for the repository and head down to
-the Danger Zone.
-
-## Additional Tools
-
-### Graphical User Interfaces (GUIs)
-
-### RStudio Integration
-
-See
-[GitPrimer.pdf](http://www.biostat.wisc.edu/~kbroman/presentations/GitPrimer.pdf)
-or [RStudio page](http://www.rstudio.com/ide/docs/version_control/overview).
-
-RStudio has great features for using git and GitHub.
-
-I'm not going to spend time talking about this here; google `git
-site:rstudio.com`.
-
-The key thing is that a Project in RStudio is a directory (with some
-RStudio configuration file, `blah.Proj`) and will be your git
-repository.
+* On GitHub, go to the settings for the repository and head down to
+  the "Danger Zone".
 
 
-### code.harvard.edu
+### Open Source
 
-* Easy to use, free infinite private repositories.
-* Not as nice of interface to review code: Rely on GUI or private web page.
-* When your ssh account expires, your access to them expires.
+* Open source means everyone can see my stupid mistakes.
 
-If you have an account on the UW-Madison Statistics server, you
-can use git there in place of GitHub.
-
-The advantage is that you can have as many private repositories as
-you want.
-
-The disadvantages are that you won't have the GitHub interface and
-you can only use this as long as you have a Statistics account.
-
-I haven't done this myself; these three slides were kindly provided
-by Tim Grilley.
-
-Setup (on server):
-
-* Connect to server
-    * `ssh bigmem01.stat.wisc.edu`
-    * Consider using kinit + aklog if logging on frequently
-    * Make Folder
-    * `cd Repositories`
-    * `mkdir NewRepository`
-    * Initialize Server Repository
-    * `cd NewRepository`
-    * `git init`
-    To set up a repository you just log in
-  to one of the Statistics computers, create a directory, and use `git init`.
-
-Usage (on client, e.g. laptop):
-
-* Clone/Pull onto other systems
-    * `git clone ssh://bigmem01.stat.wisc.edu/~[user]/Repositories/NewRepository` 
-    * Make changes, and commit
-      * `git add -i`
-      * `git commit -m 'An informative message here.'`
-    * Push changes back
-      * `git push origin`
-
-This is what you'd do on your local computer (e.g., a Windows
-laptop).
-
-On a Mac, you'd need to replace the backslashes with forward
-slashes.
-
-Open source means everyone can see my stupid mistakes.
-
-Version control means everyone can see every stupid mistake I've ever
-made.
-
-http://bit.ly/stupidcode
+* Version control means everyone can see every stupid mistake I've
+  ever made.
 
 If you store your code on GitHub, everyone can see everything.
 They can even see everything that ever was.
@@ -625,14 +567,6 @@ They can even see everything that ever was.
 I think this openness is a Good Thing. You may be shy about your
 code, but probably no one is looking. And if they are looking, that
 is actually a Good Thing.
-
-### References
-
-* [Ry's Git Tutorial](https://www.amazon.com/Rys-Git-Tutorial-Ryan-Hodson-ebook/dp/B00QFIA5OC/)
-* [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
-* [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
-* [GitHub Help](https://help.github.com/en)
-* [Pro Git](https://www.amazon.com/Pro-Git-Scott-Chacon-ebook/dp/B01ISNIKES/)
 
 
 ## Lab
@@ -787,3 +721,57 @@ We'll work in pairs: **User A** and **User B**
 - Push back to github
 
         git push
+
+
+## Additional Tools
+
+### RStudio integration
+
+* RStudio has great features for using Git and GitHub from within the IDE.
+
+* See [RStudio's documentation](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN).
+
+* Check out the [RStudio IDE Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/#ide).
+
+<!-- NOTES -->
+
+The key thing is that a Project in RStudio is a directory (with an
+RStudio configuration file, `blah.Rproj`) your `.git` folder will be
+stored in this same directory.
+
+### code.harvard.edu
+
+* https://code.harvard.edu/
+* Enterprise GitHub
+* Private collaboration for teams
+
+<!-- NOTES -->
+
+Free accounts on [github.com](https://github.com/) now get unlimited
+private repositories, but they are limited to 3 collaborators.
+
+[code.harvard.edu](https://code.harvard.edu/) is great for teams at
+Harvard that want to keep their work private.
+
+### Graphical User Interfaces (GUIs)
+
+* [GitHub Desktop](https://desktop.github.com/) is user-friendly
+* [GitKraken](https://www.gitkraken.com/) is cross-platform
+
+<!-- NOTES -->
+
+Personally, I want my editor to have Git integration. I don't like
+having a separate GUI for dealing with Git.
+
+If you are working with Git at the command line a lot, I have enjoyed
+[Bash-it](https://github.com/Bash-it/bash-it). Their [git
+aliases](https://itsfoss.com/bash-it-terminal-tool/) save a lot of
+typing.
+
+### References
+
+* [Ry's Git Tutorial](https://www.amazon.com/Rys-Git-Tutorial-Ryan-Hodson-ebook/dp/B00QFIA5OC/)
+* [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
+* [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
+* [GitHub Help](https://help.github.com/en)
+* [Pro Git](https://www.amazon.com/Pro-Git-Scott-Chacon-ebook/dp/B01ISNIKES/)
