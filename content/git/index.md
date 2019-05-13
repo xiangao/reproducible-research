@@ -4,6 +4,8 @@ title: Version Control with Git and GitHub
 
 ## Introduction
 
+### Version control and reproducible research
+
 Version control is not strictly necessary for reproducible research,
 and in the short term it's a lot of work (to learn and to use), but
 **the long term benefits are enormous**.
@@ -108,7 +110,7 @@ people are up to, and easily collaborate on shared projects.
   * Seeing what people are up to
   * Contributing to others' code
 * Lowers the barrier to collaboration
-  * "There's a typo in your code." vs. "Here's a correction for that typo."
+  * "You have a typo" vs. "Here's a correction for that typo"
 
 <!-- NOTES -->
 
@@ -177,12 +179,13 @@ init`. This creates a `.git` subdirectory.
 How to display data badly
 =========================
 
-Karl Broman gives a talk inspired by Howard Wainer's article by the
-same name: H Wainer (1984) How to display data badly. American Statistician
-38:137-147
+Karl Broman gives a talk inspired by Howard Wainer's
+article by the same name: H Wainer (1984) How to
+display data badly. American Statistician 38:137-147
 
-A recent PDF is
-[here](http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf).
+A recent PDF is [here][1].
+
+[1]: http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf
 ```
 
 <!-- NOTES -->
@@ -473,18 +476,27 @@ Then go back to your GitHub repository and click "New pull request".
 ### Pulling a friend's changes
 
 * Add a connection
-  * `git remote add friend git://github.com/friend/repo`
+  ```
+  git remote add friend git://github.com/friend/repo
+  ```
 * If you trust them, just pull the changes
-  * `git pull friend master`
+  ```
+  git pull friend master
+  ```
 * Alternatively, fetch the changes, test them, and then merge them.
-  * `git fetch friend master`
-  * `git branch -a`
-  * `git checkout remotes/friend/master`
-  * `git checkout -b friend`
-  * `git checkout master`
-  * `git merge friend`
+
+  ```
+  git fetch friend master
+  git branch -a
+  git checkout remotes/friend/master
+  git checkout -b friend
+  git checkout master
+  git merge friend
+  ```
 * Push them back to your GitHub repo
-  * `git push`
+  ```
+  git push
+  ```
 
 <!-- NOTES -->
 
@@ -564,14 +576,13 @@ delete them later.
 If you store your code on GitHub, everyone can see everything.
 They can even see everything that ever was.
 
+hi
+
 I think this openness is a Good Thing. You may be shy about your
 code, but probably no one is looking. And if they are looking, that
 is actually a Good Thing.
 
-
 ## Lab
-
-We'll work in pairs: **User A** and **User B**
 
 ### 1. User A
 
@@ -770,8 +781,9 @@ typing.
 
 ### References
 
-* [Ry's Git Tutorial](https://www.amazon.com/Rys-Git-Tutorial-Ryan-Hodson-ebook/dp/B00QFIA5OC/)
-* [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
+* [git - the simple guide](https://rogerdudler.github.io/git-guide/)
+* [Git is a Directed Acyclic Graph and What the Heck Does That Mean?](https://medium.com/girl-writes-code/git-is-a-directed-acyclic-graph-and-what-the-heck-does-that-mean-b6c8dec65059)
 * [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
 * [GitHub Help](https://help.github.com/en)
-* [Pro Git](https://www.amazon.com/Pro-Git-Scott-Chacon-ebook/dp/B01ISNIKES/)
+* [Git - Documentation](https://git-scm.com/doc)
+* [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
