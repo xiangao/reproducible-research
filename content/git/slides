@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Version Control with Git and GitHub</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Version Control with Git and GitHub</h1>
+</section>
+
+<section><section id="introduction" class="title-slide slide level1"><h1>Introduction</h1></section><section id="version-control-and-reproducible-research" class="slide level2">
+<h2>Version control and reproducible research</h2>
+<p>Version control is not strictly necessary for reproducible research, and in the short term it’s a lot of work (to learn and to use), but <strong>the long term benefits are enormous</strong>.</p>
+</section><section id="why-use-formal-version-control" class="slide level2">
+<h2>Why use formal version control?</h2>
+<ul>
+<li>Maintain a history of all changes
+<ul>
+<li>Able to go back in time</li>
+<li>See what changed between two time points</li>
+</ul></li>
+<li>No worries about breaking things</li>
+<li>Merge changes from multiple people</li>
+</ul>
+</section><section id="what-is-git" class="slide level2">
+<h2>What is Git?</h2>
+<ul>
+<li>Formal version control system</li>
+<li>Designed for managing code</li>
+<li>Tracks any content (but best for plain text files)
+<ul>
+<li>source code</li>
+<li>data analysis projects</li>
+<li>manuscripts</li>
+<li>websites</li>
+<li>presentations</li>
+</ul></li>
+<li>Excellent for asynchronous collaboration</li>
+</ul>
+</section><section id="why-use-git" class="slide level2">
+<h2>Why use Git?</h2>
+<ul>
+<li>It’s fast</li>
+<li>You don’t need access to a server</li>
+<li>Amazingly good at merging simultaneous changes</li>
+<li>Everyone’s using it</li>
+</ul>
+</section><section id="what-is-github" class="slide level2">
+<h2>What is GitHub?</h2>
+<ul>
+<li>A home for git repositories</li>
+<li>Web interface for exploring git repositories</li>
+<li><strong>Real</strong> open source
+<ul>
+<li>Immediate, easy access to the code</li>
+</ul></li>
+<li>Like facebook for programmers</li>
+</ul>
+</section><section id="why-use-github" class="slide level2">
+<h2>Why use GitHub?</h2>
+<ul>
+<li>Handles the server aspects of Git</li>
+<li>Graphical user interface for Git
+<ul>
+<li>For exploring code and its history</li>
+</ul></li>
+<li>Provides issue tracking</li>
+<li>Facilitates:
+<ul>
+<li>Learning from others</li>
+<li>Seeing what people are up to</li>
+<li>Contributing to others’ code</li>
+</ul></li>
+<li>Lowers the barrier to collaboration
+<ul>
+<li>“You have a typo” vs. “Here’s a correction for that typo”</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="how-to-use-git" class="title-slide slide level1"><h1>How to use Git</h1></section><section id="basic-use" class="slide level2">
+<h2>Basic use</h2>
+<ul>
+<li>Change some files</li>
+<li>See what you’ve changed
+<ul>
+<li><code>git status</code></li>
+<li><code>git diff</code></li>
+<li><code>git log</code></li>
+</ul></li>
+<li>Indicate what changes to save
+<ul>
+<li><code>git add</code></li>
+</ul></li>
+<li>Commit to those changes
+<ul>
+<li><code>git commit</code></li>
+</ul></li>
+</ul>
+</section><section id="initialize-a-repository" class="slide level2">
+<h2>Initialize a repository</h2>
+<ul>
+<li>Create a working directory (e.g., <code>~/my-project</code>)</li>
+<li><code>cd</code> into your working directory</li>
+<li>Initialize it to be a git repository using <code>git init</code>
+<ul>
+<li>This creates a subdirectory <code>~/my-project/.git</code></li>
+</ul></li>
+</ul>
+<pre><code>$ mkdir ~/my-project
+$ cd ~/my-project
+$ git init
+Initialized empty Git repository in ~/my-project/.git/</code></pre>
+</section><section id="produce-content" class="slide level2">
+<h2>Produce content</h2>
+<ul>
+<li>Create a <code>README.md</code> file</li>
+</ul>
+<pre><code>How to display data badly
+=========================
+
+Karl Broman gives a talk inspired by Howard Wainer&#39;s
+article by the same name: H Wainer (1984) How to
+display data badly. American Statistician 38:137-147
+
+A recent PDF is [here][1].
+
+[1]: http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf</code></pre>
+</section><section id="incorporate-into-repository-part-1-of-2" class="slide level2">
+<h2>Incorporate into repository: part 1 of 2</h2>
+<ul>
+<li>Stage the changes using <code>git add</code></li>
+</ul>
+<pre><code>$ git add README.md</code></pre>
+<p>Use <code>git add</code> to tell git that you want to start keeping track of this file. This is called “staging”, or you say the file is “staged”.</p>
+</section><section id="incorporate-into-repository-part-2-of-2" class="slide level2">
+<h2>Incorporate into repository: part 2 of 2</h2>
+<ul>
+<li>Now commit using <code>git commit</code></li>
+</ul>
+<pre><code>$ git commit -m &quot;Initial commit of README.md file&quot;
+[master (root-commit) 32c9d01] Initial commit of README.md file
+ 1 file changed, 14 insertions(+)
+ create mode 100644 README.md</code></pre>
+<ul>
+<li>The <code>-m</code> argument allows one to enter a message</li>
+<li>Without <code>-m</code>, <code>git</code> will spawn a text editor</li>
+<li>Use a meaningful message</li>
+<li>Message can have multiple lines, but make 1st line an overview</li>
+</ul>
+<p>Use <code>git commit</code> to add the file to the history of the project.</p>
+</section><section id="a-few-points-on-commits" class="slide level2">
+<h2>A few points on commits</h2>
+<ul>
+<li>Use frequent, small commits</li>
+<li>Don’t get out of sync with your collaborators</li>
+<li>Commit the sources, not the derived files
+<ul>
+<li>(R code not images)</li>
+</ul></li>
+<li>Use a <code>.gitignore</code> file to indicate files to be ignored</li>
+</ul>
+<pre><code>.Rhistory
+*.Rout
+manuscript.pdf
+figures/*.pdf</code></pre>
+</section><section id="using-git-on-an-existing-project" class="slide level2">
+<h2>Using Git on an existing project</h2>
+<ul>
+<li><code>cd</code> into your project directory</li>
+<li><code>git init</code></li>
+<li>Set up a <code>.gitignore</code> file (optional)</li>
+<li><code>git status</code></li>
+<li><code>git add</code></li>
+<li><code>git status</code></li>
+<li><code>git commit</code></li>
+</ul>
+</section><section id="removingmoving-files" class="slide level2">
+<h2>Removing/moving files</h2>
+<p>For files that are being tracked by git:</p>
+<ul>
+<li><p>Use <code>git rm</code> instead of just <code>rm</code></p></li>
+<li><p>Use <code>git mv</code> instead of just <code>mv</code></p></li>
+</ul>
+<p>This will remove/move the file/directory <strong>and</strong> stage the change.</p>
+</section><section id="first-use-of-git" class="slide level2">
+<h2>First use of Git</h2>
+<pre><code>$ git config --global user.name &quot;Jane Doe&quot;
+$ git config --global user.email &quot;jdoe@hbs.edu&quot;
+$ git config --global color.ui true
+$ git config --global core.editor emacs
+$ git config --global core.excludesfile ~/.gitignore_global</code></pre>
+<p>The very first time you use git, you need to do a bit of configuration.</p>
+<p>All of this stuff gets added to a <code>~/.gitconfig</code> file</p>
+</section></section>
+<section><section id="how-to-use-github" class="title-slide slide level1"><h1>How to use GitHub</h1></section><section id="basic-use-1" class="slide level2">
+<h2>Basic use</h2>
+<ul>
+<li>Push changes to GitHub
+<ul>
+<li><code>git push</code></li>
+</ul></li>
+<li>Pull changes from your collaborator
+<ul>
+<li><code>git pull</code> or</li>
+<li><code>git fetch</code> and <code>git merge</code></li>
+</ul></li>
+</ul>
+</section><section id="set-up-github-repository" class="slide level2">
+<h2>Set up GitHub repository</h2>
+<ul>
+<li><p>Sign up for a GitHub account</p></li>
+<li><p>Click the “Create a new repo” button</p></li>
+<li><p>Give it a name (and description)</p></li>
+<li><p>Click the “Create repository” button</p></li>
+<li><p>Back at the command line:</p>
+<pre><code>git remote add origin git@github.com:user/repo.git
+git push -u origin master</code></pre></li>
+</ul>
+</section><section id="configuration-file-part-1-of-2" class="slide level2">
+<h2>Configuration file: part 1 of 2</h2>
+<p>Part of a <code>.git/config</code> file:</p>
+<pre><code>[remote &quot;origin&quot;]
+    url = https://github.com/kbroman/qtl.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+
+[branch &quot;master&quot;]
+    remote = origin
+    merge = refs/heads/master
+
+[remote &quot;brian&quot;]
+    url = git://github.com/byandell/qtl.git
+    fetch = +refs/heads/*:refs/remotes/brian/*</code></pre>
+<p>The <code>git remote add</code> commands adds stuff to the <code>.git/config</code> file; if you’ve made a mistake, you can just edit this file.</p>
+</section><section id="configuration-file-part-2-of-2" class="slide level2">
+<h2>Configuration file: part 2 of 2</h2>
+<p>There are three different constructions for the url:</p>
+<ol type="1">
+<li><code>https://github.com/user/repo</code></li>
+<li><code>git://github.com/user/repo</code></li>
+<li><code>git@github.com:user/repo</code></li>
+</ol>
+<p>With <code>https://</code>, you’ll need to enter your GitHub login and password each time. With <code>git://</code>, you’ll have read-only access. With <code>git@</code>, you need to set up ssh (more work initially, but you’ll get write access without having to enter your login and password).</p>
+</section><section id="branching-and-merging" class="slide level2">
+<h2>Branching and merging</h2>
+<ul>
+<li>Use branches to test out new features without breaking the working code.
+<ul>
+<li><code>git branch devel</code></li>
+<li><code>git branch</code></li>
+<li><code>git checkout devel</code></li>
+</ul></li>
+<li>When you’re happy with the work, merge it back into your master branch.
+<ul>
+<li><code>git checkout master</code></li>
+<li><code>git merge devel</code></li>
+</ul></li>
+</ul>
+</section><section id="issues-and-pull-requests" class="slide level2">
+<h2>Issues and pull requests</h2>
+<p>If you have a problem with or a suggestion for someone’s code:</p>
+<ul>
+<li>Point it out as an Issue</li>
+<li>Even better, provide a fix
+<ul>
+<li>Fork</li>
+<li>Clone</li>
+<li>Modify</li>
+<li>Commit</li>
+<li>Push</li>
+<li>Submit a Pull Request</li>
+</ul></li>
+</ul>
+</section><section id="suggest-a-change-to-a-repo" class="slide level2">
+<h2>Suggest a change to a repo</h2>
+<ul>
+<li>Go to the repository: <code>http://github.com/someone/repo</code></li>
+<li><strong>Fork</strong> the repository (click the “Fork” button)</li>
+<li><strong>Clone</strong> your version of it: <code>git clone https://github.com/username/repo</code></li>
+<li>Change things locally: <code>git  add</code>, <code>git  commit</code></li>
+<li>Push the changes to <strong>your</strong> GitHub repository: <code>git  push</code></li>
+<li>Go to <strong>your</strong> GitHub repository: <code>http://github.com/username/repo</code></li>
+<li>Click “New pull request”</li>
+</ul>
+</section><section id="pulling-a-friends-changes" class="slide level2">
+<h2>Pulling a friend’s changes</h2>
+<ul>
+<li><p>Add a connection</p>
+<pre><code>git remote add friend git://github.com/friend/repo</code></pre></li>
+<li><p>If you trust them, just pull the changes</p>
+<pre><code>git pull friend master</code></pre></li>
+<li><p>Alternatively, fetch the changes, test them, and then merge them.</p>
+<pre><code>git fetch friend master
+git branch -a
+git checkout remotes/friend/master
+git checkout -b friend
+git checkout master
+git merge friend</code></pre></li>
+<li><p>Push them back to your GitHub repo</p>
+<pre><code>git push</code></pre></li>
+</ul>
+</section><section id="merge-conflicts" class="slide level2">
+<h2>Merge conflicts</h2>
+<p>Sometimes after <code>git pull friend master</code></p>
+<pre><code>Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>Inside the file you’ll see:</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+A line in my file.
+=======
+A line in my friend&#39;s file
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 031389f2cd2acde08e32f0beb084b2f7c3257fff</code></pre>
+<p>Edit, add, commit, push, submit pull request.</p>
+</section><section id="delete-a-repo" class="slide level2">
+<h2>Delete a repo</h2>
+<p>To learn git and GitHub, you’ll want to create some test repositories and play around with them for a while. You may want to delete them later.</p>
+<ul>
+<li><p>On your computer, if you delete the <code>.git</code> subdirectory, it’ll no longer be a git repository.</p></li>
+<li><p>On GitHub, go to the settings for the repository and head down to the “Danger Zone”.</p></li>
+</ul>
+</section><section id="open-source" class="slide level2">
+<h2>Open Source</h2>
+<ul>
+<li><p>Open source means everyone can see my stupid mistakes.</p></li>
+<li><p>Version control means everyone can see every stupid mistake I’ve ever made.</p></li>
+</ul>
+<p>If you store your code on GitHub, everyone can see everything. They can even see everything that ever was.</p>
+<p>hi</p>
+<p>I think this openness is a Good Thing. You may be shy about your code, but probably no one is looking. And if they are looking, that is actually a Good Thing.</p>
+</section></section>
+<section><section id="lab" class="title-slide slide level1"><h1>Lab</h1></section><section id="user-a" class="slide level2">
+<h2>1. User A</h2>
+<ul>
+<li><p>Set up a new repository, locally</p>
+<pre><code>  mkdir TestRepo
+  cd TestRepo
+  git init</code></pre></li>
+<li><p>Create or copy over a file or two and add them to the repository.</p>
+<pre><code>  touch ReadMe.md
+  [edit the file]
+  git add ReadMe.md
+  git commit</code></pre></li>
+<li><p>Go to your GitHub account and create a new repository</p></li>
+<li><p>Connect your local repository to GitHub</p>
+<pre><code>  git remote add origin https://github.com/userA/TestRepo</code></pre></li>
+<li><p>Push your local repository to GitHub</p>
+<pre><code>  git push -u origin master</code></pre></li>
+</ul>
+</section><section id="user-b" class="slide level2">
+<h2>2. User B</h2>
+<ul>
+<li><p>Fork user A’s repository on GitHub: go to <code>http://github.com/userA/TestRepo</code> and click the “Fork” button.</p></li>
+<li><p>Clone <em>your</em> version of that repository locally</p>
+<pre><code>  git clone https://github.com/userB/TestRepo</code></pre></li>
+<li><p>Change a file, and another file</p>
+<pre><code>  cd TestRepo
+  [change/copy files]
+  git add [filenames]
+  git commit</code></pre></li>
+<li><p>Push the changes to GitHub</p>
+<pre><code>  git push</code></pre></li>
+<li><p>Make a pull request:</p>
+<ul>
+<li>Go to <em>your</em> version of the repository on GitHub (<code>http://github.com/userB/TestRepo</code>)</li>
+<li>Click “Pull requests”</li>
+<li>Click “New pull request”</li>
+<li>Click “Create pull request”</li>
+<li>Optionally add a comment</li>
+<li>Click “Create pull request”</li>
+</ul></li>
+</ul>
+</section><section id="user-a-1" class="slide level2">
+<h2>3. User A</h2>
+<ul>
+<li><p>Connect to User B’s repository</p>
+<pre><code>  git remote add userB git://github.com/userB/TestRepo</code></pre></li>
+<li><p>Fetch the changes from User B</p>
+<pre><code>  git fetch userB</code></pre></li>
+<li><p>Checkout their version of the repository as a local branch</p>
+<pre><code>  git checkout -b userB userB/master</code></pre></li>
+<li><p>Check that you like the changes</p></li>
+<li><p>Use <code>git branch</code> to see your branches; the asterisk indicates the one you’re currently on.</p></li>
+<li><p>Switch back to (“<code>checkout</code>”) your master branch</p>
+<pre><code>  git checkout master</code></pre></li>
+<li><p>Note that the files are in the state that <em>you</em> left them.</p></li>
+<li><p>Merge their work into your master branch.</p>
+<pre><code>  git merge userB</code></pre></li>
+<li><p>Push the work to github.</p>
+<pre><code>  git push</code></pre></li>
+<li><p>Make another change to the file; then <code>add</code>, <code>commit</code>, and <code>push</code>.</p></li>
+</ul>
+</section><section id="user-b-1" class="slide level2">
+<h2>4. User B</h2>
+<ul>
+<li><p>Add a connection to User A’s repository</p>
+<pre><code>  git remote add userA git://github.com/userA/TestRepo</code></pre></li>
+<li><p>Fetch User A’s latest</p>
+<pre><code>  git fetch userA</code></pre></li>
+<li><p>Check it out as a local branch</p>
+<pre><code>  git checkout -b userA userA/master</code></pre></li>
+<li><p>Test things</p></li>
+<li><p>Checkout your master, merge the change from User A, and push to github.</p>
+<pre><code>  git checkout master
+  git merge userA
+  git push</code></pre></li>
+</ul>
+</section><section id="users-a-and-b" class="slide level2">
+<h2>5. Users A and B</h2>
+<ul>
+<li>Make simulateneous changes, then <code>add</code>, <code>commit</code>, and <code>push</code>.</li>
+</ul>
+</section><section id="user-b-2" class="slide level2">
+<h2>6. User B</h2>
+<ul>
+<li><p>Pull User A’s change</p>
+<pre><code>  git checkout userA
+  git pull userA master</code></pre></li>
+<li><p>Go back to your master branch and merge the change from User A.</p>
+<pre><code>  git checkout master
+  git merge userA</code></pre></li>
+<li><p>Fix the merge conflict; then <code>add</code>, <code>commit</code>, <code>push</code>.</p></li>
+<li><p>Make another pull request</p></li>
+</ul>
+</section><section id="user-a-2" class="slide level2">
+<h2>7. User A</h2>
+<ul>
+<li><p>Fetch User B’s repository</p>
+<pre><code>  git checkout userB
+  git pull userB master</code></pre></li>
+<li><p>Merge into your master branch</p>
+<pre><code>  git checkout master
+  git merge userB</code></pre></li>
+<li><p>Push back to github</p>
+<pre><code>  git push</code></pre></li>
+</ul>
+</section></section>
+<section><section id="additional-tools" class="title-slide slide level1"><h1>Additional Tools</h1></section><section id="rstudio-integration" class="slide level2">
+<h2>RStudio integration</h2>
+<ul>
+<li><p>RStudio has great features for using Git and GitHub from within the IDE.</p></li>
+<li><p>See <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">RStudio’s documentation</a>.</p></li>
+<li><p>Check out the <a href="https://www.rstudio.com/resources/cheatsheets/#ide">RStudio IDE Cheat Sheet</a>.</p></li>
+</ul>
+</section><section id="code.harvard.edu" class="slide level2">
+<h2>code.harvard.edu</h2>
+<ul>
+<li>https://code.harvard.edu/</li>
+<li>Enterprise GitHub</li>
+<li>Private collaboration for teams</li>
+</ul>
+</section><section id="graphical-user-interfaces-guis" class="slide level2">
+<h2>Graphical User Interfaces (GUIs)</h2>
+<ul>
+<li><a href="https://desktop.github.com/">GitHub Desktop</a> is user-friendly</li>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> is cross-platform</li>
+</ul>
+</section><section id="references" class="slide level2">
+<h2>References</h2>
+<ul>
+<li><a href="https://rogerdudler.github.io/git-guide/">git - the simple guide</a></li>
+<li><a href="https://medium.com/girl-writes-code/git-is-a-directed-acyclic-graph-and-what-the-heck-does-that-mean-b6c8dec65059">Git is a Directed Acyclic Graph and What the Heck Does That Mean?</a></li>
+<li><a href="https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf">4 branching workflows for Git</a></li>
+<li><a href="https://help.github.com/en">GitHub Help</a></li>
+<li><a href="https://git-scm.com/doc">Git - Documentation</a></li>
+<li><a href="https://wizardzines.com/zines/oh-shit-git/">Oh shit, git!</a></li>
+</ul>
+<style type="text/css">
+  .reveal .slides > section > section { text-align:left; }
+</style>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/lib/js/head.min.js"></script>
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1200,
+        height: 875,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

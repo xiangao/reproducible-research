@@ -4,31 +4,31 @@ title: Version Control with Git and GitHub
 
 ## Introduction
 
-Version control is not strictly necessary for reproducible
-research, and it's admittedly a lot of work (to learn and to use) in
-the short term, but the long term benefits are enormous.
+### Version control and reproducible research
 
-The advantages are:
+Version control is not strictly necessary for reproducible research,
+and in the short term it's a lot of work (to learn and to use), but
+**the long term benefits are enormous**.
 
-* you'll save the entire history of changes to a project,
-* you can go back to any point in time (and see what has changed between any two points in time),
-* you don't have to worry about breaking things that work, and
-* you can easily merge changes from multiple people.
+<!-- NOTES -->
 
-I use version control for: software, data
-analysis projects, papers, talks, and web sites.
+I use version control for: software, data analysis projects, papers,
+talks, and web sites.
 
-People are more resistant to version control than to any other
-tool, because of the short-term effort and the lack of recognition
-of the long-term benefits.
+People are more resistant to version control than to any other tool
+because of the short-term effort and the lack of recognition of the
+long-term benefits.
 
 
 ### Why use formal version control?
 
-* History of changes
-* Able to go back
-* No worries about breaking things that work
-* Merging changes from multiple people
+* Maintain a history of all changes
+  * Able to go back in time
+  * See what changed between two time points
+* No worries about breaking things
+* Merge changes from multiple people
+
+<!-- NOTES -->
 
 With formal version control, you'll save the entire history of
 changes to the project, and you can easily go back to any
@@ -46,17 +46,19 @@ see what was changed and to incorporate those changes.
 ### What is Git?
 
 * Formal version control system
-* Developed by Linus Torvalds (developer of Linux)
-  * used to manage the source code for Linux
-* Tracks any content (but mostly plain text files)
+* Designed for managing code
+* Tracks any content (but best for plain text files)
   * source code
   * data analysis projects
   * manuscripts
   * websites
   * presentations
+* Excellent for asynchronous collaboration
 
-We're going to focus on Git, the version control system
-developed by Linus Torvalds for managing the source code for Linux.
+<!-- NOTES -->
+
+We're going to focus on Git, the version control system developed by
+Linus Torvalds for managing the source code for Linux.
 
 You can track any content, but it's mostly for tracking plain text
 files, but that can be most anything (source code, data analysis
@@ -70,19 +72,22 @@ projects, manuscripts, websites, presentations).
 * Amazingly good at merging simultaneous changes
 * Everyone's using it
 
+<!-- NOTES -->
+
 Git is fast, you can use it locally on your own computer, it's
-amazingly good at merging changes, and there are lots of people
-using it.
+amazingly good at merging changes, and there are lots of people using
+it.
 
 
 ### What is GitHub?
 
 * A home for git repositories
-* Interface for exploring git repositories
+* Web interface for exploring git repositories
 * **Real** open source
-  * immediate, easy access to the code
+  * Immediate, easy access to the code
 * Like facebook for programmers
-* GitHub now provides free private repositories
+
+<!-- NOTES -->
 
 GitHub is a website that hosts git repositories, with a nice
 graphical user interface for exploring git repositories.
@@ -96,16 +101,18 @@ people are up to, and easily collaborate on shared projects.
 
 ### Why use GitHub?
 
-* It takes care of the server aspects of Git
+* Handles the server aspects of Git
 * Graphical user interface for Git
-  * Exploring code and its history
-  * Tracking issues
+  * For exploring code and its history
+* Provides issue tracking
 * Facilitates:
   * Learning from others
   * Seeing what people are up to
   * Contributing to others' code
 * Lowers the barrier to collaboration
-  * "There's a typo in your documentation." vs. "Here's a correction for your documentation."
+  * "You have a typo" vs. "Here's a correction for that typo"
+
+<!-- NOTES -->
 
 GitHub takes care of the server aspects of Git, and you get a
 great GUI for exploring your repositories.
@@ -129,12 +136,8 @@ documentation).
   * `git add`
 * Commit to those changes
   * `git commit`
-* Push the changes to GitHub
-  * `git push`
-* Pull changes from your collaborator
-  * `git pull`
-  * `git fetch`
-  * `git merge`
+
+<!-- NOTES -->
 
 These are the basic git commands you'll use day-to-day.
 
@@ -146,26 +149,22 @@ After you've made some changes, you'll use `git add` to indicate
 which changes you want to commit to, and `git commit` to commit
 to them (to add them to the repository).
 
-You use `git push` to push changes to GitHub, and `git pull`
-(or `git fetch` and `git merge`) to pull changes from a
-collaborator's repository, or if you're synchronizing a repository
-between two computers.
 
+### Initialize a repository
 
-### Initialize repository
-
-* Create (and `cd` to) a working directory
-  * For example, `~/Docs/Talks/Graphs`
-* Initialize it to be a git repository
-  * ` git init`
-  * Creates subdirectory `~/Docs/Talks/Graphs/.git`
+* Create a working directory (e.g., `~/my-project`)
+* `cd` into your working directory
+* Initialize it to be a git repository using `git init`
+  * This creates a subdirectory `~/my-project/.git`
 
 ```
-$ mkdir ~/Docs/Talks/Graphs
-$ cd ~/Docs/Talks/Graphs
+$ mkdir ~/my-project
+$ cd ~/my-project
 $ git init
-Initialized empty Git repository in ~/Docs/Talks/Graphs/.git/
+Initialized empty Git repository in ~/my-project/.git/
 ```
+
+<!-- NOTES -->
 
 If you're starting a new, fresh project, you make a directory
 for it and go into that directory, and then you type `git
@@ -177,21 +176,22 @@ init`. This creates a `.git` subdirectory.
 * Create a `README.md` file
 
 ```
-# Talk on "How to display data badly"
+How to display data badly
+=========================
 
-These are slides for a talk that I give as often as possible, because
-it's fun.
+Karl Broman gives a talk inspired by Howard Wainer's
+article by the same name: H Wainer (1984) How to
+display data badly. American Statistician 38:137-147
 
-This was inspired by Howard Wainer's article, whose title I stole: H
-Wainer (1984) How to display data badly. American Statistician
-38:137-147
+A recent PDF is [here][1].
 
-A recent PDF is
-[here](http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf).
+[1]: http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf
 ```
 
-Start creating a bit of content, such as a Readme file. You can
-use Markdown to make it look nicer.
+<!-- NOTES -->
+
+A README file is a great place to start a new project. It can give
+readers of your files a high-level overview of the project.
 
 
 ### Incorporate into repository: part 1 of 2
@@ -223,7 +223,7 @@ $ git commit -m "Initial commit of README.md file"
 * Use a meaningful message
 * Message can have multiple lines, but make 1st line an overview
 
-Use `git commit` to add the file to the repository.
+Use `git commit` to add the file to the history of the project.
 
 
 ### A few points on commits
@@ -235,25 +235,17 @@ Use `git commit` to add the file to the repository.
 * Use a `.gitignore` file to indicate files to be ignored
 
 ```
-*~
-manuscript.pdf
-Figs/*.pdf
-.RData
-.RHistory
+.Rhistory
 *.Rout
-*.aux
-*.log
-*.out
+manuscript.pdf
+figures/*.pdf
 ```
+
+<!-- NOTES -->
 
 I recommend using frequent, small commits. I'll make a batch of
 changes with a common theme, make sure things are working, then add
 and commit.
-
-In projects with collabotors, be sure to pull any changes from them
-before starting to make your own changes, and encourage your
-collaborators to do the same. If you both make a month's changes
-in parallel, merging the changes will be harder.
 
 I commit only the source, and not files that are derived from those
 sources. For a manuscript, though, I might include the pdf at major
@@ -268,12 +260,15 @@ But leaving off critical files is a common mistake.
 
 ### Using Git on an existing project
 
+* `cd` into your project directory
 * `git init`
-* Set up `.gitignore` file
-* `git status` (did you miss any?)
-* `git add .` (or name files individually)
-* `git status` (did you miss any?)
+* Set up a `.gitignore` file (optional)
+* `git status`
+* `git add`
+* `git status`
 * `git commit`
+
+<!-- NOTES -->
 
 I recommend using git with all of your current projects.
 Start with one.
@@ -289,16 +284,13 @@ Then use `git commit` to make an initial commit.
 
 For files that are being tracked by git:
 
-* Use ` git rm` instead of just `rm`
+* Use `git rm` instead of just `rm`
 
-* Use ` git mv` instead of just `mv`
+* Use `git mv` instead of just `mv`
 
-```
-$ git rm myfile
-$ git mv myfile newname
-$ git mv myfile SubDir/
-$ git commit
-```
+This will remove/move the file/directory **and** stage the change.
+
+<!-- NOTES -->
 
 For files that are being tracked by git: If you want to change
 the name of a file, or if you want to move it to a subdirectory, you
@@ -313,7 +305,7 @@ completely removed; it'll still be within the history.
 
 ```
 $ git config --global user.name "Jane Doe"
-$ git config --global user.email "janedoe@wisc.edu"
+$ git config --global user.email "jdoe@hbs.edu"
 $ git config --global color.ui true
 $ git config --global core.editor emacs
 $ git config --global core.excludesfile ~/.gitignore_global
@@ -327,18 +319,41 @@ All of this stuff gets added to a `~/.gitconfig` file
 
 ## How to use GitHub
 
+### Basic use
+
+* Push changes to GitHub
+  * `git push`
+* Pull changes from your collaborator
+  * `git pull` or
+  * `git fetch` and `git merge`
+
+<!-- NOTES -->
+
+You use `git push` to push changes to GitHub, and `git pull`
+(or `git fetch` and `git merge`) to pull changes from a
+collaborator's repository, or if you're synchronizing a repository
+between two computers.
+
+In projects with collabotors, be sure to pull any changes from them
+before starting to make your own changes, and encourage your
+collaborators to do the same. If you both make a month's changes
+in parallel, merging the changes will be harder.
+
+
 ### Set up GitHub repository
 
-* Get a GitHub account
+* Sign up for a GitHub account
 * Click the "Create a new repo" button
-* Give it a **name** and description
+* Give it a name (and description)
 * Click the "Create repository" button
 * Back at the command line:
 
   ```
-  git remote add origin https://github.com/username/**repo**
+  git remote add origin git@github.com:user/repo.git
   git push -u origin master
   ```
+
+<!-- NOTES -->
 
 To create a GitHub repository, I generally first set things up
 locally (using `git init` and then a bit of `git add` and
@@ -352,7 +367,7 @@ indicate the github address; then `git push` to push everything
 to GitHub.
 
 
-### Configuration file
+### Configuration file: part 1 of 2
 
 Part of a `.git/config` file:
 
@@ -374,17 +389,18 @@ The `git remote add` commands adds stuff to the
 `.git/config` file; if you've made a mistake, you can just edit
 this file.
 
+### Configuration file: part 2 of 2
+
 There are three different constructions for the url:
 
-1. `https://github.com/username/repo`
-2. `git://github.com/username/repo`
-3. `git@github.com:username/repo`
+1.  `https://github.com/user/repo`
+2.  `git://github.com/user/repo`
+3.  `git@github.com:user/repo`
 
-With `https`, you'll need to enter your GitHub login and
-password each time. With `git://`, you'll have only read
-access. With `git@github.com:`, you need to set up ssh. (More
-work initially, but you'll get write access without having to enter your login and
-password.)
+With `https://`, you'll need to enter your GitHub login and password each
+time. With `git://`, you'll have read-only access. With `git@`, you
+need to set up ssh (more work initially, but you'll get write access
+without having to enter your login and password).
 
 
 ### Branching and merging
@@ -397,7 +413,9 @@ password.)
   * `git checkout master`
   * `git merge devel`
 
-Branching is a really important feature of git. Create a branch
+<!-- NOTES -->
+
+Branching is a great feature of git. Create a branch
 to test out some new features without breaking your working
 software.
 
@@ -412,15 +430,18 @@ current one.
 
 ### Issues and pull requests
 
-* Problem with or suggestion for someone's code?
-  * Point it out as an Issue
-* Even better: Provide a fix
+If you have a problem with or a suggestion for someone's code:
+
+* Point it out as an Issue
+* Even better, provide a fix
   * Fork
   * Clone
   * Modify
   * Commit
   * Push
   * Submit a Pull Request
+
+<!-- NOTES -->
 
 One of the best features of GitHub is the ease with which you can
 suggest changes to others' code, either via an Issue, or best of all
@@ -429,20 +450,18 @@ via a Pull Request.
 
 ### Suggest a change to a repo
 
-* Go to the repository:
-  * `http://github.com/someone/repo`
-* **Fork** the repository
-  * Click the "Fork" button
-* **Clone** your version of it
-  * `git clone https://github.com/username/repo`
-* Change things locally, `git  add`, `git  commit`
-* Push your changes to **your/** GitHub repository
-  * `git  push`
-* Go to **your/** GitHub repository
-* Click "**Pull Requests**" and "New pull request"
+* Go to the repository: `http://github.com/someone/repo`
+* **Fork** the repository (click the "Fork" button)
+* **Clone** your version of it: `git clone https://github.com/username/repo`
+* Change things locally: `git  add`, `git  commit`
+* Push the changes to **your** GitHub repository: `git  push`
+* Go to **your** GitHub repository: `http://github.com/username/repo`
+* Click "New pull request"
+
+<!-- NOTES -->
 
 To suggest a change to someone's repository, go to their
-repository and click the ``Fork'' button. This makes a copy of the
+repository and click the "Fork" button. This makes a copy of the
 repo in your part of GitHub.
 
 Then go back to the command line and `clone` your version of the
@@ -451,26 +470,35 @@ repository.
 Make changes, test them, `add`, and `commit` them, and `push` them to your
 GitHub repository.
 
-Then go back to your GitHub repository and click ``Pull Requests''
-and ``New pull request.''
+Then go back to your GitHub repository and click "New pull request".
 
 
 ### Pulling a friend's changes
 
 * Add a connection
-  * `git remote add friend git://github.com/friend/repo`
+  ```
+  git remote add friend git://github.com/friend/repo
+  ```
 * If you trust them, just pull the changes
-  * `git pull friend master`
-* Alternatively, fetch the changes, test them, and **then/**
-  merge them.
-  * `git fetch friend master`
-  * `git branch -a`
-  * `git checkout remotes/friend/master`
-  * `git checkout -b friend`
-  * `git checkout master`
-  * `git merge friend`
+  ```
+  git pull friend master
+  ```
+* Alternatively, fetch the changes, test them, and then merge them.
+
+  ```
+  git fetch friend master
+  git branch -a
+  git checkout remotes/friend/master
+  git checkout -b friend
+  git checkout master
+  git merge friend
+  ```
 * Push them back to your GitHub repo
-  * `git push`
+  ```
+  git push
+  ```
+
+<!-- NOTES -->
 
 If a friend (or perhaps someone you don't even know) has made
 suggested changes to your repository by a Pull Request, you'll get
@@ -507,6 +535,8 @@ A line in my friend's file
 
 Edit, add, commit, push, submit pull request.
 
+<!-- NOTES -->
+
 Sometimes there will be conflicts: you and your collaborator
 will have been making changes to the same portion of a file and
 you'll have to resolve the differences.
@@ -523,112 +553,36 @@ choose and make the file just as you want it.
 Then, `git add`, `git commit`, and `git push`.
 
 
-### Delete GitHub repo
+### Delete a repo
 
 To learn git and GitHub, you'll want to create some test
 repositories and play around with them for a while. You may want to
 delete them later.
 
-On your computer, if you delete the `.git` subdirectory, it'll
-no longer be a git repository.
+* On your computer, if you delete the `.git` subdirectory, it'll no
+  longer be a git repository.
 
-On GitHub, go to the settings for the repository and head down to
-the Danger Zone.
-
-## Additional Tools
-
-### Graphical User Interfaces (GUIs)
-
-### RStudio Integration
-
-See
-[GitPrimer.pdf](http://www.biostat.wisc.edu/~kbroman/presentations/GitPrimer.pdf)
-or [RStudio page](http://www.rstudio.com/ide/docs/version_control/overview).
-
-RStudio has great features for using git and GitHub.
-
-I'm not going to spend time talking about this here; google `git
-site:rstudio.com`.
-
-The key thing is that a Project in RStudio is a directory (with some
-RStudio configuration file, `blah.Proj`) and will be your git
-repository.
+* On GitHub, go to the settings for the repository and head down to
+  the "Danger Zone".
 
 
-### code.harvard.edu
+### Open Source
 
-* Easy to use, free infinite private repositories.
-* Not as nice of interface to review code: Rely on GUI or private web page.
-* When your ssh account expires, your access to them expires.
+* Open source means everyone can see my stupid mistakes.
 
-If you have an account on the UW-Madison Statistics server, you
-can use git there in place of GitHub.
-
-The advantage is that you can have as many private repositories as
-you want.
-
-The disadvantages are that you won't have the GitHub interface and
-you can only use this as long as you have a Statistics account.
-
-I haven't done this myself; these three slides were kindly provided
-by Tim Grilley.
-
-Setup (on server):
-
-* Connect to server
-    * `ssh bigmem01.stat.wisc.edu`
-    * Consider using kinit + aklog if logging on frequently
-    * Make Folder
-    * `cd Repositories`
-    * `mkdir NewRepository`
-    * Initialize Server Repository
-    * `cd NewRepository`
-    * `git init`
-    To set up a repository you just log in
-  to one of the Statistics computers, create a directory, and use `git init`.
-
-Usage (on client, e.g. laptop):
-
-* Clone/Pull onto other systems
-    * `git clone ssh://bigmem01.stat.wisc.edu/~[user]/Repositories/NewRepository` 
-    * Make changes, and commit
-      * `git add -i`
-      * `git commit -m 'An informative message here.'`
-    * Push changes back
-      * `git push origin`
-
-This is what you'd do on your local computer (e.g., a Windows
-laptop).
-
-On a Mac, you'd need to replace the backslashes with forward
-slashes.
-
-Open source means everyone can see my stupid mistakes.
-
-Version control means everyone can see every stupid mistake I've ever
-made.
-
-http://bit.ly/stupidcode
+* Version control means everyone can see every stupid mistake I've
+  ever made.
 
 If you store your code on GitHub, everyone can see everything.
 They can even see everything that ever was.
+
+hi
 
 I think this openness is a Good Thing. You may be shy about your
 code, but probably no one is looking. And if they are looking, that
 is actually a Good Thing.
 
-### References
-
-* [Ry's Git Tutorial](https://www.amazon.com/Rys-Git-Tutorial-Ryan-Hodson-ebook/dp/B00QFIA5OC/)
-* [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
-* [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
-* [GitHub Help](https://help.github.com/en)
-* [Pro Git](https://www.amazon.com/Pro-Git-Scott-Chacon-ebook/dp/B01ISNIKES/)
-
-
 ## Lab
-
-We'll work in pairs: **User A** and **User B**
 
 ### 1. User A
 
@@ -778,3 +732,58 @@ We'll work in pairs: **User A** and **User B**
 - Push back to github
 
         git push
+
+
+## Additional Tools
+
+### RStudio integration
+
+* RStudio has great features for using Git and GitHub from within the IDE.
+
+* See [RStudio's documentation](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN).
+
+* Check out the [RStudio IDE Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/#ide).
+
+<!-- NOTES -->
+
+The key thing is that a Project in RStudio is a directory (with an
+RStudio configuration file, `blah.Rproj`) your `.git` folder will be
+stored in this same directory.
+
+### code.harvard.edu
+
+* https://code.harvard.edu/
+* Enterprise GitHub
+* Private collaboration for teams
+
+<!-- NOTES -->
+
+Free accounts on [github.com](https://github.com/) now get unlimited
+private repositories, but they are limited to 3 collaborators.
+
+[code.harvard.edu](https://code.harvard.edu/) is great for teams at
+Harvard that want to keep their work private.
+
+### Graphical User Interfaces (GUIs)
+
+* [GitHub Desktop](https://desktop.github.com/) is user-friendly
+* [GitKraken](https://www.gitkraken.com/) is cross-platform
+
+<!-- NOTES -->
+
+Personally, I want my editor to have Git integration. I don't like
+having a separate GUI for dealing with Git.
+
+If you are working with Git at the command line a lot, I have enjoyed
+[Bash-it](https://github.com/Bash-it/bash-it). Their [git
+aliases](https://itsfoss.com/bash-it-terminal-tool/) save a lot of
+typing.
+
+### References
+
+* [git - the simple guide](https://rogerdudler.github.io/git-guide/)
+* [Git is a Directed Acyclic Graph and What the Heck Does That Mean?](https://medium.com/girl-writes-code/git-is-a-directed-acyclic-graph-and-what-the-heck-does-that-mean-b6c8dec65059)
+* [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
+* [GitHub Help](https://help.github.com/en)
+* [Git - Documentation](https://git-scm.com/doc)
+* [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
