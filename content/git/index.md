@@ -123,7 +123,7 @@ contribute to others' code (e.g., to report typos in their
 documentation).
 
 
-## How to use Git
+## Git
 
 ### Basic use
 
@@ -194,7 +194,7 @@ A README file is a great place to start a new project. It can give
 readers of your files a high-level overview of the project.
 
 
-### Incorporate into repository: part 1 of 2
+### Incorporate into repository (part 1 of 2)
 
 * Stage the changes using `git add`
 
@@ -207,7 +207,7 @@ track of this file.  This is called "staging", or you say the file
 is "staged".
 
 
-### Incorporate into repository: part 2 of 2
+### Incorporate into repository (part 2 of 2)
 
 * Now commit using ` git commit`
 
@@ -317,7 +317,7 @@ configuration.
 All of this stuff gets added to a `~/.gitconfig` file
 
 
-## How to use GitHub
+## GitHub
 
 ### Basic use
 
@@ -367,7 +367,7 @@ indicate the github address; then `git push` to push everything
 to GitHub.
 
 
-### Configuration file: part 1 of 2
+### Configuration file (part 1 of 2)
 
 Part of a `.git/config` file:
 
@@ -389,7 +389,7 @@ The `git remote add` commands adds stuff to the
 `.git/config` file; if you've made a mistake, you can just edit
 this file.
 
-### Configuration file: part 2 of 2
+### Configuration file (part 2 of 2)
 
 There are three different constructions for the url:
 
@@ -576,163 +576,65 @@ delete them later.
 If you store your code on GitHub, everyone can see everything.
 They can even see everything that ever was.
 
-hi
-
 I think this openness is a Good Thing. You may be shy about your
 code, but probably no one is looking. And if they are looking, that
 is actually a Good Thing.
 
 ## Lab
 
-### 1. User A
+### Objective
 
-- Set up a new repository, locally
+* I want help from **you**.
+* Let's improve this documentation together.
 
-        mkdir TestRepo
-        cd TestRepo
-        git init
+### Process
 
-- Create or copy over a file or two and add them to the repository.
+We'll be following the
+[GitHub Flow](https://guides.github.com/introduction/flow/) approach
+to collaboration.
 
-        touch ReadMe.md
-        [edit the file]
-        git add ReadMe.md
-        git commit
+### Decide where to contribute (step 1 of 5)
 
-- Go to your GitHub account and create a new repository
+* Browse through the documentation and determine where you'd like to
+  help.
+  
+* I need help with: typos, writing, formatting, and content.
 
-- Connect your local repository to GitHub
+* Pick something small you can complete in a few minutes.
 
-        git remote add origin https://github.com/userA/TestRepo
+### Installation (step 2 of 5)
 
-- Push your local repository to GitHub
+Go to [my GitHub
+repository](https://github.com/amarder/reproducible-research) and
+follow the Installation instructions.
 
-        git push -u origin master
+(Notice that those instructions involve forking my repository and
+using `git clone` to set up a local copy on your computer)
 
-### 2. User B
+### Edit the documentation locally (step 3 of 5)
 
-- Fork user A's repository on GitHub: go to
-  `http://github.com/userA/TestRepo` and click the "Fork" button.
+1. Use `git branch` to create a branch to experiment on.
 
-- Clone _your_ version of that repository locally
+2. Use `git checkout` to switch to your new branch.
 
-        git clone https://github.com/userB/TestRepo
+3. Make your edits.
 
-- Change a file, and another file
+4. Use `git add` and `git commit` to commit those edits to your
+   branch.
+   
+### Create a pull request (step 4 of 5)
 
-        cd TestRepo
-        [change/copy files]
-        git add [filenames]
-        git commit
+1. Use `git push` to push your branch up to GitHub.
 
-- Push the changes to GitHub
+2. Open a Pull Request on GitHub.
 
-        git push
+### I respond to your pull request (step 5 of 5)
 
-- Make a pull request:
+I will either:
 
-    - Go to _your_ version of the repository on GitHub
-      (`http://github.com/userB/TestRepo`)
-    - Click "Pull requests"
-    - Click "New pull request"
-    - Click "Create pull request"
-    - Optionally add a comment
-    - Click "Create pull request"
+* comment on your pull request, and/or
 
-### 3. User A
-
-- Connect to User B's repository
-
-        git remote add userB git://github.com/userB/TestRepo
-
-- Fetch the changes from User B
-
-        git fetch userB
-
-- Checkout their version of the repository as a local branch
-
-        git checkout -b userB userB/master
-
-- Check that you like the changes
-
-- Use `git branch` to see your branches; the asterisk indicates the
-  one you're currently on.
-
-- Switch back to ("`checkout`") your master branch
-
-        git checkout master
-
-- Note that the files are in the state that _you_ left them.
-
-- Merge their work into your master branch.
-
-        git merge userB
-
-- Push the work to github.
-
-        git push
-
-- Make another change to the file; then `add`, `commit`, and `push`.
-
-### 4. User B
-
-- Add a connection to User A's repository
-
-        git remote add userA git://github.com/userA/TestRepo
-
-- Fetch User A's latest
-
-        git fetch userA
-
-- Check it out as a local branch
-
-        git checkout -b userA userA/master
-
-- Test things
-
-- Checkout your master, merge the change from User A, and push to
-  github.
-
-        git checkout master
-        git merge userA
-        git push
-
-### 5. Users A and B
-
-- Make simulateneous changes, then `add`, `commit`, and `push`.
-
-### 6. User B
-
-- Pull User A's change
-
-        git checkout userA
-        git pull userA master
-
-- Go back to your master branch and merge the change from User A.
-
-        git checkout master
-        git merge userA
-
-- Fix the merge conflict; then `add`, `commit`, `push`.
-
-- Make another pull request
-
-### 7. User A
-
-- Fetch User B's repository
-
-        git checkout userB
-        git pull userB master
-
-- Merge into your master branch
-
-        git checkout master
-        git merge userB
-
-- Push back to github
-
-        git push
-
+* merge it into `master`.
 
 ## Additional Tools
 
