@@ -58,7 +58,7 @@ see what was changed and to incorporate those changes.
 <!-- NOTES -->
 
 We're going to focus on Git, the version control system developed by
-Linus Torvalds for managing the source code for Linux.
+Linus Torvalds (the creator of Linux).
 
 You can track any content, but it's mostly for tracking plain text
 files, but that can be most anything (source code, data analysis
@@ -191,7 +191,7 @@ A recent PDF is [here][1].
 <!-- NOTES -->
 
 A README file is a great place to start a new project. It can give
-readers of your files a high-level overview of the project.
+readers of your code a high-level overview of the project.
 
 
 ### Incorporate into repository (part 1 of 2)
@@ -288,8 +288,6 @@ For files that are being tracked by git:
 
 * Use `git mv` instead of just `mv`
 
-This will remove/move the file/directory **and** stage the change.
-
 <!-- NOTES -->
 
 For files that are being tracked by git: If you want to change
@@ -362,7 +360,7 @@ locally (using `git init` and then a bit of `git add` and
 Then go to GitHub and click the "Create a new repo" button. Give
 it a name and description and click "Create repository".
 
-The back at the command line, you use `git remote add` to
+Then back at the command line, you use `git remote add` to
 indicate the github address; then `git push` to push everything
 to GitHub.
 
@@ -415,7 +413,7 @@ without having to enter your login and password).
 
 <!-- NOTES -->
 
-Branching is a great feature of git. Create a branch
+Branching is a great feature of Git. Create a branch
 to test out some new features without breaking your working
 software.
 
@@ -462,7 +460,7 @@ via a Pull Request.
 
 To suggest a change to someone's repository, go to their
 repository and click the "Fork" button. This makes a copy of the
-repo in your part of GitHub.
+repo in your GitHub account.
 
 Then go back to the command line and `clone` your version of the
 repository.
@@ -500,7 +498,7 @@ Then go back to your GitHub repository and click "New pull request".
 
 <!-- NOTES -->
 
-If a friend (or perhaps someone you don't even know) has made
+If a friend (or perhaps someone you don't even know) has
 suggested changes to your repository by a Pull Request, you'll get
 an email and it will show up on your GitHub repository.
 
@@ -541,7 +539,7 @@ Sometimes there will be conflicts: you and your collaborator
 will have been making changes to the same portion of a file and
 you'll have to resolve the differences.
 
-It's perhaps surprising how seldom this happens. git is really good
+It's perhaps surprising how seldom this happens. Git is really good
 at merging changes.
 
 If there's a merge conflict, there'll be a big warning message on
@@ -555,12 +553,12 @@ Then, `git add`, `git commit`, and `git push`.
 
 ### Delete a repo
 
-To learn git and GitHub, you'll want to create some test
+To learn Git and GitHub, you'll want to create some test
 repositories and play around with them for a while. You may want to
 delete them later.
 
-* On your computer, if you delete the `.git` subdirectory, it'll no
-  longer be a git repository.
+* On your computer, if you delete the `.git` subdirectory, the folder
+  will no longer be a Git repository.
 
 * On GitHub, go to the settings for the repository and head down to
   the "Danger Zone".
@@ -576,9 +574,9 @@ delete them later.
 If you store your code on GitHub, everyone can see everything.
 They can even see everything that ever was.
 
-I think this openness is a Good Thing. You may be shy about your
+I think this openness is a good thing. You may be shy about your
 code, but probably no one is looking. And if they are looking, that
-is actually a Good Thing.
+is actually a good thing.
 
 ## Lab
 
