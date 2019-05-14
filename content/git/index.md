@@ -566,7 +566,7 @@ delete them later.
   the "Danger Zone".
 
 
-### Open Source
+### Open source
 
 * Open source means everyone can see my stupid mistakes.
 
