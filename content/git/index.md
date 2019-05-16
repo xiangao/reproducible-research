@@ -122,8 +122,20 @@ even have to download it to your computer. And it's really easy to
 contribute to others' code (e.g., to report typos in their
 documentation).
 
+### Why use the command line?
 
-## Setup
+* These materials focus on using Git at the command line rather
+  than using a graphical user interface (GUI) to help you understand
+  how Git works.
+  
+* You might find that a GUI works better for you than the command
+  line.
+  
+* I'm focusing on the command line because it's the same for everyone,
+  and it will help you understand what GUIs are doing under the hood.
+
+
+### Installation instructions
 
 <!-- NOTES -->
 
@@ -245,19 +257,21 @@ init`. This creates a `.git` subdirectory.
 
 ### Produce content
 
-* Create a `README.md` file
+* Create a short `README.md` file
 
-```
-How to display data badly
-=========================
+```md
+R for Data Science
+==================
 
-Karl Broman gives a talk inspired by Howard Wainer's
-article by the same name: H Wainer (1984) How to
-display data badly. American Statistician 38:137-147
+This repository contains the source of [R for Data Science][r4ds]
+book. The book is built using [bookdown][bookdown].
 
-A recent PDF is [here][1].
+The R packages used in this book can be installed via
 
-[1]: http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf
+    devtools::install_github("hadley/r4ds")
+    
+[r4ds]: http://r4ds.had.co.nz
+[bookdown]: https://github.com/rstudio/bookdown
 ```
 
 <!-- NOTES -->
@@ -759,3 +773,59 @@ typing.
 * [GitHub Help](https://help.github.com/en)
 * [Git - Documentation](https://git-scm.com/doc)
 * [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
+
+
+### FAQ
+
+* Looks like there are a few places where bullet points are repeated in longer lines of text (e.g., in the What is GitHub section)
+
+
+> If people were going to adopt version control only for particular
+> projects (e.g., those that were especially complicated, had many
+> collaborators, etc.) is there any rule of thumb that you’d give
+> people for when a project gets big enough that it really should be
+> version controlled? I know you version control for all projects, but
+> I think people will likely use some combination of version
+> controlling (project dependent) and not.
+
+I don't have a clear-cut answer here. The advantage of focusing on
+small projects is that it's a great opportunity to get familiar with
+Git. The advantage to focusing on larger projects is they're likely to
+have longer histories so the benefits of working with version control
+will become more apparent.
+
+> Can you add commit statements to your code so that it commits as you
+> initialize a session or at various points along the way in a program
+> (not sure if that makes sense as written out)?
+
+Yes, but this is dangerous. You want to be very explicit with
+Git. Tell it exactly when you want to take a snapshot of your code. If
+you start automating that process, you'll likely end up with a less
+useful history.
+
+> Because people were generally very apprehensive about Git, I’m
+> wondering whether it might help to divide up the sections by the
+> very very basic commands and then the more advanced commands that
+> might or might not come up in RCS work so they can focus on at least
+> knowing the basics. People conveyed that they got especially
+> confused when dealing with branching, merging, forking, etc.
+
+Absolutely! I tried to do this by dividing commands between the
+[Git](#git) and [GitHub](#github) sections.
+
+In the Git section, we cover `status`, `diff`, `log`, `add`, `commit`,
+`mv`, and `rm`. These commands are necessary for keeping a completely
+linear history.
+
+In the GitHub section, we cover `push`, `pull`, `fetch`, and
+`merge`. These are necessary for collaborating with others. We also
+cover `branch` and `checkout` in this section. But, maybe it makes
+sense to cover branches separately because they're freaking people
+out.
+
+> I really like the idea of doing some hands on work during the
+> session as you’ve added at the end. (confession: I am intimidated by
+> forking, cloning, etc. over command line, but I’m sure we’ll all be
+> more comfortable by the end of the session)
+
+No reason to be intimidated. You've got this!
