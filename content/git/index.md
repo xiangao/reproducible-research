@@ -60,10 +60,6 @@ see what was changed and to incorporate those changes.
 We're going to focus on Git, the version control system developed by
 Linus Torvalds (the creator of Linux).
 
-You can track any content, but it's mostly for tracking plain text
-files, but that can be most anything (source code, data analysis
-projects, manuscripts, websites, presentations).
-
 
 ### Why use Git?
 
@@ -71,12 +67,6 @@ projects, manuscripts, websites, presentations).
 * You don't need access to a server
 * Amazingly good at merging simultaneous changes
 * Everyone's using it
-
-<!-- NOTES -->
-
-Git is fast, you can use it locally on your own computer, it's
-amazingly good at merging changes, and there are lots of people using
-it.
 
 
 ### What is GitHub?
@@ -112,15 +102,105 @@ people are up to, and easily collaborate on shared projects.
 * Lowers the barrier to collaboration
   * "You have a typo" vs. "Here's a correction for that typo"
 
+
+### Why use the command line?
+
+* These materials focus on using Git at the command line rather
+  than using a graphical user interface (GUI) to help you understand
+  how Git works.
+  
+* You might find that a GUI works better for you than the command
+  line.
+  
+* I'm focusing on the command line because it's the same for everyone,
+  and it will help you understand what GUIs are doing under the hood.
+
+
+### Installation instructions
+
 <!-- NOTES -->
 
-GitHub takes care of the server aspects of Git, and you get a
-great GUI for exploring your repositories.
+I have copied the following install instructions from [The
+Carpentries](https://carpentries.github.io/workshop-template/#git).
 
-GitHub is great for browsing others' code, for learning; you don't
-even have to download it to your computer. And it's really easy to
-contribute to others' code (e.g., to report typos in their
-documentation).
+### Install Git on Windows
+
+[Video Tutorial](https://www.youtube.com/watch?v=339AEqk9c-8)
+
+
+1. Download the Git for Windows [installer](https://git-for-windows.github.io/).
+2. Run the installer and follow the steps below:
+   1. Click on "Next" four times (two times if you've previously
+      installed Git).  You don't need to change anything
+      in the Information, location, components, and start menu screens.
+   2. **Select "Use the nano editor by default" and click on "Next".**
+   3. Keep "Use Git from the Windows Command Prompt" selected and click on "Next".
+                If you forgot to do this programs that you need for the workshop will not work properly.
+                If this happens rerun the installer and select the appropriate option.
+   4. Click on "Next".
+   5. Keep "Checkout Windows-style, commit Unix-style line endings"
+      selected and click on "Next".
+   6. **Select "Use Windows' default console window" and click on "Next".**
+   7. Click on "Install".
+   8. Click on "Finish".
+
+3. If your "HOME" environment variable is not set (or you don't know what this is):
+   1. Open command prompt (Open Start Menu then type `cmd` and press <kbd>Enter</kbd>)
+   2. Type the following line into the command prompt window exactly as shown:
+      ```
+      setx HOME "%USERPROFILE%"
+      ```
+   3. Press <kbd>Enter</kbd>, you should see `SUCCESS: Specified value was saved.`
+   4. Quit command prompt by typing `exit` then pressing <kbd>Enter</kbd>.
+
+This will provide you with both Git and Bash in the Git Bash program.
+
+### Install Git on MacOS
+
+[Video Tutorial](https://www.youtube.com/watch?v=9LQhwETCdwY)
+
+**For OS X 10.9 and higher**, install Git for Mac
+by downloading and running the most recent "mavericks" installer from [this list](http://sourceforge.net/projects/git-osx-installer/files/).
+Because this installer is not signed by the developer, you may have to
+right click (control click) on the .pkg file, click Open, and click
+Open on the pop up window. 
+After installing Git, there will not be anything in your `/Applications` folder,
+as Git is a command line program.
+**For older versions of OS X (10.5-10.8)** use the
+most recent available installer labelled "snow-leopard"
+<a href="http://sourceforge.net/projects/git-osx-installer/files/">available here</a>.
+
+### Install Git on Linux
+
+If Git is not already available on your machine you can try to
+install it via your distro's package manager. For Debian/Ubuntu run
+`sudo apt-get install git` and for Fedora run
+`sudo dnf install git`.
+
+### First use of Git
+
+```
+$ git config --global user.name "Jane Doe"
+$ git config --global user.email "jdoe@hbs.edu"
+$ git config --global color.ui true
+$ git config --global core.editor emacs
+$ git config --global core.excludesfile ~/.gitignore_global
+```
+
+The very first time you use git, you need to do a bit of
+configuration.
+
+All of this stuff gets added to a `~/.gitconfig` file
+
+### Signing up for GitHub
+
+You will need an account at [github.com](https://github.com/) for
+parts of the Git lesson. Basic GitHub accounts are free. We encourage
+you to create a GitHub account if you don't have one already.  Please
+consider what personal information you'd like to reveal. For example,
+you may want to review these [instructions for keeping your email
+address private](https://help.github.com/articles/keeping-your-email-address-private/)
+provided at GitHub.
 
 
 ## Git
@@ -173,19 +253,21 @@ init`. This creates a `.git` subdirectory.
 
 ### Produce content
 
-* Create a `README.md` file
+* Create a short `README.md` file
 
-```
-How to display data badly
-=========================
+```md
+R for Data Science
+==================
 
-Karl Broman gives a talk inspired by Howard Wainer's
-article by the same name: H Wainer (1984) How to
-display data badly. American Statistician 38:137-147
+This repository contains the source of [R for Data Science][r4ds]
+book. The book is built using [bookdown][bookdown].
 
-A recent PDF is [here][1].
+The R packages used in this book can be installed via
 
-[1]: http://www.biostat.wisc.edu/~kbroman/talks/graphs2013.pdf
+    devtools::install_github("hadley/r4ds")
+    
+[r4ds]: http://r4ds.had.co.nz
+[bookdown]: https://github.com/rstudio/bookdown
 ```
 
 <!-- NOTES -->
@@ -297,22 +379,6 @@ can't just use `mv`, you need to use `git mv`.
 If you want to remove a file from the project, don't use just
 `rm`, use `git rm`. Note that the file won't be
 completely removed; it'll still be within the history.
-
-
-### First use of Git
-
-```
-$ git config --global user.name "Jane Doe"
-$ git config --global user.email "jdoe@hbs.edu"
-$ git config --global color.ui true
-$ git config --global core.editor emacs
-$ git config --global core.excludesfile ~/.gitignore_global
-```
-
-The very first time you use git, you need to do a bit of
-configuration.
-
-All of this stuff gets added to a `~/.gitconfig` file
 
 
 ## GitHub
@@ -687,3 +753,56 @@ typing.
 * [GitHub Help](https://help.github.com/en)
 * [Git - Documentation](https://git-scm.com/doc)
 * [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
+
+
+### FAQ
+
+> If people were going to adopt version control only for particular
+> projects (e.g., those that were especially complicated, had many
+> collaborators, etc.) is there any rule of thumb that you’d give
+> people for when a project gets big enough that it really should be
+> version controlled? I know you version control for all projects, but
+> I think people will likely use some combination of version
+> controlling (project dependent) and not.
+
+I don't have a clear-cut answer here. The advantage of focusing on
+small projects is that it's a great opportunity to get familiar with
+Git. The advantage to focusing on larger projects is they're likely to
+have longer histories so the benefits of working with version control
+will become more apparent.
+
+> Can you add commit statements to your code so that it commits as you
+> initialize a session or at various points along the way in a program
+> (not sure if that makes sense as written out)?
+
+Yes, but this is dangerous. You want to be very explicit with
+Git. Tell it exactly when you want to take a snapshot of your code. If
+you start automating that process, you'll likely end up with a less
+useful history.
+
+> Because people were generally very apprehensive about Git, I’m
+> wondering whether it might help to divide up the sections by the
+> very very basic commands and then the more advanced commands that
+> might or might not come up in RCS work so they can focus on at least
+> knowing the basics. People conveyed that they got especially
+> confused when dealing with branching, merging, forking, etc.
+
+Absolutely! I tried to do this by dividing commands between the
+[Git](#git) and [GitHub](#github) sections.
+
+In the Git section, we cover `status`, `diff`, `log`, `add`, `commit`,
+`mv`, and `rm`. These commands are necessary for keeping a completely
+linear history.
+
+In the GitHub section, we cover `push`, `pull`, `fetch`, and
+`merge`. These are necessary for collaborating with others. We also
+cover `branch` and `checkout` in this section. But, maybe it makes
+sense to cover branches separately because they're freaking people
+out.
+
+> I really like the idea of doing some hands on work during the
+> session as you’ve added at the end. (confession: I am intimidated by
+> forking, cloning, etc. over command line, but I’m sure we’ll all be
+> more comfortable by the end of the session)
+
+No reason to be intimidated. You've got this!
