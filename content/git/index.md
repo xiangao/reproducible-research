@@ -123,6 +123,78 @@ contribute to others' code (e.g., to report typos in their
 documentation).
 
 
+## Setup
+
+<!-- NOTES -->
+
+I have copied the following install instructions from [The
+Carpentries](https://carpentries.github.io/workshop-template/#git).
+
+### Install Git on Windows
+
+[Video Tutorial](https://www.youtube.com/watch?v=339AEqk9c-8)
+
+
+1. Download the Git for Windows [installer](https://git-for-windows.github.io/).
+2. Run the installer and follow the steps below:
+   1. Click on "Next" four times (two times if you've previously
+      installed Git).  You don't need to change anything
+      in the Information, location, components, and start menu screens.
+   2. **Select "Use the nano editor by default" and click on "Next".**
+   3. Keep "Use Git from the Windows Command Prompt" selected and click on "Next".
+                If you forgot to do this programs that you need for the workshop will not work properly.
+                If this happens rerun the installer and select the appropriate option.
+   4. Click on "Next".
+   5. Keep "Checkout Windows-style, commit Unix-style line endings"
+      selected and click on "Next".
+   6. **Select "Use Windows' default console window" and click on "Next".**
+   7. Click on "Install".
+   8. Click on "Finish".
+
+3. If your "HOME" environment variable is not set (or you don't know what this is):
+   1. Open command prompt (Open Start Menu then type `cmd` and press <kbd>Enter</kbd>)
+   2. Type the following line into the command prompt window exactly as shown:
+      ```
+      setx HOME "%USERPROFILE%"
+      ```
+   3. Press <kbd>Enter</kbd>, you should see `SUCCESS: Specified value was saved.`
+   4. Quit command prompt by typing `exit` then pressing <kbd>Enter</kbd>.
+
+This will provide you with both Git and Bash in the Git Bash program.
+
+### Install Git on MacOS
+
+[Video Tutorial](https://www.youtube.com/watch?v=9LQhwETCdwY)
+
+**For OS X 10.9 and higher**, install Git for Mac
+by downloading and running the most recent "mavericks" installer from [this list](http://sourceforge.net/projects/git-osx-installer/files/).
+Because this installer is not signed by the developer, you may have to
+right click (control click) on the .pkg file, click Open, and click
+Open on the pop up window. 
+After installing Git, there will not be anything in your `/Applications` folder,
+as Git is a command line program.
+**For older versions of OS X (10.5-10.8)** use the
+most recent available installer labelled "snow-leopard"
+<a href="http://sourceforge.net/projects/git-osx-installer/files/">available here</a>.
+
+### Install Git on Linux
+
+If Git is not already available on your machine you can try to
+install it via your distro's package manager. For Debian/Ubuntu run
+`sudo apt-get install git` and for Fedora run
+`sudo dnf install git`.
+
+### Signing up for GitHub
+
+You will need an account at [github.com](https://github.com/) for
+parts of the Git lesson. Basic GitHub accounts are free. We encourage
+you to create a GitHub account if you don't have one already.  Please
+consider what personal information you'd like to reveal. For example,
+you may want to review these [instructions for keeping your email
+address private](https://help.github.com/articles/keeping-your-email-address-private/)
+provided at GitHub.
+
+
 ## Git
 
 ### Basic use
