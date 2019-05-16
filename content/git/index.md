@@ -60,10 +60,6 @@ see what was changed and to incorporate those changes.
 We're going to focus on Git, the version control system developed by
 Linus Torvalds (the creator of Linux).
 
-You can track any content, but it's mostly for tracking plain text
-files, but that can be most anything (source code, data analysis
-projects, manuscripts, websites, presentations).
-
 
 ### Why use Git?
 
@@ -71,12 +67,6 @@ projects, manuscripts, websites, presentations).
 * You don't need access to a server
 * Amazingly good at merging simultaneous changes
 * Everyone's using it
-
-<!-- NOTES -->
-
-Git is fast, you can use it locally on your own computer, it's
-amazingly good at merging changes, and there are lots of people using
-it.
 
 
 ### What is GitHub?
@@ -112,15 +102,6 @@ people are up to, and easily collaborate on shared projects.
 * Lowers the barrier to collaboration
   * "You have a typo" vs. "Here's a correction for that typo"
 
-<!-- NOTES -->
-
-GitHub takes care of the server aspects of Git, and you get a
-great GUI for exploring your repositories.
-
-GitHub is great for browsing others' code, for learning; you don't
-even have to download it to your computer. And it's really easy to
-contribute to others' code (e.g., to report typos in their
-documentation).
 
 ### Why use the command line?
 
@@ -195,6 +176,21 @@ If Git is not already available on your machine you can try to
 install it via your distro's package manager. For Debian/Ubuntu run
 `sudo apt-get install git` and for Fedora run
 `sudo dnf install git`.
+
+### First use of Git
+
+```
+$ git config --global user.name "Jane Doe"
+$ git config --global user.email "jdoe@hbs.edu"
+$ git config --global color.ui true
+$ git config --global core.editor emacs
+$ git config --global core.excludesfile ~/.gitignore_global
+```
+
+The very first time you use git, you need to do a bit of
+configuration.
+
+All of this stuff gets added to a `~/.gitconfig` file
 
 ### Signing up for GitHub
 
@@ -383,22 +379,6 @@ can't just use `mv`, you need to use `git mv`.
 If you want to remove a file from the project, don't use just
 `rm`, use `git rm`. Note that the file won't be
 completely removed; it'll still be within the history.
-
-
-### First use of Git
-
-```
-$ git config --global user.name "Jane Doe"
-$ git config --global user.email "jdoe@hbs.edu"
-$ git config --global color.ui true
-$ git config --global core.editor emacs
-$ git config --global core.excludesfile ~/.gitignore_global
-```
-
-The very first time you use git, you need to do a bit of
-configuration.
-
-All of this stuff gets added to a `~/.gitconfig` file
 
 
 ## GitHub
@@ -776,9 +756,6 @@ typing.
 
 
 ### FAQ
-
-* Looks like there are a few places where bullet points are repeated in longer lines of text (e.g., in the What is GitHub section)
-
 
 > If people were going to adopt version control only for particular
 > projects (e.g., those that were especially complicated, had many
