@@ -4,104 +4,65 @@ title: Version Control with Git and GitHub
 
 ## Introduction
 
-### Version control and reproducible research
+This lesson aims to introduce you to using Git and GitHub for
+reproducible research. The first draft of these materials was a
+little intimidating and unclear about how to use these tools in
+practice. Git and GitHub are valuable tools; I want to show you how to
+use the tools, and you can decide whether you want to use them in your
+work.
 
-Version control is not strictly necessary for reproducible research,
-and in the short term it's a lot of work (to learn and to use), but
-**the long term benefits are enormous**.
-
-<!-- NOTES -->
-
-I use version control for: software, data analysis projects, papers,
-talks, and web sites.
-
-People are more resistant to version control than to any other tool
-because of the short-term effort and the lack of recognition of the
-long-term benefits.
-
-
-### Why use formal version control?
-
-* Maintain a history of all changes
-  * Able to go back in time
-  * See what changed between two time points
-* No worries about breaking things
-* Merge changes from multiple people
-
-<!-- NOTES -->
-
-With formal version control, you'll save the entire history of
-changes to the project, and you can easily go back to any
-point in the history of the project, to see how things were behaving
-at that point.
-
-You'll be able to make modifications (e.g., to try out a new
-feature) without worrying about breaking things that work.
-
-And version control is especially useful for collaboration. If a
-collaborator has made a bunch of changes, it'll be much easier to
-see what was changed and to incorporate those changes.
-
-
-### What is Git?
-
-* Formal version control system
-* Designed for managing code
-* Tracks any content (but best for plain text files)
-  * source code
-  * data analysis projects
-  * manuscripts
-  * websites
-  * presentations
-* Excellent for asynchronous collaboration
-
-<!-- NOTES -->
-
-We're going to focus on Git, the version control system developed by
-Linus Torvalds (the creator of Linux).
-
+Version control software is not strictly
+necessary for reproducible research. In the short-term it can be a lot
+of work to learn and to use. But, it has some pretty awesome long-term
+benefits. I want to ease the short-term pain of learning Git/GitHub
+and illustrate the long-term gain of adding Git/GitHub to your
+toolbox.
 
 ### Why use Git?
 
-* It's fast
-* You don't need access to a server
-* Amazingly good at merging simultaneous changes
-* Everyone's using it
+For the moment, think of Git as a camera. Git let's you take snapshots
+of your code over time. This is valuable because it lets you:
 
+* See how a project has evolved
+* Restore your code to an old snapshot
+  * Super useful if you break something
+  * Let's you experiment more freely
+* See what changed between two snapshots
 
-### What is GitHub?
+At the same time, Git is like Adobe Photoshop. It lets you combine
+snapshots together. This is super helpful for collaborating with other
+people.
 
-* A home for git repositories
-* Web interface for exploring git repositories
-* **Real** open source
-  * Immediate, easy access to the code
-* Like facebook for programmers
-
-<!-- NOTES -->
-
-GitHub is a website that hosts git repositories, with a nice
-graphical user interface for exploring git repositories.
-
-Source code on GitHub is real open source: anyone can
-study it and grab it.
-
-GitHub is sort of like Facebook for programmers: you can see what
-people are up to, and easily collaborate on shared projects.
-
+It's worth mentioning that Git works best with plain text files (code,
+markdown, csv files). It's less helpful when working with binary files
+like Microsoft Word or Excel documents.
 
 ### Why use GitHub?
 
-* Handles the server aspects of Git
-* Graphical user interface for Git
-  * For exploring code and its history
-* Provides issue tracking
-* Facilitates:
-  * Learning from others
-  * Seeing what people are up to
-  * Contributing to others' code
-* Lowers the barrier to collaboration
-  * "You have a typo" vs. "Here's a correction for that typo"
+GitHub is a web application that facilitates collaboration.
 
+* GitHub is a website that hosts git repositories[^1], with a nice
+  graphical user interface for exploring git repositories.
+
+* Source code on GitHub is **real** open source: anyone can study it
+  and grab it.
+
+* GitHub is sort of like Facebook for programmers: you can see what
+  people are up to, and easily collaborate on shared projects.
+  
+* Provides issue tracking.
+
+* Makes it easy to suggest changes to anyone (pull requests).
+
+[^1]: Git is a distributed version control system (DVCS). Imagine that
+    you and I are working on a project together and were using GitHub
+    to coordinate our work. There will be at least three copies of the
+    project: one on your computer, one on my computer, and one on
+    GitHub. These copies can look different. You might be working on
+    adding a widget to the project and I might be working on the
+    documentation. If someone asks for the current version of the
+    code, what should we give them? The typical convention is the
+    "master" branch on GitHub is the latest stable version.
 
 ### Why use the command line?
 
@@ -753,6 +714,7 @@ typing.
 * [GitHub Help](https://help.github.com/en)
 * [Git - Documentation](https://git-scm.com/doc)
 * [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
+* [What is version control: centralized vs. DVCS](https://www.atlassian.com/blog/software-teams/version-control-centralized-dvcs)
 
 
 ### FAQ
