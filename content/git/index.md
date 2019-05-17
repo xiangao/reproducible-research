@@ -20,41 +20,40 @@ toolbox.
 
 ### Why use Git?
 
-For the moment, think of Git as a camera. Git let's you take snapshots
-of your code over time. This is valuable because it lets you:
+For the moment, think of Git like a camera. You can use Git to take
+snapshots of your code over time. This is valuable because it lets
+you:
 
-* See how a project has evolved
-* Restore your code to an old snapshot
-  * Super useful if you break something
-  * Let's you experiment more freely
-* See what changed between two snapshots
+* see how a project has evolved,
+* restore your code to an old snapshot (this is super useful if you
+  break something, it encourages you to experiment more freely), and
+* see what changed between two snapshots.
 
-At the same time, Git is like Adobe Photoshop. It lets you combine
-snapshots together. This is super helpful for collaborating with other
+At the same time, Git is like Adobe Photoshop. You can use Git to
+combine snapshots together. This is great for collaborating with other
 people.
 
 It's worth mentioning that Git works best with plain text files (code,
-markdown, csv files). It's less helpful when working with binary files
+markdown, csv, ...). It's less helpful when working with binary files
 like Microsoft Word or Excel documents.
 
 ### Why use GitHub?
 
 GitHub is a web application that facilitates collaboration.
 
-* GitHub is a website that hosts git repositories[^1], with a nice
-  graphical user interface for exploring git repositories.
+* GitHub is a website that hosts Git repositories.
+
+* It provides a nice graphical user interface (GUI) for exploring Git
+  repositories.
 
 * Source code on GitHub is **real** open source: anyone can study it
   and grab it.
 
-* GitHub is sort of like Facebook for programmers: you can see what
-  people are up to, and easily collaborate on shared projects.
-  
-* Provides issue tracking.
+* GitHub provides issue tracking.
 
-* Makes it easy to suggest changes to anyone (pull requests).
+* GitHub makes it easy to suggest changes to anyone (pull requests).
 
-[^1]: Git is a distributed version control system (DVCS). Imagine that
+[^dvcs]: Git is a distributed version control system (DVCS). Imagine that
     you and I are working on a project together and were using GitHub
     to coordinate our work. There will be at least three copies of the
     project: one on your computer, one on my computer, and one on
@@ -64,27 +63,18 @@ GitHub is a web application that facilitates collaboration.
     code, what should we give them? The typical convention is the
     "master" branch on GitHub is the latest stable version.
 
-### Why use the command line?
+[^facebook]: GitHub is sort of like Facebook for programmers. You can
+    see what people are up to.
 
-* These materials focus on using Git at the command line rather
-  than using a graphical user interface (GUI) to help you understand
-  how Git works.
-  
-* You might find that a GUI works better for you than the command
-  line.
-  
-* I'm focusing on the command line because it's the same for everyone,
-  and it will help you understand what GUIs are doing under the hood.
+### Installation
 
+A common hurdle when working with new software is installation! To
+help you clear this hurdle, I've copied installation from [The
+Carpentries](https://carpentries.org/). If these instructions don't
+work for you, please let me know in the comments at the bottom of this
+page.
 
-### Installation instructions
-
-<!-- NOTES -->
-
-I have copied the following install instructions from [The
-Carpentries](https://carpentries.github.io/workshop-template/#git).
-
-### Install Git on Windows
+#### Install Git on Windows
 
 [Video Tutorial](https://www.youtube.com/watch?v=339AEqk9c-8)
 
@@ -114,9 +104,10 @@ Carpentries](https://carpentries.github.io/workshop-template/#git).
    3. Press <kbd>Enter</kbd>, you should see `SUCCESS: Specified value was saved.`
    4. Quit command prompt by typing `exit` then pressing <kbd>Enter</kbd>.
 
-This will provide you with both Git and Bash in the Git Bash program.
+This will provide you with both Git and Git Bash (a command line
+interface).
 
-### Install Git on MacOS
+#### Install Git on macOS
 
 [Video Tutorial](https://www.youtube.com/watch?v=9LQhwETCdwY)
 
@@ -129,39 +120,87 @@ After installing Git, there will not be anything in your `/Applications` folder,
 as Git is a command line program.
 **For older versions of OS X (10.5-10.8)** use the
 most recent available installer labelled "snow-leopard"
-<a href="http://sourceforge.net/projects/git-osx-installer/files/">available here</a>.
+[available here](http://sourceforge.net/projects/git-osx-installer/files/).
 
-### Install Git on Linux
+#### Install Git on Linux
 
 If Git is not already available on your machine you can try to
 install it via your distro's package manager. For Debian/Ubuntu run
 `sudo apt-get install git` and for Fedora run
 `sudo dnf install git`.
 
-### First use of Git
+### The command line
+
+This lesson focuses on using Git at the command line. (Ideally, we
+would have gone through the [Unix](../unix/) lesson and you'd be
+feeling good about using command line tools. In reality, we haven't
+done that. I'll try make things accessible and be responsive to any
+issues you might run into.)
+
+* These materials focus on using Git at the command line (rather
+  than using a GUI) to help you understand how Git works.
+  
+* You might find that a GUI works better for you than the command
+  line.
+  
+* I'm focusing on the command line because it's the same for everyone,
+  and it will help you understand what GUIs are doing under the hood.
+  
+Back in the Unix lesson, there should be a section discussing shells.
+
+> In computing, a shell is a user interface for access to an operating
+> system's services. In general, operating system shells use either a
+> command-line interface (CLI) or graphical user interface (GUI),
+> depending on a computer's role and particular operation. It is named
+> a shell because it is the outermost layer around the operating
+> system kernel.
+
+We are going to use Bash as our CLI shell. Bash is a commonly-used
+shell that gives you the power to do simple tasks more quickly.
+
+* On Windows, I suggest using Git Bash, which was installed when you
+  installed Git.
+  
+* The default shell in all versions of macOS is Bash, so no need to
+  install anything. You access Bash from the Terminal (found in
+  `/Applications/Utilities/`).
+
+* On Unix-like operating systems, the default shell is usually Bash,
+  but if your machine is set up differently you can run it by opening
+  a terminal and typing bash. There is no need to install anything.
+
+### Git global configuration
+
+When you first install Git, it's helpful to configure some global
+variables. For instance, tell Git your name and email address for it
+to use when you take snapshots of your code:
 
 ```
 $ git config --global user.name "Jane Doe"
 $ git config --global user.email "jdoe@hbs.edu"
-$ git config --global color.ui true
-$ git config --global core.editor emacs
-$ git config --global core.excludesfile ~/.gitignore_global
 ```
 
-The very first time you use git, you need to do a bit of
-configuration.
+Tell it to use nice colors when printing to the command line so it's
+easier to read:
 
-All of this stuff gets added to a `~/.gitconfig` file
+```
+$ git config --global color.ui true
+```
 
-### Signing up for GitHub
+All of this information gets written to a file in your home directory
+`~/.gitconfig`.
+
+### Sign up for GitHub
+
+If you don't already have a GitHub account...
 
 You will need an account at [github.com](https://github.com/) for
-parts of the Git lesson. Basic GitHub accounts are free. We encourage
-you to create a GitHub account if you don't have one already.  Please
-consider what personal information you'd like to reveal. For example,
-you may want to review these [instructions for keeping your email
-address private](https://help.github.com/articles/keeping-your-email-address-private/)
-provided at GitHub.
+parts of this lesson. The free account for individuals should be fine
+for most users (you can always upgrade later if you want). It's worth
+considering what personal information you'd like to reveal. For
+example, you may want to review these [instructions for keeping your
+email address
+private](https://help.github.com/articles/keeping-your-email-address-private/).
 
 
 ## Git
@@ -297,6 +336,10 @@ that I don't have to work as hard to reconstruct them.
 
 Use a `.gitignore` file so that untracked files don't show up with
 `git status`. You can have a global ignore file, `~/.gitignore_global`.
+
+```
+$ git config --global core.excludesfile ~/.gitignore_global
+```
 
 But leaving off critical files is a common mistake.
 
