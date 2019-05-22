@@ -85,9 +85,10 @@ page.
       installed Git).  You don't need to change anything
       in the Information, location, components, and start menu screens.
    2. **Select "Use the nano editor by default" and click on "Next".**
-   3. Keep "Use Git from the Windows Command Prompt" selected and click on "Next".
-                If you forgot to do this programs that you need for the workshop will not work properly.
-                If this happens rerun the installer and select the appropriate option.
+   3. Keep "Use Git from the Windows Command Prompt" selected and click on
+      "Next". If you forgot to do this programs that you need for the workshop
+      will not work properly. If this happens rerun the installer and select
+      the appropriate option.
    4. Click on "Next".
    5. Keep "Checkout Windows-style, commit Unix-style line endings"
       selected and click on "Next".
@@ -203,176 +204,158 @@ email address
 private](https://help.github.com/articles/keeping-your-email-address-private/).
 
 
-## Git
+## Git: Linear Workflow
 
-### Basic use
+The plan for this section is to show you how to take snapshots of your project
+in a linear fashion. Imagine your project is a mountain. As you make your way
+up the mountain it makes sense to place anchors along the way, that way if you
+ever lose your footing you'll only fall to the last anchor not the bottom of
+the mountain!
 
-* Change some files
-* See what you've changed
-  * `git status`
-  * `git diff`
-  * `git log`
-* Indicate what changes to save
-  * `git add`
-* Commit to those changes
-  * `git commit`
+### Set up your camera
 
-<!-- NOTES -->
+Before you can take pictures of your code, you'll need to initialize
+your repository using `git init`. Let's create a new project folder on
+your desktop and initialize it to be a git repository.
 
-These are the basic git commands you'll use day-to-day.
-
-`git status` to see the current state of things,
-`git diff` to see what's changed, and `git log` to look at
-the history.
-
-After you've made some changes, you'll use `git add` to indicate
-which changes you want to commit to, and `git commit` to commit
-to them (to add them to the repository).
-
-
-### Initialize a repository
-
-* Create a working directory (e.g., `~/my-project`)
-* `cd` into your working directory
-* Initialize it to be a git repository using `git init`
-  * This creates a subdirectory `~/my-project/.git`
-
-```
-$ mkdir ~/my-project
-$ cd ~/my-project
+```shell
+$ mkdir ~/Desktop/my-project
+$ cd ~/Desktop/my-project
 $ git init
-Initialized empty Git repository in ~/my-project/.git/
+Initialized empty Git repository in /Users/amarder/Desktop/my-project/.git/
 ```
 
-<!-- NOTES -->
+Note that `git init` creates a `.git/` subdirectory in your current
+working directory. This is where Git saves all your snapshots.
 
-If you're starting a new, fresh project, you make a directory
-for it and go into that directory, and then you type `git
-init`. This creates a `.git` subdirectory.
+### Take a snapshot
 
+Taking a snapshot is a two-step process. We use `git add` to stage
+changes and `git commit` save the snapshot in the hidden `.git/`
+subdirectory.
 
-### Produce content
-
-* Create a short `README.md` file
+Let's do an example. In your project folder create a `README.md`
+file.
 
 ```md
-R for Data Science
-==================
+# My Example Project
 
-This repository contains the source of [R for Data Science][r4ds]
-book. The book is built using [bookdown][bookdown].
-
-The R packages used in this book can be installed via
-
-    devtools::install_github("hadley/r4ds")
-    
-[r4ds]: http://r4ds.had.co.nz
-[bookdown]: https://github.com/rstudio/bookdown
+Let's see if Andrew has any cool tricks to show us...
 ```
 
-<!-- NOTES -->
+After you've saved that file use `git add` and `git commit` to take a
+snapshot.
 
-A README file is a great place to start a new project. It can give
-readers of your code a high-level overview of the project.
-
-
-### Incorporate into repository (part 1 of 2)
-
-* Stage the changes using `git add`
-
-```
-$ git add README.md
-```
-
-Use `git add` to tell git that you want to start keeping
-track of this file.  This is called "staging", or you say the file
-is "staged".
-
-
-### Incorporate into repository (part 2 of 2)
-
-* Now commit using ` git commit`
-
-```
-$ git commit -m "Initial commit of README.md file"
-[master (root-commit) 32c9d01] Initial commit of README.md file
- 1 file changed, 14 insertions(+)
+```shell
+$ git add README.md 
+$ git commit -m "Add README"
+[master (root-commit) d950cb5] Add README
+ 1 file changed, 3 insertions(+)
  create mode 100644 README.md
 ```
 
-* The `-m` argument allows one to enter a message
-* Without `-m`, `git` will spawn a text editor
-* Use a meaningful message
-* Message can have multiple lines, but make 1st line an overview
+Use `git add` to tell Git that you want to start keeping track of this
+file.  This is called "staging", or you say the file is "staged". Use
+`git commit` to add the file to the history of the project. The `-m`
+argument allows one to enter a message. Without `-m`, `git` will spawn
+a text editor. Use a meaningful message. Message can have multiple
+lines, but make 1st line like the subject of an email.[^add-commit]
 
-Use `git commit` to add the file to the history of the project.
+[^add-commit]: Why is committing a two-step process? Sometimes you'll
+    be editing a whole bunch of files at once and you want to take a
+    few different photos so the project history is easier to
+    read. It's a non-intuitive process but the flexibility is a plus
+    for many Git users.
 
+### Take any snapshot
 
-### A few points on commits
+Let's create a Bash script to list all the files your `.git/`
+subdirectory, call it `git_list.sh`:
+
+```bash
+find .git/ -type f
+```
+
+After you save your new script you can print the results into a new
+file:
+
+```shell
+$ ls
+README.md	git_list.sh
+$ bash git_list.sh > files.txt
+$ ls
+README.md	files.txt	git_list.sh
+```
+
+You can use `git add -A` to stage all changed files in this directory
+and then use `git commit` to save your second snapshot.
+
+```shell
+$ git add -A && git commit -m "Wrote a bash script"
+[master 7b620ba] Wrote a bash script
+ 2 files changed, 23 insertions(+)
+ create mode 100644 files.txt
+ create mode 100644 git_list.sh
+```
+
+### Extras
+
+So, you're fully equipped to snapshot your project in a linear
+fashion. Here's the workflow:
+
+1. Edit files
+2. Snapshot using `git add -A && git commit -m "<insert-message>"`
+3. Repeat
+
+There are a whole bunch of additional tools I want to introduce but
+are not mission-critical.
+
+* When you've edited files but haven't taken a snapshot yet,
+  `git status` will show you what files have changed.
+
+* `git diff` will give you even more information showing what lines
+  have been added/removed to each file.
+  
+* To list all your snapshots use `git log`.
+
+Here are some general best practices:
 
 * Use frequent, small commits
-* Don't get out of sync with your collaborators
-* Commit the sources, not the derived files
-  * (R code not images)
-* Use a `.gitignore` file to indicate files to be ignored
+* Commit the sources, not the derived files (R code not
+  images)[^broken]
+  
+[^broken]: This rule is often broken. I commit only the source, and
+    not files that are derived from those sources. For a manuscript,
+    though, I might include the pdf at major milestones (at
+    submission, after revision, and upon acceptance), so that I don't
+    have to work as hard to reconstruct them.
+
+* Use a `.gitignore` file to indicate files to be ignored. You can
+  also set up Git to use a global ignore file.
 
 ```
 .Rhistory
 *.Rout
-manuscript.pdf
-figures/*.pdf
 ```
 
-<!-- NOTES -->
 
-I recommend using frequent, small commits. I'll make a batch of
-changes with a common theme, make sure things are working, then add
-and commit.
-
-I commit only the source, and not files that are derived from those
-sources. For a manuscript, though, I might include the pdf at major
-milestones (at submission, after revision, and upon acceptance), so
-that I don't have to work as hard to reconstruct them.
-
-Use a `.gitignore` file so that untracked files don't show up with
-`git status`. You can have a global ignore file, `~/.gitignore_global`.
-
-```
+```shell
 $ git config --global core.excludesfile ~/.gitignore_global
 ```
 
 But leaving off critical files is a common mistake.
 
 
-### Using Git on an existing project
-
-* `cd` into your project directory
-* `git init`
-* Set up a `.gitignore` file (optional)
-* `git status`
-* `git add`
-* `git status`
-* `git commit`
-
-<!-- NOTES -->
-
-I recommend using git with all of your current projects.
-Start with one.
-
-Go into the directory and type `git init`. Then use `git
-add` repeatedly, to indicate which files you want to add to the
-repository.
-
-Then use `git commit` to make an initial commit.
-
 
 ### Removing/moving files
 
 For files that are being tracked by git:
 
-* Use `git rm` instead of just `rm`
+* Use `git rm` instead of just `rm`. `git rm` removes the file **and**
+  stages that change.
 
-* Use `git mv` instead of just `mv`
+* Use `git mv` instead of just `mv`. `git mv` moves the file **and**
+  stages that change.
 
 <!-- NOTES -->
 
@@ -385,7 +368,34 @@ If you want to remove a file from the project, don't use just
 completely removed; it'll still be within the history.
 
 
-## GitHub
+## Git: Nonlinear Workflow
+
+### Branching and merging
+
+* Use branches to test out new features without breaking the working code.
+  * `git branch devel`
+  * `git branch`
+  * `git checkout devel`
+* When you're happy with the work, merge it back into your master branch.
+  * `git checkout master`
+  * `git merge devel`
+
+<!-- NOTES -->
+
+Branching is a great feature of Git. Create a branch
+to test out some new features without breaking your working
+software.
+
+`git branch` is used to create branches and to see what branches
+you have.
+
+`git checkout` is used to switch among branches.
+
+`git merge` is used to merge a different branch into your
+current one.
+
+
+## Collaborating with GitHub
 
 ### Basic use
 
@@ -469,31 +479,6 @@ With `https://`, you'll need to enter your GitHub login and password each
 time. With `git://`, you'll have read-only access. With `git@`, you
 need to set up ssh (more work initially, but you'll get write access
 without having to enter your login and password).
-
-
-### Branching and merging
-
-* Use branches to test out new features without breaking the working code.
-  * `git branch devel`
-  * `git branch`
-  * `git checkout devel`
-* When you're happy with the work, merge it back into your master branch.
-  * `git checkout master`
-  * `git merge devel`
-
-<!-- NOTES -->
-
-Branching is a great feature of Git. Create a branch
-to test out some new features without breaking your working
-software.
-
-`git branch` is used to create branches and to see what branches
-you have.
-
-`git checkout` is used to switch among branches.
-
-`git merge` is used to merge a different branch into your
-current one.
 
 
 ### Issues and pull requests
