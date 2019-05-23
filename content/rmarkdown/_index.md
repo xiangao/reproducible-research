@@ -1,5 +1,6 @@
 ---
-title: Writing reproducible reports
+title: R Markdown
+weight: 30
 ---
 
 Statisticians write a lot of reports, describing the results of

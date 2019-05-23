@@ -1,5 +1,6 @@
 ---
-title: Writing clear code
+title: Writing Clear Code
+weight: 70
 ---
 
 \figh{Figs/i_dont_get_your_code.jpg}{0.8}

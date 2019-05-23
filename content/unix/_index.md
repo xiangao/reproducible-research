@@ -1,5 +1,7 @@
 ---
-title: Unix command line; editors
+title: Unix
+subtitle: Command Line and Editors
+weight: 10
 ---
 
 My goal in this lecture is to convince you that

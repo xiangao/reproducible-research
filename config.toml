@@ -1,12 +1,15 @@
 baseurl = "https://amarder.github.io/reproducible-research/"
 languageCode = "en-us"
 title = "Tools for Reproducible Research"
-theme = "hugo-material-docs"
+theme = "hugo-theme-learn"
 metadataformat = "yaml"
 canonifyurls = true
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
 disqusShortname = "amarder-github-pages"
+
+[outputs]
+        home = [ "HTML", "RSS", "JSON"]
 
 [params]
 	# General information
@@ -43,67 +46,6 @@ disqusShortname = "amarder-github-pages"
 	twitter = ""
 	github  = ""
 	email   = ""
-
-
-[[menu.main]]
-	name   = "Introduction"
-	url    = "/"
-	weight = 1
-
-[[menu.main]]
-	name   = "Unix"
-	url    = "unix/"
-	weight = 10
-
-[[menu.main]]
-	name   = "Make"
-	url    = "make/"
-	weight = 20
-
-[[menu.main]]
-	name   = "R Markdown"
-	url    = "rmarkdown/"
-	weight = 30
-
-[[menu.main]]
-	name   = "Git and GitHub"
-	url    = "git/"
-	weight = 40
-
-[[menu.main]]
-	name   = "Organizing Projects"
-	url    = "organization/"
-	weight = 60
-
-[[menu.main]]
-	name   = "Writing Clear Code"
-	url    = "clear-code/"
-	weight = 70
-
-[[menu.main]]
-	name   = "Writing R Packages"
-	url    = "r-packages/"
-	weight = 80
-
-[[menu.main]]
-	name   = "Software Testing and Debugging"
-	url    = "test-debug/"
-	weight = 90
-
-[[menu.main]]
-	name   = "Big Jobs"
-	url    = "big-jobs/"
-	weight = 100
-
-[[menu.main]]
-	name   = "Python"
-	url    = "python/"
-	weight = 130
-
-[[menu.main]]
-	name   = "Software Licenses"
-	url    = "licenses/"
-	weight = 150
 
 
 [blackfriday]
