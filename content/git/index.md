@@ -83,7 +83,7 @@ is actually a good thing.
 ### Installation
 
 A common hurdle when working with new software is installation! To
-help you clear this hurdle, I've copied installation from [The
+help you clear this hurdle, I've copied installation instructions from [The
 Carpentries](https://carpentries.org/). If these instructions don't
 work for you, please let me know in the comments at the bottom of this
 page.
@@ -312,6 +312,37 @@ $ git add -A && git commit -m "Wrote a bash script"
  create mode 100644 git_list.sh
 ```
 
+### What files to include?
+
+As you work with Git, you'll start to notice files that haven't
+been on your radar before. For instance, when you're working
+interactively in R, R will create an `.Rhistory` file to record all
+the commands you type at the console. I suggest that you omit files
+like these from your snapshots. That way your photos will be easier to
+read, there won't be a bunch of superfluous files. Git offers a
+mechanism to handle this. Create a `.gitignore` file in your project
+directory and Git will ignore any file that matches a pattern in that
+file, here's an example file:
+```
+.Rhistory
+*.Rout
+```
+You can even set up a global ignore file using the `git config`
+command.
+```shell
+$ git config --global core.excludesfile ~/.gitignore_global
+```
+
+The general rule for what files to include is to commit the source
+files, not the derived files (R code not images).
+  
+Like any good rule, this one is often broken. For a manuscript, I
+might include the pdf at major milestones (at submission, after
+revision, and upon acceptance), so that I don't have to work as hard
+to reconstruct them.
+
+Warning: Ignoring critical files is a common mistake.
+
 ### Extras
 
 So, you're fully equipped to snapshot your project in a linear
@@ -332,40 +363,15 @@ are not mission-critical.
   
 * To list all your snapshots use `git log`.
 
-Here are some general best practices:
-
-* Use frequent, small commits
-* Commit the sources, not the derived files (R code not
-  images)[^broken]
-  
-[^broken]: This rule is often broken. I commit only the source, and
-    not files that are derived from those sources. For a manuscript,
-    though, I might include the pdf at major milestones (at
-    submission, after revision, and upon acceptance), so that I don't
-    have to work as hard to reconstruct them.
-
-* Use a `.gitignore` file to indicate files to be ignored. You can
-  also set up Git to use a global ignore file.
-
-```
-.Rhistory
-*.Rout
-```
-
-
-```shell
-$ git config --global core.excludesfile ~/.gitignore_global
-```
-
-But leaving off critical files is a common mistake.
-
 For files that are being tracked by git:
 
-* Use `git rm` instead of just `rm`. `git rm` removes the file **and**
+* Use `git rm` instead of just `rm`. `git rm` removes the file and
   stages that change.
 
-* Use `git mv` instead of just `mv`. `git mv` moves the file **and**
+* Use `git mv` instead of just `mv`. `git mv` moves the file and
   stages that change.
+
+A general best practice: **Use frequent, small commits.**
 
 
 ## Git: Nonlinear Workflow
@@ -411,8 +417,8 @@ Fast-forward
 ```
 
 If you're working alone you probably won't see much value in using
-branches. When you're working with others they're much more
-important...
+branches. When you're working with others they become mission
+critical...
 
 
 ## GitHub: Collaboration
@@ -451,15 +457,15 @@ via a Pull Request.
 * Issues = "Can you change this?"
 * Pull Requests = "I changed this. Do you want to use this change?"
 
-Here's the typical process for submitting a pull request. 
+Here's the initial process for submitting a pull request. 
 
-1. Go to the repository: `http://github.com/someone/repo`
+1. Go to the repository: https://github.com/amarder/reproducible-research
 2. Fork the repository (click the "Fork" button). This copies the
    repository to your GitHub account.
-3. Clone your version of it: `git clone https://github.com/username/repo`
+3. Clone your version of it: `git clone https://github.com/username/reproducible-research`
 4. Change things locally: `git branch`, `git  add`, `git  commit`
-5. Push the changes to your GitHub repository: `git  push`
-6. Go to your GitHub repository: `http://github.com/username/repo`
+5. Push the changes to your GitHub repository: `git  push origin master`
+6. Go to your GitHub repository: `http://github.com/username/reproducible-research`
 7. Click "New pull request"
 
 Admittedly, this is a lot of work for you. The advantage of this
@@ -576,7 +582,7 @@ with an entirely new line). Then you're ready for the typical process
 
 ### Objective
 
-* I want help from **you**.
+* I want your help!
 * Let's improve this documentation together.
 
 ### Process
@@ -678,8 +684,6 @@ typing.
 * [git - the simple guide](https://rogerdudler.github.io/git-guide/)
 * [Git is a Directed Acyclic Graph and What the Heck Does That Mean?](https://medium.com/girl-writes-code/git-is-a-directed-acyclic-graph-and-what-the-heck-does-that-mean-b6c8dec65059)
 * [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
-* [GitHub Help](https://help.github.com/en)
-* [Git - Documentation](https://git-scm.com/doc)
 * [Oh shit, git!](https://wizardzines.com/zines/oh-shit-git/)
 * [What is version control: centralized vs. DVCS](https://www.atlassian.com/blog/software-teams/version-control-centralized-dvcs)
 
@@ -737,10 +741,6 @@ out.
 No reason to be intimidated. You've got this!
 
 > How do I delete a repo?
-
-To learn Git and GitHub, you'll want to create some test
-repositories and play around with them for a while. You may want to
-delete them later.
 
 * On your computer, if you delete the `.git` subdirectory, the folder
   will no longer be a Git repository.
