@@ -1,5 +1,6 @@
 ---
 title: Python
+weight: 130
 ---
 
   I'm a big proponent of the use of multiple programming languages:

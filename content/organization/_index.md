@@ -1,5 +1,6 @@
 ---
-title: Organizing projects; exploratory data analysis
+title: Organizing Projects
+weight: 60
 ---
 
 I'm trying to cover two things here: how to organize data

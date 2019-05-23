@@ -1,5 +1,6 @@
 ---
 title: Writing R packages
+weight: 80
 ---
 
 R packages and the Comprehensive R Archive Network (CRAN) are

@@ -1,6 +1,6 @@
 ---
 date: 2016-03-08T21:07:13+01:00
-title: Course Summary
+title: Tools for Reproducible Research
 type: index
 weight: 1
 ---

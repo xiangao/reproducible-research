@@ -1,5 +1,6 @@
 ---
-title: Version Control with Git and GitHub
+title: Git and GitHub
+weight: 40
 ---
 
 ## Introduction

@@ -1,5 +1,6 @@
 ---
-title: Testing and debugging
+title: Software Testing and Debugging
+weight: 90
 ---
 
 We spend a lot of time debugging. We'd spend a lot less time if

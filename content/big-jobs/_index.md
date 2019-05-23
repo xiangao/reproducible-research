@@ -1,5 +1,6 @@
 ---
-title: Big jobs/simulations
+title: Big Jobs
+weight: 100
 ---
 
   Reproducibility can be considerably harder for computational tasks
