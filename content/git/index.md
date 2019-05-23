@@ -426,7 +426,7 @@ There are two different models for contributing to projects on GitHub:
 1. In the **fork and pull model**, anyone can fork an existing
    repository and push changes to their personal fork without needing
    access to the source repository. The changes can be pulled into the
-   source repository by the project maintainer... This model is
+   source repository by the project maintainer. This model is
    popular with open source projects as it reduces the amount of
    friction for new contributors and allows people to work
    independently without upfront coordination.
@@ -442,142 +442,114 @@ There are two different models for contributing to projects on GitHub:
 Since I want this lesson to be open and allow anyone to suggest
 changes, I will be focusing on the fork and pull model. 
 
-* Push changes to GitHub
-  * `git push`
-* Pull changes from your collaborator
-  * `git pull` or
-  * `git fetch` and `git merge`
-
-<!-- NOTES -->
-
-You use `git push` to push changes to GitHub, and `git pull`
-(or `git fetch` and `git merge`) to pull changes from a
-collaborator's repository, or if you're synchronizing a repository
-between two computers.
-
-In projects with collabotors, be sure to pull any changes from them
-before starting to make your own changes, and encourage your
-collaborators to do the same. If you both make a month's changes
-in parallel, merging the changes will be harder.
-
-
 ### Suggest a change
-
-If you have a problem with or a suggestion for someone's code:
-
-* Even better, provide a fix
-  * Fork
-  * Clone
-  * Branch
-  * Modify
-  * Commit
-  * Push
-  * Submit a Pull Request
 
 One of the best features of GitHub is the ease with which you can
 suggest changes to others' code, either via an Issue, or best of all
 via a Pull Request.
 
-* Go to the repository: `http://github.com/someone/repo`
-* **Fork** the repository (click the "Fork" button)
-* **Clone** your version of it: `git clone https://github.com/username/repo`
-* Change things locally: `git  add`, `git  commit`
-* Push the changes to **your** GitHub repository: `git  push`
-* Go to **your** GitHub repository: `http://github.com/username/repo`
-* Click "New pull request"
+* Issues = "Can you change this?"
+* Pull Requests = "I changed this. Do you want to use this change?"
 
-<!-- NOTES -->
+Here's the typical process for submitting a pull request. 
 
-To suggest a change to someone's repository, go to their
-repository and click the "Fork" button. This makes a copy of the
-repo in your GitHub account.
+1. Go to the repository: `http://github.com/someone/repo`
+2. Fork the repository (click the "Fork" button). This copies the
+   repository to your GitHub account.
+3. Clone your version of it: `git clone https://github.com/username/repo`
+4. Change things locally: `git branch`, `git  add`, `git  commit`
+5. Push the changes to your GitHub repository: `git  push`
+6. Go to your GitHub repository: `http://github.com/username/repo`
+7. Click "New pull request"
 
-Then go back to the command line and `clone` your version of the
-repository.
+Admittedly, this is a lot of work for you. The advantage of this
+approach is it's very little work for the project maintainer, so
+they'll be more likely to incorporate your work. Over time, you'll get
+used to the process and it will be less work for you.
 
-Make changes, test them, `add`, and `commit` them, and `push` them to your
-GitHub repository.
+### Suggest another change
 
-Then go back to your GitHub repository and click "New pull request".
+I want you to be a frequent collaborator on these materials. Ideally,
+the `master` branch will be changing often. The
+instructions in the previous section are great for your first pull
+request, but I want you to be set up to make many more pull requests
+in the future. To do this, we'll use the `git remote` command to tell
+Git there's another repository you want to track.
 
+```
+git remote add andrew https://github.com/amarder/reproducible-research.git
+```
 
-### Update your copy
-
-Typically you'll set up the Git repository on your computer to track
-one remote repository (the copy of the project stored on GitHub). If
-you use the `git remote add` command, this will add information to the
-`.git/config` file:
+This will add information to the `.git/config` file.[^remotes]
 
 ```
 [remote "origin"]
-	url = git@github.com:amarder/reproducible-research.git
+	url = https://github.com/your_username/reproducible-research.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
-	pushRemote = origin
+
+[remote "andrew"]
+	url = https://github.com/amarder/reproducible-research.git
+	fetch = +refs/heads/*:refs/remotes/andrew/*
 ```
 
-Occasionally, I have had to edit this file to fix unwanted
-behavior. There are three different constructions for the url:
+[^remotes]: Occasionally, I have had to edit this file to fix unwanted
+    behavior. There are three different constructions for the url:
+    
+    1.  `https://github.com/user/repo`
+    2.  `git://github.com/user/repo`
+    3.  `git@github.com:user/repo`
+    
+    With `https://`, you'll need to enter your GitHub login and password each
+    time. With `git://`, you'll have read-only access. With `git@`, you
+    need to set up ssh (more work initially, but you'll get write access
+    without having to enter your login and password).
 
-1.  `https://github.com/user/repo`
-2.  `git://github.com/user/repo`
-3.  `git@github.com:user/repo`
+Once you've set your remote the process for submitting pull requests
+looks like this:
 
-With `https://`, you'll need to enter your GitHub login and password each
-time. With `git://`, you'll have read-only access. With `git@`, you
-need to set up ssh (more work initially, but you'll get write access
-without having to enter your login and password).
-
-
-Add a connection
-
-```
-git remote add friend git://github.com/friend/repo
-```
-
-If you trust them, just pull the changes
-
-```
-git pull friend master
-```
-
-Alternatively, fetch the changes, test them, and then merge them.
-
-```
-git fetch friend master
-git branch -a
-git checkout remotes/friend/master
-git checkout -b friend
-git checkout master
-git merge friend
-```
-
-Push them back to your GitHub repo
-
-```
-git push
-```
-
-<!-- NOTES -->
-
-If a friend (or perhaps someone you don't even know) has
-suggested changes to your repository by a Pull Request, you'll get
-an email and it will show up on your GitHub repository.
-
-On the command line, use `git remote add` to make a connection
-to their repository.
-
-Then use `git pull`, or (better) use `git fetch`, test them
-out, and then use `git merge`.
-
-Finally, `push` the changes back to your GitHub repository.
-
+1. Update your `master` branch to match mine:
+   ```
+   git checkout master
+   git pull andrew master
+   ```
+2. Create a new branch based off of `master` to work on:
+   ```
+   git branch new-feature
+   git checkout new-feature
+   ```
+3. Make your changes and commit them (`git add`, `git commit`).
+4. Push your branch to your GitHub repository:
+   ```
+   git push origin new-feature
+   ```
+5. Create a pull request.
 
 ### Merge conflicts
 
-Sometimes after `git pull friend master`
+At some point in the future, you may be faced with a merge
+conflict. Here's how they happen:
+
+1. You're working on the project on your computer.
+2. I'm also working on the project and I update the `master` branch.
+3. You go to submit a pull request but your changes can't be merged
+   into my `master` branch because we made conflicting edits.
+   
+Here's how to handle merge conflicts. Update your `master` branch to
+match mine.
+
+```
+git checkout master
+git pull andrew master
+```
+
+Merge `master` into the branch you've been working on.
+
+```
+git checkout new-feature
+git merge master
+```
+
+You'll see a message letting you know there's a merge conflict.
 
 ```
 Auto-merging README.md
@@ -591,28 +563,13 @@ Inside the file you'll see:
 <<<<<<< HEAD
 A line in my file.
 =======
-A line in my friend's file
+A line in my Andrew's file.
 >>>>>>> 031389f2cd2acde08e32f0beb084b2f7c3257fff
 ```
 
-Edit, add, commit, push, submit pull request.
-
-<!-- NOTES -->
-
-Sometimes there will be conflicts: you and your collaborator
-will have been making changes to the same portion of a file and
-you'll have to resolve the differences.
-
-It's perhaps surprising how seldom this happens. Git is really good
-at merging changes.
-
-If there's a merge conflict, there'll be a big warning message on
-`git pull` or `git merge`,
-When you open the offending file in an editor, look for
-lines with `<<<<<<<`, `=======`, and `>>>>>>>`. Pick and
-choose and make the file just as you want it.
-
-Then, `git add`, `git commit`, and `git push`.
+Edit the file as you see fit (keep your line, keep my line, come up
+with an entirely new line). Then you're ready for the typical process
+(`git add`, `git commit`, `git push origin new-feature`).
 
 
 ## Lab
