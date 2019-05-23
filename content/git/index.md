@@ -53,6 +53,20 @@ GitHub is a web application that facilitates collaboration.
 
 * GitHub makes it easy to suggest changes to anyone (pull requests).
 
+**Open source**
+
+* Open source means everyone can see my stupid mistakes.
+
+* Version control means everyone can see every stupid mistake I've
+  ever made.
+
+If you store your code on GitHub, everyone can see everything.
+They can even see everything that ever was.
+
+I think this openness is a good thing. You may be shy about your
+code, but probably no one is looking. And if they are looking, that
+is actually a good thing.
+
 [^dvcs]: Git is a distributed version control system (DVCS). Imagine that
     you and I are working on a project together and were using GitHub
     to coordinate our work. There will be at least three copies of the
@@ -345,10 +359,6 @@ $ git config --global core.excludesfile ~/.gitignore_global
 
 But leaving off critical files is a common mistake.
 
-
-
-### Removing/moving files
-
 For files that are being tracked by git:
 
 * Use `git rm` instead of just `rm`. `git rm` removes the file **and**
@@ -357,47 +367,80 @@ For files that are being tracked by git:
 * Use `git mv` instead of just `mv`. `git mv` moves the file **and**
   stages that change.
 
-<!-- NOTES -->
-
-For files that are being tracked by git: If you want to change
-the name of a file, or if you want to move it to a subdirectory, you
-can't just use `mv`, you need to use `git mv`.
-
-If you want to remove a file from the project, don't use just
-`rm`, use `git rm`. Note that the file won't be
-completely removed; it'll still be within the history.
-
 
 ## Git: Nonlinear Workflow
 
-### Branching and merging
+So, your project is in good shape. You've been taking linear snapshots
+and everything's working fine. You're thinking about adding this new
+feature. It's going to be very complicated, require a bunch of
+commits, and you're not sure it's going to work out. This is where
+branches can be helpful. So, let's see how to branch and merge!
 
-* Use branches to test out new features without breaking the working code.
-  * `git branch devel`
-  * `git branch`
-  * `git checkout devel`
-* When you're happy with the work, merge it back into your master branch.
-  * `git checkout master`
-  * `git merge devel`
+Use branches to test out new features without breaking code that
+works. Use the `git branch` command to create, list, or delete
+branches. Use `git checkout` to switch between branches. Below we (1)
+create a branch, (2) list all branches, and (3) switch to the new
+branch.
 
-<!-- NOTES -->
+```shell
+$ git branch my-experiment
+$ git branch
+* master
+  my-experiment
+$ git checkout my-experiment
+Switched to branch 'my-experiment'
+```
 
-Branching is a great feature of Git. Create a branch
-to test out some new features without breaking your working
-software.
+Once you're on the new branch feel free to experiment freely. Nothing
+you do here will affect the `master` branch until you merge it
+back. Edit some files and create a new commit on the `my-experiment`
+branch.
 
-`git branch` is used to create branches and to see what branches
-you have.
+When you're happy with the work, merge it back into your `master`
+branch. You do this by (1) switching to the `master` branch and (2)
+merging the `my-experiment` branch into your current branch (`master`).
 
-`git checkout` is used to switch among branches.
+```shell
+$ git checkout master
+Switched to branch 'master'
+$ git merge my-experiment
+Updating 7b620ba..ead9d4c
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+```
 
-`git merge` is used to merge a different branch into your
-current one.
+If you're working alone you probably won't see much value in using
+branches. When you're working with others they're much more
+important...
 
 
-## Collaborating with GitHub
+## GitHub: Collaboration
 
-### Basic use
+I have posted this lesson on GitHub because I want you to collaborate
+with me and make these materials better. In this section, I will walk
+through the tools you'll need so we can work together!
+
+There are two different models for contributing to projects on GitHub:
+
+1. In the **fork and pull model**, anyone can fork an existing
+   repository and push changes to their personal fork without needing
+   access to the source repository. The changes can be pulled into the
+   source repository by the project maintainer... This model is
+   popular with open source projects as it reduces the amount of
+   friction for new contributors and allows people to work
+   independently without upfront coordination.
+
+2. In the **shared repository model**, collaborators are granted push
+   access to a single shared repository and topic branches are created
+   when changes need to be made. Pull requests are useful in this
+   model as they initiate code review and general discussion about a
+   set of changes before the changes are merged into the main
+   development branch. This model is more prevalent with small teams
+   and organizations collaborating on private projects.
+
+Since I want this lesson to be open and allow anyone to suggest
+changes, I will be focusing on the fork and pull model. 
 
 * Push changes to GitHub
   * `git push`
@@ -418,90 +461,22 @@ collaborators to do the same. If you both make a month's changes
 in parallel, merging the changes will be harder.
 
 
-### Set up GitHub repository
-
-* Sign up for a GitHub account
-* Click the "Create a new repo" button
-* Give it a name (and description)
-* Click the "Create repository" button
-* Back at the command line:
-
-  ```
-  git remote add origin git@github.com:user/repo.git
-  git push -u origin master
-  ```
-
-<!-- NOTES -->
-
-To create a GitHub repository, I generally first set things up
-locally (using `git init` and then a bit of `git add` and
-`git commit`).
-
-Then go to GitHub and click the "Create a new repo" button. Give
-it a name and description and click "Create repository".
-
-Then back at the command line, you use `git remote add` to
-indicate the github address; then `git push` to push everything
-to GitHub.
-
-
-### Configuration file (part 1 of 2)
-
-Part of a `.git/config` file:
-
-```
-[remote "origin"]
-    url = https://github.com/kbroman/qtl.git
-    fetch = +refs/heads/*:refs/remotes/origin/*
-
-[branch "master"]
-    remote = origin
-    merge = refs/heads/master
-
-[remote "brian"]
-    url = git://github.com/byandell/qtl.git
-    fetch = +refs/heads/*:refs/remotes/brian/*
-```
-
-The `git remote add` commands adds stuff to the
-`.git/config` file; if you've made a mistake, you can just edit
-this file.
-
-### Configuration file (part 2 of 2)
-
-There are three different constructions for the url:
-
-1.  `https://github.com/user/repo`
-2.  `git://github.com/user/repo`
-3.  `git@github.com:user/repo`
-
-With `https://`, you'll need to enter your GitHub login and password each
-time. With `git://`, you'll have read-only access. With `git@`, you
-need to set up ssh (more work initially, but you'll get write access
-without having to enter your login and password).
-
-
-### Issues and pull requests
+### Suggest a change
 
 If you have a problem with or a suggestion for someone's code:
 
-* Point it out as an Issue
 * Even better, provide a fix
   * Fork
   * Clone
+  * Branch
   * Modify
   * Commit
   * Push
   * Submit a Pull Request
 
-<!-- NOTES -->
-
 One of the best features of GitHub is the ease with which you can
 suggest changes to others' code, either via an Issue, or best of all
 via a Pull Request.
-
-
-### Suggest a change to a repo
 
 * Go to the repository: `http://github.com/someone/repo`
 * **Fork** the repository (click the "Fork" button)
@@ -526,30 +501,64 @@ GitHub repository.
 Then go back to your GitHub repository and click "New pull request".
 
 
-### Pulling a friend's changes
+### Update your copy
 
-* Add a connection
-  ```
-  git remote add friend git://github.com/friend/repo
-  ```
-* If you trust them, just pull the changes
-  ```
-  git pull friend master
-  ```
-* Alternatively, fetch the changes, test them, and then merge them.
+Typically you'll set up the Git repository on your computer to track
+one remote repository (the copy of the project stored on GitHub). If
+you use the `git remote add` command, this will add information to the
+`.git/config` file:
 
-  ```
-  git fetch friend master
-  git branch -a
-  git checkout remotes/friend/master
-  git checkout -b friend
-  git checkout master
-  git merge friend
-  ```
-* Push them back to your GitHub repo
-  ```
-  git push
-  ```
+```
+[remote "origin"]
+	url = git@github.com:amarder/reproducible-research.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+	pushRemote = origin
+```
+
+Occasionally, I have had to edit this file to fix unwanted
+behavior. There are three different constructions for the url:
+
+1.  `https://github.com/user/repo`
+2.  `git://github.com/user/repo`
+3.  `git@github.com:user/repo`
+
+With `https://`, you'll need to enter your GitHub login and password each
+time. With `git://`, you'll have read-only access. With `git@`, you
+need to set up ssh (more work initially, but you'll get write access
+without having to enter your login and password).
+
+
+Add a connection
+
+```
+git remote add friend git://github.com/friend/repo
+```
+
+If you trust them, just pull the changes
+
+```
+git pull friend master
+```
+
+Alternatively, fetch the changes, test them, and then merge them.
+
+```
+git fetch friend master
+git branch -a
+git checkout remotes/friend/master
+git checkout -b friend
+git checkout master
+git merge friend
+```
+
+Push them back to your GitHub repo
+
+```
+git push
+```
 
 <!-- NOTES -->
 
@@ -605,33 +614,6 @@ choose and make the file just as you want it.
 
 Then, `git add`, `git commit`, and `git push`.
 
-
-### Delete a repo
-
-To learn Git and GitHub, you'll want to create some test
-repositories and play around with them for a while. You may want to
-delete them later.
-
-* On your computer, if you delete the `.git` subdirectory, the folder
-  will no longer be a Git repository.
-
-* On GitHub, go to the settings for the repository and head down to
-  the "Danger Zone".
-
-
-### Open source
-
-* Open source means everyone can see my stupid mistakes.
-
-* Version control means everyone can see every stupid mistake I've
-  ever made.
-
-If you store your code on GitHub, everyone can see everything.
-They can even see everything that ever was.
-
-I think this openness is a good thing. You may be shy about your
-code, but probably no one is looking. And if they are looking, that
-is actually a good thing.
 
 ## Lab
 
@@ -796,3 +778,17 @@ out.
 > more comfortable by the end of the session)
 
 No reason to be intimidated. You've got this!
+
+> How do I delete a repo?
+
+To learn Git and GitHub, you'll want to create some test
+repositories and play around with them for a while. You may want to
+delete them later.
+
+* On your computer, if you delete the `.git` subdirectory, the folder
+  will no longer be a Git repository.
+
+* On GitHub, go to the settings for the repository and head down to
+  the "Danger Zone".
+
+
