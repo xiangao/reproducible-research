@@ -424,8 +424,8 @@ critical...
 
 ## GitHub: Collaboration
 
-I have posted this lesson on GitHub because I want you to collaborate
-with me and make these materials better. In this section, I will walk
+I have posted this lesson on GitHub because I want to collaborate
+with you to make these materials better. In this section, I will walk
 through the tools you'll need so we can work together!
 
 There are two different models for contributing to projects on GitHub:
@@ -456,18 +456,67 @@ suggest changes to others' code, either via an Issue, or best of all
 via a Pull Request.
 
 * Issues = "Can you change this?"
-* Pull Requests = "I changed this. Do you want to use this change?"
+* Pull Requests = "I changed this. Can you incorporate this change?"
 
-Here's the initial process for submitting a pull request. 
+Here's the process for submitting a pull request. 
 
-1. Go to the repository: https://github.com/amarder/reproducible-research
-2. Fork the repository (click the "Fork" button). This copies the
-   repository to your GitHub account.
-3. Clone your version of it: `git clone https://github.com/username/reproducible-research`
-4. Change things locally: `git branch`, `git  add`, `git  commit`
-5. Push the changes to your GitHub repository: `git  push origin master`
-6. Go to your GitHub repository: `http://github.com/username/reproducible-research`
-7. Click "New pull request"
+1.  **Go to the repository**
+    
+    Using your web browser, find the repository on GitHub you want to
+    contribute to. Feel free to use [this
+    repository](https://github.com/amarder/reproducible-research) for
+    practice.
+    
+2.  **Fork the repository**
+    
+    This is done by clicking the "Fork" button. This copies the
+    repository to your GitHub account.
+    
+3.  **Clone the repository**
+    
+    On the command line use the `git clone` command (be sure to
+    insert your GitHub username and the correct repository name).
+    ```
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    ```
+    This copies your repository from GitHub to your local machine.
+    
+4.  **Create a new branch**
+    
+    To create a new branch and switch to it with one command use
+    `git checkout -b`.
+    ```
+    $ cd YOUR-REPOSITORY
+    $ git checkout -b BRANCH-NAME
+    ```
+    Working on a new branch leaves the `master` branch
+    unchanged. This will make it easier for you to make additional
+    contributions in the future.
+    
+5.  **Create new commit(s)**
+
+    Make your desired edits and commit them.
+    ```
+    $ git add -A && git commit -m "COMMIT-MESSAGE"
+    ```
+    
+6.  **Push your changes to GitHub**
+    
+    Use `git push` to push your new branch up to GitHub.
+    ```
+    $ git push origin BRANCH-NAME
+    ```
+    This updates your copy of the repository on GitHub.
+    
+7.  **Create pull request**
+    
+    Go to your GitHub repository
+    `https://github.com/YOUR-USERNAME/YOUR-REPOSITORY` and click "New
+    pull request". The final steps on GitHub are (hopefully) pretty
+    clear; let me know in the comments if you run into any
+    difficulties. After the pull request has been created, it will be
+    easy for the project maintainer to merge your modifications into
+    the `master` branch of their repository.
 
 Admittedly, this is a lot of work for you. The advantage of this
 approach is it's very little work for the project maintainer, so
