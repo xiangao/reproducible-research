@@ -464,7 +464,7 @@ Here's the process for submitting a pull request.
     
     Using your web browser, find the repository on GitHub you want to
     contribute to. Feel free to use [this
-    repository](https://github.com/amarder/reproducible-research) for
+    repository](https://github.com/hbs-rcs/reproducible-research) for
     practice.
     
 2.  **Fork the repository**
@@ -533,7 +533,7 @@ in the future. To do this, we'll use the `git remote` command to tell
 Git there's another repository you want to track.
 
 ```
-git remote add andrew https://github.com/amarder/reproducible-research.git
+git remote add rcs https://github.com/hbs-rcs/reproducible-research.git
 ```
 
 This will add information to the `.git/config` file.[^remotes]
@@ -543,9 +543,9 @@ This will add information to the `.git/config` file.[^remotes]
 	url = https://github.com/your_username/reproducible-research.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 
-[remote "andrew"]
-	url = https://github.com/amarder/reproducible-research.git
-	fetch = +refs/heads/*:refs/remotes/andrew/*
+[remote "rcs"]
+	url = https://github.com/hbs-rcs/reproducible-research.git
+	fetch = +refs/heads/*:refs/remotes/rcs/*
 ```
 
 [^remotes]: Occasionally, I have had to edit this file to fix unwanted
@@ -566,7 +566,7 @@ looks like this:
 1. Update your `master` branch to match mine:
    ```
    git checkout master
-   git pull andrew master
+   git pull rcs master
    ```
 2. Create a new branch based off of `master` to work on:
    ```
@@ -595,7 +595,7 @@ match mine.
 
 ```
 git checkout master
-git pull andrew master
+git pull rcs master
 ```
 
 Merge `master` into the branch you've been working on.
@@ -619,7 +619,7 @@ Inside the file you'll see:
 <<<<<<< HEAD
 A line in my file.
 =======
-A line in my Andrew's file.
+A line in my RCS's file.
 >>>>>>> 031389f2cd2acde08e32f0beb084b2f7c3257fff
 ```
 
@@ -653,7 +653,7 @@ to collaboration.
 ### Installation (step 2 of 5)
 
 Go to [my GitHub
-repository](https://github.com/amarder/reproducible-research) and
+repository](https://github.com/hbs-rcs/reproducible-research) and
 follow the Installation instructions.
 
 (Notice that those instructions involve forking my repository and

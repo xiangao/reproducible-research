@@ -1,6 +1,6 @@
 # Tools for Reproducible Research
 
-[![Build Status](https://travis-ci.org/amarder/reproducible-research.svg?branch=master)](https://travis-ci.org/amarder/reproducible-research)
+[![Build Status](https://travis-ci.org/hbs-rcs/reproducible-research.svg?branch=master)](https://travis-ci.org/hbs-rcs/reproducible-research)
 
 This is an adaptation of Karl Broman’s [Tools for Reproducible
 Research](https://github.com/kbroman/Tools4RR).

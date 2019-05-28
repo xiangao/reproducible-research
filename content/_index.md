@@ -31,7 +31,7 @@ presentations, posters) are reproducible.
 Prerequisite: Some knowledge of R.
 
 The source for this website is on
-[GitHub](https://github.com/amarder/reproducible-research).
+[GitHub](https://github.com/hbs-rcs/reproducible-research).
 
 ## Recommended Books
 

@@ -1,4 +1,4 @@
-baseurl = "https://amarder.github.io/reproducible-research/"
+baseurl = "https://hbs-rcs.github.io/reproducible-research/"
 languageCode = "en-us"
 title = "Tools for Reproducible Research"
 theme = "hugo-theme-learn"
@@ -6,7 +6,7 @@ metadataformat = "yaml"
 canonifyurls = true
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
-disqusShortname = "amarder-github-pages"
+disqusShortname = "hbs-rcs"
 enableEmoji = true
 
 [outputs]
