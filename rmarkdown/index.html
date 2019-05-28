@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="description" content="A material design theme for documentations.">
+
+
+    <link rel="icon" href="https://hbs-rcs.github.io/reproducible-research/images/favicon.png" type="image/png">
+
+    <title>R Markdown :: Tools for Reproducible Research</title>
+
+    
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/nucleus.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/fontawesome-all.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/hybrid.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/featherlight.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/perfect-scrollbar.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/auto-complete.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/atom-one-dark-reasonable.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/theme.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/hugo-theme.css?1559063420" rel="stylesheet">
+    
+
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/jquery-3.3.1.min.js?1559063420"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/rmarkdown/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://hbs-rcs.github.io/reproducible-research/">
+  <svg id="grav-logo" style="width:100%; height:100%;" viewBox="0 0 504 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <path d="M235.832,71.564l-7.98,-0.001c-1.213,0.001 -2.197,0.987 -2.197,2.204l0,15.327l-0.158,0.132c-4.696,3.962 -10.634,6.14 -16.719,6.14c-14.356,0 -26.034,-11.68 -26.034,-26.037c0,-14.358 11.678,-26.035 26.034,-26.035c5.582,0 10.919,1.767 15.437,5.113c0.877,0.649 2.093,0.56 2.866,-0.211l5.69,-5.69c0.444,-0.442 0.675,-1.055 0.639,-1.681c-0.034,-0.627 -0.336,-1.206 -0.828,-1.597c-6.76,-5.363 -15.214,-8.314 -23.805,-8.314c-21.18,0 -38.414,17.233 -38.414,38.415c0,21.183 17.234,38.415 38.414,38.415c10.937,0 21.397,-4.705 28.698,-12.914c0.358,-0.403 0.556,-0.921 0.556,-1.46l0,-19.603c0,-1.217 -0.985,-2.203 -2.2,-2.203"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M502.794,34.445c-0.408,-0.616 -1.1,-0.989 -1.838,-0.989l-8.684,0c-0.879,0 -1.673,0.522 -2.022,1.329l-24.483,56.839l-24.92,-56.852c-0.352,-0.799 -1.142,-1.316 -2.012,-1.316l-8.713,0c-0.744,0 -1.44,0.373 -1.843,0.995c-0.408,0.623 -0.476,1.408 -0.174,2.09l30.186,68.858c0.352,0.799 1.143,1.317 2.017,1.317l10.992,0c0.879,0 1.673,-0.527 2.021,-1.329l29.655,-68.861c0.289,-0.68 0.222,-1.461 -0.182,-2.081"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M388.683,34.772c-0.353,-0.798 -1.142,-1.316 -2.017,-1.316l-10.988,0c-0.879,0 -1.673,0.522 -2.021,1.329l-29.655,68.861c-0.294,0.675 -0.226,1.46 0.182,2.077c0.407,0.619 1.096,0.993 1.838,0.993l8.684,0c0.879,0 1.673,-0.526 2.022,-1.329l24.478,-56.842l24.92,56.854c0.353,0.798 1.143,1.317 2.013,1.317l8.717,0c0.744,0 1.44,-0.374 1.843,-0.993c0.408,-0.624 0.471,-1.41 0.174,-2.094l-30.19,-68.857Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M309.196,81.525l0.476,-0.229c8.675,-4.191 14.279,-13.087 14.279,-22.667c0,-13.881 -11.295,-25.174 -25.176,-25.174l-31.863,0c-1.214,0 -2.199,0.988 -2.199,2.202l0,68.855c0,1.219 0.985,2.204 2.199,2.204l7.979,0c1.214,0 2.2,-0.985 2.2,-2.204l0,-58.679l21.684,0c7.059,0 12.799,5.739 12.799,12.796c0,5.885 -3.996,10.989 -9.728,12.408c-1.032,0.261 -2.064,0.393 -3.071,0.393l-7.977,0c-0.829,0 -1.585,0.467 -1.959,1.205c-0.378,0.74 -0.305,1.625 0.187,2.296l22.62,30.884c0.412,0.566 1.07,0.901 1.771,0.901l9.915,0c0.827,0 1.587,-0.467 1.96,-1.207c0.378,-0.742 0.302,-1.629 -0.186,-2.296l-15.91,-21.688Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M107.191,80.969c-7.255,-4.794 -11.4,-8.845 -15.011,-16.109c-2.47,4.977 -8.236,12.376 -17.962,18.198c-4.856,15.106 -27.954,44.015 -35.43,39.916c-2.213,-1.212 -2.633,-2.808 -2.133,-4.456c0.536,-4.129 9.078,-13.62 9.078,-13.62c0,0 0.18,1.992 2.913,6.187c-3.609,-11.205 5.965,-25.031 8.5,-29.738c3.985,-1.269 4.274,-6.387 4.274,-6.387c0.255,-7.909 -3.278,-13.635 -6.701,-17.059c2.459,3.002 3.255,7.539 3.372,11.694l0,0.023c0.012,0.469 0.012,0.93 0.011,1.39c-0.117,3.439 -1.157,8.19 -3.383,8.19l0.006,0.03c-2.289,-0.098 -5.115,0.391 -7.639,1.18l-5.582,1.334c0,0 2.977,-0.136 4.584,1.252c-1.79,2.915 -5.769,6.533 -10.206,8.588c-6.457,2.995 -8.312,-2.964 -5.034,-6.838c0.805,-0.946 1.618,-1.745 2.387,-2.399c-0.495,-0.513 -0.807,-1.198 -0.889,-2.068c-0.001,-0.005 -0.004,-0.009 -0.005,-0.013c-0.45,-1.977 -0.202,-4.543 2.596,-8.623c0.551,-0.863 1.214,-1.748 2.007,-2.647c0.025,-0.031 0.046,-0.059 0.072,-0.089c0.034,-0.042 0.072,-0.08 0.108,-0.121c0.02,-0.023 0.039,-0.045 0.059,-0.068c0.2,-0.228 0.413,-0.45 0.639,-0.663c3.334,-3.414 8.599,-6.966 16.897,-10.152c9.675,-14.223 13.219,-16.89 13.219,-16.89c1.071,-1.096 2.943,-2.458 3.632,-2.805c-5.053,-8.781 -6.074,-21.158 -4.75,-24.493c-0.107,0.18 -0.206,0.365 -0.287,0.556c0.49,-1.143 0.819,-1.509 1.328,-2.111c1.381,-1.632 6.058,-2.488 7.737,0.971c0.895,1.844 1.063,4.232 1.034,6.023c-3.704,-0.193 -7.063,4.036 -7.063,4.036c0,0 3.067,-1.448 6.879,-1.473c0,0 1.015,0.883 2.283,2.542c-1.712,3.213 -4.524,10.021 -2.488,17.168c0.338,1.408 0.849,2.619 1.483,3.648c0.024,0.045 0.044,0.089 0.069,0.135c0.051,0.066 0.096,0.122 0.144,0.183c3.368,5.072 9.542,5.665 9.542,5.665c-2.906,-1.45 -5.274,-3.76 -6.816,-6.56c-0.8,-1.498 -1.291,-2.762 -1.592,-3.761c-1.636,-6.313 0.771,-9.999 2.149,-12.471c3.17,-4.917 8.944,-7.893 15.151,-7.185c8.712,0.995 14.968,8.862 13.973,17.571c-0.608,5.321 -3.781,9.723 -8.142,12.117c1.049,2.839 -0.073,6.28 -0.073,6.28c2.642,3.323 2.758,5.238 2.667,7.017c-3.357,-0.565 -6.618,1.701 -6.618,1.701c0,0 6.476,-1.546 10.238,1.81c2.446,2.631 4.078,5.009 5.051,6.766c1.393,2.505 7.859,2.683 7.123,7.188c-0.737,4.499 -5.669,4.542 -13.401,-0.56M69.571,0c-38.424,0 -69.571,31.148 -69.571,69.567c0,38.422 31.147,69.573 69.571,69.573c38.42,0 69.568,-31.151 69.568,-69.573c0,-38.42 -31.148,-69.567 -69.568,-69.567"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M73.796,51.693c0.813,-0.814 0.813,-2.134 0,-2.947c-0.815,-0.814 -2.133,-0.814 -2.947,0c-0.815,0.813 -0.815,2.133 0,2.947c0.814,0.813 2.132,0.813 2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M66.445,53.149c-0.814,0.813 -0.814,2.133 0,2.947c0.813,0.814 2.133,0.814 2.947,0c0.813,-0.814 0.813,-2.134 0,-2.947c-0.814,-0.813 -2.134,-0.813 -2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M79.231,54.233c-1.274,-1.274 -3.339,-1.272 -4.611,0l-2.713,2.712c-1.274,1.275 -1.274,3.339 0,4.612l2.978,2.978c1.274,1.275 3.338,1.274 4.611,0l2.712,-2.712c1.274,-1.274 1.274,-3.339 0,-4.612l-2.977,-2.978Z" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M95.759,41.445c-2.151,-2.578 1.869,-7.257 4.391,-4.463c4.645,5.148 -2.237,7.041 -4.391,4.463M105.004,44.132c3.442,-6.553 -1.427,-10.381 -4.773,-13.523c-5.36,-5.039 -10.706,-7.217 -16.811,-0.241c-6.102,6.977 -2.226,15.068 3.356,19.061c5.584,3.994 14.782,1.255 18.228,-5.297"
+      style="fill:#000;fill-rule:nonzero;"></path>
+  </svg>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/lunr.min.js?1559063420"></script>
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/auto-complete.js?1559063420"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/hbs-rcs.github.io\/reproducible-research\/";
+    
+</script>
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/search.js?1559063420"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/unix/" title="Unix" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/unix/">
+          Unix
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/make/" title="Make" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/make/">
+          Make
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/rmarkdown/" title="R Markdown" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/rmarkdown/">
+          R Markdown
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/git/" title="Git and GitHub" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/git/">
+          Git and GitHub
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/organization/" title="Organizing Projects" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/organization/">
+          Organizing Projects
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/clear-code/" title="Writing Clear Code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/clear-code/">
+          Writing Clear Code
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/r-packages/" title="Writing R packages" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/r-packages/">
+          Writing R packages
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/test-debug/" title="Software Testing and Debugging" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/test-debug/">
+          Software Testing and Debugging
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/big-jobs/" title="Big Jobs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/big-jobs/">
+          Big Jobs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/python/" title="Python" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/python/">
+          Python
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/licenses/" title="Licenses" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/licenses/">
+          Licenses
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='https://hbs-rcs.github.io/reproducible-research/'>Tools for Reproducible Research</a> > R Markdown
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#knitr-in-a-knutshell">knitr in a knutshell</a></li>
+<li><a href="#data-analysis-reports">Data analysis reports</a></li>
+<li><a href="#knitr-code-chunks">knitr code chunks</a></li>
+<li><a href="#html">html</a></li>
+<li><a href="#css">CSS</a></li>
+<li><a href="#markdown">Markdown</a></li>
+<li><a href="#r-markdown">R Markdown</a></li>
+<li><a href="#code-chunks-again">Code chunks, again</a></li>
+<li><a href="#chunk-options">Chunk options</a></li>
+<li><a href="#global-chunk-options">Global chunk options</a></li>
+<li><a href="#package-options">Package options</a></li>
+<li><a href="#in-line-code">In-line code</a></li>
+<li><a href="#yaml-header">YAML header</a></li>
+<li><a href="#rounding">Rounding</a></li>
+<li><a href="#r-markdown-html-in-rstudio-http-www-rstudio-com">R Markdown -&gt; html, in <a href="http://www.rstudio.com">RStudio</a></a></li>
+<li><a href="#r-markdown-html-in-r-http-www-r-project-org">R Markdown -&gt; html, in <a href="http://www.r-project.org">R</a></a></li>
+<li><a href="#r-markdown-html">R Markdown -&gt; html,</a></li>
+<li><a href="#need-pandoc-in-your-path">Need pandoc in your <code>PATH</code></a></li>
+<li><a href="#reproducible-knitr-documents">Reproducible knitr documents</a></li>
+<li><a href="#controlling-figures">Controlling figures</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#important-principles">Important principles</a></li>
+</ul></li>
+<li><a href="#knitr-latex-paper">KnitR + LaTeX -&gt; paper</a>
+<ul>
+<li><a href="#latex">\LaTeX</a></li>
+<li><a href="#what-i-actually-do">What I actually do</a></li>
+<li><a href="#why-latex">Why \LaTeX/?</a></li>
+<li><a href="#stuff-i-use-a-lot">Stuff I use a lot</a></li>
+<li><a href="#knitr-latex-rnw">KnitR + \LaTeX -&gt; Rnw</a></li>
+<li><a href="#knitr-latex-rnw-1">KnitR + \LaTeX -&gt; Rnw</a></li>
+<li><a href="#lyx">LyX</a></li>
+<li><a href="#also">Also</a></li>
+<li><a href="#flavors-of-latex">Flavors of \LaTeX</a></li>
+<li><a href="#getting-help">Getting help</a></li>
+<li><a href="#figure-captions-and-floats">Figure captions and floats</a></li>
+<li><a href="#tables-in-latex">Tables in \LaTeX</a></li>
+<li><a href="#xtable">xtable</a></li>
+<li><a href="#read-proofs-carefully">Read proofs carefully</a></li>
+<li><a href="#re-type-that">Re-type that!</a></li>
+<li><a href="#bibtex-for-bibliographies">BibTeX for bibliographies</a></li>
+<li><a href="#organizing-analyses">Organizing analyses</a></li>
+<li><a href="#make-every-number-reproducible">Make every number reproducible.</a></li>
+<li><a href="#keep-the-figures-separate">Keep the figures separate</a></li>
+<li><a href="#version-control">Version Control</a></li>
+<li><a href="#word">Word</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+<li><a href="#presentations-and-posters">Presentations and posters</a>
+<ul>
+<li><a href="#powerpoint-keynote">Powerpoint/Keynote</a></li>
+<li><a href="#latex-beamer-package">\LaTeX/ Beamer package</a></li>
+<li><a href="#get-rid-of-the-junk">Get rid of the junk</a></li>
+<li><a href="#change-colors">Change colors</a></li>
+<li><a href="#also-slide-numbers-and-fonts">Also, slide numbers and fonts</a></li>
+<li><a href="#title-slide">Title slide</a></li>
+<li><a href="#typical-slide">Typical slide</a></li>
+<li><a href="#typical-slide-1">Typical slide</a></li>
+<li><a href="#slide-with-a-figure">Slide with a figure</a></li>
+<li><a href="#slide-with-a-figure-1">Slide with a figure</a></li>
+<li><a href="#figures-with-knitr">Figures with KnitR</a></li>
+<li><a href="#figures-with-knitr-1">Figures with KnitR</a></li>
+<li><a href="#slides-with-notes">Slides with notes</a></li>
+<li><a href="#simple-animations">Simple animations</a></li>
+<li><a href="#simple-animations-1">Simple animations</a></li>
+<li><a href="#slidify-and-r-markdown">Slidify and R Markdown</a></li>
+<li><a href="#slidify-and-r-markdown-1">Slidify and R Markdown</a></li>
+<li><a href="#using-slidify">Using slidify</a></li>
+<li><a href="#yaml-header-1">YAML header</a></li>
+<li><a href="#change-the-title-slide-colors">Change the title slide colors</a></li>
+<li><a href="#beamer-based-posters">Beamer-based posters</a></li>
+<li><a href="#beamer-based-posters-1">Beamer-based posters</a></li>
+<li><a href="#beamer-based-posters-2">Beamer-based posters</a></li>
+<li><a href="#basic-code-for-a-poster">Basic code for a poster</a></li>
+<li><a href="#between-block-spacing">Between-block spacing</a></li>
+<li><a href="#summary-1">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              R Markdown
+            </h1>
+          
+
+        
+
+
+
+
+	
+
+<p>Statisticians write a lot of reports, describing the results of
+  data analyses. It&rsquo;s best if such reports are fully reproducible:
+  that the data and code are available, and that there&rsquo;s a clear and
+  automatic path from data and code to the final report.</p>
+
+<p>knitr is ideal for this effort. It&rsquo;s a system for combining code and
+  text into a single document. Process the document, and the code is
+  replaced with the results and figures that it generates.</p>
+
+<p>I&rsquo;ve found it most efficient to produce informal analysis reports as
+  web pages. Markdown is a system for writing simple,
+  readable text, with the sort of marks that you might use in an email
+  message, that gets converted to nicely formatted html-based web pages.</p>
+
+<p>My goal in this lecture is to show you how to use knitr with R
+  Markdown (a variant of Markdown) to make such
+  reproducible reports, and to convince you that this is the way that
+  you should be constructing such analysis reports.</p>
+
+<p>I&rsquo;d originally planned to also cover knitr with AsciiDoc, but I
+  decided to drop it; it&rsquo;s best to focus on Markdown.</p>
+
+<h2 id="knitr-in-a-knutshell">knitr in a knutshell</h2>
+
+<p>\centerline{\Large <a href="http://kbroman.org/knitr_knutshell">\tt kbroman.org/knitr_knutshell</a>}</p>
+
+<p>I wrote a short tutorial on knitr, covering a bit more than I&rsquo;ll
+  cover in this lecture.</p>
+
+<p>I&rsquo;d be glad for suggestions, corrections, or questions.</p>
+
+<h2 id="data-analysis-reports">Data analysis reports</h2>
+
+<ul>
+<li>Figures/tables + email</li>
+<li>Static \LaTeX\ or Word document</li>
+<li>knitr/Sweave + \LaTeX\ -&gt; PDF</li>
+<li>knitr + Markdown -&gt; Web page
+Statisticians write a lot of reports. You do a bunch of
+analyses, create a bunch of figures and tables, and you want to
+describe what you&rsquo;ve done to a collaborator.</li>
+</ul>
+
+<p>When I was first starting out, I&rsquo;d create a bunch of figures and
+  tables and email them to my collaborator with a description of the
+  findings in the body of the email. That was cumbersome for me and
+  for the collaborator. (&ldquo;Which figure are we talking about, again?&rdquo;)</p>
+
+<p>I moved towards writing formal reports in
+  \LaTeX\ and sending my collaborator a
+  PDF. But that was a lot of work, and if I later wanted to re-run
+  things (e.g., if additional data were added), it was a real hassle.</p>
+
+<p>Sweave + \LaTeX\ was a big help, but it&rsquo;s a pain to deal with page
+  breaks.</p>
+
+<p>Web pages, produced with knitr and Markdown, are ideal. You can make
+  super-tall multi-panel figures that show the full details, without
+  worrying page breaks. And hyperlinks are more convenient, too.</p>
+
+<p>\begin{frame}[c]{}</p>
+
+<p>\centering
+What if the data change?</p>
+
+<p>What if you used the wrong version of the data?</p>
+
+<p>If data are added, will it be easy to go back and re-do your
+  analyses, or is there a lot of copying-and-pasting and editing to be
+  done?</p>
+
+<p>I usually start an analysis report with a summary of the experiment,
+  scientific questions, and the data. Recently, a collaborator noticed
+  that I&rsquo;d used an old version of the data. (I&rsquo;d cited sample
+  sizes, and so he could see that I didn&rsquo;t have the full set.)</p>
+
+<p>He said, &ldquo;I&rsquo;m really sorry you did all that work on the incomplete
+  dataset.&rdquo;</p>
+
+<p>But actually, it didn&rsquo;t take long to find the right file, and the
+  revised analysis was derived instantaneously, as I&rsquo;d used knitr.</p>
+
+<h2 id="knitr-code-chunks">knitr code chunks</h2>
+
+<p><a href="https://github.com/kbroman/Tools4RR/blob/master/03_KnitrMarkdown/Examples/example1.Rmd">Input to knitr</a>:</p>
+
+<pre><code>We see that this is an intercross with `r nind(sug)`
+individuals. There are `r nphe(sug)` phenotypes, and genotype
+data at `r totmar(sug)` markers across the `r nchr(sug)`
+autosomes.  The genotype data is quite complete.
+
+&quot;`{r summary_plot, fig.height=8}
+plot(sug)
+&quot;`
+</code></pre>
+
+<p><a href="https://github.com/kbroman/Tools4RR/blob/master/03_KnitrMarkdown/Examples/example1.md">Output from knitr</a>:</p>
+
+<pre><code>We see that this is an intercross with 163
+individuals. There are 6 phenotypes, and genotype
+data at 93 markers across the 19
+autosomes.  The genotype data is quite complete.
+
+&quot;`r
+plot(sug)
+&quot;`
+
+![plot of chunk summary_plot](RmdFigs/summary_plot.png)
+</code></pre>
+
+<p>The basic idea in knitr is that your regular text document will
+  be interrupted by chunks of code delimited in a special way.</p>
+
+<p>This example is with R Markdown.</p>
+
+<p>There are in-line bits of code indicated with backticks.
+  When the document is processed by knitr, they&rsquo;ll be evaluated and
+  replaced by the result.</p>
+
+<p>Larger code chunks with three backticks. This one will produce a
+  plot. When processed by knitr, an image file will be created and a
+  link to the image will be inserted at that location.</p>
+
+<p>In knitr, different types of text have different ways of delimiting
+  code chunks, because it&rsquo;s basically going to do a
+  search-and-replace and depending on the form of text, different
+  patterns will be easier to find.</p>
+
+<h2 id="html">html</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=utf-8&quot;/&gt;
+  &lt;title&gt;Example html file&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1&gt;Markdown example&lt;/h1&gt;
+
+&lt;p&gt;Use a bit of &lt;strong&gt;bold&lt;/strong&gt; or &lt;em&gt;italics&lt;/em&gt;. Use
+backticks to indicate &lt;code&gt;code&lt;/code&gt; that will be rendered
+in monospace.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This is part of a list&lt;/li&gt;
+&lt;li&gt;another item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>[<a href="http://kbroman.github.io/knitr_knutshell/assets/markdown_example.html">Example</a>]</p>
+
+<p>It&rsquo;s helpful to know a bit of html, which is the markup
+language that web pages are written in. html really isn&rsquo;t that hard;
+it&rsquo;s just cumbersome.</p>
+
+<p>An html document contains pairs of tags to indicate content, like
+<code>&lt;h1&gt;</code> and <code>&lt;/h1&gt;</code> to indicate that the enclosed text is a
+&ldquo;level one header&rdquo;, or <code>&lt;em&gt;</code> and <code>&lt;/em&gt;</code> to indicate emphasis
+(generally italics). A web browser will parse the html tags and
+render the web page, often using a cascading style sheet (CSS) to
+define the precise style of the different elements.</p>
+
+<p>Note that there are six levels of headers, with tags
+<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, \dots, <code>&lt;h6&gt;</code>.
+Think of these as the title,
+section, subsection, sub-subsection, \dots</p>
+
+<h2 id="css">CSS</h2>
+
+<pre><code>ul,ol {
+  margin: 0 0 0 35px;
+}
+
+a {
+  color: purple;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover
+{
+  color: purple;
+  background: #CAFFFF;
+}
+</code></pre>
+
+<p>{\footnotesize \lolit
+[<a href="http://kevinburke.bitbucket.org/markdowncss/markdown.css">Example</a>]}</p>
+
+<p>I don&rsquo;t really want to talk about CSS, but I thought I should at
+  least acknowledge its existence.</p>
+
+<p>CSS is really important for defining how your document will
+  appear. Much of the time, you just want to find someone else&rsquo;s CSS
+  document that is satisfactory to you.</p>
+
+<h2 id="markdown">Markdown</h2>
+
+<pre><code># Markdown example
+
+Use a bit of **bold** or _italics_. Use backticks to indicate
+`code` that will be rendered in monospace.
+
+- This is part of a list
+- another item
+
+Include blocks of code using three backticks:
+
+&quot;`
+x &lt;- rnorm(100)
+&quot;`
+
+Or indent four spaces:
+
+    mean(x)
+    sd(x)
+
+And it's easy to create links, like to
+[Markdown](http://daringfireball.net/projects/markdown/).
+</code></pre>
+
+<p>{\footnotesize \lolit
+[<a href="http://kbroman.github.io/knitr_knutshell/assets/markdown_example.md">Example</a> |
+<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">MD cheat sheet</a>]}</p>
+
+<p>Markdown is a system for writing simple, readable text that is
+  easily converted into html. The reason it&rsquo;s useful to know a bit of
+  html is that then you have a better idea how the final product will
+  look. (Plus, if you want to get fancy, you can just insert a bit of
+  html within the Markdown document.)</p>
+
+<p>Markdown is just a system of marks that will get searched-and-
+  replaced to create an html document. A big advantage of the Markdown
+  marks is that the source document is much like what you might write
+  in an email, and so it&rsquo;s much more human-readable.</p>
+
+<p>Github (which we&rsquo;ll talk about next week) automatically renders
+  Markdown files as html, and you can use Markdown for ReadMe files.
+  And the website for this course is mostly in Markdown.</p>
+
+<h2 id="r-markdown">R Markdown</h2>
+
+<ul>
+<li>sep12pt</li>
+<li><a href="http://rmarkdown.rstudio.com">R Markdown</a> is a variant of Markdown, developed at
+<a href="http://www.rstudio.com">RStudio.com</a></li>
+<li>Markdown + knitr + extras</li>
+<li>A few extra marks</li>
+<li><a href="http://www.rstudio.com/ide/docs/authoring/using_markdown_equations">\LaTeX\ equations</a></li>
+<li>Bundle images into the final html file
+R Markdown is a variant of Markdown developed by the folks at
+RStudio.</li>
+</ul>
+
+<p>It&rsquo;s Markdown with knitr code chunks, but there are a number of
+  added features,  most importantly the ability to use
+  \LaTeX\ equations.</p>
+
+<h2 id="code-chunks-again">Code chunks, again</h2>
+
+<pre><code>&quot;`{r knitr_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=4,
+                      fig.path='Figs/', warning=FALSE,
+                      message=FALSE)
+set.seed(53079239)
+&quot;`
+
+### Preliminaries
+
+Load the R/qtl package using the `library` function:
+
+&quot;`{r load_qtl}
+library(qtl)
+&quot;`
+
+To get help on the read.cross function in R, type the
+following:
+
+&quot;`{r help, eval=FALSE}
+?read.cross
+&quot;`
+</code></pre>
+
+<p>{\footnotesize \lolit
+[<a href="https://github.com/kbroman/knitr_knutshell/blob/gh-pages/assets/knitr_example.Rmd">Example</a>]}</p>
+
+<p>A couple of additional points about code chunks.</p>
+
+<p>You can (and should) assign names to the code chunks. It will make it
+easier to fix errors, and figure files will be named based on the
+name of the chunk that produces them.</p>
+
+<p>Code chunks can also have options, like <code>include=FALSE</code> and <code>eval=FALSE</code>.
+And you can define global options, which will apply to all subsequent
+chunks.</p>
+
+<h2 id="chunk-options">Chunk options</h2>
+
+<p>\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+<code>echo=FALSE</code>     &amp; \lolit Don&rsquo;t include the code <br />
+<code>results=&quot;hide&quot;</code> &amp; \lolit Don&rsquo;t include the output <br />
+<code>include=FALSE</code>  &amp; \lolit Don&rsquo;t show code or output <br />
+<code>eval=FALSE</code>     &amp; \lolit Don&rsquo;t evaluate the code at all <br />
+<code>warning=FALSE</code>  &amp; \lolit Don&rsquo;t show R warnings <br />
+<code>message=FALSE</code>  &amp; \lolit Don&rsquo;t show R messages <br />
+<code>fig.width=\#</code>   &amp; \lolit Width of figure <br />
+<code>fig.height=\#</code>  &amp; \lolit Height of figure <br />
+<code>fig.path=&quot;Figs/&quot;</code> &amp; \lolit Path for figure files <br />
+\end{tabular}</p>
+
+<p>There are <a href="http://yihui.name/knitr/options#chunk_options">lots of chunk options</a>.</p>
+
+<p>These are the chunk options that I use most, but there are lots
+  more. Each should be valid R code, and can be basically any valid
+  R code, so you can get pretty fancy.</p>
+
+<p>The ending slash in <code>fig.path</code> is important, as this is just pasted to
+  the front of the figure file names. If not included, the figures
+  would be in the main directory but with names starting with &ldquo;<code>Figs</code>&rdquo;.</p>
+
+<h2 id="global-chunk-options">Global chunk options</h2>
+
+<pre><code>&quot;`{r knitr_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=4,
+                      fig.path='Figs/', warning=FALSE,
+                      message=FALSE, include=FALSE,
+                      echo=FALSE)
+set.seed(53079239)
+&quot;`
+
+&quot;`{r make_plot, fig.width=8, include=TRUE}
+x &lt;- rnorm(100)
+y &lt;- 2*x + rnorm(100)
+plot(x, y)
+&quot;`
+</code></pre>
+
+<ul>
+<li>sep12pt</li>
+<li>Use global chunk options rather than repeat the same options over and over.</li>
+<li>You can override the global values in specific chunks.
+I&rsquo;ll often use <code>include=FALSE</code> and <code>echo=FALSE</code> in a report to a
+collaborator, as they won&rsquo;t want to see the code and raw
+results. I&rsquo;ll then use <code>include=TRUE</code> for the figure chunks.</li>
+</ul>
+
+<p>And I&rsquo;ll set some default choice for figure heights and widths but
+  then adjust them a bit in particular figures.</p>
+
+<p>You may need to include <code>{/</code>library(knitr) before the
+  <code>opts_chunk\$set()</code> (for example, within RStudio).
+}</p>
+
+<h2 id="package-options">Package options</h2>
+
+<pre><code>&quot;`{r package_options, include=FALSE}
+knitr::opts_knit$set(progress = TRUE, verbose = TRUE)
+&quot;`
+</code></pre>
+
+<ul>
+<li>sep12pt</li>
+<li>It&rsquo;s easy to confuse global <a href="http://yihui.name/knitr/options#chunk_options">chunk options</a> with
+<a href="http://yihui.name/knitr/options#package_options">package options</a>.</li>
+<li>I&rsquo;ve not used package options.</li>
+<li>So focus on <code>opts_chunk\$set()</code> not {\tt
+\lolit opts_knit\$set()}.
+If you are doing something fancy, you may need knitr package
+options, but I&rsquo;ve not used them.</li>
+</ul>
+
+<p>I&rsquo;ve gotten confused about them, though: <code>opts_chunk\$set</code>
+  vs. <code>opts_knit\$set</code>.</p>
+
+<h2 id="in-line-code">In-line code</h2>
+
+<pre><code>We see that this is an intercross with `r nind(sug)`
+individuals. There are `r nphe(sug)` phenotypes, and genotype
+data at `r totmar(sug)` markers across the `r nchr(sug)`
+autosomes.  The genotype data is quite complete.
+</code></pre>
+
+<ul>
+<li>sep12pt</li>
+<li>Each bit of in-line code needs to be within one line; they
+<strong>can&rsquo;t</strong>
+span across lines.</li>
+<li>I&rsquo;ll often precede a paragraph with a code chunk with {\tt
+include=FALSE}, defining various variables, to simplify the in-line
+code.</li>
+<li>Never hard-code a result or summary statistic again!
+In-line code to insert summary statistics and such is a key
+feature of knitr.</li>
+</ul>
+
+<p>Even if you wanted the code for your figures or data analysis to be
+  separate, you&rsquo;d still want to make use of this feature.</p>
+
+<p>Remember my anecdote earlier in this lecture: if I hadn&rsquo;t mentioned
+  sample sizes, my collaborator wouldn&rsquo;t have noticed that I was using
+  an old version of the data.</p>
+
+<h2 id="yaml-header">YAML header</h2>
+
+<pre><code>---
+title: &quot;knitr/R Markdown example&quot;
+author: &quot;Karl Broman&quot;
+date: &quot;28 January 2015&quot;
+output: html_document
+---
+</code></pre>
+
+<pre><code>---
+title: &quot;Another knitr/R Markdown example&quot;
+author: &quot;[Karl Broman](http://kbroman.org)&quot;
+date: &quot;`r Sys.Date()`&quot;
+output: word_document
+---
+</code></pre>
+
+<p>At the top of your Rmd file, it&rsquo;s best to include a header like
+  the above examples. (YAML is a simple text-based format for
+  specifying data, sort of like JSON but more human-readable.)</p>
+
+<p>You don&rsquo;t have to include any of these things, but it&rsquo;s good to at
+  least specify <code>output:</code> (which can be also be {\tt
+  pdf_document). There are a lot more options; see <code>rmarkdown.rstudio.com</code>.</p>
+
+<p>Note my use of a hyperlink and some R code in the second
+  example. These will carry over to the final document.
+}</p>
+
+<h2 id="rounding">Rounding</h2>
+
+<ul>
+<li>sep18pt</li>
+
+<li><p><code>cor(x,y)</code> might produce <code>\vhilit 0.8992877</code>, but
+I want <code>0.90</code>.</p></li>
+
+<li><p><code>round(cor(x,y), 2)</code>, would give <code>\vhilit 0.9</code>, but I want
+<code>0.90</code>.</p></li>
+
+<li><p>You could use <code>sprintf(&quot;\%.2f&quot;, cor(x,y))</code>, but
+<code>sprintf(&quot;\%.2f&quot;, -0.001)</code> gives <code>\vhilit -0.00</code>.</p></li>
+
+<li><p>Use the <code>myround</code> function in my
+<a href="http://github.com/kbroman/broman">R/broman</a> package.</p></li>
+
+<li><p><code>myround(cor(x,y), 2)</code> solves both issues.
+I&rsquo;m very particular about rounding. You should be too.</p></li>
+</ul>
+
+<p>If you&rsquo;re a C programmer, sprintf seems natural. No one else agrees.</p>
+
+<p>The R/broman package is on both github and CRAN.</p>
+
+<h2 id="r-markdown-html-in-rstudio-http-www-rstudio-com">R Markdown -&gt; html, in <a href="http://www.rstudio.com">RStudio</a></h2>
+
+<p>\centerline{\includegraphics[width=\textwidth]{Figs/rstudio_knitr.png}}</p>
+
+<p>The easiest way to convert an R Markdown file to html is with
+  RStudio.</p>
+
+<p>Open the R Markdown file in R Studio and click the &ldquo;Knit HTML&rdquo;
+  button (with the ball of yarn and knitting needle).</p>
+
+<p>Note the little button with a question mark. Click that, and you&rsquo;ll
+  get the &ldquo;Markdown Quick Reference.&rdquo;</p>
+
+<p>What actually happens: The <code>knit</code> function in the knitr package
+  processes all of the code chunks and in-line code and creates a
+  Markdown file and possibly a bunch of figure files.
+  The Markdown file (and any figure files) are sent to Pandoc, which
+  converts them to an HTML file, with embedded figures.</p>
+
+<p>RStudio is especially useful when you&rsquo;re first learning R Markdown
+  and knitr, as it&rsquo;s easy to create and view the corresponding html
+  file, and you have access to that Markdown Quick Reference.</p>
+
+<h2 id="r-markdown-html-in-r-http-www-r-project-org">R Markdown -&gt; html, in <a href="http://www.r-project.org">R</a></h2>
+
+<pre><code>&gt; library(rmarkdown)
+&gt; render(&quot;knitr_example.Rmd&quot;)
+</code></pre>
+
+<pre><code>&gt; rmarkdown::render(&quot;knitr_example.Rmd&quot;)
+</code></pre>
+
+<p>When you click the &ldquo;Knit HTML&rdquo; button in RStudio, what it
+  actually does is run <code>rmarkdown::render()</code>, which in turn calls
+  <code>knitr::knit()</code> and then runs pandoc.</p>
+
+<p>You can do the same thing directly, in R. You do miss out on the
+  immediate preview of the result.</p>
+
+<h2 id="r-markdown-html">R Markdown -&gt; html,</h2>
+
+<pre><code>[GNU make](http://www.gnu.org/software/make)
+</code></pre>
+
+<pre><code>knitr_example.html: knitr_example.Rmd
+    R -e &quot;rmarkdown::render('knitr_example.Rmd')&quot;
+</code></pre>
+
+<p>I prefer to do this from the command-line, using a Makefile.
+  Then it&rsquo;s more obvious what&rsquo;s happening.</p>
+
+<p>In Windows, it&rsquo;s important that the double-quotes are on the outside
+  and the single-quotes are on the inside.</p>
+
+<h2 id="need-pandoc-in-your-path">Need pandoc in your <code>PATH</code></h2>
+
+<p><a href="http://www.rstudio.com">RStudio</a> includes pandoc; you just need
+to add the relevant directory to your <code>PATH</code>.</p>
+
+<p><strong>Mac</strong>:</p>
+
+<p>{\ttsm /Applications/RStudio.app/Contents/MacOS/pandoc}</p>
+
+<p><strong>Windows</strong>:</p>
+
+<p>{\ttsm &ldquo;c:{/}Program Files{/}RStudio{/}bin{/}pandoc&rdquo;}</p>
+
+<p>To use the rmarkdown package from the command line, you need
+  access to pandoc. But if you&rsquo;ve installed RStudio (and I {
+  highly recommend that you do), you don&rsquo;t need to do a separate
+  install, as pandoc is included with RStudio.</p>
+
+<p>You just need to add the relevant directory (listed above) to your
+  <code>PATH</code>, for example in your <code>{~</code>/.bash_profile} file.</p>
+
+<p>At the command line, type <code>type pandoc</code> or
+  <code>pandoc --version</code> to check that it&rsquo;s available.</p>
+
+<p>}</p>
+
+<h2 id="reproducible-knitr-documents">Reproducible knitr documents</h2>
+
+<ul>
+<li>sep8pt</li>
+<li>Don&rsquo;t use absolute paths like <code>\vhilit
+{~</code>/Data/blah.csv}</li>
+<li>Keep all of the code and data in one directory (and its
+subdirectories)</li>
+<li>If you {\vhilit must} use absolute paths, define the various directories
+with variables at the top of your document.</li>
+<li>Use <code>R --vanilla</code> or perhaps <br />
+<code>\scriptsize R --no-save --no-restore --no-init-file --no-site-file</code></li>
+<li>Use GNU make to document the construction of the final product
+(tell future users what to do)</li>
+<li>Include a final chunk with <code>getwd()</code> and
+<code>devtools::session_info()</code>.</li>
+<li>For simulations, use <code>set.seed</code> in your first
+chunk.
+That you&rsquo;ve used knitr doesn&rsquo;t mean the work is really {\nvhilit
+reproducible.  The source and data need to be available to
+others, they need to know what packages were used and how to compile it,
+and then they need to be able to compile it on their system.</li>
+</ul>
+
+<p>The complicated alternative to <code>R --vanilla</code> is if you want to
+  still load <code>{~</code>/.Renviron}, for example, to define
+  <code>R_LIBS</code>.</p>
+
+<p>If you use <code>set.seed</code> at the top of the document, it should be that
+  the random aspects will give exactly the same results.
+  I&rsquo;ll use \ <code>runif(1, 0, 10{\textasciicircum</code>8)} and then paste that big number
+  within <code>set.seed()</code>.</p>
+
+<p>Two anecdotes: The github repository for the Reproducible Research
+  with R and R Studio book uses some absolute paths that basically
+  make it not reproducible.</p>
+
+<p>Earn et al. (2014) Proc Roy Soc B 281(1778):20132570 has a really
+  nice supplement, written with knitr. But it says, &ldquo;The source code
+  is available upon request.&rdquo; It&rsquo;s not {\nvhilit really}
+  reproducible, then.
+}</p>
+
+<h2 id="controlling-figures">Controlling figures</h2>
+
+<pre><code>&quot;`{r test_figure, dev.args=list(pointsize=18)}
+x &lt;- rnorm(100)
+y &lt;- 2*x + rnorm(100)
+plot(x,y)
+&quot;`
+</code></pre>
+
+<p>{\small
+* sep8pt
+*  The default is for knitr/R Markdown is to use the <code>png()</code>
+  graphics device.
+*  Use another graphics device with the chunk option <code>dev</code>.
+*  Pass arguments to the graphics device via the chunk
+  option <code>dev.args</code>.
+}</p>
+
+<p>Graphics in knitr are super easy. For the most part, you don&rsquo;t
+  have to do anything! If a code chunk produces a figure, it will be
+  inserted.</p>
+
+<p>But depending on the type of figure, you might want to try different
+  graphics devices. And sometimes you want to pass arguments to the
+  graphics device.</p>
+
+<p>Yesterday (6 Feb 2014), to change the size of axis
+  labels, you couldn&rsquo;t just use the pointsize device argument; you&rsquo;d also
+  need to use something like <code>par(cex.lab=1.5)</code>. But I posted a
+  question about it on StackOverflow, and Yihui Xie responded and then
+  immediately fixed the problem. I used a bit of twitter in there too,
+  to get his attention.</p>
+
+<p>To download and install the development version of knitr, you can
+  use the <code>install_github</code> function in Hadley Wickham&rsquo;s devtools
+  package. Use <code>install.packages(&quot;devtools&quot;)</code> if you don&rsquo;t already
+  have it installed.  Then <code>library(devtools)</code> and
+  <code>install_github(&quot;yihui/knitr&quot;)</code>.</p>
+
+<h2 id="tables">Tables</h2>
+
+<pre><code>&quot;`{r kable}
+x &lt;- rnorm(100)
+y &lt;- 2*x + rnorm(100)
+out &lt;- lm(y ~ x)
+coef_tab &lt;- summary(out)$coef
+library(kable)
+kable(coef_tab, digits=2)
+&quot;`
+</code></pre>
+
+<pre><code>&quot;`{r pander}
+library(pander)
+panderOptions(&quot;digits&quot;, 2)
+pander(out, caption=&quot;Regression coefficients&quot;)
+&quot;`
+</code></pre>
+
+<pre><code>&quot;`{r xtable, results=&quot;asis&quot;}
+library(xtable)
+tab &lt;- xtable(coef_tab, digits=c(0, 2, 2, 1, 3))
+print(tab, type=&quot;html&quot;)
+&quot;`
+</code></pre>
+
+<p>In informal reports, I&rsquo;ll often just print out a matrix or data
+  frame, rather than create a formal table.</p>
+
+<p>But there are multiple ways to make tables with R Markdown that may
+  look a bit nicer. I&rsquo;m not <strong>completely</strong> happy with any of
+  them, but maybe I&rsquo;ve just not figured out the right set of options.</p>
+
+<p><code>kable</code> in the knitr package is simple but can&rsquo;t be customized
+  too much. But it can produce output as pandoc, markdown, html, or latex.</p>
+
+<p>The <code>pander</code> package produces pandoc-based tables, which even
+  work if you&rsquo;re making a Word document, and has a bit more control
+  than <code>kable</code>.</p>
+
+<p>The <code>xtable</code> package gives you quite complete control,
+  but only produces latex or html output. You need to be sure to use
+  <code>results=&quot;asis&quot;</code> in the code chunk.</p>
+
+<h2 id="important-principles">Important principles</h2>
+
+<p>\centering
+Modify your desires to match the defaults.</p>
+
+<p>Focus your compulsive behavior on things that matter.</p>
+
+<p>Focus on the text and the figures before worrying too much about
+  fine details of how they appear on the page.</p>
+
+<p>And consider which is more important: a manuscript, web page, blog,
+  grant, course slides, course handout, report to collaborator,
+  scientific poster.</p>
+
+<p>You can spend a ton of time trying to get things to look just
+  right. Ideally, you spend that time trying to construct a general
+  solution.  Or you can modify your desires to more closely match what
+  you get without any effort.</p>
+
+<h1 id="knitr-latex-paper">KnitR + LaTeX -&gt; paper</h1>
+
+<p>This lecture is about how to create reproducible manuscripts, for
+  journal articles. KnitR with R Markdown is great for informal
+  reports. KnitR with AsciiDoc is great for somewhat fancier
+  reports. There are a number of efforts, especially with Pandoc, to
+  use R Markdown for journal articles. But if you want fine control
+  over the appearance of a document, it&rsquo;s hard to beat \LaTeX, and so
+  I&rsquo;m just going to focus on that.</p>
+
+<p>I can&rsquo;t hope to explain \LaTeX/ properly in just this one
+  lecture. My goals are to give the general gist, indicate resources
+  and options, and show how to use KnitR with \LaTeX.</p>
+
+<p>I also want to discuss some more general strategies for ensuring that
+  the results described in a journal article are fully reproducible.</p>
+
+<h2 id="latex">\LaTeX</h2>
+
+<pre><code>\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+
+\title{An example document}
+\author{Karl Broman}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section{A section}
+
+This is a simple example of a \LaTeX/ document for an article.
+Here's some in-line math: $y = \beta_0 + \beta_1 x + \epsilon$.
+
+And here's a display equation:
+
+$$ \hat{\beta} = (X'X)^{-1} X'y $$
+
+
+</code></pre>
+
+<p>\LaTeX/ is like html or Markdown: plain text with special codes to
+  indicate how things are to appear.</p>
+
+<p>A \LaTeX/ document always starts with <code>{/</code>documentclass, then a
+  bunch of overall controlling information. The actual document is
+  between <code>{/</code>begin{document}} and <code>{/</code>end{document}}.</p>
+
+<p><code>{/</code>usepackage{}} is like <code>library()</code> in R.</p>
+
+<p>Ideally, you focus on {\nhilit semantics} rather than {\nhilit
+  style}: define the <code>{/</code>title{}} and <code>{/</code>author{}} and use
+  <code>{/</code>maketitle} to have them included in the document, and
+  indicate sections and subsections with <code>{/</code>section{}} and
+  <code>{/</code>subsection{}}.</p>
+
+<p>For some reason, <code>{/</code>thispagestyle{empty}} (&ldquo;don&rsquo;t
+  show page number on this page&rdquo;) needs
+  to be placed {\nhilit after} <code>{/</code>maketitle}.</p>
+
+<p>A key feature of \LaTeX/ is the mathematics typesetting. There&rsquo;s no
+  better system. And your \LaTeX/ skills can be immediately
+  transferred to your Markdown documents, with MathJax.
+}</p>
+
+<h2 id="what-i-actually-do">What I actually do</h2>
+
+<pre><code>\documentclass[12pt]{article}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{15pt}
+\setlength{\topmargin}{-25pt}
+\setlength{\topskip}{0in}
+\setlength{\textheight}{8.7in}
+\setlength{\footskip}{0.3in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+
+\begin{document}
+\begin{center}
+\textbf{\large An example document}
+
+
+Karl Broman
+\end{center}
+
+
+\textbf{\sffamily A section}
+</code></pre>
+
+<p>In reality, for a paper, I don&rsquo;t use <code>{/</code>maketitle
+  or <code>{/</code>section}, but rather just muck about,
+  hard-coding the placement of things.</p>
+
+<p>But mine is not the recommended approach. If, for some reason, you
+  need to change the style, it&rsquo;s easier if your document is defined in
+  terms of {\nhilit semantics}.
+}</p>
+
+<h2 id="why-latex">Why \LaTeX/?</h2>
+
+<ul>
+<li>Fine control of document appearance</li>
+<li>Transparency of how that was achieved</li>
+<li>Version control (diff/merge)</li>
+<li>Typesetting equations</li>
+<li>Markdown&rsquo;s not quite ready, or sufficiently rich
+
+<ul>
+<li>[] (but see the R package <a href="https://github.com/rstudio/rticles">rticles</a>)
+<br /></li>
+</ul></li>
+</ul>
+
+<p>It&rsquo;s {\nhilit a lot of work to learn \LaTeX, so we need to be clear
+  about why we&rsquo;d want to devote the effort to it.</p>
+
+<p>For reproducible research, we need some sort of code-based document
+  system (i.e., {\nvhilit not Word!}), and \LaTeX/ gives you the most
+  fine-grained control, if you need it. Ultimately, I hope, Markdown
+  will be sufficient, but for now, we often need \LaTeX/.</p>
+
+<p>The code-based control makes what you&rsquo;re trying to do
+  transparent.  And you should treat \LaTeX/ like code: write clearly
+  and simply, and comment the tricky bits.</p>
+
+<p>This sort of document also has the advantage of easy treatment of
+  <code>diff</code> and <code>merge</code> in a version control system like git.</p>
+
+<p>The real power of \LaTeX/ is in the typesetting of mathematical
+  equations. And what you learn on that aspect can be transferred to
+  your Markdown documents, using MathJax. (But I already said that,
+  didn&rsquo;t I?)
+}</p>
+
+<p>\begin{frame}[c]{}</p>
+
+<p>\centerline{\Large simple \quad $\longleftrightarrow$ \quad flexible}</p>
+
+<p>\onslide<2->{\centerline<code>\scriptsize \lolit {/</code>centerline{{/}Large simple
+{/}quad \${/}longleftrightarrow\$ {/}quad flexible}}}</p>
+
+<p>\LaTeX/ sits at the right of the simple-to-flexible spectrum.</p>
+
+<p>\begin{frame}[c]{}</p>
+
+<p>\centering
+Modify your desires to match the defaults.</p>
+
+<p>Focus your compulsive behavior on things that matter.</p>
+
+<p>I&rsquo;ve said this before, but I like to repeat it.</p>
+
+<p>Focus on the text and the figures before worrying too much about
+  fine details of how they appear on the page.</p>
+
+<p>And consider which is more important: a manuscript, web page, blog,
+  grant, course slides, course handout, report to collaborator,
+  scientific poster.</p>
+
+<p>You can spend a ton of time trying to get things to look just
+  right. Ideally, you spend that time trying to construct a general
+  solution.  Or you can modify your desires to more closely match what
+  you get without any effort.</p>
+
+<h2 id="stuff-i-use-a-lot">Stuff I use a lot</h2>
+
+<pre><code>% other fonts
+\usepackage{palatino}
+\usepackage{times}
+
+\setlength{\rightskip}{0pt plus 1fil} % makes ragged right
+
+\newcommand{\LOD}{\text{LOD}}
+
+\usepackage{setspace}
+\setstretch{2.0}
+
+\addtocounter{framenumber}{-1}
+
+% make figures S1, S2, ...
+\renewcommand{\thefigure}{\textbf{S\arabic{figure}}}
+\renewcommand{\figurename}{\textbf{Figure}}
+
+% bigger space between rows in tables
+\renewcommand{\arraystretch}{1.5}
+
+% paragraphs not indented but have space between
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+</code></pre>
+
+<p>These are bits of \LaTeX/ code that I use a lot.</p>
+
+<h2 id="knitr-latex-rnw">KnitR + \LaTeX -&gt; Rnw</h2>
+
+<pre><code>\documentclass[12pt]{article}
+
+\title{An example Rnw document}
+\author{Karl Broman}
+
+\begin{document}
+\maketitle
+
+&lt;&lt;load_library, echo=FALSE, results=&quot;hide&quot;&gt;&gt;=
+library(broman) # used for myround()
+@
+
+&lt;&lt;example_chunk&gt;&gt;=
+x &lt;- rnorm(100)
+y &lt;- 5*x + rnorm(100)
+lm.out &lt;- lm(y ~ x)
+plot(x,y)
+abline(lm.out$coef)
+@
+
+The estimated slope is \Sexpr{myround(lm.out$coef[2], 1)}.
+
+</code></pre>
+
+<h2 id="knitr-latex-rnw-1">KnitR + \LaTeX -&gt; Rnw</h2>
+
+<p>\addtocounter{framenumber}{-1}</p>
+
+<pre><code>\documentclass[12pt]{article}
+
+\title{An example Rnw document}
+\author{Karl Broman}
+
+\begin{document}
+\maketitle
+
+&lt;&lt;load_library, echo=FALSE, results=&quot;hide&quot;&gt;&gt;=
+library(broman) # used for myround()
+@
+
+&lt;&lt;example_chunk, out.width=&quot;0.8\\textwidth&quot;&gt;&gt;=
+x &lt;- rnorm(100)
+y &lt;- 5*x + rnorm(100)
+lm.out &lt;- lm(y ~ x)
+plot(x,y)
+abline(lm.out$coef)
+@
+
+The estimated slope is \Sexpr{myround(lm.out$coef[2], 1)}.
+
+</code></pre>
+
+<p>KnitR works well with LaTeX.</p>
+
+<p>Most of what you learned about KnitR with R Markdown transfers
+  directly to working with LaTeX.</p>
+
+<p>The main difference is the way in which code chunks are
+  indicated. You use <code>&lt;&lt;&gt;&gt;=</code> and <code>@</code> for chunks, and
+  <code>{/</code>Sexpr{} for in-line code.</p>
+
+<p>KnitR basically does a search-and-replace for code
+  chunks. Different patterns will be easier, depending on the nature
+  of the surrounding code.</p>
+
+<p>The chunk options are the same. Here, I used
+  <code>out.width=&quot;0.8{/</code>textwidth&rdquo;}
+  to make the figure appear as 80\% of the width of the page.</p>
+
+<p><code>out.width</code> and <code>out.height</code> need units as in \LaTeX/ (built into
+  <code>{//</code>textwidth}; otherwise <code>&quot;in&quot;</code>
+  or <code>&quot;cm&quot;</code> or <code>&quot;pt&quot;</code> or whatever).</p>
+
+<p><code>fig.width</code> and <code>fig.height</code> are as in R, with implied units.
+}</p>
+
+<h2 id="lyx">LyX</h2>
+
+<p>\figh{Figs/lyx.png}{0.7}</p>
+
+<p><a href="http://www.lyx.org/">lyx.org</a></p>
+
+<p>I create \LaTeX/ documents in emacs. If you want something WYSIWYG,
+  consider LyX. KnitR is built in, and Yihui Xie strongly endorses
+  it. (LyX is not really &ldquo;WYSIWYG&rdquo; but rather &ldquo;WYSIWYM,&rdquo; but
+  that&rsquo;s what you want most, anyway.)</p>
+
+<h2 id="also">Also</h2>
+
+<ul>
+<li><a href="http://overleaf.com">Overleaf</a></li>
+<li><a href="http://sharelatex.com">ShareLaTeX</a></li>
+<li><a href="http://authorea.com">Authorea</a></li>
+<li><a href="http://verbosus.com">Verbosus</a></li>
+</ul>
+
+<p>There are a bunch of online tools for creating LaTeX documents,
+  collaboratively.</p>
+
+<p>I have no experience with these, but I&rsquo;ve heard good things about
+  Overleaf (formerly WriteLaTeX).</p>
+
+<h2 id="flavors-of-latex">Flavors of \LaTeX</h2>
+
+<ul>
+<li><a href="http://www.latex-project.org/">\LaTeX</a></li>
+<li><a href="http://en.wikipedia.org/wiki/PdfTeX">pdflatex</a></li>
+<li><a href="http://en.wikipedia.org/wiki/XeTeX">xelatex</a></li>
+<li><a href="http://www.luatex.org/">lualatex</a></li>
+</ul>
+
+<p>In addition to regular \LaTeX, there&rsquo;s pdflatex (which I mostly
+  use). It has the advantage of being able to include pdf, jpg, and
+  png figures, and produces a PDF file directly.</p>
+
+<p>XeLaTeX and LuaLaTeX are great for fonts and Unicode.</p>
+
+<p>I&rsquo;ve not mentioned that behind the scenes is \TeX, which is the
+  source of all of this. Believe or not, \LaTeX/ exists because
+  \TeX/ is even harder. PdfLaTeX, XeLaTeX, and LuoLaTeX, really
+  derive from PdfTeX, XeTex, and LuoTex.</p>
+
+<h2 id="getting-help">Getting help</h2>
+
+<ul>
+<li>Google</li>
+<li><a href="tex.stackexchange.com">tex.stackexchange.com</a></li>
+<li>Ask a friend</li>
+<li>Look at others&rsquo; documents</li>
+<li>Resign yourself to something less-than-ideal</li>
+</ul>
+
+<p>There is {\nhilit a ton of online information about \LaTeX. Start
+  with google. It&rsquo;s highly unlikely that you have a completely unique
+  question or problem.</p>
+
+<p>My last point here is basically that one way to help yourself is by
+  learning to let things go.
+}</p>
+
+<h2 id="figure-captions-and-floats">Figure captions and floats</h2>
+
+<pre><code>&lt;&lt;fig_with_caption, fig.cap=&quot;Scatterplot of $y$ vs $x$&quot;&gt;&gt;=
+x &lt;- rnorm(100)
+y &lt;- 5*x + rnorm(100)
+lm.out &lt;- lm(y ~ x)
+plot(x,y)
+abline(lm.out$coef)
+@
+</code></pre>
+
+<pre><code>\begin{figure}[]
+\includegraphics{figure/fig_with_caption}
+
+\caption{Scatterplot of $y$ vs $x$\label{fig:fig_with_caption}}
+\end{figure}
+</code></pre>
+
+<p>If you use the chunk option <code>fig.cap</code>, the figure will get a
+  caption.</p>
+
+<p>But it will also be embedded within a <code>figure</code> &ldquo;environment.&rdquo;
+  (That is, between <code>{/</code>begin{figure} and
+  <code>{/</code>end{figure}}.)</p>
+
+<p>This makes it a &ldquo;float.&rdquo; \LaTeX/ decides where it&rsquo;s going to be
+  placed. The placement of floats is {\nvhilit the biggest pain} in
+  using \LaTeX.</p>
+
+<p>The figure also gets a label, from the chunk name. (The
+  <code>{/</code>label{}} bit.) This allows you to
+  cross-reference the figure, to have the figure number determined
+  automatically.</p>
+
+<p>The cross reference would be with <code>{/</code>ref{fig:fig_with_caption}}.</p>
+
+<p>When you use cross references, you need to run \LaTeX/ twice: once
+  to establish where things will sit on the page and how they are
+  numbered, and a second time to insert the cross references.
+}</p>
+
+<h2 id="tables-in-latex">Tables in \LaTeX</h2>
+
+<pre><code>\begin{tabular}{rrrrr} \hline
+&amp; Estimate &amp; Std. Error &amp; t value &amp; Pr($&gt;$$|$t$|$) \\  \hline
+(Intercept) &amp; 0.04 &amp; 0.11 &amp;  0.4 &amp; 0.69 \\
+      x     &amp; 0.98 &amp; 0.10 &amp; 10.0 &amp; 0.00 \\ \hline
+\end{tabular}
+</code></pre>
+
+<p>Tables in \LaTeX/ are a pain, but they offer extremely fine
+  control.</p>
+
+<p>But writing this sort of code (<code>\&amp;</code> indicates breaks between
+  columns, <code>{/</code>{/} indicates the end of
+  a row) {\nhilit reproducibly} is hard.
+}</p>
+
+<h2 id="xtable">xtable</h2>
+
+<pre><code>&lt;&lt;generate_and_fit&gt;&gt;=
+x &lt;- rnorm(100)
+y &lt;- x + rnorm(100)
+lm.out &lt;- lm(y ~ x)
+@
+
+&lt;&lt;table, results=&quot;asis&quot;&gt;&gt;=
+library(xtable)
+xtable(lm.out, digits=c(0,2,2,1,2))
+@
+
+
+% a non-floating version
+&lt;&lt;table, results=&quot;asis&quot;&gt;&gt;=
+library(xtable)
+xtab &lt;- xtable(lm.out, digits=c(0,2,2,1,2))
+print(xtab, floating=FALSE)
+@
+</code></pre>
+
+<p>xtable is a superb R package for producing \LaTeX/ tables.
+  You don&rsquo;t have complete control, but you do have a ton of
+  control. The xtableGallery vignette shows you much of what can be
+  done.</p>
+
+<p>Note that a lot of the options are for <code>print.xtable</code>, so look
+  at the help files for both <code>xtable</code> and <code>print.xtable</code>.</p>
+
+<p>For example, if you {\nhilit don&rsquo;t want a table to be &ldquo;floating,&rdquo;
+  (within a <code>table</code> environment, between
+  <code>{/</code>begin{table}} and
+  <code>{/</code>end{table}}),
+  you need to use <code>print.table</code> with <code>floating=FALSE</code>.
+}</p>
+
+<h2 id="read-proofs-carefully">Read proofs carefully</h2>
+
+<p>As submitted</p>
+
+<p>\figw{Figs/rigenome_as_submitted.png}{0.5}</p>
+
+<p>As printed</p>
+
+<p>\figw{Figs/rigenome_error.png}{0.5}</p>
+
+<p>\scriptsize Broman (2005) Genetics 169:1133{\textendash1146}</p>
+
+<p>Some journals re-type a bunch of your manuscript, sometimes
+  introducing errors.</p>
+
+<p>So read proofs {\nhilit carefully. (What pain!) And post a
+  preprint, say to arXiv.org or bioRxiv.org.</p>
+
+<p>The above is the most important equation in the paper, and I missed
+  that they&rsquo;d introduced a mistake.
+}</p>
+
+<h2 id="re-type-that">Re-type that!</h2>
+
+<p>\figh{Figs/preCC_table.png}{0.65}</p>
+
+<p>\scriptsize Broman (2012) Genetics 190:403{\textendash412}</p>
+
+<p>I have a few papers with {\nhilit a lot of equations. I hope
+  they&rsquo;re not trying to re-type these. I generated them from code.
+}</p>
+
+<h2 id="bibtex-for-bibliographies">BibTeX for bibliographies</h2>
+
+<pre><code>%bibliography format
+\usepackage[authoryear]{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+A number of investigators have developed methods for identifying
+such sample mix-ups \citep{Westra2011, Schadt2012, Lynch2012,
+Ekstrom2012}, and a similar approach was applied by
+\citet{Baggerly2008, Baggerly2009} in their forensic...
+
+\bibliographystyle{genetics}
+\renewcommand*{\refname}{\centerline{\normalsize\sffamily
+   \textbf{Literature Cited}}}
+\bibliography{samplemixups}
+</code></pre>
+
+<pre><code>@article{Baggerly2008,
+author = {Baggerly, Keith A. and Coombes, Kevin R.},
+journal = {J. Clin. Oncol.},
+pages = {1186--1187},
+title = {Run batch effects potentially compromise...},
+volume = {26},
+year = {2008} }
+</code></pre>
+
+<p>References with \LaTeX/ are via BibTeX, which is fabulous once you
+  get used to it. Most software to track references will produce
+  BibTeX files for you.</p>
+
+<p>The formatting of citations and the reference listings, to match
+  what the journal wants, can be painful. But I&rsquo;ve figured out how to
+  produce what **Genetics/ wants, and I send all of my papers
+  there.</p>
+
+<p>The first box is the sort of code that would appear
+  in your \LaTeX/ file: the bit at the top goes in the header (before
+  <code>{/</code>begin{document**}). The bit in the middle
+  shows how to cite papers: use <code>{/</code>citep} to get the
+  whole thing in parentheses, and use <code>{/</code>citet} to
+  get a reference like &ldquo;&hellip;applied by Baggerly and Coombes (2008, 2009)&hellip;&rdquo;
+  The last bit in the first box produces the actual list of references.</p>
+
+<p>The second box is the BibTeX format for a particular reference.</p>
+
+<p>When you use BibTeX, you tend to run <code>pdflatex</code>, then {\tt
+  bibtex}, and then <code>pdflatex</code> a couple of more times.
+}</p>
+
+<h2 id="organizing-analyses">Organizing analyses</h2>
+
+<ul>
+<li>Directory for the main analysis project
+
+<ul>
+<li>[] <code>{~</code>/Projects/Blah}</li>
+<li>Directory for a paper</li>
+<li>[] <code>{~</code>/Docs/Papers/Blah}</li>
+<li>Paper directory may have an analysis directory</li>
+<li>[] <code>{~</code>/Docs/Papers/Blah/Analysis}</li>
+<li>Symbolic links to <code>.RData</code> files</li>
+<li>[] <code>ln -s {~</code>/Projects/Blah/DerivedData/blah.RData .}</li>
+<li>Each part well organized and fully reproducible.</li>
+</ul></li>
+<li>R Markdown reports documenting different aspects.</li>
+<li>Analysis with the paper may be re-done &ldquo;properly.&rdquo;</li>
+</ul>
+
+<p>This is how I organize a paper related to a larger project.</p>
+
+<p>Some of the work in the main project may be re-done a bit
+  differently (or cleaner) in the analysis with the paper.</p>
+
+<p>You don&rsquo;t want to re-do {\nhilit all analyses for the paper, but
+  it&rsquo;d also be nice to have the data and code related to the paper be
+  a bit more self-contained.</p>
+
+<p>And usually when you&rsquo;re sitting down to write the paper, you have
+  better ideas about how to re-do things properly, and so it might be
+  a good idea to go ahead and re-do things.</p>
+
+<p>Ideally, you&rsquo;d separate out each aspect of the analysis: data
+  manipulation, data cleaning, and different parts of the analysis.</p>
+
+<p>Have an R Markdown document describing each aspect, with the
+  actual manuscript and its figures and tables drawing from the
+  results of those R Markdown documents.
+}</p>
+
+<h2 id="make-every-number-reproducible">Make every number reproducible.</h2>
+
+<pre><code>&lt;&lt;define_numbers, echo=FALSE&gt;&gt;=
+numbers &lt;- c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;,
+             &quot;six&quot;, &quot;seven&quot;, &quot;eight&quot;, &quot;nine&quot;, &quot;ten&quot;)
+cap &lt;- function(vec) paste0(toupper(substr(vec, 1, 1)),
+                            substr(vec, 2, nchar(vec)))
+Numbers &lt;- cap(numbers)
+n &lt;- sample(1:10, 1)
+@
+
+Then if I want to talk about a number, like \Sexpr{n}, I can
+refer to it by name: \Sexpr{numbers[n]}. And I can start a
+sentence with it. \Sexpr{Numbers[n]} grasshoppers walked into a
+bar\dots
+
+But be careful about singular vs. plural, and so write
+\Sexpr{Numbers[n]} grasshopper\Sexpr{ifelse(n&gt;1, &quot;s&quot;, &quot;&quot;)}
+walked\dots
+</code></pre>
+
+<p>Every statistic, figure and table in your manuscript should be fully
+  reproducible. So when you&rsquo;re citing statistics, use
+  <code>{/</code>Sexpr{} liberally.</p>
+
+<p>This should inhibit you from writing numbers as words, though the
+  \LaTeX/ code can get a bit ugly.</p>
+
+<p>There&rsquo;s a bit of fanciness here about capitalization and about
+  ensuring that singular or plural nouns are correct. If
+  <code>{/</code>Sexpr{}} produces a character string, it ends
+  up as plain text in your document</p>
+
+<p>I&rsquo;ll use a lot of <code>myround()</code> from my R/broman package, too.</p>
+
+<p>Long explanations or descriptions of figures can&rsquo;t be fully
+  reproducible, but the figures themselves and any statistics you
+  mention should be.
+}</p>
+
+<h2 id="keep-the-figures-separate">Keep the figures separate</h2>
+
+<pre><code># simple make file
+
+mypaper.pdf: mypaper.tex Figs/fig1.pdf Figs/fig2.pdf
+    pdflatex mypaper
+
+Figs/fig1.pdf: R/fig1.R
+    cd R;R CMD BATCH fig1.R fig1.Rout
+
+Figs/fig2.pdf: R/fig2.R
+    cd R;R CMD BATCH fig2.R fig2.Rout
+</code></pre>
+
+<pre><code>\clearpage
+\includegraphics{Figs/fig1.pdf}
+
+\clearpage
+\includegraphics{Figs/fig2.pdf}
+</code></pre>
+
+<p>While you {\nhilit could include all code in your <code>.Rnw</code> file,
+  I prefer to pull out the code for my figures as separate files, and
+  then write a <code>Makefile</code> for the manuscript construction and
+  include them with <code>{/</code>includegraphics}.</p>
+
+<p>The advantage of this is the ability to reuse the figures in
+  talks or whatever. Also, journals will generally want the figures as
+  separate files. Finally, the code for my figures is often incredibly
+  long and ugly, so it&rsquo;s best to separate it out.</p>
+
+<p>Ideally, the code for a figure would be structured as a function and
+  then a function call.  Put a bit more effort into the code, so that
+  you can reuse it later for a similar figure with different data.
+  At the very least, you should write the repeated bits as functions.</p>
+
+<p>If your function takes arguments that define the placement of
+  things (padding for text and so forth), then the fine adjustments of the
+  figure appearance would be easier.
+}</p>
+
+<h2 id="version-control">Version Control</h2>
+
+<ul>
+<li>Your manuscript is under version control, right?
+\onslide<2->{*  Local or private repository for the whole thing
+
+<ul>
+<li>including reviewers&rsquo; reports and my response</li>
+<li>PDF of submitted and final manuscript</li>
+<li>Snapshot of the final version as a public repository</li>
+<li>I don&rsquo;t really want to show the whole history
+}</li>
+</ul></li>
+</ul>
+
+<p>Git is as good for tracking manuscripts and data analyses as it is
+  for tracking code. Use it!</p>
+
+<p>But I don&rsquo;t want to make {\nhilit everything public, and I want to
+  include private stuff in my repository.</p>
+
+<p>I&rsquo;ve been using just a local repository, but I&rsquo;m moving towards
+  having a private repository hosted on BitBucket.</p>
+
+<p>I&rsquo;ll put a snapshot of the final version, and maybe a few final
+  changes, on GitHub.
+}</p>
+
+<h2 id="word">Word</h2>
+
+<ul>
+<li>With papers led by a collaborator, I&rsquo;m usually stuck with Word.</li>
+<li>But my analyses and figures are fully reproducible.</li>
+<li>Create an R Markdown document with the detailed results.</li>
+</ul>
+
+<p>Often, you&rsquo;ll be stuck with Word. And you can&rsquo;t reproducibly insert
+  numbers into Word.</p>
+
+<p>So have a separate R Markdown report with the detailed results,
+  including every statistic that will get inserted into Word.</p>
+
+<p>And take control of the figures and ensure that they are
+  reproducible (and respectable).</p>
+
+<p>Teach your collaborators to at least have their figures be
+  reproducible?</p>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+<li>\LaTeX/ is brilliant for fine control and for equations</li>
+<li>Floating figures and tables can be a pain</li>
+<li>You use KnitR with \LaTeX/ much the same way as you&rsquo;d used it
+with Markdown.</li>
+<li>Ensure that every statistic, figure, and table in your paper are
+fully reproducible.</li>
+<li>Use xtable to make tables.</li>
+<li>Separate out the code for the figures.</li>
+<li>Use version control!</li>
+</ul>
+
+<p>Summaries are helpful.</p>
+
+<h1 id="presentations-and-posters">Presentations and posters</h1>
+
+<p>It&rsquo;s arguably less critical that presentation slides or a poster be
+  reproducible. Nevertheless, there can be great personal advantage to
+  the automated generation of figures and such in slides or a poster:
+  if the primary data should change, or if some analysis mistake is
+  discovered, it will be easier to revise the presentation.</p>
+
+<p>My primary goal is to get you to ditch Powerpoint/Keynote in favor
+  of reproducible alternatives. I will primarily focus on the Beamer
+  package for LaTeX, for both slides and posters. But I will also
+  touch upon the use of slidify to make Markdown-based slides for a
+  talk.</p>
+
+<h2 id="powerpoint-keynote">Powerpoint/Keynote</h2>
+
+<ul>
+<li>[+] Standard</li>
+<li>[+] Easy to share slides</li>
+<li>[+] WYSIWYG (mostly)</li>
+<li>[+] Fancy animations</li>
+</ul>
+
+<hr />
+
+<ul>
+<li>[-] Font problems</li>
+<li>[-] Lots of copy-paste</li>
+<li>[-] Hard to get equations</li>
+<li>[-] Not reproducible</li>
+</ul>
+
+<p>Powerpoint and Keynote do have their advantages, the principal one
+  being that everyone is using these tools, which makes it easy to
+  share slides with friends.</p>
+
+<p>But we&rsquo;ve all seen terrible font problems in important
+  presentations, mostly due to incompatibilities between
+  Windows and Mac versions of Powerpoint: fonts should be, but aren&rsquo;t,
+  embedded in the presentation.</p>
+
+<p>And insertion of figures requires tedious copy-paste, usually followed
+  by manual resizing and adjustment of figure placement.
+  And if the figures are revised (because the data changed or some
+  mistake was found in the analysis), we&rsquo;ll have to repeat all of
+  that.</p>
+
+<h2 id="latex-beamer-package">\LaTeX/ Beamer package</h2>
+
+<p>\figh{Figs/Copenhagen-default-default-01.png}{0.75}</p>
+
+<p>Until recently, I&rsquo;d been making \LaTeX/ slides using the {\tt
+  article document class, just revising the page size and make the
+  fonts big.</p>
+
+<p>The Beamer package for \LaTeX/ is easier, but I was turned off
+  by the standard slides that people were producing with Beamer, such
+  as the one shown: far too much junk on the screen, and on every
+  single slide.</p>
+
+<p>You can get rid of all of that. All of the slides I&rsquo;m making
+  for this course are produced with Beamer.</p>
+
+<p>There&rsquo;s good facility for adding simple animations (progressively
+  showing or hiding different elements on the slide).</p>
+
+<p>But you {\nhilit are} writing \LaTeX, so the coding can be a bit verbose.
+}</p>
+
+<h2 id="get-rid-of-the-junk">Get rid of the junk</h2>
+
+<pre><code>\usetheme{default}
+
+\beamertemplatenavigationsymbolsempty
+</code></pre>
+
+<p>The first thing to do is to get rid of all of the junk.</p>
+
+<p>It&rsquo;s surprisingly easy: default theme and remove navigation symbols.</p>
+
+<h2 id="change-colors">Change colors</h2>
+
+<pre><code>\definecolor{foreground}{RGB}{255,255,255}
+\definecolor{background}{RGB}{24,24,24}
+\definecolor{title}{RGB}{107,174,214}
+\definecolor{subtitle}{RGB}{102,255,204}
+\definecolor{hilit}{RGB}{102,255,204}
+\definecolor{lolit}{RGB}{155,155,155}
+
+\setbeamercolor{titlelike}{fg=title}
+\setbeamercolor{subtitle}{fg=subtitle}
+\setbeamercolor{institute}{fg=lolit}
+\setbeamercolor{normal text}{fg=foreground,bg=background}
+\setbeamercolor{item}{fg=foreground} % color of bullets
+\setbeamercolor{subitem}{fg=lolit}
+\setbeamercolor{itemize/enumerate subbody}{fg=lolit}
+\setbeamertemplate{itemize subitem}{{-}}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subitem}{size=\footnotesize}
+
+\newcommand{}{\color{hilit}}
+\newcommand{\lolit}{\color{lolit}}
+</code></pre>
+
+<p>I prefer light text on a dark background.</p>
+
+<p>The tricky part is that Beamer has special names for
+  everything.</p>
+
+<p>It would be best if I created a new theme, but I don&rsquo;t want to take
+  the time to figure that out.</p>
+
+<h2 id="also-slide-numbers-and-fonts">Also, slide numbers and fonts</h2>
+
+<pre><code>% slide number
+\setbeamertemplate{footline}{%
+ \raisebox{5pt}{\makebox[\paperwidth]{\makebox[20pt]{\lolit
+  \scriptsize\insertframenumber}}}\hspace*{5pt}}
+
+% font
+\usepackage{fontspec}
+% http://www.gust.org.pl/projects/e-foundry/tex-gyre/
+%      ...   heros/qhv2.004otf.zip
+\setsansfont
+  [ ExternalLocation = ../fonts/ ,
+    UprightFont = *-regular ,
+    BoldFont = *-bold ,
+    ItalicFont = *-italic ,
+    BoldItalicFont = *-bolditalic ]{texgyreheros}
+% Palatino for notes
+\setbeamerfont{note page}{family*=pplx,size=\footnotesize}
+</code></pre>
+
+<p>I also want the slide number in the bottom-right, and I want a
+  different font: something a bit more blocky, which I think is easier
+  to read on the screen.</p>
+
+<h2 id="title-slide">Title slide</h2>
+
+<pre><code>\title{Put title here}
+\subtitle{And maybe a subtitle}
+\author{Author name}
+\institute{Biostatistics \&amp; Medical Informatics,
+   UW{-}Madison}
+\date`\scriptsize biostat.wisc.edu/{~`kbroman}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{} % no slide number here
+\frame{
+  \titlepage
+
+
+  Summary of the talk, as a note.
+
+} }
+</code></pre>
+
+<p>The title slide is created with <code>{/</code>titlepage,
+  having first defined <code>{/</code>title},
+  <code>{/</code>author}, etc.</p>
+
+<p>The extra curly braces are to get the &ldquo;no slide number&rdquo; to apply
+  just to the title slide. You can put notes on slides and then make a
+  version that has the slide above the notes. See what I do with the
+  slides for this course, or ask me for help.
+}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxone}
+\begin{lrbox}{\codeboxone}</p>
+
+<pre><code>## Title of slide
+
+
+
+*  Bullet 1
+ *  Bullet 2
+ *  Bullet 3
+
+  Put a note here
+
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="typical-slide">Typical slide</h2>
+
+<p>\usebox{\codeboxone}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxtwo}
+\begin{lrbox}{\codeboxtwo}</p>
+
+<pre><code>## Title of slide
+
+
+
+ \begin{itemize} * sep8pt
+ *  Bullet 1
+ *  Bullet 2
+ *  Bullet 3
+\end{itemize}
+
+
+  Put a note here
+
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="typical-slide-1">Typical slide</h2>
+
+<p>\addtocounter{framenumber}{-1}</p>
+
+<p>\usebox{\codeboxtwo}</p>
+
+<p>A typical slide is set between <code>{/</code>begin{frame\{title}}
+  and <code>{/</code>end{frame}}.</p>
+
+<p>You get bullet points with the <code>itemize</code> environment. I&rsquo;ll mess
+  around a bit with <code>{/</code>vspace} and
+  <code>{/</code>itemsep}. And I&rsquo;ll create shortcuts with
+  <code>{/</code>newcommand} for these.
+}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxthree}
+\begin{lrbox}{\codeboxthree}</p>
+
+<pre><code>## Title of slide
+
+
+
+\figh{Figs/a_figure.png}{0.75}
+
+
+
+  Put a note here
+
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="slide-with-a-figure">Slide with a figure</h2>
+
+<p>\usebox{\codeboxthree}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxfour}
+\begin{lrbox}{\codeboxfour}</p>
+
+<pre><code>## Title of slide
+
+
+
+\centerline{\includegraphics[height=0.75\textheight]{%
+            Figs/a_figure.png}}
+
+
+  Put a note here
+
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="slide-with-a-figure-1">Slide with a figure</h2>
+
+<p>\addtocounter{framenumber}{-1}</p>
+
+<p>\usebox{\codeboxfour}</p>
+
+<p>I&rsquo;d typically generate figures externally and include them with
+  <code>{/</code>includegraphics.
+}</p>
+
+<h2 id="figures-with-knitr">Figures with KnitR</h2>
+
+<pre><code>&lt;&lt;knitr_options, echo=FALSE&gt;&gt;=
+opts_chunk$set(echo=FALSE, fig.height=7, fig.width=10)
+change_colors &lt;-
+function(bg=rgb(24,24,24, maxColorValue=255), fg=&quot;white&quot;)
+  par(bg=bg, fg=fg, col=fg, col.axis=fg, col.lab=fg,
+      col.main=fg, col.sub=fg)
+@
+
+&lt;&lt;pdf_figure&gt;&gt;=
+change_colors()
+par(las=1)
+n &lt;- 100
+x &lt;- rnorm(n)
+y &lt;- 2*x + rnorm(n)
+plot(x, y, pch=16, col=&quot;slateblue&quot;)
+@
+</code></pre>
+
+<p>You could use a knitr code chunk, in the same way we discussed
+  for manuscripts, in the last lecture.</p>
+
+<h2 id="figures-with-knitr-1">Figures with KnitR</h2>
+
+<pre><code>% &lt;&lt; &gt;&gt;= all on one line!
+&lt;&lt;png_figure, dev=&quot;png&quot;, fig.align=&quot;center&quot;,
+  dev.args=list(pointsize=30),
+  fig.height=15, fig.width=15, out.height=&quot;0.75\\textheight&quot;,
+  out.width=&quot;0.75\\textheight&quot;&gt;&gt;=
+change_colors(bg=rgb(32,32,32,maxColorValue=255))
+par(las=1)
+n &lt;- 251
+x &lt;- y &lt;- seq(-pi, pi, len=n)
+z &lt;- matrix(ncol=n, nrow=n)
+for(i in seq(along=x))
+  for(j in seq(along=y))
+    z[i,j] &lt;- sin(x[i]) + cos(y[j])
+image(x,y,z)
+@
+</code></pre>
+
+<p>To create a PNG figure (which can give much smaller file sizes for
+  things like an image or a dense scatterplot), use the chunk option
+  <code>dev=&quot;png&quot;</code>.</p>
+
+<p>For some reason, RGB colors don&rsquo;t match well between PNG files and
+  the PDF, so I have to muck about to get the background of the PNG to
+  match the background on the slides.</p>
+
+<p>It&rsquo;s also a bit of work to get the resolution and text size just
+  right.</p>
+
+<p>I split the initial line defining the code chunk across multiple
+  lines here, so it could all be seen, but in practice the whole
+  <code>&lt;&lt; &gt;&gt;=</code> bit needs to be on one line.</p>
+
+<h2 id="slides-with-notes">Slides with notes</h2>
+
+<pre><code>\documentclass[12pt,t]{beamer}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+</code></pre>
+
+<pre><code>\documentclass[12pt,t,handout]{beamer}
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+\def\notescolors{1}
+</code></pre>
+
+<pre><code>\ifx\notescolors\undefined % slides
+  \definecolor{foreground}{RGB}{255,255,255}
+  \definecolor{background}{RGB}{24,24,24}
+\else % notes
+  \definecolor{background}{RGB}{255,255,255}
+  \definecolor{foreground}{RGB}{24,24,24}
+\fi
+</code></pre>
+
+<p>To create a version of your slides with notes, include
+  <code>{/</code>note{ } on every slide.</p>
+
+<p>I then include the code in the top box in the slide version, the
+  middle box in the note version, and the stuff at the bottom in both.
+  The bit at the bottom selects colors to be light text on a dark
+  background in the slides and dark text on a light
+  background in the notes version.</p>
+
+<p>I wrote a ruby script to create a notes version from the slide
+  version (replace the code in the top box with the code in the middle
+  box).</p>
+
+<p>I then use <code>pdfnup</code> (part of PDFjam) to make 2-up pages (slides
+  at the top, notes at the bottom). The only problem with <code>pdfnup</code>
+  is that it strips off all of the hyperlinks.
+}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxfive}
+\begin{lrbox}{\codeboxfive}</p>
+
+<pre><code>## Bullets entering one at a time
+
+
+
+*  Bullet 1
+\onslide&lt;2-&gt;{*  Bullet 2}
+\onslide&lt;3-&gt;{*  Bullet 3}
+\onslide&lt;4-&gt;{*  Bullet 4}
+
+  Do this sparingly.
+
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="simple-animations">Simple animations</h2>
+
+<p>\usebox{\codeboxfive}</p>
+
+<p>It&rsquo;s easy to add a bit of animation, such as with bullets appearing
+  one by one. Use <code>{/</code>onslide or
+  <code>{/</code>only}.</p>
+
+<p>Here, the bullets will appear one at a time.</p>
+
+<p>Beamer just expands the PDF, with this slide becoming multiple
+  pages.
+}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxsix}
+\begin{lrbox}{\codeboxsix}</p>
+
+<pre><code>## Bullets entering one at a time
+
+
+
+*  \only&lt;1&gt;{\color{foreground} Bullet 1}
+*  \only&lt;2&gt;{\color{foreground} Bullet 2}
+*  \only&lt;3&gt;{\color{foreground} Bullet 3}
+*  \only&lt;4&gt;{\color{foreground} Bullet 4}
+
+  Do this sparingly.
+
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="simple-animations-1">Simple animations</h2>
+
+<p>\usebox{\codeboxsix}</p>
+
+<p>In this version, the bullets will go from dim to bright, one at a
+  time.</p>
+
+<h2 id="slidify-and-r-markdown">Slidify and R Markdown</h2>
+
+<p>\figh{Figs/slidify.png}{0.75}</p>
+
+<h2 id="slidify-and-r-markdown-1">Slidify and R Markdown</h2>
+
+<p>\addtocounter{framenumber}{-1}</p>
+
+<pre><code>## Slide title
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+- Bullet 4
+
+---
+
+## A figure
+
+&quot;`{r a_figure, echo=FALSE, fig.align=&quot;center&quot;}
+par(las=1)
+n &lt;- 100
+x &lt;- rnorm(n)
+y &lt;- 2*x + rnorm(n)
+plot(x, y, pch=16, col=&quot;slateblue&quot;)
+&quot;`
+</code></pre>
+
+<p>Slidify makes it super easy to create html-based slides with R
+  Markdown. Three dashes separate slides, and two pound symbols
+  (section heading) indicate the slide title.</p>
+
+<p>The chief advantage is that you can make nice slides with very little
+  markup. And there are a ton of options, like having embedded
+  quizzes.</p>
+
+<p>The disadvantage is that it&rsquo;s a bit harder to get fine control of
+  the layout. And I&rsquo;ve found it a bit risky to use html-based slides
+  for a presentation. PDF is more trustworthy.</p>
+
+<p>In principle, you can use pandoc to convert the slides to PDF, but
+  I&rsquo;ve not been happy with the result. You could also print them from
+  the browser, but I only got a good result with Safari. (Firefox
+  included some links on the first page, and Chrome produced total
+  garbage.)</p>
+
+<p>Personally, I&rsquo;m going to stick with Beamer for important
+  presentations, but slidify seems good for informal presentations
+  (e.g., to collaborators) or for a course.</p>
+
+<h2 id="using-slidify">Using slidify</h2>
+
+<pre><code>library(devtools)
+install_github(&quot;slidify&quot;, &quot;ramnathv&quot;)
+install_github(&quot;slidifyLibraries&quot;, &quot;ramnathv&quot;)
+
+library(slidify)
+setwd(&quot;~/Docs/Talks/&quot;)
+author(&quot;slidify_example&quot;)
+
+# edit ~/Docs/Talks/slidify_example/index.Rmd
+
+slidify(&quot;index.Rmd&quot;)
+browseURL(&quot;index.html&quot;)
+</code></pre>
+
+<p>To use slidify, download the slidify and slidifyLibraries packages
+  from GitHub, and use <code>author()</code> to create the file to edit, and
+  then <code>slidify()</code> to compile the result.</p>
+
+<p>Note that <code>author(&quot;slidify_example&quot;)</code> changes the working
+  directory.</p>
+
+<h2 id="yaml-header-1">YAML header</h2>
+
+<pre><code>---
+title       : Slidify example
+subtitle    : Tools for reproducible research
+author      : Karl Broman
+job         : Biostatistics &amp; Medical Informatics, UW-Madison
+framework   : io2012        # {io2012, html5slides, shower, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      #
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : standalone    # {selfcontained, standalone, draft}
+---
+</code></pre>
+
+<p>There&rsquo;s a bit at the top of the file to define the slide title and
+  layout.</p>
+
+<p><code>framework</code> defines the slide style. <code>highlighter</code> is the
+  method to give syntax highlighting. With <code>mode</code> &ldquo;standalone,&rdquo;
+  some otherwise-external files are embedded in the html file.</p>
+
+<p>YAML is a &ldquo;human-readable data serialization format.&rdquo;
+  (Serialization means it can be easily transmitted over a network.)
+  It&rsquo;s a well-defined way of describing potentially complex
+  data objects.</p>
+
+<h2 id="change-the-title-slide-colors">Change the title slide colors</h2>
+
+<pre><code>&lt;style&gt;
+.title-slide {
+  background-color: #EEE;
+}
+
+.title-slide hgroup &gt; h1,
+.title-slide hgroup &gt; h2 {
+  color: #005;
+}
+&lt;/style&gt;
+</code></pre>
+
+<p>The default colors for the title slide with framework <code>io2012</code>
+  are really terrible. Include a bit of CSS code in your <code>.Rmd</code>
+  file to fix that.</p>
+
+<p>There are a bunch of named colors in html, or you can use codes like
+  &ldquo;<code>\#005;</code>&rdquo; or &ldquo;<code>\#000055;</code>&rdquo; for RGB (R=00, G=00, B=55).</p>
+
+<h2 id="beamer-based-posters">Beamer-based posters</h2>
+
+<p>\figh{Figs/mathbio2011.png}{0.75}</p>
+
+<p><a href="https://github.com/kbroman/Poster_SampleMixups">\tt
+    \lolit \scriptsize github.com/kbroman/Poster_SampleMixups</a></p>
+
+<h2 id="beamer-based-posters-1">Beamer-based posters</h2>
+
+<p>\addtocounter{framenumber}{-1}</p>
+
+<p>\figh{Figs/enar2014.png}{0.75}</p>
+
+<p><a href="https://github.com/kbroman/Poster_ENAR2014">\tt
+    \lolit \scriptsize github.com/kbroman/Poster_ENAR2014</a></p>
+
+<h2 id="beamer-based-posters-2">Beamer-based posters</h2>
+
+<p>\addtocounter{framenumber}{-1}</p>
+
+<pre><code>\documentclass[final,plain]{beamer}
+\usepackage[size=custom,width=152.4,height=91.44,scale=1.2]{%
+    beamerposter}
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\halfcolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+
+\setlength{\sepwid}{0.0192\paperwidth}
+\setlength{\onecolwid}{0.176\paperwidth}
+\setlength{\halfcolwid}{0.0784\paperwidth}
+\setlength{\twocolwid}{0.3712\paperwidth}
+\setlength{\threecolwid}{0.5664\paperwidth}
+\setlength{\topmargin}{-0.5in}
+\usetheme{confposter}
+</code></pre>
+
+<p>Beamer can be used to make posters, too. It&rsquo;s a lot of work, but
+  with my latest poster, I&rsquo;m finally convinced of the value of these
+  large-format posters.</p>
+
+<p>At UW-Madison, the Digital Media Center will print posters for you
+  (\$5 per square foot for paper; \$7 per square foot for cloth). The
+  cloth ones eliminate the need to carry a tube, but they need to be
+  packed gently and probably still require a bit of ironing on the
+  other end.</p>
+
+<p><code>width</code> and <code>height</code> are in centimeters. Use <code>scale</code> to
+  increase the font sizes overall. Then carefully calculate the {\tt
+    sepwid, <code>onecolwid</code>, etc., so that everything fits just right.
+}</p>
+
+<p>% this is to get  within the lstlisting environment
+% See <a href="http://tex.stackexchange.com/questions/73366/">http://tex.stackexchange.com/questions/73366/</a>
+\newsavebox{\codeboxseven}
+\begin{lrbox}{\codeboxseven}</p>
+
+<pre><code>\title{Data visualizations should be more interactive}
+\author{Karl W Broman}
+\institute{University of Wisconsin--Madison}
+
+## columns
+
+[t]
+  \begin{column}{\sepwid}\end{column} % empty spacer column
+  \begin{column}{\onecolwid}
+    \begin{exampleblock}{\Large Introduction}{
+      \begin{itemize} * sep18pt
+        *  Bullet 1
+        *  Bullet 2
+      \end{itemize}
+    }
+  \colonevsep % between blocks
+    \begin{block}{Barriers}{
+    }
+  \end{column}
+\end{columns}
+
+</code></pre>
+
+<p>\end{lrbox}</p>
+
+<h2 id="basic-code-for-a-poster">Basic code for a poster</h2>
+
+<p>\usebox{\codeboxseven}</p>
+
+<p>The whole thing is within a single <code>frame</code> environment, and then
+  with <code>columns</code> and <code>column</code>.</p>
+
+<p>The blocks within a column are within <code>exampleblock</code> or <code>block</code>
+  environments.</p>
+
+<h2 id="between-block-spacing">Between-block spacing</h2>
+
+<pre><code>\newcommand{\colonevsep}{}
+\newcommand{\coltwovsep}{}
+\newcommand{\colthreevsep}{}
+\newcommand{\colfourvsep}{}
+\newcommand{\colfivevsep}{}
+</code></pre>
+
+<p>I define different between-block spacings for each column, to get
+  them all to have the same length.</p>
+
+<h2 id="summary-1">Summary</h2>
+
+<ul>
+<li>Use LaTeX/Beamer or Slidify to create reproducible slides.</li>
+<li>Use LaTeX/Beamer to create reproducible posters.</li>
+<li>Include KnitR code chunks to create figures directly.</li>
+<li>Or keep the code for figures separate.</li>
+</ul>
+
+<p>To make reproducible slides/posters, you need to dump PowerPoint.</p>
+
+<p>With each of these approaches, you can use KnitR code chunks. But I
+  still tend to produce the figures separately and include them with
+  <code>{/</code>includegraphics.
+}</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hbs-rcs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="https://hbs-rcs.github.io/reproducible-research/make/" title="Make"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="https://hbs-rcs.github.io/reproducible-research/git/" title="Git and GitHub" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/clipboard.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/perfect-scrollbar.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/perfect-scrollbar.jquery.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/jquery.sticky.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/featherlight.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/html5shiv-printshiv.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/highlight.pack.js?1559063420"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/modernizr.custom-3.6.0.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/learn.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/hugo-learn.js?1559063420"></script>
+
+    <link href="https://hbs-rcs.github.io/reproducible-research/mermaid/mermaid.css?1559063420" type="text/css" rel="stylesheet" />
+    <script src="https://hbs-rcs.github.io/reproducible-research/mermaid/mermaid.js?1559063420"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

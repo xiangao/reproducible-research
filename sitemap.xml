@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/</loc>
+    <lastmod>2016-03-08T21:07:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/unix/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/make/</loc>
+    <lastmod>2019-05-06T13:51:23-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/rmarkdown/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/git/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/organization/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/clear-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/r-packages/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/test-debug/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/big-jobs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/python/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/licenses/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hbs-rcs.github.io/reproducible-research/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

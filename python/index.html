@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="description" content="A material design theme for documentations.">
+
+
+    <link rel="icon" href="https://hbs-rcs.github.io/reproducible-research/images/favicon.png" type="image/png">
+
+    <title>Python :: Tools for Reproducible Research</title>
+
+    
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/nucleus.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/fontawesome-all.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/hybrid.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/featherlight.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/perfect-scrollbar.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/auto-complete.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/atom-one-dark-reasonable.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/theme.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/hugo-theme.css?1559063420" rel="stylesheet">
+    
+
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/jquery-3.3.1.min.js?1559063420"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/python/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://hbs-rcs.github.io/reproducible-research/">
+  <svg id="grav-logo" style="width:100%; height:100%;" viewBox="0 0 504 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <path d="M235.832,71.564l-7.98,-0.001c-1.213,0.001 -2.197,0.987 -2.197,2.204l0,15.327l-0.158,0.132c-4.696,3.962 -10.634,6.14 -16.719,6.14c-14.356,0 -26.034,-11.68 -26.034,-26.037c0,-14.358 11.678,-26.035 26.034,-26.035c5.582,0 10.919,1.767 15.437,5.113c0.877,0.649 2.093,0.56 2.866,-0.211l5.69,-5.69c0.444,-0.442 0.675,-1.055 0.639,-1.681c-0.034,-0.627 -0.336,-1.206 -0.828,-1.597c-6.76,-5.363 -15.214,-8.314 -23.805,-8.314c-21.18,0 -38.414,17.233 -38.414,38.415c0,21.183 17.234,38.415 38.414,38.415c10.937,0 21.397,-4.705 28.698,-12.914c0.358,-0.403 0.556,-0.921 0.556,-1.46l0,-19.603c0,-1.217 -0.985,-2.203 -2.2,-2.203"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M502.794,34.445c-0.408,-0.616 -1.1,-0.989 -1.838,-0.989l-8.684,0c-0.879,0 -1.673,0.522 -2.022,1.329l-24.483,56.839l-24.92,-56.852c-0.352,-0.799 -1.142,-1.316 -2.012,-1.316l-8.713,0c-0.744,0 -1.44,0.373 -1.843,0.995c-0.408,0.623 -0.476,1.408 -0.174,2.09l30.186,68.858c0.352,0.799 1.143,1.317 2.017,1.317l10.992,0c0.879,0 1.673,-0.527 2.021,-1.329l29.655,-68.861c0.289,-0.68 0.222,-1.461 -0.182,-2.081"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M388.683,34.772c-0.353,-0.798 -1.142,-1.316 -2.017,-1.316l-10.988,0c-0.879,0 -1.673,0.522 -2.021,1.329l-29.655,68.861c-0.294,0.675 -0.226,1.46 0.182,2.077c0.407,0.619 1.096,0.993 1.838,0.993l8.684,0c0.879,0 1.673,-0.526 2.022,-1.329l24.478,-56.842l24.92,56.854c0.353,0.798 1.143,1.317 2.013,1.317l8.717,0c0.744,0 1.44,-0.374 1.843,-0.993c0.408,-0.624 0.471,-1.41 0.174,-2.094l-30.19,-68.857Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M309.196,81.525l0.476,-0.229c8.675,-4.191 14.279,-13.087 14.279,-22.667c0,-13.881 -11.295,-25.174 -25.176,-25.174l-31.863,0c-1.214,0 -2.199,0.988 -2.199,2.202l0,68.855c0,1.219 0.985,2.204 2.199,2.204l7.979,0c1.214,0 2.2,-0.985 2.2,-2.204l0,-58.679l21.684,0c7.059,0 12.799,5.739 12.799,12.796c0,5.885 -3.996,10.989 -9.728,12.408c-1.032,0.261 -2.064,0.393 -3.071,0.393l-7.977,0c-0.829,0 -1.585,0.467 -1.959,1.205c-0.378,0.74 -0.305,1.625 0.187,2.296l22.62,30.884c0.412,0.566 1.07,0.901 1.771,0.901l9.915,0c0.827,0 1.587,-0.467 1.96,-1.207c0.378,-0.742 0.302,-1.629 -0.186,-2.296l-15.91,-21.688Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M107.191,80.969c-7.255,-4.794 -11.4,-8.845 -15.011,-16.109c-2.47,4.977 -8.236,12.376 -17.962,18.198c-4.856,15.106 -27.954,44.015 -35.43,39.916c-2.213,-1.212 -2.633,-2.808 -2.133,-4.456c0.536,-4.129 9.078,-13.62 9.078,-13.62c0,0 0.18,1.992 2.913,6.187c-3.609,-11.205 5.965,-25.031 8.5,-29.738c3.985,-1.269 4.274,-6.387 4.274,-6.387c0.255,-7.909 -3.278,-13.635 -6.701,-17.059c2.459,3.002 3.255,7.539 3.372,11.694l0,0.023c0.012,0.469 0.012,0.93 0.011,1.39c-0.117,3.439 -1.157,8.19 -3.383,8.19l0.006,0.03c-2.289,-0.098 -5.115,0.391 -7.639,1.18l-5.582,1.334c0,0 2.977,-0.136 4.584,1.252c-1.79,2.915 -5.769,6.533 -10.206,8.588c-6.457,2.995 -8.312,-2.964 -5.034,-6.838c0.805,-0.946 1.618,-1.745 2.387,-2.399c-0.495,-0.513 -0.807,-1.198 -0.889,-2.068c-0.001,-0.005 -0.004,-0.009 -0.005,-0.013c-0.45,-1.977 -0.202,-4.543 2.596,-8.623c0.551,-0.863 1.214,-1.748 2.007,-2.647c0.025,-0.031 0.046,-0.059 0.072,-0.089c0.034,-0.042 0.072,-0.08 0.108,-0.121c0.02,-0.023 0.039,-0.045 0.059,-0.068c0.2,-0.228 0.413,-0.45 0.639,-0.663c3.334,-3.414 8.599,-6.966 16.897,-10.152c9.675,-14.223 13.219,-16.89 13.219,-16.89c1.071,-1.096 2.943,-2.458 3.632,-2.805c-5.053,-8.781 -6.074,-21.158 -4.75,-24.493c-0.107,0.18 -0.206,0.365 -0.287,0.556c0.49,-1.143 0.819,-1.509 1.328,-2.111c1.381,-1.632 6.058,-2.488 7.737,0.971c0.895,1.844 1.063,4.232 1.034,6.023c-3.704,-0.193 -7.063,4.036 -7.063,4.036c0,0 3.067,-1.448 6.879,-1.473c0,0 1.015,0.883 2.283,2.542c-1.712,3.213 -4.524,10.021 -2.488,17.168c0.338,1.408 0.849,2.619 1.483,3.648c0.024,0.045 0.044,0.089 0.069,0.135c0.051,0.066 0.096,0.122 0.144,0.183c3.368,5.072 9.542,5.665 9.542,5.665c-2.906,-1.45 -5.274,-3.76 -6.816,-6.56c-0.8,-1.498 -1.291,-2.762 -1.592,-3.761c-1.636,-6.313 0.771,-9.999 2.149,-12.471c3.17,-4.917 8.944,-7.893 15.151,-7.185c8.712,0.995 14.968,8.862 13.973,17.571c-0.608,5.321 -3.781,9.723 -8.142,12.117c1.049,2.839 -0.073,6.28 -0.073,6.28c2.642,3.323 2.758,5.238 2.667,7.017c-3.357,-0.565 -6.618,1.701 -6.618,1.701c0,0 6.476,-1.546 10.238,1.81c2.446,2.631 4.078,5.009 5.051,6.766c1.393,2.505 7.859,2.683 7.123,7.188c-0.737,4.499 -5.669,4.542 -13.401,-0.56M69.571,0c-38.424,0 -69.571,31.148 -69.571,69.567c0,38.422 31.147,69.573 69.571,69.573c38.42,0 69.568,-31.151 69.568,-69.573c0,-38.42 -31.148,-69.567 -69.568,-69.567"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M73.796,51.693c0.813,-0.814 0.813,-2.134 0,-2.947c-0.815,-0.814 -2.133,-0.814 -2.947,0c-0.815,0.813 -0.815,2.133 0,2.947c0.814,0.813 2.132,0.813 2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M66.445,53.149c-0.814,0.813 -0.814,2.133 0,2.947c0.813,0.814 2.133,0.814 2.947,0c0.813,-0.814 0.813,-2.134 0,-2.947c-0.814,-0.813 -2.134,-0.813 -2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M79.231,54.233c-1.274,-1.274 -3.339,-1.272 -4.611,0l-2.713,2.712c-1.274,1.275 -1.274,3.339 0,4.612l2.978,2.978c1.274,1.275 3.338,1.274 4.611,0l2.712,-2.712c1.274,-1.274 1.274,-3.339 0,-4.612l-2.977,-2.978Z" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M95.759,41.445c-2.151,-2.578 1.869,-7.257 4.391,-4.463c4.645,5.148 -2.237,7.041 -4.391,4.463M105.004,44.132c3.442,-6.553 -1.427,-10.381 -4.773,-13.523c-5.36,-5.039 -10.706,-7.217 -16.811,-0.241c-6.102,6.977 -2.226,15.068 3.356,19.061c5.584,3.994 14.782,1.255 18.228,-5.297"
+      style="fill:#000;fill-rule:nonzero;"></path>
+  </svg>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/lunr.min.js?1559063420"></script>
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/auto-complete.js?1559063420"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/hbs-rcs.github.io\/reproducible-research\/";
+    
+</script>
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/search.js?1559063420"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/unix/" title="Unix" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/unix/">
+          Unix
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/make/" title="Make" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/make/">
+          Make
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/rmarkdown/" title="R Markdown" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/rmarkdown/">
+          R Markdown
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/git/" title="Git and GitHub" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/git/">
+          Git and GitHub
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/organization/" title="Organizing Projects" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/organization/">
+          Organizing Projects
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/clear-code/" title="Writing Clear Code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/clear-code/">
+          Writing Clear Code
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/r-packages/" title="Writing R packages" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/r-packages/">
+          Writing R packages
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/test-debug/" title="Software Testing and Debugging" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/test-debug/">
+          Software Testing and Debugging
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/big-jobs/" title="Big Jobs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/big-jobs/">
+          Big Jobs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/python/" title="Python" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/python/">
+          Python
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/licenses/" title="Licenses" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/licenses/">
+          Licenses
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='https://hbs-rcs.github.io/reproducible-research/'>Tools for Reproducible Research</a> > Python
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#why-python">Why python?</a></li>
+<li><a href="#python-2-vs-python-3">Python 2 vs Python 3</a></li>
+<li><a href="#installing-python">Installing Python</a></li>
+<li><a href="#learning-a-new-language">Learning a new language</a></li>
+<li><a href="#into-the-thick-of-it">Into the thick of it</a></li>
+<li><a href="#input-tt-markers-txt">Input: \tt markers.txt</a></li>
+<li><a href="#input-tt-families-txt">Input: \tt families.txt</a></li>
+<li><a href="#input-tt-genotypes-txt">Input: \tt genotypes.txt</a></li>
+<li><a href="#output-tt-data-gen">Output: \tt data.gen</a></li>
+<li><a href="#the-top-of-the-python-script">The top of the Python script</a></li>
+<li><a href="#the-bottom-of-the-python-script">The bottom of the Python script</a></li>
+<li><a href="#write-functions-modules-not-scripts">Write functions &amp; modules not scripts</a></li>
+<li><a href="#try-it-out">Try it out</a></li>
+<li><a href="#read-the-marker-names">Read the marker names</a></li>
+<li><a href="#lstlisting">lstlisting</a></li>
+<li><a href="#lstlisting-1">lstlisting</a></li>
+<li><a href="#the-bottom-of-the-python-script-1">The bottom of the Python script</a></li>
+<li><a href="#basic-types">Basic types</a></li>
+<li><a href="#converting-between-types-and-such">Converting between types, and such</a></li>
+<li><a href="#multi-element-types">Multi-element types</a></li>
+<li><a href="#matrices-as-lists-of-lists">matrices as lists of lists</a></li>
+<li><a href="#for-loops">for loops</a></li>
+<li><a href="#list-comprehensions">list comprehensions</a></li>
+<li><a href="#more-with-strings">More with strings</a></li>
+<li><a href="#regular-expressions">Regular expressions</a></li>
+<li><a href="#unit-tests-nose">Unit tests: Nose</a></li>
+<li><a href="#unit-tests-unittest">Unit tests: <code>unittest</code></a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#lab">Lab</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Python
+            </h1>
+          
+
+        
+
+
+
+
+	
+
+<p>I&rsquo;m a big proponent of the use of multiple programming languages:
+  use different languages for different types of tasks.</p>
+
+<p>Statisticians, in particular, should be proficient in some
+  &ldquo;scripting language&rdquo; (e.g., Perl, Python, or Ruby). These types of
+  languages give you far more flexibility for manipulating data files.</p>
+
+<p>I&rsquo;ve long used Perl, but I&rsquo;ve switched to Ruby, and I&rsquo;m trying to
+  also be proficient in Python. I prefer Ruby to Python, but Python is
+  much more widely used, and so if you&rsquo;re going to just learn one such
+  language, learn Python.</p>
+
+<h2 id="why-python">Why python?</h2>
+
+<ul>
+<li>Manipulating data files</li>
+<li>Simulations using others&rsquo; programs</li>
+<li>Web-related stuff}</li>
+<li>Alternative to R for data analysis and graphics</li>
+<li>Jupyter notebooks</li>
+</ul>
+
+<p>For statisticians, the most important use of Python is for the
+  manipulation of data files. This sort of script language is great
+  for manipulating text, and data files are mostly plain text files.</p>
+
+<p>In addition, I find a scripting language critical for performing
+  simulations to evaluate others&rsquo; command-line-based programs. They&rsquo;re
+  also good for web-related stuff.</p>
+
+<p>Python can also serve as an alternative to R for data analysis and
+  graphics. And Jupyter notebooks are a big deal for reproducible
+  research (and they can be used more broadly than Python).</p>
+
+<h2 id="python-2-vs-python-3">Python 2 vs Python 3</h2>
+
+<ul>
+<li>Many people are using Python version 2.7</li>
+<li>Python 3 was introduced in {\vhilit 2008}
+
+<ul>
+<li>A number of large changes</li>
+<li>Some important Python programs haven&rsquo;t been ported</li>
+<li>Few people seem to be using it day-to-day</li>
+<li>Ideally, go straight for Python 3</li>
+<li>But be aware of differences
+<br /></li>
+</ul></li>
+</ul>
+
+<p>The biggest annoyance about Python is the two competing versions,
+  Python 2 and Python 3. For now, you should probably stick with
+  Python 2.</p>
+
+<p>Python 3 is much better than Python 2, but it hasn&rsquo;t penetrated the
+  Python community sufficiently. But it&rsquo;s definitely getting better.</p>
+
+<p>I&rsquo;m still a bit torn about whether to recommend Python 2 or Python 3
+  when you&rsquo;re starting out, but at this point it probably is better to
+  go straight for Python 3, but be aware of the differences as they
+  may bite you now and then.</p>
+
+<h2 id="installing-python">Installing Python</h2>
+
+<ul>
+<li>On Mac or Unix, Python 2 should be pre-installed
+
+<ul>
+<li>[] <code>python --version</code></li>
+<li>For Windows (or to be current, or to alternate between Python 2
+and 3), install <a href="https://store.continuum.io/cshop/anaconda">Anaconda</a></li>
+<li>[] Includes NumPy, SciPy, Pandas, iPython, Matplotlib, \dots</li>
+<li>[] <a href="http://continuum.io/downloads">\tt
+continuum.io/downloads</a>
+<br /></li>
+</ul></li>
+</ul>
+
+<p>When you&rsquo;re just starting to learn, you can just stick with the
+  pre-installed version of Python, if you are on some flavor of Unix.</p>
+
+<p>Long term, I recommend Anaconda, which is an easy-to-install Python
+  with basically all of the scientific packages you&rsquo;d want. Installing
+  these by hand seems really painful; installing Anaconda is easy.</p>
+
+<p>Also, with Anaconda, it&rsquo;s easy to switch between Python 2 and
+  Python 3.</p>
+
+<h2 id="learning-a-new-language">Learning a new language</h2>
+
+<ul>
+<li>Find a good book</li>
+<li>Have good example tasks/problems</li>
+<li>Play around</li>
+<li>Force yourself to use the new language</li>
+<li>Develop a script illustrating different language features</li>
+</ul>
+
+<p>It takes time to learn a new programming language. The only way
+  you&rsquo;ll learn it is by forcing yourself to use it regularly.
+  You need good, realistic problems to tackle. And it might take you
+  just 30 minutes with the language you know but all afternoon in the
+  new language. But if you don&rsquo;t force yourself, you&rsquo;ll never learn.</p>
+
+<p>If you go away from it for a week, you&rsquo;ll be quite rusty when you
+  come back. I&rsquo;ve found it useful to develop a script that illustrates
+  the various language features. (&ldquo;How do I write a loop again? How
+  do I define a function?&ldquo;) Looking through that, you&rsquo;ll pick it all
+  up again quickly. It&rsquo;s harder to look back through a book in the
+  same way.</p>
+
+<h2 id="into-the-thick-of-it">Into the thick of it</h2>
+
+<p><strong>Learn Python through one example</strong></p>
+
+<p>$\qquad$ <code>markers.txt</code></p>
+
+<p>$\qquad$ <code>families.txt</code> $\qquad \longrightarrow \qquad$ <code>data.gen</code></p>
+
+<p>$\qquad$ <code>genotypes.txt</code></p>
+
+<p>I can&rsquo;t really hope to teach you Python in 50 minutes, but I&rsquo;ll
+  try. In this crash course, I&rsquo;ll go through a medium-sized script to
+  combine a few data files and convert them into a different form.</p>
+
+<p><code>markers.txt</code> contains a list of ordered genetic markers. {\tt
+    families.txt contains information about subjects&rsquo; familial
+  relationships. <code>genotypes.txt</code> contains subjects&rsquo; genotypes.</p>
+
+<p>We&rsquo;re going to convert these data into the form used by the CRI-MAP
+  program (an old program for constructing genetic maps).
+}</p>
+
+<h2 id="input-tt-markers-txt">Input: \tt markers.txt</h2>
+
+<pre><code>D20S103
+D20S482
+D20S851
+D20S604
+D20S1143
+D20S470
+D20S477
+D20S478
+D20S481
+D20S159
+D20S480
+D20S451
+D20S171
+D20S164
+</code></pre>
+
+<p>This is the <code>markers.txt</code> file. It just has one marker name per
+  line.</p>
+
+<h2 id="input-tt-families-txt">Input: \tt families.txt</h2>
+
+<pre><code>Family Individual Father Mother Sex
+     1          1      0      0   1
+     1          2      0      0   2
+     1          3      1      2   1
+     1          4      1      2   2
+     1          5      1      2   2
+     2          1      0      0   1
+     2          2      0      0   2
+     2          3      1      2   1
+     2          4      1      2   1
+     3          1      0      0   1
+     3          2      0      0   2
+     3          3      1      2   2
+     3          4      1      2   1
+     3          5      1      2   1
+     3          6      1      2   2
+
+...
+
+     5          6      1      2   2
+     5          7      1      2   1
+</code></pre>
+
+<p>This is the <code>families.txt</code> file; each line is one subject. In
+  the <code>Father</code> and <code>Mother</code> columns, <code>0</code> indicates
+  missing: a founding individual in that family.  In the <code>Sex</code>
+  column, <code>2</code> = female and <code>1</code> = male.</p>
+
+<h2 id="input-tt-genotypes-txt">Input: \tt genotypes.txt</h2>
+
+<pre><code>Marker   1-1    1-2    1-3    1-4    1-5    2-1    2-2     ...
+D20S103         100/98 98/98  98/98  98/98  100/100100/96  ...
+D20S1143 176/172180/176176/180       172/180172/176172/172 ...
+D20S159  350/358366/354350/354350/354358/366354/350366/354 ...
+D20S164         191/207207/207215/191215/207191/207207/215 ...
+D20S171  141/135141/137141/141141/137135/137141/139143/135 ...
+D20S451  324/308320/316324/316308/320       308/324312/316 ...
+D20S470  306/302302/306302/306306/302302/302302/294310/266 ...
+D20S477  256/252260/252252/252       256/252256/252        ...
+D20S478         267/263263/263263/263263/267255/271263/247 ...
+D20S480         304/284       304/284304/284296/296300/300 ...
+D20S481  229/237241/237237/237229/237237/237245/245        ...
+D20S482  155/159159/167159/159155/167159/167147/155159/155 ...
+D20S604  151/147       147/135151/143151/143       147/143 ...
+D20S851  132/140148/144132/144132/148132/148       144/140 ...
+</code></pre>
+
+<p>The <code>genotypes.txt</code> file is a bit ugly. Rows are markers and
+  individuals are in fixed-width columns, with the genotypes being two
+  numeric alleles separated by a slash. Blank fields correspond to
+  missing data.</p>
+
+<h2 id="output-tt-data-gen">Output: \tt data.gen</h2>
+
+<pre><code>5
+14
+D20S103
+D20S482
+...
+D20S171
+D20S164
+1
+5
+1 0 0 1
+0 0 155 159 132 140 151 147 176 172 306 302 256 252 0 0 ...
+2 0 0 0
+100 98 159 167 148 144 0 0 180 176 302 306 260 252 267 ...
+3 2 1 1
+98 98 159 159 132 144 147 135 176 180 302 306 252 252 ...
+4 2 1 0
+98 98 155 167 132 148 151 143 0 0 306 302 0 0 263 263 ...
+5 2 1 0
+98 98 159 167 132 148 151 143 172 180 302 302 256 252 ...
+2
+4
+...
+</code></pre>
+
+<p>The file we&rsquo;re converting to, <code>data.gen</code> in the format used by
+  CRI-MAP, is a bit weird: Number of families, number of markers, the
+  marker names in order, and then for each family, the family ID, the
+  number of subjects in that family, and then the subjects. For each
+  subject, there&rsquo;s a line with individual, mom, dad, and sex (<code>0</code>
+  = female, <code>1</code> = male), and then a line with genotype data, with
+  two numbers for each marker, with <code>0</code>&rsquo;s for missing values.</p>
+
+<h2 id="the-top-of-the-python-script">The top of the Python script</h2>
+
+<pre><code>#!/usr/bin/env python
+# Combine the data in &quot;genotypes.txt&quot;, &quot;markers.txt&quot; and
+# &quot;families.txt&quot; and convert them into a CRI-MAP .gen file
+#
+# This is the python 2 version
+
+def read_markers (filename):
+  &quot;Read an ordered list of marker names from a file.&quot;
+  with open(filename, 'r') as f:
+    lines = f.readlines()
+  return [line.strip() for line in lines]
+
+class Person:
+  &quot;Person class, to contain the data on a subject.&quot;
+  def __init__ (self,family, id, dad, mom, sex):
+    self.family = family
+    self.id = id
+    self.dad = dad
+    self.mom = mom
+    self.sex = &quot;0&quot; if sex == &quot;2&quot; else sex # convert 1/2 -&gt; 1/0
+    self.famid = family + '-' + id
+    self.gen = {}
+</code></pre>
+
+<p>The first line (<code>\#!/usr/bin/env python</code>) makes it so you can run
+  this script from the command line by just typing its name. Using
+  <code>/usr/bin/env</code> allows that Python might be located in a
+  different place on different systems.</p>
+
+<p>To make the script executable (on unix), type <code>chmod +x convert2.py</code></p>
+
+<p>In python, comments begin with <code>\#</code> (as in R).</p>
+
+<p>Instead of using braces to delineate blocks of code, Python uses
+  indentation. I was initially turned off by this, but I&rsquo;ve been
+  converted to the idea (mostly from having written a lot of
+  CoffeeScript code). You&rsquo;re going to indent anyway; why not have that
+  indentation be meaningful?</p>
+
+<p>You define functions with <code>def name (param):</code></p>
+
+<p>Unlike R, functions must have a <code>return</code> statement if you want to
+  return a value.</p>
+
+<h2 id="the-bottom-of-the-python-script">The bottom of the Python script</h2>
+
+<pre><code>if __name__ == '__main__':
+  # file names
+  gfile = &quot;genotypes.txt&quot; # genotype data
+  mfile = &quot;markers.txt&quot;   # list of markers, in order
+  ffile = &quot;families.txt&quot;  # family information
+  ofile = &quot;data.gen&quot;      # output file
+
+  # read the data
+  markers = read_markers(mfile)
+  people = read_families(ffile)
+  read_genotypes(gfile, people)
+
+  # write the data
+  write_genfile(ofile, people, markers)
+</code></pre>
+
+<p>The <code>convert2.py</code> script is just a bunch of function definitions
+  (and one <code>class</code>).</p>
+
+<p>This bit at the bottom is executed only if the script is
+  run from the command line. It does all of the real work: read in the
+  data and then write it back out as a <code>.gen</code> file.</p>
+
+<h2 id="write-functions-modules-not-scripts">Write functions &amp; modules not scripts</h2>
+
+<ul>
+<li>Write a set of reusable functions</li>
+<li>Your code will be easier to read</li>
+<li>You may actually reuse the code, this way</li>
+</ul>
+
+<p>With Python (and R), there&rsquo;s a tendency to write a long mess of a
+  script. It&rsquo;s better to focus on writing a set of reusable functions.</p>
+
+<p>With the given example script, you can use <code>import convert2</code> to
+  load the functions into python. This is similar to <code>library()</code>
+  in R.</p>
+
+<h2 id="try-it-out">Try it out</h2>
+
+<pre><code>$ convert2.py
+$ diff data.gen data_save.gen
+</code></pre>
+
+<pre><code>$ python         # (or ipython)
+
+&gt;&gt;&gt; import convert2
+
+&gt;&gt;&gt; help(convert2)
+&gt;&gt;&gt; help(convert2.read_markers)
+
+&gt;&gt;&gt; markers = convert2.read_markers(&quot;markers.txt&quot;)
+&gt;&gt;&gt; markers[0]
+&gt;&gt;&gt; len(markers)
+&gt;&gt;&gt; markers[-1]
+&gt;&gt;&gt; markers[0:2]
+&gt;&gt;&gt; markers[0:-1]
+&gt;&gt;&gt; markers[5:]
+&gt;&gt;&gt; markers[:5]
+&gt;&gt;&gt; markers[0:7:2]
+
+&gt;&gt;&gt; quit()
+</code></pre>
+
+<p>If you type <code>convert2.py</code> from the command line, it will run the
+  script and create the <code>data.gen</code> file, which you&rsquo;ll see (with
+  <code>diff</code>) matches the target <code>data_save.gen</code> file.</p>
+
+<p>Or you can type <code>python</code> (or <code>ipython</code>) at the command line
+  and then import the module and run some of the functions by
+  hand. You&rsquo;ll need to refer to the functions with the names preceded
+  by <code>convert2.</code>, or you can use <code>from convert2 import *</code> and
+  then skip the <code>convert2.</code> part.</p>
+
+<p>The <code>read.markers</code> function reads in the ordered list of markers
+  as a vector. (In Python, they call it a list.) Vectors in Python are
+  indexed starting at 0. You can use the <code>len</code> function (like {\tt
+  length() in R) to get the length.</p>
+
+<p>You can grab slices with <code>:</code>, but note that they {\nhilit don&rsquo;t}
+  include the last element in the range.</p>
+
+<p>And negative values are from the end, with <code>-1</code> being the
+  {\nhilit last} value.</p>
+
+<p>Also, you can use <code>start🔚by</code>. Remember that <code>end</code> is
+  {\nhilit not} included.
+}</p>
+
+<h2 id="read-the-marker-names">Read the marker names</h2>
+
+<pre><code>def read_markers (filename):
+  &quot;Read an ordered list of marker names from a file.&quot;
+  with open(filename, 'r') as f:
+    lines = f.readlines()
+  return [line.strip() for line in lines]
+</code></pre>
+
+<p>This is the function to read the ordered list of markers.
+  It takes a single argument: the name of the file.</p>
+
+<p>The first line (between the double-quotes) is a description
+  that will be shown if you import the module and type
+  <code>help(convert2.read_markers)</code>.
+  Strings in Python can be defined using single- or double-quotes,
+  just like in R.</p>
+
+<p>The <code>with</code> business looks a bit odd, but it ensures that the
+  file will be closed if anything goes wrong. I could just as well
+  have written <code>lines=open(filename).readlines()</code>
+  (The <code>'r'</code>, for reading, is the default.)
+  After that bit of code, <code>lines</code> contains a vector with one
+  marker name per line.</p>
+
+<p>The last line contains a &ldquo;list comprehension.&rdquo; It&rsquo;s a sort of
+  one-line <code>for</code> loop, which applies the <code>strip()</code>
+  function to each element of the <code>lines</code> vector (removing any
+  end-of-line character).</p>
+
+<p><code>read_markers</code> and <code>open</code> are ordinary functions, much like
+  those in R. <code>readlines</code> and <code>strip</code> are object-oriented
+  &ldquo;methods.&rdquo; Think of them as functions where the first argument
+  precedes the function name.</p>
+
+<h2 id="lstlisting">lstlisting</h2>
+
+<p>class Person:
+  &ldquo;Person class, to contain the data on a subject.&rdquo;
+  def <strong>init</strong> (self, family, id, dad, mom, sex):
+    self.family = family
+    self.id = id
+    self.dad = dad
+    self.mom = mom
+    self.sex = &ldquo;0&rdquo; if sex == &ldquo;2&rdquo; else sex # convert <sup>1</sup>&frasl;<sub>2</sub> -&gt; <sup>1</sup>&frasl;<sub>0</sub>
+    self.famid = family + &lsquo;-&rsquo; + id
+    self.gen = {}</p>
+
+<pre><code>
+
+
+Example use:
+
+
+
+</code></pre>
+
+<p>ind = Person(&ldquo;1&rdquo;, &ldquo;3&rdquo;, &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;2&rdquo;)</p>
+
+<pre><code>
+
+
+  I first define a class to contain the data for a single
+  subject. It contains a function `__init__` for initializing
+  an instance of the class (the data object for a single subject).
+
+  Within that function, `self` refers to the newly defined
+  instance of the class, and `self.family`, etc., are the way to
+  refer to the elements of the class object.
+
+  We create a new `Person` object by calling \\
+  `Person(family, id, dad, mom, sex)`
+
+
+
+
+
+## lstlisting
+
+
+def read_families (filename):
+  &quot;Read family info and return a hash of people.&quot;
+  with open(filename, 'r') as file:
+    file.readline() # header row
+    people = {}
+    for line in file:
+      vals = line.strip().split()
+      person = Person(vals[0],vals[1],vals[2],vals[3],vals[4])
+      people[person.famid] = person
+  return people
+</code></pre>
+
+<p>This is the function to read the family information.
+  I again use <code>with open() as file:</code> to open the file. If anything
+  goes wrong, the file will be automatically &ldquo;closed.&rdquo;</p>
+
+<p>I use <code>readline</code> to read (but ignore) the header line.</p>
+
+<p><code>people = \{\</code> initializes a &ldquo;hash.&rdquo;  This is like an
+  unordered vector that is indexed by strings rather than numeric
+  indices. (In Python, it&rsquo;s called a &ldquo;dictionary.&rdquo;) I&rsquo;m going to
+  create a hash of <code>Person</code> objects, indicated by strings like
+  <code>&quot;1-2&quot;</code> for individual <code>2</code> in family <code>1</code>.</p>
+
+<p>I use a <code>for</code> loop over lines in the file. For each line, I
+  <code>strip</code> off any end-of-line character and then <code>split</code> it
+  at the white space, into a vector.</p>
+
+<p>I first call <code>Person</code> to define the <code>person</code> object, as then
+  <code>person.famid</code> is defined, and I want to use that as the &ldquo;hash
+  key.&rdquo;
+}</p>
+
+<h2 id="lstlisting-1">lstlisting</h2>
+
+<p>def parse_genotype (string):
+  &ldquo;Clean up string -&gt; genotype&rdquo;
+  string = string.replace(&rsquo; &lsquo;, &ldquo;)
+  string = &ldquo;0/0&rdquo; if string == &ldquo;&rdquo; else string
+  return string.replace(&lsquo;/&rsquo;, &lsquo; &lsquo;)</p>
+
+<p>def read_genotypes (filename, people):
+  &ldquo;Read genotype data, fill in genotypes within people hash&rdquo;
+  with open(filename, &lsquo;r&rsquo;) as file:</p>
+
+<pre><code>header = file.readline().strip().split()
+header = header[1:] # omit the first field, &quot;Marker&quot;
+
+for line in file:
+  marker = line[:9].replace(' ', &quot;)
+  line = line[9:]
+  for i in range(len(header)):
+    person = header[i]
+    start = i*7
+    people[person].gen[marker] = \
+      parse_genotype(line[start:(start+7)])
+</code></pre>
+
+<pre><code>
+
+  The first function here cleans up a genotype string a bit. It strips
+  off any white space, substitutes `0/0` in the case of a blank,
+  and replaces the slash with a space. So a string like `&quot;78/125 &quot;`
+  will be converted to `&quot;78 125&quot;`.
+  The `replace` function for strings is for doing text
+  substitutions: it replaces every instance of its first argument with
+  its second argument.
+
+  In the `read_genotypes` function, I grab all but the first
+  element of the header line, which match what I'm using as the keys
+  for my `people` hash.
+  I then go through the rest of the file, one line at a time: I grab
+  the marker name (getting rid of any spaces) and then go
+  through the rest of the line, 7 characters at a
+  time. `range(n)` returns the vector `[0,` `1,` \dots{\tt
+  , n-1].
+
+  If you look back at the `Person` class, you'll see that I'd
+  initialized `gen` as a hash (with `self.gen = \{\`}). I'm
+  filling this in, indexed by marker names.
+  The `read_genotypes` function doesn't return anything, because
+  it modifies the input `person` object (as a &quot;side effect&quot;).
+
+  Note the backslash in the second-to-last line; this allows me to
+  split a long line into two. If I left it off, Python would give an
+  error.
+}
+
+
+
+
+
+## Some helper functions
+
+
+
+
+
+</code></pre>
+
+<p>def get_families (people):
+  &ldquo;Return a vector of distinct families&rdquo;
+  return set([people[key].family for key in people])</p>
+
+<p>def get_family_members (people, family):
+  &ldquo;Return a vector of famids for subjects within a family.&rdquo;
+  return [key for key in people <br />
+          if people[key].family == family]</p>
+
+<p>def writeln (file, line, end=&rdquo;\n&rdquo;):
+  &ldquo;Write a single line to a file.&rdquo;
+  file.write(str(line) + end)</p>
+
+<pre><code>
+
+  Here are a few helper functions that I use in the last {\tt
+  write_genfile function.
+
+  `get_families` returns a vector of {\nhilit distinct} family
+  IDs. I use a {\nhilit list comprehension} again, which gives a
+  vector with all of the family names. Then `set` turns this into
+  a &quot;set&quot; of distinct values. It acts here sort of like {\tt
+  unique()} in R.
+
+  `get_family_members` returns a vector of the famid codes for
+  the family members in a given family. I'm using a list comprehension
+  again, but with an additional `if` qualification.
+
+  `writeln` is just a little wrapper for the `write`
+  function, to write a string to a file. Note that in this function,
+  the `end` argument has a default value, much like in R
+  functions.
+}
+
+
+
+
+
+## lstlisting
+
+
+def write_genfile (filename, people, markers):
+  &quot;Write genotype data to a file, in CRI-MAP format.&quot;
+  with open(filename, 'w') as file:
+    families = sorted(get_families(people))
+    writeln(file, len(families))
+
+    writeln(file, len(markers))
+    for marker in markers:
+      writeln(file, marker)
+
+    for family in families:
+      writeln(file, family)
+      members = sorted(get_family_members(people, family), \
+                       key=lambda famid: int(people[famid].id))
+      writeln(file, len(members))
+
+      for famid in members:
+        person = people[famid]
+        writeln(file, &quot;%s %s %s %s&quot; % (person.id, \
+                      person.mom, person.dad, person.sex))
+
+        for marker in markers:
+          writeln(file, person.gen[marker], &quot; &quot;)
+        writeln(file, &quot;&quot;)
+</code></pre>
+
+<p>This is the function to write the CRI-MAP file. There are two
+  interesting bits here.</p>
+
+<p>First, <code>sorted()</code> returns a sorted version of a vector.
+  I use it twice, the second time with <code>key=lambda famid: int(people[famid].id)</code> <br />
+  which is an anonymous function for sorting <code>Person</code> objects by
+  their individual IDs (numerically).</p>
+
+<p>The second interesting bit is<br />
+  <code>&quot;\%s \%s \%s \%s&quot; \% (person.id, person.mom, person.dad, person.sex)</code> <br />
+  which is like <code>sprintf</code>, in that I&rsquo;m formatting a bunch of stuff as a string.</p>
+
+<h2 id="the-bottom-of-the-python-script-1">The bottom of the Python script</h2>
+
+<pre><code>if __name__ == '__main__':
+  # file names
+  gfile = &quot;genotypes.txt&quot; # genotype data
+  mfile = &quot;markers.txt&quot;   # list of markers, in order
+  ffile = &quot;families.txt&quot;  # family information
+  ofile = &quot;data.gen&quot;      # output file
+
+  # read the data
+  markers = read_markers(mfile)
+  people = read_families(ffile)
+  read_genotypes(gfile, people)
+
+  # write the data
+  write_genfile(ofile, people, markers)
+</code></pre>
+
+<p>We made it through the whole file; here&rsquo;s the bit at the bottom
+  again. This bit is run only if you&rsquo;re executing the script from the
+  command line.</p>
+
+<p>I define the file names, read in the data, and then write it back
+  out in a different form.</p>
+
+<h2 id="basic-types">Basic types</h2>
+
+<ul>
+<li>float
+
+<ul>
+<li>[] <code>x = 0.3</code></li>
+<li>int</li>
+<li>[] <code>m = 5</code></li>
+<li>string</li>
+<li>[] <code>s = &quot;blah&quot;</code></li>
+<li>bool</li>
+<li>[] <code>x = True</code></li>
+<li>[] <code>y = False</code></li>
+<li>None</li>
+<li>[] <code>x = None</code></li>
+<li>complex</li>
+<li>[] <code>x = 5+0j</code>
+<br /></li>
+</ul></li>
+</ul>
+
+<p>These are the basic types. Python 2 also distinguishes between {\tt
+  int and <code>long</code>, while Python 3 has just <code>int</code>.</p>
+
+<p><code>None</code> is a null object; you can use it as <code>NA</code>.
+}</p>
+
+<h2 id="converting-between-types-and-such">Converting between types, and such</h2>
+
+<pre><code>n = 5
+type(n)
+
+s = str(n)
+x = float(n)
+
+&quot;%s %s %s&quot; % (n, s, x)
+&quot;%d %d %d&quot; % (n, int(s), x)
+&quot;%.2f %.2f %.2f&quot; % (n, float(s), x)
+
+dir(s)
+dir(x)
+
+s = &quot;blah&quot;
+len(s)
+s[2:]
+s[:-1]
+for ch in s:
+  print ch
+</code></pre>
+
+<p>It&rsquo;s important to be able to convert between types, particularly for
+  converting between strings and floats.</p>
+
+<p>The <code>\%</code> operator is particularly handy for formatted output, or
+  just to convert things into strings. With <code>\%s</code>, numbers will
+  be converted to strings, but with <code>\%d</code> and <code>\%f</code>, strings
+  will {\nhilit not automatically be converted to numbers
+  {\textendash} you&rsquo;ll get an error.</p>
+
+<p>The <code>type</code> function returns the type of an object. The <code>dir</code>
+  function returns a list of the methods</p>
+
+<p>You can use <code>len</code> on strings, and you can subset them like a vector
+  (aka list), and you can even loop over the characters in a string.
+}</p>
+
+<h2 id="multi-element-types">Multi-element types</h2>
+
+<ul>
+<li>list
+
+<ul>
+<li>[] <code>x = [1, 2, 3, None, &quot;blah&quot;]</code></li>
+<li>[] <code>y = [ [ 1, 2 ], [ 3, 4, 5 ], 6 ]</code></li>
+<li>dictionary</li>
+<li>[] <code>h = \{'x': 3, 'y': 5, 'name':&quot;Karl&quot;\</code>}</li>
+<li>tuple</li>
+<li>[] <code>x = (1, [2,3])</code></li>
+<li>set</li>
+<li>[] <code>S = set([5, 3, 5, 1, 2, 1])</code>
+<br /></li>
+</ul></li>
+</ul>
+
+<p>Lists are like lists in R: they&rsquo;re ordered vectors whose elements
+  can be basically anything.</p>
+
+<p>Dictionaries are what I call hashes: an un-ordered list indexed by
+  strings (called &ldquo;keys&rdquo;).</p>
+
+<p>Tuples are like lists, but the contents can&rsquo;t be changed. They&rsquo;re
+  useful as return values from a function.</p>
+
+<p>Sets are lists with only unique values.</p>
+
+<h2 id="matrices-as-lists-of-lists">matrices as lists of lists</h2>
+
+<pre><code>x = [ [1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12] ]
+
+x[1][3]
+</code></pre>
+
+<p>The simplest way to handle a matrix is as a list of lists.
+  They&rsquo;d typically be stored by rows, as you&rsquo;d then index the thing as
+  <code>mat[row][col]</code>.</p>
+
+<p>Also see numpy (numpy.org), for formal matrices and matrix methods.</p>
+
+<h2 id="for-loops">for loops</h2>
+
+<pre><code>vec = range(4)
+for x in vec:
+  print (x+1)**2
+
+import math
+for i in xrange(len(vec)):
+  print math.log( vec[i] + 1 )
+
+
+h = {'x':3, 'y':4, 'z':2}
+for k in h:
+  print k, h[k]
+
+for k in sorted(h.keys()):
+  print k, h[k]
+
+for k,v in h.iteritems():
+  print k, v
+
+for v in h.itervalues():
+  print v
+</code></pre>
+
+<p><code>for</code> loops over lists successively take each possible value in
+  the list. If you want the indices, you need to create a vector of
+  indices with <code>range</code>. Or use <code>xrange</code>, which is avoids
+  actually creating the vector, but rather creates the elements when
+  they&rsquo;re needed.</p>
+
+<p><code>xrange</code> is in Python2 only; in Python 3, just use {\tt
+  range. The Python3 <code>range</code> is really the Python2 <code>xrange</code>.
+  So actually in Python3, the first line needs to be <code>vec = list(range(4))</code>.</p>
+
+<p><code>for</code> loops over dictionaries (aka hashes) successively take
+  each possible key. You can use <code>iteriterms()</code> to iterate over
+  key-value pairs or <code>itervalues()</code> to iterate over just the
+  values. Like <code>xrange</code>, these generate the vector of iteracted
+  values as needed rather than in advance. There&rsquo;s also a {\tt
+  iterkeys()} method, which is what is used as the default for {\tt
+  for} loops with dictionaries.</p>
+
+<p>Note that these loops with dictionaries will be in arbitrary
+  order. If you want a particular order, you first need to create a
+  sorted vector of keys.</p>
+
+<p>In Python3, use <code>.items()</code> and <code>.values()</code> in place of
+  <code>.iteritems()</code> and <code>.itervalues()</code>, respectively.
+}</p>
+
+<h2 id="list-comprehensions">list comprehensions</h2>
+
+<pre><code>vec = range(10)
+[v**2 for v in vec if v &gt; 5]
+
+h = {'x':3, 'y':4, 'zz':2}
+[h[k]**2 for k in h]
+[h[k]**2 for k in h if len(k) == 1]
+[[k, v**3] for k,v in h.iteritems()]
+dict( [[k, v**3] for k,v in h.iteritems()] )
+
+x = [k+1 for k in range(6)]
+y = [True, False, True, False, False, False]
+[x[i] for i in range(len(x)) if y[i]]
+</code></pre>
+
+<p>List comprehensions are really useful for transformations or
+  subsetting.</p>
+
+<p>The <code>dict</code> function will convert a list of key-value pairs into
+  a dictionary.</p>
+
+<p>You can get by without them. But they can provide compact but
+  readable code.</p>
+
+<p>Note, again, that in Python3 you should use <code>.items()</code> in place
+  of <code>.iteritems()</code>.</p>
+
+<h2 id="more-with-strings">More with strings</h2>
+
+<pre><code>x = &quot;bread and jam&quot;
+y = x.split(&quot; &quot;)
+z = &quot; &quot;.join(y)
+
+dir(x)
+help(x.index)
+
+x.endswith(&quot;jam&quot;)
+x.startswith(&quot;bre&quot;)
+x.count(&quot;a&quot;)
+x.find(&quot;and&quot;)
+x.find(&quot;jelly&quot;)
+x.index(&quot;and&quot;)
+x.index(&quot;jelly&quot;)
+
+x.replace(&quot;jam&quot;, &quot;jelly&quot;)
+
+x.capitalize()
+x.title()
+x.upper()
+x.upper().lower()
+</code></pre>
+
+<p>Python has also sorts of methods for doing things with strings.</p>
+
+<p>Use <code>dir</code> to get a list, eg <code>dir(str)</code>, <code>dir(&quot;&quot;)</code>, or
+  <code>dir(x)</code> where <code>x</code> is a string.</p>
+
+<p>Use <code>help</code> to get a description of one of the methods, eg
+  <code>help(str.find)</code>, <code>help(&quot;&quot;.find)</code>, or <code>help(x.find)</code>.</p>
+
+<h2 id="regular-expressions">Regular expressions</h2>
+
+<pre><code>import re
+
+x = &quot;Bread and Jam&quot;
+re.findall(r'[A-Z]', x)
+re.split(r'[A-Z]', x)
+re.sub(r'[A-Z]', &quot;, x)
+
+ph = &quot;555-12-3456&quot;
+re.findall(r'-', ph)
+re.findall(r'\d+', ph)
+re.split(r'\D', ph)
+re.sub(r'\D', &quot;, ph)
+</code></pre>
+
+<p>A big reason to use scripting languages is for regular expression
+  facilities. But I find regular expressions cumbersome in Python relative
+  to Perl or Ruby.</p>
+
+<p>There is some messiness about backslashes, so it&rsquo;s best with regular
+  expressions to use &ldquo;raw strings&rdquo; by preceding the string with an
+  <code>r</code>, as so: <code>r'blah'</code>.</p>
+
+<h2 id="unit-tests-nose">Unit tests: Nose</h2>
+
+<pre><code># This is nosetest_convert2.py
+#
+# At command line, type &quot;nosetests nosetest_convert2.py&quot;
+
+from nose.tools import assert_equal
+from convert2 import *
+
+def test_parse_genotype():
+  assert_equal(parse_genotype(&quot;       &quot;),   &quot;0 0&quot;)
+  assert_equal(parse_genotype(&quot;100/98 &quot;),   &quot;100 98&quot;)
+  assert_equal(parse_genotype(&quot;90/96  &quot;),   &quot;90 96&quot;)
+  assert_equal(parse_genotype(&quot;90/ 96  &quot;),  &quot;90 96&quot;)
+  assert_equal(parse_genotype(&quot;  3 / 8  &quot;), &quot;3 8&quot;)
+</code></pre>
+
+<p>Unit tests are important for ensuring the correctness of Python
+  code, as with any other programming effort.</p>
+
+<p>Nose is simple tool for making Python unit tests. The above example
+  is a minimal use of the tool.</p>
+
+<p>At the command line, with tests in the file {\tt
+  nosetest_convert2.py, you&rsquo;d type <code>nosetests
+  nosetest_convert2.py</code></p>
+
+<p>The <code>nose.tools</code> module contains a bunch of assertion
+  functions. Here, I&rsquo;m just using <code>assert_equal</code>.
+}</p>
+
+<h2 id="unit-tests-unittest">Unit tests: <code>unittest</code></h2>
+
+<pre><code>#!/usr/bin/env python
+# Test one of the functions in convert2.py
+#
+# on the command line, type &quot;test_convert2.py&quot;
+
+import unittest
+from convert2 import *
+
+class check_parse_genotype(unittest.TestCase):
+  def test_parse_genotype(self):
+    self.assertEqual(parse_genotype(&quot;       &quot;),   &quot;0 0&quot;)
+    self.assertEqual(parse_genotype(&quot;100/98 &quot;),   &quot;100 98&quot;)
+    self.assertEqual(parse_genotype(&quot;90/96  &quot;),   &quot;90 96&quot;)
+    self.assertEqual(parse_genotype(&quot;90/ 96  &quot;),  &quot;90 96&quot;)
+    self.assertEqual(parse_genotype(&quot;  3 / 8  &quot;), &quot;3 8&quot;)
+
+if __name__ == '__main__':
+  unittest.main()
+</code></pre>
+
+<p>Python also has a built-in <code>unittest</code> module, but its use
+  requires a bit more gunk. I don&rsquo;t totally understand all of this.</p>
+
+<p>Like Nose, there are a variety of different assertion functions that
+  you can use.</p>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+<li>Learn a scripting language, like Python
+
+<ul>
+<li>Not just for manipulating data files, but worth the effort
+just for that.</li>
+<li>Force yourself to use it</li>
+</ul></li>
+</ul>
+
+<p>Applied statisticians need to be savvy with data file
+  manipulation.</p>
+
+<p>Don&rsquo;t let your scientific collaborators do any copy-paste to move
+  data around; any data file manipulation should be done with
+  a computer program.</p>
+
+<p>In the long run, knowing Python, you&rsquo;ll be more self-sufficient and
+  versatile.</p>
+
+<h2 id="lab">Lab</h2>
+
+<p>For a bit of in-class python coding, we&rsquo;ll fill out a Python script to
+read in a comma-delimited file, and calculate, for each column:</p>
+
+<ul>
+<li>Number of non-missing values</li>
+<li>Mean</li>
+<li>Median</li>
+<li>SD</li>
+</ul>
+
+<p>Here are the relevant files:</p>
+
+<ul>
+<li><a href="data.csv"><code>data.csv</code></a> &mdash; the data file to consider</li>
+<li><a href="stats.py"><code>stats.py</code></a> &mdash; the script to be filled in</li>
+<li><a href="stats2.py"><code>stats2.py</code></a> &mdash; partly-filled version: just
+fill in the functions to calculate the statistics</li>
+<li><a href="test_stats.py"><code>test_stats.py</code></a> &mdash; unit tests for functions in
+<a href="stats.py"><code>stats.py</code></a></li>
+</ul>
+
+<p>Also relevant:</p>
+
+<ul>
+<li><a href="create_example_data.py"><code>create_example_data.py</code></a> &mdash; the
+Python script I wrote to generate the <a href="data.csv"><code>data.csv</code></a> file.</li>
+<li><a href="solns_DONT_PEEK.py"><code>solns_DONT_PEEK.py</code></a> &mdash; my solutions
+(don&rsquo;t look at this until later)</li>
+</ul>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hbs-rcs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="https://hbs-rcs.github.io/reproducible-research/big-jobs/" title="Big Jobs"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="https://hbs-rcs.github.io/reproducible-research/licenses/" title="Licenses" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/clipboard.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/perfect-scrollbar.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/perfect-scrollbar.jquery.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/jquery.sticky.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/featherlight.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/html5shiv-printshiv.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/highlight.pack.js?1559063420"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/modernizr.custom-3.6.0.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/learn.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/hugo-learn.js?1559063420"></script>
+
+    <link href="https://hbs-rcs.github.io/reproducible-research/mermaid/mermaid.css?1559063420" type="text/css" rel="stylesheet" />
+    <script src="https://hbs-rcs.github.io/reproducible-research/mermaid/mermaid.js?1559063420"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="description" content="A material design theme for documentations.">
+
+
+    <link rel="icon" href="https://hbs-rcs.github.io/reproducible-research/images/favicon.png" type="image/png">
+
+    <title>Writing R packages :: Tools for Reproducible Research</title>
+
+    
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/nucleus.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/fontawesome-all.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/hybrid.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/featherlight.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/perfect-scrollbar.min.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/auto-complete.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/atom-one-dark-reasonable.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/theme.css?1559063420" rel="stylesheet">
+    <link href="https://hbs-rcs.github.io/reproducible-research/css/hugo-theme.css?1559063420" rel="stylesheet">
+    
+
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/jquery-3.3.1.min.js?1559063420"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/r-packages/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://hbs-rcs.github.io/reproducible-research/">
+  <svg id="grav-logo" style="width:100%; height:100%;" viewBox="0 0 504 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <path d="M235.832,71.564l-7.98,-0.001c-1.213,0.001 -2.197,0.987 -2.197,2.204l0,15.327l-0.158,0.132c-4.696,3.962 -10.634,6.14 -16.719,6.14c-14.356,0 -26.034,-11.68 -26.034,-26.037c0,-14.358 11.678,-26.035 26.034,-26.035c5.582,0 10.919,1.767 15.437,5.113c0.877,0.649 2.093,0.56 2.866,-0.211l5.69,-5.69c0.444,-0.442 0.675,-1.055 0.639,-1.681c-0.034,-0.627 -0.336,-1.206 -0.828,-1.597c-6.76,-5.363 -15.214,-8.314 -23.805,-8.314c-21.18,0 -38.414,17.233 -38.414,38.415c0,21.183 17.234,38.415 38.414,38.415c10.937,0 21.397,-4.705 28.698,-12.914c0.358,-0.403 0.556,-0.921 0.556,-1.46l0,-19.603c0,-1.217 -0.985,-2.203 -2.2,-2.203"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M502.794,34.445c-0.408,-0.616 -1.1,-0.989 -1.838,-0.989l-8.684,0c-0.879,0 -1.673,0.522 -2.022,1.329l-24.483,56.839l-24.92,-56.852c-0.352,-0.799 -1.142,-1.316 -2.012,-1.316l-8.713,0c-0.744,0 -1.44,0.373 -1.843,0.995c-0.408,0.623 -0.476,1.408 -0.174,2.09l30.186,68.858c0.352,0.799 1.143,1.317 2.017,1.317l10.992,0c0.879,0 1.673,-0.527 2.021,-1.329l29.655,-68.861c0.289,-0.68 0.222,-1.461 -0.182,-2.081"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M388.683,34.772c-0.353,-0.798 -1.142,-1.316 -2.017,-1.316l-10.988,0c-0.879,0 -1.673,0.522 -2.021,1.329l-29.655,68.861c-0.294,0.675 -0.226,1.46 0.182,2.077c0.407,0.619 1.096,0.993 1.838,0.993l8.684,0c0.879,0 1.673,-0.526 2.022,-1.329l24.478,-56.842l24.92,56.854c0.353,0.798 1.143,1.317 2.013,1.317l8.717,0c0.744,0 1.44,-0.374 1.843,-0.993c0.408,-0.624 0.471,-1.41 0.174,-2.094l-30.19,-68.857Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M309.196,81.525l0.476,-0.229c8.675,-4.191 14.279,-13.087 14.279,-22.667c0,-13.881 -11.295,-25.174 -25.176,-25.174l-31.863,0c-1.214,0 -2.199,0.988 -2.199,2.202l0,68.855c0,1.219 0.985,2.204 2.199,2.204l7.979,0c1.214,0 2.2,-0.985 2.2,-2.204l0,-58.679l21.684,0c7.059,0 12.799,5.739 12.799,12.796c0,5.885 -3.996,10.989 -9.728,12.408c-1.032,0.261 -2.064,0.393 -3.071,0.393l-7.977,0c-0.829,0 -1.585,0.467 -1.959,1.205c-0.378,0.74 -0.305,1.625 0.187,2.296l22.62,30.884c0.412,0.566 1.07,0.901 1.771,0.901l9.915,0c0.827,0 1.587,-0.467 1.96,-1.207c0.378,-0.742 0.302,-1.629 -0.186,-2.296l-15.91,-21.688Z"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M107.191,80.969c-7.255,-4.794 -11.4,-8.845 -15.011,-16.109c-2.47,4.977 -8.236,12.376 -17.962,18.198c-4.856,15.106 -27.954,44.015 -35.43,39.916c-2.213,-1.212 -2.633,-2.808 -2.133,-4.456c0.536,-4.129 9.078,-13.62 9.078,-13.62c0,0 0.18,1.992 2.913,6.187c-3.609,-11.205 5.965,-25.031 8.5,-29.738c3.985,-1.269 4.274,-6.387 4.274,-6.387c0.255,-7.909 -3.278,-13.635 -6.701,-17.059c2.459,3.002 3.255,7.539 3.372,11.694l0,0.023c0.012,0.469 0.012,0.93 0.011,1.39c-0.117,3.439 -1.157,8.19 -3.383,8.19l0.006,0.03c-2.289,-0.098 -5.115,0.391 -7.639,1.18l-5.582,1.334c0,0 2.977,-0.136 4.584,1.252c-1.79,2.915 -5.769,6.533 -10.206,8.588c-6.457,2.995 -8.312,-2.964 -5.034,-6.838c0.805,-0.946 1.618,-1.745 2.387,-2.399c-0.495,-0.513 -0.807,-1.198 -0.889,-2.068c-0.001,-0.005 -0.004,-0.009 -0.005,-0.013c-0.45,-1.977 -0.202,-4.543 2.596,-8.623c0.551,-0.863 1.214,-1.748 2.007,-2.647c0.025,-0.031 0.046,-0.059 0.072,-0.089c0.034,-0.042 0.072,-0.08 0.108,-0.121c0.02,-0.023 0.039,-0.045 0.059,-0.068c0.2,-0.228 0.413,-0.45 0.639,-0.663c3.334,-3.414 8.599,-6.966 16.897,-10.152c9.675,-14.223 13.219,-16.89 13.219,-16.89c1.071,-1.096 2.943,-2.458 3.632,-2.805c-5.053,-8.781 -6.074,-21.158 -4.75,-24.493c-0.107,0.18 -0.206,0.365 -0.287,0.556c0.49,-1.143 0.819,-1.509 1.328,-2.111c1.381,-1.632 6.058,-2.488 7.737,0.971c0.895,1.844 1.063,4.232 1.034,6.023c-3.704,-0.193 -7.063,4.036 -7.063,4.036c0,0 3.067,-1.448 6.879,-1.473c0,0 1.015,0.883 2.283,2.542c-1.712,3.213 -4.524,10.021 -2.488,17.168c0.338,1.408 0.849,2.619 1.483,3.648c0.024,0.045 0.044,0.089 0.069,0.135c0.051,0.066 0.096,0.122 0.144,0.183c3.368,5.072 9.542,5.665 9.542,5.665c-2.906,-1.45 -5.274,-3.76 -6.816,-6.56c-0.8,-1.498 -1.291,-2.762 -1.592,-3.761c-1.636,-6.313 0.771,-9.999 2.149,-12.471c3.17,-4.917 8.944,-7.893 15.151,-7.185c8.712,0.995 14.968,8.862 13.973,17.571c-0.608,5.321 -3.781,9.723 -8.142,12.117c1.049,2.839 -0.073,6.28 -0.073,6.28c2.642,3.323 2.758,5.238 2.667,7.017c-3.357,-0.565 -6.618,1.701 -6.618,1.701c0,0 6.476,-1.546 10.238,1.81c2.446,2.631 4.078,5.009 5.051,6.766c1.393,2.505 7.859,2.683 7.123,7.188c-0.737,4.499 -5.669,4.542 -13.401,-0.56M69.571,0c-38.424,0 -69.571,31.148 -69.571,69.567c0,38.422 31.147,69.573 69.571,69.573c38.42,0 69.568,-31.151 69.568,-69.573c0,-38.42 -31.148,-69.567 -69.568,-69.567"
+      style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M73.796,51.693c0.813,-0.814 0.813,-2.134 0,-2.947c-0.815,-0.814 -2.133,-0.814 -2.947,0c-0.815,0.813 -0.815,2.133 0,2.947c0.814,0.813 2.132,0.813 2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M66.445,53.149c-0.814,0.813 -0.814,2.133 0,2.947c0.813,0.814 2.133,0.814 2.947,0c0.813,-0.814 0.813,-2.134 0,-2.947c-0.814,-0.813 -2.134,-0.813 -2.947,0" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M79.231,54.233c-1.274,-1.274 -3.339,-1.272 -4.611,0l-2.713,2.712c-1.274,1.275 -1.274,3.339 0,4.612l2.978,2.978c1.274,1.275 3.338,1.274 4.611,0l2.712,-2.712c1.274,-1.274 1.274,-3.339 0,-4.612l-2.977,-2.978Z" style="fill:#000;fill-rule:nonzero;"></path>
+    <path d="M95.759,41.445c-2.151,-2.578 1.869,-7.257 4.391,-4.463c4.645,5.148 -2.237,7.041 -4.391,4.463M105.004,44.132c3.442,-6.553 -1.427,-10.381 -4.773,-13.523c-5.36,-5.039 -10.706,-7.217 -16.811,-0.241c-6.102,6.977 -2.226,15.068 3.356,19.061c5.584,3.994 14.782,1.255 18.228,-5.297"
+      style="fill:#000;fill-rule:nonzero;"></path>
+  </svg>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/lunr.min.js?1559063420"></script>
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/auto-complete.js?1559063420"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/hbs-rcs.github.io\/reproducible-research\/";
+    
+</script>
+<script type="text/javascript" src="https://hbs-rcs.github.io/reproducible-research/js/search.js?1559063420"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/unix/" title="Unix" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/unix/">
+          Unix
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/make/" title="Make" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/make/">
+          Make
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/rmarkdown/" title="R Markdown" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/rmarkdown/">
+          R Markdown
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/git/" title="Git and GitHub" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/git/">
+          Git and GitHub
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/organization/" title="Organizing Projects" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/organization/">
+          Organizing Projects
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/clear-code/" title="Writing Clear Code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/clear-code/">
+          Writing Clear Code
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/r-packages/" title="Writing R packages" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/r-packages/">
+          Writing R packages
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/test-debug/" title="Software Testing and Debugging" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/test-debug/">
+          Software Testing and Debugging
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/big-jobs/" title="Big Jobs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/big-jobs/">
+          Big Jobs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/python/" title="Python" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/python/">
+          Python
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/licenses/" title="Licenses" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://hbs-rcs.github.io/reproducible-research/licenses/">
+          Licenses
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='https://hbs-rcs.github.io/reproducible-research/'>Tools for Reproducible Research</a> > Writing R packages
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#why-write-an-r-package">Why write an R package?</a></li>
+<li><a href="#a-simple-example-rskittlebrewer">A simple example: RSkittleBrewer</a></li>
+<li><a href="#r-package-contents">R package contents</a></li>
+<li><a href="#description-file"><code>DESCRIPTION</code> file</a></li>
+<li><a href="#namespace-file"><code>NAMESPACE</code> file</a></li>
+<li><a href="#an-rd-file">An <code>.Rd</code> file</a></li>
+<li><a href="#building-installing-and-checking">Building, installing, and checking</a></li>
+</ul></li>
+<li><a href="#renviron-file-contains-r-libs-rlibs">(~/.Renviron file contains R_LIBS=~/Rlibs)</a></li>
+<li><a href="#on-windows">On windows:</a></li>
+<li><a href="#also-consider-within-r">also consider (within R):</a>
+<ul>
+<li><a href="#roxygen2-comments">Roxygen2 comments</a></li>
+</ul></li>
+<li><a href="#rskittlebrewer">RSkittleBrewer</a>
+<ul>
+<li><a href="#makefile">Makefile</a></li>
+</ul></li>
+<li><a href="#build-package-documentation">build package documentation</a>
+<ul>
+<li><a href="#lstlisting">lstlisting</a></li>
+<li><a href="#include-a-readme-or-readme-md-file">Include a <code>README</code> or <code>README.md</code> file</a></li>
+</ul></li>
+<li><a href="#fun-with-r-colors">fun with R Colors</a>
+<ul>
+<li>
+<ul>
+<li><a href="#install">install</a></li>
+<li><a href="#use">use</a></li>
+</ul></li>
+<li><a href="#package-vignettes">Package vignettes</a></li>
+<li><a href="#package-vignettes-1">Package vignettes</a></li>
+<li><a href="#optional-stuff">Optional stuff</a></li>
+<li><a href="#devtools">devtools</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Writing R packages
+            </h1>
+          
+
+        
+
+
+
+
+	
+
+<p>R packages and the Comprehensive R Archive Network (CRAN) are
+  important features of R. R packages provide a simple way to distribute R
+  code and documentation. And they really are rather simple to create.</p>
+
+<p>Write an R package to keep track of the misc.\ R functions
+  that you write and reuse. Write an R package to distribute the data
+  and software that accompany a paper.</p>
+
+<p>The most painful part of writing an R package is the construction of
+  the documentation files, which are in a special <code>.Rd</code>
+  format. But the Roxygen2 tool makes this rather easy: you write
+  comments preceding each R function, in a specially structured way,
+  and then use the Roxygen2 tool to create the <code>.Rd</code> files for you.</p>
+
+<h2 id="why-write-an-r-package">Why write an R package?</h2>
+
+<ul>
+<li>To distribute R code and documentation</li>
+<li>To keep track of the misc.\ R functions you write
+{\only<2|handout>{}and reuse}</li>
+
+<li><p>To distribute data and software accompanying a paper.
+R packages can be big and important.</p>
+
+<p>But that shouldn&rsquo;t scare you off. Assembling a few R functions
+ within a package will make it vastly easier for {\nhilit you to
+ use them regularly. You don&rsquo;t even need to distribute the package.</p>
+
+<p>And really, the R package system is an incredibly important
+ feature of R. Packages on CRAN are basically guaranteed to be
+ installable, as they are regularly built, installed, and tested
+ on multiple systems.
+}</p></li>
+</ul>
+
+<p>\begin{frame}[c]{}</p>
+
+<p>\figh{Figs/R-exts.png}{0.9}</p>
+
+<p>The Writing R Extensions manual is the key source for the
+  specifications of R packages. It&rsquo;s rough going in parts, but if you want to
+  get a package on CRAN, you should read it.</p>
+
+<h2 id="a-simple-example-rskittlebrewer">A simple example: RSkittleBrewer</h2>
+
+<p>\figh{Figs/RSkittleBrewer.png}{0.8}</p>
+
+<p><code>\footnotesize \lolit [alyssafrazee.com/RSkittleBrewer.html](http://alyssafrazee.com/RSkittleBrewer.html)</code></p>
+
+<p>I was going to write a short example R package, but Alyssa
+  Frazee saved me the effort. Her package is a perfect little example
+  to illustrate how to write a package.</p>
+
+<p>It&rsquo;s also a great example of a small but really useful package.
+  One small function could be widely useful; you just need to package
+  it and tell people about it.</p>
+
+<h2 id="r-package-contents">R package contents</h2>
+
+<p>&ldquo;`
+RSkittleBrewer/</p>
+
+<pre><code>DESCRIPTION
+NAMESPACE
+
+R/RSkittleBrewer.R
+R/plotSkittles.R
+R/plotSmarties.R
+
+man/RSkittleBrewer.Rd
+man/plotSkittles.Rd
+man/plotSmarties.Rd
+</code></pre>
+
+<p>&ldquo;`</p>
+
+<p>In the simplest form, an R package is a directory containing: a <code>DESCRIPTION</code>
+  file (describing the package), a <code>NAMESPACE</code> file (indicating
+  which functions are available to users), an <code>R/</code> directory
+  containing R code in <code>.R</code> files, and a <code>man/</code> directory
+  containing documentation in <code>.Rd</code> files.</p>
+
+<h2 id="description-file"><code>DESCRIPTION</code> file</h2>
+
+<p>&ldquo;<code>
+Package: RSkittleBrewer
+Version: 1.1
+Author: Alyssa Frazee
+Maintainer: Alyssa Frazee &lt;afrazee@jhsph.edu&gt;
+License: MIT + file LICENSE
+Title: fun with R colors
+Description: for those times you want to make plots with...
+URL: https://github.com/alyssafrazee/RSkittleBrewer
+&quot;</code></p>
+
+<p>The <code>DESCRIPTION</code> file is pretty self-explanatory. It just
+  contains basic information about the package and its author.</p>
+
+<p>The simplest way to create this sort of file is to copy and edit one
+  from some other package.</p>
+
+<p>The only part that might be unclear is the <code>License</code> field. You
+  need to choose a license. We&rsquo;ll talk about this on the very last day
+  of the course.</p>
+
+<p>For now, I&rsquo;d suggest choosing between the GPL-3
+  (the GNU Public License v3) and MIT licenses. GPL-3 has a
+  &ldquo;pass-through&rdquo; provision: software that incorporates GPL-3 code
+  must also be licensed as GPL-3. This is a good but restrictive
+  thing. The MIT license is the most bare-bones license possible: it
+  basically just says &ldquo;Do what you want, but don&rsquo;t blame me.&rdquo;</p>
+
+<p>An R package with the MIT license needs to also include a {\tt
+  LICENSE file or R will complain; copy and edit the one from the
+  RSkittleBrewer package.
+}</p>
+
+<h2 id="namespace-file"><code>NAMESPACE</code> file</h2>
+
+<p>&ldquo;<code>
+export(RSkittleBrewer)
+export(plotSkittles)
+export(plotSmarties)
+&quot;</code></p>
+
+<p>The <code>NAMESPACE</code> file is a bit technical: it tells R what
+  functions that will be accessible to users.</p>
+
+<p>The point of this is to keep different packages from stepping on
+  each others&rsquo; toes.</p>
+
+<h2 id="an-rd-file">An <code>.Rd</code> file</h2>
+
+<p>&ldquo;<code>
+\name{RSkittleBrewer}
+\alias{RSkittleBrewer}
+\title{Candy-based color palettes}
+\description{Vectors of colors corresponding to different
+             candies.}
+\usage{RSkittleBrewer(flavor = c(&quot;original&quot;, &quot;tropical&quot;,
+                      &quot;wildberry&quot;, &quot;M&amp;M&quot;, &quot;smarties&quot;))
+}
+\arguments{
+  * {flavor}{Character string for candy-based color
+  palette.}
+}
+\value{Vector of character strings representing the chosen
+       set of colors.}
+\examples{
+plotSkittles()
+plotSmarties()
+}
+\keyword{hplot}
+\seealso{ \code{\link{plotSkittles}},
+          \code{\link{plotSmarties}} }
+&quot;</code></p>
+
+<p>The R documentation format is very LaTeX-like.</p>
+
+<p>It describes what the function does, what its
+  arguments are, and what output it produces.</p>
+
+<p>You can further provide examples (which can also serve as tests) and
+  links to related functions. The examples need to be {\nhilit fast
+  ($\ll$ 5 sec), because they&rsquo;re run frequently. (CRAN checks every
+  package every day on multiple systems.)</p>
+
+<p>Writing these help files is tedious! That&rsquo;s where Roxygen2 comes in.
+}</p>
+
+<h2 id="building-installing-and-checking">Building, installing, and checking</h2>
+
+<p>&ldquo;`
+R CMD build RSkittleBrewer
+R CMD INSTALL RSkittleBrewer_1.1.tar.gz
+R CMD check RSkittleBrewer_1.1.tar.gz</p>
+
+<p>R CMD check &ndash;as-cran RSkittleBrewer_1.1.tar.gz</p>
+
+<p>R CMD INSTALL &ndash;library=~/Rlibs RSkittleBrewer_1.1.tar.gz</p>
+
+<h1 id="renviron-file-contains-r-libs-rlibs">(~/.Renviron file contains R_LIBS=~/Rlibs)</h1>
+
+<h1 id="on-windows">On windows:</h1>
+
+<p>R CMD INSTALL &ndash;build RSkittleBrewer_1.1.tar.gz
+&ldquo;`</p>
+
+<p>&ldquo;`</p>
+
+<h1 id="also-consider-within-r">also consider (within R):</h1>
+
+<p>library(devtools)
+build(&ldquo;/path/to/RSkittleBrewer&rdquo;)
+build(&ldquo;/path/to/RSkittleBrewer&rdquo;, binary=TRUE)
+&ldquo;`</p>
+
+<p>To install your package, you first need to {\nhilit build it. {\tt
+    R CMD build} creates the <code>.tar.gz</code> source file that you&rsquo;d
+  distribute.</p>
+
+<p>You then use <code>R CMD INSTALL</code> to install the package. You may
+  want to use <code>--library=/some/dir</code> to install to a different
+  directory, in which case you need to set <code>R_LIBS</code> in your {\tt
+    {~}/.Renviron} file.</p>
+
+<p><code>R CMD check</code> runs extensive checks of the package, including
+  running all of the examples in the help files.
+  Pay attention to any errors, warnings, or notes, and revise the
+  package to avoid them. This is particularly true if you want to
+  submit the package to CRAN.</p>
+
+<p>Before submitting to CRAN, be sure to run <code>R CMD check</code> with the
+  lesser-known <code>--as-cran</code> flag, which checks further things.</p>
+
+<p>On Windows, use <code>R CMD INSTALL --build</code> to create a <code>.zip</code>
+  file of the &ldquo;compiled&rdquo; package. You can also use the <code>build()</code>
+  function from the devtools package.
+}</p>
+
+<h2 id="roxygen2-comments">Roxygen2 comments</h2>
+
+<p>&ldquo;`</p>
+
+<h1 id="rskittlebrewer">RSkittleBrewer</h1>
+
+<p>#&rsquo; Candy-based color palettes
+#&rsquo;
+#&rsquo; Vectors of colors corresponding to different candies.
+#&rsquo;
+#&rsquo; @param flavor Character string for candy-based color palette.
+#&rsquo;
+#&rsquo; @export
+#&rsquo; @return Vector of character strings representing the chosen&hellip;
+#&rsquo;
+#&rsquo; @examples
+#&rsquo; plotSkittles()
+#&rsquo; plotSmarties()
+#&rsquo;
+#&rsquo; @seealso \code{\link{plotSkittles}},
+#&rsquo;   \code{\link{plotSmarties}}
+#&rsquo; @keywords hplot
+RSkittleBrewer &lt;-
+&hellip;
+&ldquo;`</p>
+
+<p>The <code>.Rd</code> files are a pain to create and maintain. Plus, you&rsquo;ll
+  end up writing documentation in two places: in the R code, and then
+  in the separate <code>.Rd</code> files.</p>
+
+<p>Roxygen2 is a system for writing structured comments in the R code
+  that get converted to <code>.Rd</code> files. You just maintain the
+  documentation in one place: in the R code.
+  The Roxygen comments start with <code>\#'</code>. The first line is the
+  title; the second is the description.</p>
+
+<p>The individual <code>{/</code>item&rsquo;s within <code>arguments</code> become {\tt
+    @param}. The <code>{/</code>value} field becomes <code>@return</code>.</p>
+
+<p>You still need to know a bit about the <code>.Rd</code> format; for
+  example, the <code>{/</code>code{{/}link{blah}}}.</p>
+
+<p>Roxygen2 will across create the <code>NAMESPACE</code> file. That&rsquo;s what
+  <code>@export</code> is for.</p>
+
+<p>You may also be interested in the Rd2roxygen package, for converting
+  a package with hand-written <code>.Rd</code> files to the Roxygen2 system.
+}</p>
+
+<h2 id="makefile">Makefile</h2>
+
+<p>&ldquo;`</p>
+
+<h1 id="build-package-documentation">build package documentation</h1>
+
+<p>doc:
+  R -e &ldquo;devtools::document()&rdquo;
+&ldquo;`</p>
+
+<p>Here&rsquo;s the <code>Makefile</code> I use to build the <code>.Rd</code> files: I use
+  the <code>document()</code> function within the <code>devtools</code> package.</p>
+
+<h2 id="lstlisting">lstlisting</h2>
+
+<p>Makefile
+&ldquo;`</p>
+
+<p>You&rsquo;ll want to include a <code>.Rbuildignore</code> file in your
+  package directory, containing the single line &ldquo;{\tt
+    Makefile&rdquo;. This tells R about files to {\nhilit not} include
+ in the <code>.tar.gz</code> file it builds. You&rsquo;d get complaints from <code>R
+   CMD check</code> otherwise.
+}</p>
+
+<h2 id="include-a-readme-or-readme-md-file">Include a <code>README</code> or <code>README.md</code> file</h2>
+
+<p>&ldquo;`</p>
+
+<h1 id="fun-with-r-colors">fun with R Colors</h1>
+
+<p>If you want high-quality, scientifically-researched color
+schemes for your R plots, check out
+<a href="http://cran.r-project.org/web/packages/RColorBrewer">RColorBrewer</a>.
+If you want your plots to be colored the same way as packs of
+Skittles (or M&amp;Ms), then this package (RSkittleBrewer) is the
+way to go.</p>
+
+<h3 id="install">install</h3>
+
+<p>with <code>devtools</code>:</p>
+
+<p>&ldquo;<code>S
+devtools::install_github('RSkittleBrewer', 'alyssafrazee')
+&quot;</code></p>
+
+<h3 id="use">use</h3>
+
+<p>There are only three functions in this package.</p>
+
+<p>Call <code>RSkittleBrewer</code> on a flavor to get a vector of R color
+names that correspond to that Skittle flavor.
+&hellip;
+&ldquo;`</p>
+
+<p>Include a <code>README</code> or <code>README.md</code> file; R will ignore
+  it, but it will show up on GitHub.</p>
+
+<p>You can use <code>ReadMe</code> or <code>ReadMe.md</code>, but then you need to
+  include it in the <code>.Rbuildignore</code> file or R will complain.</p>
+
+<p>\begin{frame}[c]{}</p>
+
+<p>\centerline{That&rsquo;s it!}</p>
+
+<p>That&rsquo;s all you need to make a package.</p>
+
+<p>There&rsquo;s more, but you should start with just that stuff.</p>
+
+<h2 id="package-vignettes">Package vignettes</h2>
+
+<ul>
+<li>Include <strong>vignettes/</strong> to show how to use your package.</li>
+
+<li><p>It&rsquo;s simplest to use R Markdown.</p>
+
+<ul>
+<li>Create a <code>vignettes/</code> subdirectory.</li>
+<li>Place a <code>.Rmd</code> file there.</li>
+<li>The name of the file becomes the name of the vignette.</li>
+<li>Include the following in the <code>.Rmd</code> file&rsquo;s YAML header:</li>
+<li>[] \ttfn output: rmarkdown::html_vignette</li>
+<li>[] \ttfn vignette: &gt;</li>
+<li>[] \ttfn  \%{/VignetteIndexEntry{Intro to RSkittleBrewer}}</li>
+<li>[] \ttfn  \%{/VignetteEngine{knitr::rmarkdown}}</li>
+<li>[] \ttfn  {/usepackage<a href="inputenc">utf8</a>}</li>
+
+<li><p>Load the package in an initial chunk</p></li>
+
+<li><p>[] \ttfn library(RSkittleBrewer)
+In my experience, people tend not to read detailed
+documentation, but they like tutorials. This is what **vignettes/
+are for.</p></li>
+</ul></li>
+</ul>
+
+<p>It&rsquo;s easiest to write vignettes in R Markdown (allowed in R 3.0
+  onwards). You create a subdirectory <code>vignettes/</code> and put the
+  usual sort of <code>.Rmd</code> files there. You just need to add a few
+  special lines in the YAML header for the file.</p>
+
+<p>Also, in your <code>.Rmd</code> file, you&rsquo;ll need to load the package
+  before you start using it.
+**</p>
+
+<h2 id="package-vignettes-1">Package vignettes</h2>
+
+<ul>
+<li><p>In the <code>DESCRIPTION</code> file, include:</p>
+
+<ul>
+<li>[] \ttfn Suggests: knitr, rmarkdown</li>
+<li>[] \ttfn VignetteBuilder: knitr</li>
+
+<li><p>The following lists the vignettes for a package and then opens
+a selected vignette.</p></li>
+
+<li><p>[] \ttfn library(RSkittleBrewer)</p></li>
+
+<li><p>[] \ttfn vignette(package=&ldquo;RSkittleBrewer&rdquo;)</p></li>
+
+<li><p>[] \ttfn vignette(&ldquo;RSkittleBrewer&rdquo;, &ldquo;RSkittleBrewer&rdquo;)
+There&rsquo;s one other little detail: you need to mention knitr as
+the vignette builder in your <code>DESCRIPTION</code> file. You also need
+to include knitr and rmarkdown in <code>Suggests:</code>.</p></li>
+</ul></li>
+</ul>
+
+<p>If you submit the package to CRAN, links to the vignettes will be listed on
+  web page for the package. You might also refer to them in your {\tt
+  README file.</p>
+
+<p>Within R, you can use the <code>vignette</code> function to view the
+  available vignettes for a package and to open a particular
+  vignette. (With R Markdown vignettes, the compiled html file
+  will be opened in your web browser.)
+}</p>
+
+<h2 id="optional-stuff">Optional stuff</h2>
+
+<ul>
+<li><code>NEWS</code> file describing changes in each version of the
+package.</li>
+<li><code>inst/CITATION</code> file describing how to cite your package.</li>
+<li><code>inst/doc/</code> directory any sort of misc.\ documentation
+(e.g., pre-compiled computationally heavy vignettes)</li>
+<li><code>data/</code> directory containing data</li>
+<li><code>src/</code> directory containing C/C++/Fortran code</li>
+<li><code>demo/</code> directory with demonstrations (like vignettes, but
+to be executed in real-time).</li>
+<li><code>tests/</code> and/or <code>inst/tests/</code> containing tests.
+We could go on and on about packages. Here are some of the key
+additional things to consider adding to your package.</li>
+</ul>
+
+<p>The <code>inst/</code> subdirectory is ignored by R but its contents get
+  moved back to the root directory for the package when installed. If
+  you want your <code>README</code> file to be named <code>ReadMe</code>, you&rsquo;d put
+  it here.</p>
+
+<p>It&rsquo;s useful to include example data sets. Your package could contain
+  {\nhilit only data! You should document them. See
+  <code>http://stackoverflow.com/questions/2310409</code></p>
+
+<p>}</p>
+
+<h2 id="devtools">devtools</h2>
+
+<p>Get to know the <a href="http://github.com/hadley/devtools">devtools</a> package.</p>
+
+<ul>
+<li><code>dev_mode()</code></li>
+<li><code>load_all()</code></li>
+<li><code>install_github()</code>, <code>install_bitbucket</code>, \dots</li>
+<li><code>document()</code></li>
+<li><code>build()</code></li>
+<li><code>check()</code></li>
+<li><code>check_doc()</code></li>
+<li><code>run_examples()</code></li>
+<li><code>test()</code> \, (next time)
+I&rsquo;ve tried to characterize package development as super simple,
+but all coding involves considerable testing, debugging, and
+exploration, and re-building and re-installing R packages can be
+tedious.</li>
+</ul>
+
+<p>The devtools package reduces a lot of the hassle. Try it out!</p>
+
+<p><code>dev_mode()</code> puts you in &ldquo;development mode&rdquo; so that package
+  installs won&rsquo;t affect your regular R package directory. <code>load_all()</code> does
+  the equivalent of installing and reloading a package. (Otherwise,
+  you might exit R, re-build the package, re-install, invoke R, and
+  re-load the package.)</p>
+
+<p>You can use <code>install_github()</code> to install a package directly from
+  GitHub.</p>
+
+<p>On Mac OSX Mavericks (10.9), gnutar is gone, and devtools gives an
+  error. The simplest solution is to make a symbolic link from tar to
+  gnutar:</p>
+
+<p>\qquad  <code>sudo ln -s /usr/bin/tar /usr/bin/gnutar</code></p>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+<li>R packages really aren&rsquo;t that hard.</li>
+<li>R packages are really useful.
+
+<ul>
+<li>Distributing software and data</li>
+<li>Organizing code for a paper</li>
+<li>Organizing your misc.\ R functions</li>
+<li>Look at others&rsquo; packages, and learn from them.</li>
+</ul></li>
+<li>Adopt the tools in the
+<a href="http://github.com/hadley/devtools">devtools</a> package.
+It&rsquo;s surprising to me just how many plain R scripts are sitting
+on people&rsquo;s web pages. Getting them into a package is really not
+that hard and would make the material {\nhilit much more useful.
+}</li>
+</ul>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hbs-rcs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="https://hbs-rcs.github.io/reproducible-research/clear-code/" title="Writing Clear Code"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="https://hbs-rcs.github.io/reproducible-research/test-debug/" title="Software Testing and Debugging" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/clipboard.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/perfect-scrollbar.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/perfect-scrollbar.jquery.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/jquery.sticky.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/featherlight.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/html5shiv-printshiv.min.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/highlight.pack.js?1559063420"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/modernizr.custom-3.6.0.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/learn.js?1559063420"></script>
+    <script src="https://hbs-rcs.github.io/reproducible-research/js/hugo-learn.js?1559063420"></script>
+
+    <link href="https://hbs-rcs.github.io/reproducible-research/mermaid/mermaid.css?1559063420" type="text/css" rel="stylesheet" />
+    <script src="https://hbs-rcs.github.io/reproducible-research/mermaid/mermaid.js?1559063420"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
