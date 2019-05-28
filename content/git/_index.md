@@ -284,7 +284,7 @@ lines, but make 1st line like the subject of an email.[^add-commit]
 
 ### Take any snapshot
 
-Let's create a Bash script to list all the files your `.git/`
+Let's create a Bash script to list all the files in your `.git/`
 subdirectory, call it `git_list.sh`:
 
 ```bash
